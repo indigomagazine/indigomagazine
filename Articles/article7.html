@@ -1,0 +1,196 @@
+<!-- parasite -->
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+/*     margin: 7% auto 7% auto; */
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  section {
+    margin: auto;
+    width: 80%;
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: dense;
+  }
+
+  section.heading h1 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section.heading h2 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: lowercase;
+    grid-column: 1/span 12;
+  }
+
+  section p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    text-indent: 60px;
+  }
+
+  section.para p {
+    grid-column: 1/span 6;
+  }
+
+  section.para2 p {
+    grid-column: 7/span 6;
+  }
+
+  section.full-para p{
+    grid-column: 1/span 12;
+    
+  }
+  
+  section img {
+    margin: 20px 0 20px 0;
+    /*max-height: 50vmax;*/
+    max-width: 100%;
+    height: auto;
+  }
+
+  div.img {
+    grid-column: 7/span 6;
+
+  }
+
+  div.img2 {
+    grid-column: 1/span 6;
+
+  }
+  hr.author-line{
+    border: 0.02vmax solid black;
+  }
+  .emphasized { font-style: italic; }
+
+    @media (max-width: 1248px) {
+  section p  
+   {
+    font-size: 0.99em;
+  }
+}
+
+  @media(max-width: 800px) {
+  body {
+    width: 100%;
+  }
+    section p{
+      text-indent: 0;
+      line-height: 14px;
+      font-size: 0.6em;
+    }
+    section.heading h1, section.heading h2{
+      
+    }
+}
+
+    @media(max-width: 600px) {
+      
+      
+  section.heading h1, section.heading h2, section.para p, div.img, div.img2, section.para2 p, section.paragraph p, section p{
+    grid-column: 1/span 12;
+  } 
+  section p  
+   {
+    font-size: 0.3em;
+  }
+    section.heading h1, section.heading h2{
+    }
+}
+
+  @media (max-width: 500px){
+    
+
+
+  section.heading h1{
+    line-height: 40px;
+    font-size: 40px;
+  }
+    section img{
+      width: 100%;
+      max-height: none;
+    }
+}
+  
+
+  
+</style>
+
+
+</html>
+
+
+<body>
+
+  <section class="heading">
+    <h1>Parasite</h1>
+  </section>
+  
+  <hr class="author-line">
+  <section class="heading">
+    <h2> STORY by minuki medis</h2>
+  </section>
+
+  <section class="para">
+      <p>
+         par·a·site /ˈperəˌsīt/
+
+1. noun an organism that lives in or on an organism of another species (its host) and benefits by deriving nutrients at the other's expense; crawling into every crevice, cranny, nook, every chance to open, breathe, relax, and inhabiting it with a vile, torturous essence. Destroying a mind from the inside out, destroying the body from its core; it has tendrils of tremors and teeth of terror. It makes you question every decision, makes you re-ponder every thought and makes your body a responder to those you don’t want. So you shake and you try to shake it loose but it latches onto your brain’s gyri like a leech, a burr on a boot, a splinter in a finger; it makes a home in you that you don’t want it to have and it goes deep till you question where it ends and you begin- 
+2. DEROGATORY a person who habitually relies on or exploits others and gives nothing in return; but can’t be removed, can’t be evicted -take medications they’re only surface level bitter- but fruitless not just in taste but effect, and the only thing you’re left with is feeling like you are the defect, but you’ve got no one to turn to, no way to voice these concerns because it still lounges so deep in your thoughts till you isolate into your lonesome-
+
+
+      </p>
+
+    <div class="img">
+      <img src="article photos/article7/FEARRRRR.png">
+    </div>
+
+  </section>
+
+    <section class="full-para">
+      <p>
+        And you’re left wondering, if anyone else is infected to, with this, by this, thing that doesn’t move
+And you’re left wondering, is it just you? 
+You can’t trust. 
+You don’t know.
+And you’re left wondering, are you toxic 
+and part of this too? 
+<p class= "emphasized">
+End of definition.
+</p>
+      </p>
+
+  </section>
+
+
+
+  
+
+
+
+</body>

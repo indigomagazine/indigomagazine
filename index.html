@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  </link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </link>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="/script.js" defer></script>
+  <title>Indigo Magazine</title>
+  <link rel="icon" type="image/x-icon" href="assets/altlogo.jpg">
+
+  <!--   inter font for home page -->
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <!--   prata font for home page-->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Prata" />
+
+  </link>
+
+  <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-image: url("assets/fearbg.png");
+      background-color: #ffffff;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div>
+
+    <!-- the linkbar -->
+    <div class="link-bar-box">
+      <a class="LOGO"><img src="assets/INDIGO LOGO -FINAL.png" class="title" ></a>
+      <a class="link-bar hvr-fade ACTIVISM"><p class="tabfont">ACTIVISM</p></a>
+      <a class="link-bar hvr-fade CREATIVE"><p class="tabfont">CREATIVE</p></a>
+      <a class="link-bar hvr-fade VISUALARTS"><p class="tabfont">VISUAL ARTS</p></a>
+      <a class="link-bar hvr-fade THE CULTURE"><p class="tabfont">THE CULTURE</p></a>
+      <a class="link-bar hvr-fade PEOPLESPICK"><p class="tabfont">PEOPLE'S PICK</p></a>
+      <a class="link-bar hvr-fade ABOUT"><p class="tabfont">ABOUT</p></a>
+    </div>
+
+
+    <div class="content-box">
+
+      <!-- <hr class="new1"> -->
+
+      <!-- flipbook container -->
+      <div class="flipbook-container">
+        <!-- Previous Button -->
+        <button id="prev-btn">
+          <!--           <i class="fas fa-arrow-circle-left"></i> -->
+          <i class="arrow left"></i>
+        </button>
+
+        <!-- Book -->
+        <div id="book" class="book">
+          <!-- Paper 1 -->
+          <div id="p1" class="paper">
+            <div class="front">
+              <div id="f1" class="front-content">
+                <!--                         <h1>Comic</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/redscream.jpeg" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b1" class="back-content">
+                <!--                         <h1>Back 1</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/books.jpg" width="100%">
+              </div>
+            </div>
+          </div>
+          <!-- Paper 2 -->
+          <div id="p2" class="paper">
+            <div class="front">
+              <div id="f2" class="front-content">
+                <!--                         <h1>Front 2</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/lauren.png" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b2" class="back-content">
+                <!--                       <h1>Back 2</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/envy.jpg" width="100%">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Paper 3 -->
+          <div id="p3" class="paper">
+            <div class="front">
+              <div id="f3" class="front-content">
+                <!--                         <h1>Front 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/blur.JPG" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b3" class="back-content">
+                <!--                         <h1>Back 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/mask.PNG" width="100%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Paper 4 EDIT-->
+          <div id="p4" class="paper">
+            <div class="front">
+              <div id="f4" class="front-content">
+                <!--                         <h1>Front 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/sad1.PNG" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b4" class="back-content">
+                <!--                         <h1>Back 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/sad2.PNG" width="100%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Paper 5 EDIT -->
+          <div id="p5" class="paper">
+            <div class="front">
+              <div id="f5" class="front-content">
+                <!--                         <h1>Front 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/slay.jpeg" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b5" class="back-content">
+                <!--                         <h1>Back 3</h1> -->
+                <img class="fb-img" src="assets/fearflipbook/sloth.jpeg" width="100%">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Paper 6 EDIT LATER -->
+          <div id="p6" class="paper">
+            <div class="front">
+              <div id="f6" class="front-content">
+                <!--                         <h1>Front 3</h1> -->
+                <img class="fb-img" src="assets/flipbook/f1.png" width="100%">
+              </div>
+            </div>
+            <div class="back">
+              <div id="b6" class="back-content">
+                <!--                         <h1>Back 3</h1> -->
+                <img id="last" class="lastslide fb-img" src="assets/flipbook/f2.jpeg" width="100%">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Next Button -->
+        <button id="next-btn">
+          <!--           <i class="fas fa-arrow-circle-right"></i> -->
+          <i class="arrow right"></i>
+        </button>
+
+      </div>
+
+      <!-- <hr class="new2"> -->
+
+      <!--       text on home page -->
+      <p class="issue">INDIGO MAGAZINE IS FEELING....FEAR.</p>
+      <p class="issue2">Fear. It's one of the most human emotions to exist. We face it everyday. It's in the first day of school, your first date, your first driving lesson. It's in moving across the country from your family for your dream job. It's in the relationship you think is ending. It's in the devastating diagnosis you just received. Sometimes it lingers in your bones. Sometimes it whispers in your ear and sometimes, it sets your nerves on fire. <br><br> 
+Fear molds our actions more than we realize. Fight or flight. Stay or run. Freeze or react. For our latest issue, Indigo Magazine presents <b>Fear: An exploration of how one emotion can shape humanity</b>.
+      </p>
+
+      <!-- <hr class="new2"> -->
+
+      <!--       collage on home -->
+      <div class="row">
+        <div class="column">
+
+    <div class="container">
+      <div class="content">
+        <a class="veniVidi">
+          <div class="content-overlay"></div>
+          <div class= "collagePhoto">
+            <img class="collageImg" src="article photos/Veni, Vidi/photo1.jpg">
+           </div>
+          <div class="content-details fadeIn-bottom">
+            <h3 class="content-title">Veni, Vidi, Timui</h3>
+<!--             <p class="content-text">This is a short description</p> -->
+          </div>
+        </a>
+      </div>
+    </div>
+          
+          <div class="container">
+            <div class="content">
+              <a class="ghostOfMidterms">
+                <div class="content-overlay"></div>
+                <img src="article photos/GhostOfMidterms/ghost1.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">GHOST OF MIDTERMS</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- link to transness in horror article -->
+
+          <div class="container">
+            <div class="content">
+              <a class="transnessInHorror">
+                <div class="content-overlay"></div>
+                <img src="article photos/TransnessInHorror/quote 3.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">Transness in Horror</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="content">
+              <a class="ofCreaturesWhoWhisper">
+                <div class="content-overlay"></div>
+                <img src="article photos/OfCreaturesWhoWhisper/FEARpg1.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">OF CREATURES WHO WHISPER IN THE NIGHT</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="content">
+              <a class="medusa">
+                <div class="content-overlay"></div>
+                <img src="article photos/Medusa/photo1.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">MEDUSA</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+         <div class="container">
+            <div class="content">
+              <a class="article5">
+                <div class="content-overlay"></div>
+                <img src="assets/collagePhotos/d.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">THE SHACKLES OF CHOICE, THE BURDEN OF GUILT</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="column">
+
+          <div class="container">
+            <div class="content">
+              <a class="DoHumansLiveInFear">
+                <div class="content-overlay"></div>
+                <img src="article photos/DoHumansLiveInFear/fearRiccardo.PNG">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">DO HUMANS LIVE IN FEAR</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="container">
+            <div class="content">
+              <a class="lostMuseum">
+                <div class="content-overlay"></div>
+                <img src="article photos/IThinkILostTheMuseum/museum.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">I THINK I LOST THE MUSEUM</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          
+          <!-- link to the little dagger article -->
+          <div class="container">
+            <div class="content">
+              <a class="theLittleDagger">
+                <div class="content-overlay"></div>
+                <img src="article photos/TheLittleDagger/siren tarot-07.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">The Little Dagger</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+          
+           <div class="container">
+            <div class="content">
+              <a class="psych">
+                <div class="content-overlay"></div>
+                <img src="article photos/PsychOfFear/p1.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">The Psychology of Fear</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+        
+
+          <div class="container">
+            <div class="content">
+              <a class="article2">
+                <div class="content-overlay"></div>
+                <img src="assets/collagePhotos/e.PNG">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">THE SUN IS STILL, AND THE EARTH ROTATES</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+          <!-- link to chained we blossom article -->
+
+          <div class="container">
+            <div class="content">
+              <a class="article1">
+                <div class="content-overlay"></div>
+                <img src="assets/collagePhotos/b.jpeg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">CHAINED, WE STILL BLOSSOM</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <div class="column">
+
+          <div class="container">
+            <div class="content">
+              <a class="7deadlySins">
+                <div class="content-overlay"></div>
+                <img src="article photos/7deadlySins/lust.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">THE SEVEN</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+          
+<div class="container">
+      <div class="content">
+        <a class="article9">
+          <div class="content-overlay"></div>
+          <div class= "collagePhoto">
+            <img class="collageImg" src="article photos/article9/plinth 1.jpg">
+           </div>
+          <div class="content-details fadeIn-bottom">
+            <h3 class="content-title">UTD SUPERNATURAL</h3>
+<!--             <p class="content-text">This is a short description</p> -->
+          </div>
+        </a>
+      </div>
+    </div>
+          
+          <div class="container">
+            <div class="content">
+              <a class="fallacy">
+                <div class="content-overlay"></div>
+                <img src="article photos/Fallacy/fallacy.PNG">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">FALLACY</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+         <div class="container">
+            <div class="content">
+              <a class="haunted">
+                <div class="content-overlay"></div>
+                <img src="article photos/Haunted/lemonade 2.png">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">HAUNTED</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+           <!-- link to expression article -->
+
+          <div class="container">
+            <div class="content">
+              <a class="article6">
+                <div class="content-overlay"></div>
+                <img src="assets/collagePhotos/a.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">EXPRESSION</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="container">
+            <div class="content">
+              <a class="article3">
+                <div class="content-overlay"></div>
+                <img src="assets/collagePhotos/c.jpg">
+                <div class="content-details fadeIn-bottom">
+                  <h3 class="content-title">LIGHT GREEN LIPSTICK</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+
+
+      <br>
+      <!--     image and text side by side -->
+     <hr class="new2"> 
+      <div class="img-summary">
+        <div class="img-summary2 top-summ">
+          <div class="container">
+            <div class="content3">
+              <a class="article3">
+                <div class="content-overlay3"></div>
+                <img src="https://cdn.glitch.global/17f36c58-5e97-463e-8904-791d93dcfc36/person2.png?v=1659053994848"
+                  width="44%" height="auto" style="width: 20vmax;">
+                <div class="content-details3 fadeIn-bottom">
+                  <h3 class="content-title">LIGHT GREEN LIPSTICK</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="summ-text">
+            <p class="issue">Light Green Lipstick</p>
+            <p class="issue2">The color was exceptionally dawdy. The green, so light it could be yellow and maybe in
+              certain settings it is yellow--</p>
+          </div>
+        </div>
+        <br>
+        <div class="img-summary2 bottom-summ">
+          <div class="summ-text">
+            <p class="issue">Chained, We Still Blossom</p>
+            <p class="issue2">I see those spangled banners flapping in the breeze. My existence doesn’t fit between
+              those stars and lines. Our skin is demonized—we are called a disease. Having melanin is our only crime...
+            </p>
+          </div>
+          <div class="container">
+            <div class="content3">
+              <a class="article1">
+                <div class="content-overlay3"></div>
+                <img src="article photos/article1/chained1.jpeg" width="44%" height="auto" style="width: 20vmax;">
+                <div class="content-details3 fadeIn-bottom">
+                  <h3 class="content-title">CHAINED, WE STILL BLOSSOM</h3>
+                  <!--                   <p class="content-text">This is a short description</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!-- <h3> Insert social media, contact here?</h3> -->
+    <!--      contact us section -->
+
+    <!--     <hr class="new2"> -->
+
+    <div class="follow-div">
+      <!--       <h1 class="contact-us">CONTACT US</h1>
+      <div class="map-email">
+        <div class="contact-info">
+          <p class="utd-indigo">UTD INDIGO</p>
+          <p>800 Campbell Rd, Richardson TX 75080</p>
+          <a class="email" href="mailto: indigomagazineutd@gmail.com">
+            <p>indigomagazineutd@gmail.com</p>
+          </a>
+        </div>
+        <iframe class="map"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6693.417277555912!2d-96.74689!3d32.985088!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x76e52680557448e8!2sNaveen%20Jindal%20School%20of%20Management%20(JSOM)!5e0!3m2!1sen!2sus!4v1644467723062!5m2!1sen!2sus"
+          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        
+      </div> -->
+      <fieldset class="icons">
+        <legend>FOLLOW</legend>
+
+
+        <a class="icon-color"
+          href="https://www.pinterest.com/indigomagazineutd/?invite_code=59badfcb7861432385d00dd09d857b49&sender=1051238875428606472"
+          target="_blank"><img class="tiktok" src="assets/pint.jpg" width="10">
+        </a>
+
+        <a class="icon-color" href="https://www.instagram.com/utdindigo/" target="_blank"><img class="tiktok"
+            src="assets/inst.png" width="10">
+        </a>
+
+        <a class="icon-color" href="https://www.tiktok.com/@indigomagazine" target="_blank"><img class="tiktok"
+            src="assets/tik.jpg" width="10">
+        </a>
+
+        <a class="icon-color"
+          href="https://open.spotify.com/playlist/2ekVLpkobBHpLqN5losadm?si=yaKqYWljSnetFhqtNL33Lw&nd=1"
+          target="_blank"><img class="tiktok" src="assets/spot.png" width="10">
+        </a>
+
+        <a class="icon-color" href="https://twitter.com/utdindigo" target="_blank"><img class="tiktok"
+            src="assets/twit.png" width="10">
+        </a>
+
+        <a class="icon-color" href="mailto: indigomagazineutd@gmail.com" target="_blank"><img class="tiktok"
+            src="assets/gmail.webp" width="10">
+        </a>
+
+      </fieldset>
+    </div>
+
+  </div>
+
+
+
+  <!--
+This script places a badge on your repl's full-browser view back to your repl's cover page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green, teal, blue, blurple, magenta, pink!
+-->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>

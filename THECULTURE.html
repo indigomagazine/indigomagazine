@@ -1,0 +1,97 @@
+  <script src="/script.js" defer></script>
+
+<style> body {
+  background-image: url("assets/temp.png");
+  background-color: #ffffff;
+  background-size: cover;
+}
+  .parent{
+    margin: 5% 20%;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 20vmax);
+    grid-template-rows: repeat(3,20vmax);
+  }
+  .parent > div {
+    
+    place-items: center;
+  }
+  
+  .collagePhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .collagePhoto img {
+    flex-shrink: 1;
+    min-width: 20vmax;
+    min-height: 20vmax;
+    max-height: 20vmax;
+    max-width: 20vmax;
+    object-fit: cover;
+    
+}
+</style>
+
+<div class="banner">
+<img src = "assets/banners/culturebanner.png" alt="the culture banner" class="center">
+</div>
+
+<body>
+  <div class="parent">
+
+    <div class="container">
+      <div class="content2">
+        <a class="article9">
+          <div class="content-overlay2"></div>
+          <div class= "collagePhoto">
+            <img class="collageImg" src="article photos/article9/plinth 1.jpg">
+           </div>
+          <div class="content-details2 fadeIn-bottom">
+            <h3 class="content-title">UTD SUPERNATURAL</h3>
+<!--             <p class="content-text">This is a short description</p> -->
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content2">
+        <a class="DoHumansLiveInFear">
+          <div class="content-overlay2"></div>
+          <div class= "collagePhoto">
+            <img class="collageImg" src="article photos/DoHumansLiveInFear/fearRiccardo.PNG">
+           </div>
+          <div class="content-details2 fadeIn-bottom">
+            <h3 class="content-title">DO HUMANS LIVE IN FEAR</h3>
+<!--             <p class="content-text">This is a short description</p> -->
+          </div>
+        </a>
+      </div>
+    </div>
+
+    
+    <a class="empty">
+      <div class= "collagePhoto">
+      </div>
+    </a>
+    
+    
+
+
+    
+
+
+    
+   <a class="empty">
+      <div class= "collagePhoto">
+      </div>
+    </a>
+
+    
+    
+      
+  </div>
+</body>
