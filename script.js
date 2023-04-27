@@ -64,6 +64,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("haunted")) {
     $(".content-box").load("Articles/haunted.html");
     }
+    else if ($(this).hasClass("manjiri")) {
+      $(".content-box").load("Articles/manjiri.html");
+      }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
