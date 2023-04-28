@@ -65,8 +65,11 @@ $(document).ready(function() {
     $(".content-box").load("Articles/haunted.html");
     }
     else if ($(this).hasClass("manjiri")) {
-      $(".content-box").load("Articles/Manjeri.html");
-      }
+    $(".content-box").load("Articles/Manjeri.html");
+    }
+    else if ($(this).hasClass("TheDreamGuide")) {
+    $(".content-box").load("Articles/Sherfina.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
