@@ -255,6 +255,8 @@ p.tabfont {
 {
   background-image: url(assets/banners/NoiseBackgroundIMG.png);
   padding: 1%;
+  background-attachment: fixed;
+
 }
 
 /* text in about tab */
