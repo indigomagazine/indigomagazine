@@ -70,6 +70,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("TheDreamGuide")) {
     $(".content-box").load("Articles/Sherfina.html");
     }
+    else if ($(this).hasClass("EmmasSerendipity")) {
+      $(".content-box").load("Articles/EmmasSerendipity.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
