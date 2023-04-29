@@ -76,7 +76,7 @@ $(document).ready(function() {
     else {
       $(".content-box").load($(this).text() + ".html");
     }
-  })
+  });
 
 
   // Initialize and add the map
