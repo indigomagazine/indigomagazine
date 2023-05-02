@@ -215,7 +215,7 @@ p.tabfont {
 
 /* before flipbook */
 .issue{
-  color: black;
+  color: rgb(255, 255, 255);
   margin-left: 3%;
   margin-right: 3%;
   text-align: center; /* centered text for aesthetics */
@@ -229,7 +229,7 @@ p.tabfont {
 }
 
 .issue2{
-  color: black;
+  color: rgb(255, 255, 255);
 /*   font-style: italic; */
   text-align: center; /* centered text for aesthetics */
   font-size: 1.5vmax;
@@ -241,7 +241,7 @@ p.tabfont {
 /*   font-family: 'League Spartan', sans-serif; */
 }
 .issue3{
-  color: black;
+  color: rgb(255, 255, 255);
   margin: auto;
   text-align:center;
   font-size: 1vmax;
@@ -253,10 +253,10 @@ p.tabfont {
 
 .descriptionIssueBackGroundImg
 {
-  background-image: url(assets/banners/NoiseBackgroundIMG.png);
+  background-image:url(assets/banners/flowers.png);
+  background-size: cover;
   padding: 1%;
   background-attachment: fixed;
-
 }
 
 /* text in about tab */
