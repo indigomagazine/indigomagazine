@@ -112,11 +112,14 @@ html, body {
 }
 @font-face {
   font-family: "Lemon Milk";
-  src: url(assets/fonts/LEMONMILK-Bold.otf);
+  src: url(assets/fonts/LEMONMILK-Bold.otf); 
+
+  font-family: "Praktika";
+  src: url(assets/fonts/Praktika-Light.otf);
 }
 p.tabfont {
   padding-top: 0%;
-  font-family: "Lemon Milk";
+  font-family: "Praktika";
 }
 
 /* contact us */
@@ -215,7 +218,7 @@ p.tabfont {
 
 /* before flipbook */
 .issue{
-  color: rgb(255, 255, 255);
+  color: black;
   margin-left: 3%;
   margin-right: 3%;
   text-align: center; /* centered text for aesthetics */
@@ -223,13 +226,13 @@ p.tabfont {
 /*   font-weight: bold; */
   margin-top: 5%;
   margin-bottom:0%;
-  font-family: "Lemon Milk"
+  font-family: "Praktika";
 /*   font-family: Prata; */
 /*   font-family: 'League Spartan', sans-serif; */
 }
 
 .issue2{
-  color: rgb(255, 255, 255);
+  color: black;
 /*   font-style: italic; */
   text-align: center; /* centered text for aesthetics */
   font-size: 1.5vmax;
@@ -241,7 +244,7 @@ p.tabfont {
 /*   font-family: 'League Spartan', sans-serif; */
 }
 .issue3{
-  color: rgb(255, 255, 255);
+  color: black;
   margin: auto;
   text-align:center;
   font-size: 1vmax;
@@ -257,6 +260,7 @@ p.tabfont {
   background-size: cover;
   padding: 1%;
   background-attachment: fixed;
+  
 }
 
 /* text in about tab */
@@ -748,7 +752,7 @@ a{
   margin-left: 1%;
   margin-right: 1%;
   text-transform: uppercase;
-  font-family: "Lemon Milk" 
+  font-family: "Lemon Milk";
 
 }
 
@@ -761,7 +765,7 @@ a{
   margin-left: 1%;
   margin-right: 1%;
   text-transform: uppercase;
-  font-family: "Lemon Milk" 
+  font-family: "Lemon Milk" ;
 
 }
 
@@ -774,7 +778,7 @@ a{
   margin-left: 1%;
   margin-right: 1%;
   text-transform: uppercase;
-  font-family: "Lemon Milk" 
+  font-family: "Lemon Milk";
 
 }
 
