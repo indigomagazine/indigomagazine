@@ -79,6 +79,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("aPathwayToSerendipity")) {
       $(".content-box").load("Articles/aPathwayToSerendipity.html");
     }
+    else if ($(this).hasClass("lauren")) {
+      $(".content-box").load("Articles/lauren.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
