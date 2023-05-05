@@ -88,6 +88,12 @@ $(document).ready(function() {
     else if ($(this).hasClass("donkeySkin")) {
       $(".content-box").load("Articles/donkeySkin.html");
     }
+    else if ($(this).hasClass("HappilyEverAfter")) {
+      $(".content-box").load("Articles/HappilyEverAfter.html");
+    }
+    else if ($(this).hasClass("BoyOnTheMoon")) {
+      $(".content-box").load("Articles/BoyOnTheMoon.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
