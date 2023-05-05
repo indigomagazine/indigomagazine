@@ -203,6 +203,10 @@ p.tabfont {
   cursor: pointer;
 }
 
+.content-title
+{
+  font-family: "Lemon Milk";
+}
 
 /* before flipbook */
 .issue{
@@ -577,6 +581,7 @@ a{
 /*   font-family: 'League Spartan', sans-serif; */
 }
 
+.content-ti
 /* text on hover -doesn't work yet lol
 .img_desc {
   position: absolute;
@@ -601,6 +606,8 @@ a{
 }
 
 
+
+
 .content .content-overlay {
   background: rgba(0,0,0,0.7);
   position: absolute;
@@ -616,6 +623,7 @@ a{
   -moz-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
 }
+
 
 /* overlay for imgs in activism and creative */
 .content2 .content-overlay2 {
@@ -744,6 +752,8 @@ a{
 
 }
 
+
+
 .content-details2 h3{
   color: #fff;
   font-weight: 500;
@@ -753,7 +763,7 @@ a{
   margin-left: 1%;
   margin-right: 1%;
   text-transform: uppercase;
-  font-family: "Lemon Milk" ;
+  font-family: "Lemon Milk";
 
 }
 
@@ -834,4 +844,9 @@ blockquote.instagram-media
   }
   
   
+}
+
+.container h3
+{
+  font-family: "Lemon Milk";
 }
