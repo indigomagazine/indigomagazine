@@ -76,6 +76,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("HappenedUponYou")) {
       $(".content-box").load("Articles/HappenedUponYou.html");
     }
+    else if ($(this).hasClass("lauren")) {
+      $(".content-box").load("Articles/lauren.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }

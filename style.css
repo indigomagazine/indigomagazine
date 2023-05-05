@@ -59,13 +59,6 @@ html, body {
   margin: auto;
 }
 
-.rowInsta {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 10px;
-  width: 90%;
-  margin: auto;
-}
 /* image grid on homepage*/
 /* Create four equal columns that sits next to each other */
 .column {
@@ -74,11 +67,6 @@ html, body {
   padding: 0 10px;
 }
 
-.columnInsta {
-  flex: 25%;
-  max-width: 10%;
-  margin: 10%;
-}
 
 .column img {
   margin-top: 25px;
