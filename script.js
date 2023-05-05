@@ -82,6 +82,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("lauren")) {
       $(".content-box").load("Articles/lauren.html");
     }
+    else if ($(this).hasClass("anOdeToMyCulture")) {
+      $(".content-box").load("Articles/anOdeToMyCulture.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
