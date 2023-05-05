@@ -76,6 +76,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("HappenedUponYou")) {
       $(".content-box").load("Articles/HappenedUponYou.html");
     }
+    else if ($(this).hasClass("aPathwayToSerendipity")) {
+      $(".content-box").load("Articles/aPathwayToSerendipity.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
