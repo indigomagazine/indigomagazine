@@ -85,6 +85,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("anOdeToMyCulture")) {
       $(".content-box").load("Articles/anOdeToMyCulture.html");
     }
+    else if ($(this).hasClass("donkeySkin")) {
+      $(".content-box").load("Articles/donkeySkin.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
