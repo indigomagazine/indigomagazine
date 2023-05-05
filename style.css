@@ -104,6 +104,8 @@ html, body {
 
   font-family: "Praktika";
   src: url(assets/fonts/Praktika-Light.otf);
+
+  
 }
 p.tabfont {
   padding-top: 0%;
@@ -219,6 +221,7 @@ p.tabfont {
   margin-top: 5%;
   margin-bottom:0%;
   font-family: "Praktika";
+  font-weight: bold;
 /*   font-family: Prata; */
 /*   font-family: 'League Spartan', sans-serif; */
 }
@@ -232,7 +235,8 @@ p.tabfont {
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 4%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Praktika";
+  /* font-family: 'Inter', sans-serif; */
 /*   font-family: 'League Spartan', sans-serif; */
 }
 .issue3{
@@ -248,10 +252,11 @@ p.tabfont {
 
 .descriptionIssueBackGroundImg
 {
-  background-image:url(assets/banners/flowers.png);
+  /* background-image:url(assets/banners/flowers.png);
   background-size: cover;
+  background-attachment: fixed; */
   padding: 1%;
-  background-attachment: fixed;
+  background-color: #CCCEF8;
   
 }
 
