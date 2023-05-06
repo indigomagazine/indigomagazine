@@ -94,6 +94,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("BoyOnTheMoon")) {
       $(".content-box").load("Articles/BoyOnTheMoon.html");
     }
+    else if ($(this).hasClass("BeforeYou")) {
+      $(".content-box").load("Articles/BeforeYou.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
