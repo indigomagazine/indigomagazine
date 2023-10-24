@@ -250,13 +250,31 @@ p.tabfont {
   font-family: 'League Spartan', sans-serif;
 }
 
+.issue-oW{
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 1.5vmax;
+  margin-top: 5%;
+  margin-bottom:0%;
+  font-family: "Praktika";
+  font-weight: bold;
+}
+
+.issue2-oW{
+  font-size: 1.5vmax;
+  margin-top: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-family: "Praktika";
+}
+
 .descriptionIssueBackGroundImg
 {
-  /* background-image:url(assets/banners/flowers.png);
+  background-image:url(assets/banners/purp.jpg);
   background-size: cover;
-  background-attachment: fixed; */
+  background-attachment: fixed;
   padding: 1%;
-  background-color: #CCCEF8;
+  /* background-color: #CCCEF8; */
   
 }
 
