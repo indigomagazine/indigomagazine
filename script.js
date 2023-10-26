@@ -97,6 +97,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("BeforeYou")) {
       $(".content-box").load("Articles/BeforeYou.html");
     }
+    else if ($(this).hasClass("BlueSlumber")) {
+      $(".content-box").load("Articles/BlueSlumber.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
