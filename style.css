@@ -21,8 +21,8 @@ html, body {
   font-family: "Praktika";
 }
 .feature-section{
-  max-width: 55%;
-  max-height: 65%;
+  max-width: 45%;
+  max-height: 55%;
   justify-content: center;
   align-items: center;
   margin: auto;
