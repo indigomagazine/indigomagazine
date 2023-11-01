@@ -18,11 +18,11 @@ html, body {
 .feature {
   justify-content: center;
   align-items: center;
-  
+  font-family: "Praktika";
 }
 .feature-section{
-  max-width: 65%;
-  max-height: 75%;
+  max-width: 55%;
+  max-height: 65%;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -32,7 +32,7 @@ html, body {
   margin: none;
   font-family: 'Inter';
   font-weight: 450;
-  font-size: 25px;
+  font-size: 2vmax;
   line-height: 24px;
   text-transform: uppercase;
 }
