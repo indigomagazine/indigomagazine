@@ -464,6 +464,7 @@ hr.new2{
   margin-bottom: 3%;
   height: auto;
   max-width: 100%;
+  max-height: 100%;
 }
 
 /* Book */
@@ -471,6 +472,8 @@ hr.new2{
   position: relative;
   width: 80vmax;
   height: 40vmax;
+  /* width: 100%;
+  height: 100%; */
   transition: transform 0.8s;
 }
 
@@ -480,7 +483,9 @@ hr.new2{
   grid-template-columns: 1fr 1fr; 
   top: 0;
   left: 0;
-  perspective: 1700px;
+  perspective: 90vmax;
+  width: 100%;
+  height: 100%;
 }
 
 .front,
@@ -488,6 +493,8 @@ hr.new2{
   position: relative;
   width: 40vmax;
   height: 40vmax;
+  /* width: 100%;
+  height: 100%; */
   top: 0;
   left: 0;
   transform-origin: left;
@@ -537,14 +544,26 @@ button {
 
 /* fb Paper stack order */
 #p1 {
-  z-index: 3;
+  z-index: 6;
 }
 
 #p2 {
-  z-index: 2;
+  z-index: 5;
 }
 
 #p3 {
+  z-index: 4;
+}
+
+#p4 {
+  z-index: 3;
+}
+
+#p5 {
+  z-index: 2;
+}
+
+#p6 {
   z-index: 1;
 }
 
