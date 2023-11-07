@@ -12,6 +12,16 @@
     grid-template-columns: repeat(3, 20vmax);
     grid-template-rows: repeat(3,20vmax);
   }
+
+  /* Responsive layout - makes a 1 column-layout instead of 3 columns */
+  @media screen and (max-width: 800px) {
+    .parent {
+      grid-template-columns: repeat(1, 20vmax);
+      grid-template-rows: repeat(1,20vmax);
+      justify-content: center;
+    }
+  }
+
   .parent > div {
     
     place-items: center;

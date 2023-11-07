@@ -14,6 +14,34 @@ html, body {
   padding-top: 17%;
 }
 
+/*feautured article section*/
+.feature {
+  justify-content: center;
+  align-items: center;
+  font-family: "Praktika";
+}
+.feature-section{
+  max-width: 45%;
+  max-height: 55%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.feature h2 {
+  text-align: center;
+  margin: none;
+  font-family: 'Inter';
+  font-weight: 450;
+  font-size: 2vmax;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.feature img{
+  vertical-align: middle;
+  width: 100%;
+  
+}
+
 .title:hover{
   cursor: pointer;
 }
@@ -434,15 +462,22 @@ hr.new2{
   font-family: sans-serif; 
   box-sizing: border-box;
   margin-bottom: 3%;
-  height: auto;
-  max-width: 100%;
+  /* height: auto; */
+  /* max-width: 100%;
+  max-height: 100%; */
 }
 
 /* Book */
 .book {
   position: relative;
-  width: 80vmax;
-  height: 40vmax;
+  width: 100%;
+  height: 48vw;
+  /* justify-content: center;
+  align-items: center; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 40%;
+  height: 80%; */
   transition: transform 0.8s;
 }
 
@@ -452,14 +487,22 @@ hr.new2{
   grid-template-columns: 1fr 1fr; 
   top: 0;
   left: 0;
-  perspective: 1700px;
+  perspective: 90vmax;
+  /* width: 100%;
+  height: 100%; */
 }
 
 .front,
 .back {
   position: relative;
-  width: 40vmax;
-  height: 40vmax;
+  /* min-width: 40vmax;
+  min-height: 40vmax; */
+  /* display: block; */
+  /* width: 10em;
+  height: 10em; */
+  /* object-fit: cover; */
+  /* width: 100%; */
+  /* height: 50%; */
   top: 0;
   left: 0;
   transform-origin: left;
@@ -485,8 +528,8 @@ hr.new2{
 
 .fb-img{
   object-fit: cover;
-  max-width: 40vmax;
-  max-height: 40vmax;
+  /* max-width: 40vmax;
+  max-height: 40vmax; */
 }
 
 .back-content {
@@ -494,6 +537,7 @@ hr.new2{
 }
 
 /* Paper flip effect */
+/* .flipped .front, */
 .flipped .back{
   transform: rotateY(-180deg);
 }
@@ -509,14 +553,26 @@ button {
 
 /* fb Paper stack order */
 #p1 {
-  z-index: 3;
+  z-index: 6;
 }
 
 #p2 {
-  z-index: 2;
+  z-index: 5;
 }
 
 #p3 {
+  z-index: 4;
+}
+
+#p4 {
+  z-index: 3;
+}
+
+#p5 {
+  z-index: 2;
+}
+
+#p6 {
   z-index: 1;
 }
 
@@ -627,8 +683,6 @@ a{
 .container{
   width: 100%;
 }
-
-
 
 
 .content .content-overlay {
@@ -774,7 +828,6 @@ a{
   font-family: "Lemon Milk";
 
 }
-
 
 
 .content-details2 h3{
