@@ -100,6 +100,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("BlueSlumber")) {
       $(".content-box").load("Articles/BlueSlumber.html");
     }
+    else if ($(this).hasClass("Dystheism")) {
+      $(".content-box").load("Articles/Dystheism.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
