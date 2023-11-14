@@ -103,6 +103,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("Dystheism")) {
       $(".content-box").load("Articles/Dystheism.html");
     }
+    else if ($(this).hasClass("Tobeornottobe")) {
+      $(".content-box").load("Articles/Tobeornottobe.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
