@@ -106,6 +106,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("Tobeornottobe")) {
       $(".content-box").load("Articles/Tobeornottobe.html");
     }
+    else if ($(this).hasClass("ToBeHuman")) {
+      $(".content-box").load("Articles/ToBeHuman.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
