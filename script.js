@@ -109,6 +109,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("ToBeHuman")) {
       $(".content-box").load("Articles/ToBeHuman.html");
     }
+    else if ($(this).hasClass("owVisuals")) {
+      $(".content-box").load("FREEVISUALSERIES.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
