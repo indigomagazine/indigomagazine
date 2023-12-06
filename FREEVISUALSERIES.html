@@ -41,9 +41,27 @@
     grid-template-rows: repeat(3,26vmax);
   }
 
+  .parent2{
+    margin: 5% 10%;
+    display: grid;
+    grid-gap: 30px;
+    grid-row-gap: 120px;
+    grid-template-columns: repeat(3, 26vmax);
+    grid-template-rows: repeat(3,26vmax);
+  }
+
      /* Responsive layout - makes a 1 column-layout instead of 3 columns */
      @media screen and (max-width: 800px) {
     .parent {
+      grid-template-columns: repeat(1, 26vmax);
+      grid-template-rows: repeat(1,26vmax);
+      justify-content: center;
+    }
+  }
+
+  /* Responsive layout - makes a 1 column-layout instead of 3 columns */
+  @media screen and (max-width: 800px) {
+    .parent2 {
       grid-template-columns: repeat(1, 26vmax);
       grid-template-rows: repeat(1,26vmax);
       justify-content: center;
@@ -54,8 +72,12 @@
     
     place-items: center;
   }
+  .parent2 > div {
+    
+    place-items: center;
+  }
   
-  .collagePhoto {
+  .collagePhoto .collagePhoto2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,8 +91,17 @@
     max-height: 26vmax;
     max-width: 26vmax;
     object-fit: cover;
-    
-}
+  }
+
+  .collagePhoto2 img {
+    flex-shrink: 1;
+    min-width: 26vmax;
+    max-width: 26vmax;
+    min-height: auto;
+    max-height: auto;
+    object-fit: cover;
+    margin: 2%;
+  }
 
   
 </style>
@@ -78,9 +109,60 @@
 <div class="banner">
 <img src = "assets/banners/visualartbanner.png" alt="visual art banner" class="center"> 
 </div>
-<p class="visual-banner">FREE - THE COMIC</p>
-      <p class="visual-banner-2"></p>
+
 <body>
+
+  <p class="visual-banner">OTHERWORLDLY</p>
+
+
+  <div class="parent2">
+    
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/slide1_ow.png" >
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/indigo 3.jpg">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/slide2_ow.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/group1.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/indigo 2.jpg">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/k1.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/j2.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/indigo 1.jpg">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/j1.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/IMG_2059.png">
+    </div>
+    <div class= "collagePhoto2">
+      <img class="collageImg" src="assets/vArts/IMG_2054.jpeg">
+    </div>
+
+    
+    
+    <a class="empty">
+      <div class= "collagePhoto">
+      </div>
+    </a>
+      
+  </div>
+
+  <p class="visual-banner">FREE - THE COMIC</p>
+      <p class="visual-banner-2"></p>
+
   <div class="parent">
     
     <div class= "collagePhoto">
