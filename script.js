@@ -112,6 +112,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("owVisuals")) {
       $(".content-box").load("FREEVISUALSERIES.html");
     }
+    else if ($(this).hasClass("Reflections")) {
+      $(".content-box").load("Articles/reflections.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
