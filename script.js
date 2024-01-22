@@ -115,6 +115,12 @@ $(document).ready(function() {
     else if ($(this).hasClass("Reflections")) {
       $(".content-box").load("Articles/reflections.html");
     }
+    else if ($(this).hasClass("BirdsStillSing")) {
+      $(".content-box").load("Articles/BirdStillSing.html");
+    }
+    else if ($(this).hasClass("ThisThatDrivesUs")) {
+      $(".content-box").load("Articles/Thisthatdrivesus.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
