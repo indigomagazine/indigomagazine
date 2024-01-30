@@ -1,9 +1,16 @@
 $(document).ready(function() {
-    // Check if the page is being loaded from the browser's history
-    if (window.performance && window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+  // Store the initial URL when the page loads
+  var initialURL = window.location.href;
+
+  // Listen for the popstate event (triggered by back/forward buttons)
+  window.addEventListener('popstate', function(event) {
+    // Check if the current URL is different from the initial URL
+    if (window.location.href !== initialURL) {
       // Reload the page to ensure the correct state is loaded
       window.location.reload(true);
     }
+  });
+
   //this func is to change the tabs. for example, clicking on the about tab will only change the content of the page, it won't change the whole page. The top part (nav bar + logo) and bottom part (contact us) stays the same.
   $("a").click(function() {
     if ($(this).hasClass("LOGO")) {
