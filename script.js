@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  // Check if the page is being loaded from the browser's history
+  if (performance.navigation.type == 2) {
+    // Reload the page to ensure the correct state is loaded
+    window.location.reload(true);
+  }
   //this func is to change the tabs. for example, clicking on the about tab will only change the content of the page, it won't change the whole page. The top part (nav bar + logo) and bottom part (contact us) stays the same.
   $("a").click(function() {
     if ($(this).hasClass("LOGO")) {
