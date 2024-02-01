@@ -133,6 +133,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("ThisThatDrivesUs")) {
       $(".content-box").load("Articles/Thisthatdrivesus.html");
     }
+    else if ($(this).hasClass("Group9")) {
+      $(".content-box").load("FREEVISUALSERIES.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
