@@ -139,6 +139,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("WhiteRosebud")) {
       $(".content-box").load("Articles/WhiteRosebud.html");
     }
+    else if ($(this).hasClass("Group8")) {
+      $(".content-box").load("FREEVISUALSERIES.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
