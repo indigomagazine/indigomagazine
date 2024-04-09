@@ -142,6 +142,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("Group8")) {
       $(".content-box").load("FREEVISUALSERIES.html");
     }
+    else if ($(this).hasClass("YoursandMine")) {
+      $(".content-box").load("Articles/yoursandmine.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
