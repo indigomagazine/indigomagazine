@@ -145,6 +145,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("YoursandMine")) {
       $(".content-box").load("Articles/yoursandmine.html");
     }
+    else if ($(this).hasClass("Amsterdam")) {
+      $(".content-box").load("Articles/amsterdam.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
