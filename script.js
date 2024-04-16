@@ -148,6 +148,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("Amsterdam")) {
       $(".content-box").load("Articles/amsterdam.html");
     }
+    else if ($(this).hasClass("HeLovesMe")) {
+      $(".content-box").load("Articles/heLovesme.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
