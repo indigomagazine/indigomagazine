@@ -148,7 +148,7 @@ $(document).ready(function() {
     else if ($(this).hasClass("Amsterdam")) {
       $(".content-box").load("Articles/amsterdam.html");
     }
-    else if ($(this).hasClass("HeLovesMe")) {
+    else if ($(this).hasClass("helovesme")) {
       $(".content-box").load("Articles/helovesme.html");
     }
     else {
