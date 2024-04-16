@@ -149,7 +149,7 @@ $(document).ready(function() {
       $(".content-box").load("Articles/amsterdam.html");
     }
     else if ($(this).hasClass("HeLovesMe")) {
-      $(".content-box").load("Articles/heLovesme.html");
+      $(".content-box").load("Articles/helovesme.html");
     }
     else {
       $(".content-box").load($(this).text() + ".html");
