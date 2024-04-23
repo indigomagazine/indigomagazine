@@ -151,6 +151,9 @@ $(document).ready(function() {
     else if ($(this).hasClass("helovesme")) {
       $(".content-box").load("Articles/helovesme.html");
     }
+    else if($(this).hasClass("Group3")){
+    $(".content-box").load("FREEVISUALSERIES.html");
+    }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
