@@ -152,7 +152,7 @@ $(document).ready(function() {
       $(".content-box").load("Articles/helovesme.html");
     }
     else if($(this).hasClass("Group3")){
-    $(".content-box").load("FREEVISUALSERIES.html");
+    $(".content-box").load("Articles/yaknowwhatimiss.html");
     }
     else {
       $(".content-box").load($(this).text() + ".html");
