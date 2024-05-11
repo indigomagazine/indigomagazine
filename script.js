@@ -154,6 +154,9 @@ $(document).ready(function() {
     else if($(this).hasClass("Group3")){
     $(".content-box").load("Articles/yaknowwhatimiss.html");
     }
+    else if($(this).hasClass("TheRestaurant")){
+      $(".content-box").load("Articles/therestaurant.html");
+      }
     else {
       $(".content-box").load($(this).text() + ".html");
     }
