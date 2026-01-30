@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./lifeinparadise.module.css";
-import cover from "../../../../../assets/serial photos/group9/cover.png";
-import page1 from "../../../../../assets/serial photos/group9/page 1.png";
-import page2 from "../../../../../assets/serial photos/group9/page 2.png";
-import page3 from "../../../../../assets/serial photos/group9/page 3_.png";
-import page4 from "../../../../../assets/serial photos/group9/page 4.png";
-import page5 from "../../../../../assets/serial photos/group9/page 5.png";
-import page6 from "../../../../../assets/serial photos/group9/page 6.png";
-import page7 from "../../../../../assets/serial photos/group9/page 7.png";
-import page8 from "../../../../../assets/serial photos/group9/page 8.png";
-import backcover from "../../../../../assets/serial photos/group9/back cover.png";
-import handIdle from "../../../../../assets/cursors/hand.png"
+import cover from "../../../../assets/serial photos/group9/cover.png";
+import page1 from "../../../../assets/serial photos/group9/page 1.png";
+import page2 from "../../../../assets/serial photos/group9/page 2.png";
+import page3 from "../../../../assets/serial photos/group9/page 3_.png";
+import page4 from "../../../../assets/serial photos/group9/page 4.png";
+import page5 from "../../../../assets/serial photos/group9/page 5.png";
+import page6 from "../../../../assets/serial photos/group9/page 6.png";
+import page7 from "../../../../assets/serial photos/group9/page 7.png";
+import page8 from "../../../../assets/serial photos/group9/page 8.png";
+import backcover from "../../../../assets/serial photos/group9/back cover.png";
+import handIdle from "../../../../assets/cursors/hand.png"
 
 const images = [
     cover,

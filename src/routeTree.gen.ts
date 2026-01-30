@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SerialRouteImport } from './routes/serial'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DynamicArticlesArticleSlugRouteImport } from './routes/dynamicArticles/$articleSlug'
 import { Route as ArticlesSerialYoucantwisttimeRouteImport } from './routes/articles/serial/youcantwisttime'
 import { Route as ArticlesSerialWesternRouteImport } from './routes/articles/serial/western'
 import { Route as ArticlesSerialStomachacheRouteImport } from './routes/articles/serial/stomachache'
@@ -31,6 +32,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DynamicArticlesArticleSlugRoute =
+  DynamicArticlesArticleSlugRouteImport.update({
+    id: '/dynamicArticles/$articleSlug',
+    path: '/dynamicArticles/$articleSlug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ArticlesSerialYoucantwisttimeRoute =
   ArticlesSerialYoucantwisttimeRouteImport.update({
     id: '/articles/serial/youcantwisttime',
@@ -85,6 +92,7 @@ const ArticlesSerialAnumberoutofplaceRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/serial': typeof SerialRoute
+  '/dynamicArticles/$articleSlug': typeof DynamicArticlesArticleSlugRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/serial': typeof SerialRoute
+  '/dynamicArticles/$articleSlug': typeof DynamicArticlesArticleSlugRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -112,6 +121,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/serial': typeof SerialRoute
+  '/dynamicArticles/$articleSlug': typeof DynamicArticlesArticleSlugRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/serial'
+    | '/dynamicArticles/$articleSlug'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/serial'
+    | '/dynamicArticles/$articleSlug'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -153,6 +165,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/serial'
+    | '/dynamicArticles/$articleSlug'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -167,6 +180,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SerialRoute: typeof SerialRoute
+  DynamicArticlesArticleSlugRoute: typeof DynamicArticlesArticleSlugRoute
   ArticlesSerialAnumberoutofplaceRoute: typeof ArticlesSerialAnumberoutofplaceRoute
   ArticlesSerialCovetRoute: typeof ArticlesSerialCovetRoute
   ArticlesSerialIloveshoppingRoute: typeof ArticlesSerialIloveshoppingRoute
@@ -192,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dynamicArticles/$articleSlug': {
+      id: '/dynamicArticles/$articleSlug'
+      path: '/dynamicArticles/$articleSlug'
+      fullPath: '/dynamicArticles/$articleSlug'
+      preLoaderRoute: typeof DynamicArticlesArticleSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles/serial/youcantwisttime': {
@@ -263,6 +284,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SerialRoute: SerialRoute,
+  DynamicArticlesArticleSlugRoute: DynamicArticlesArticleSlugRoute,
   ArticlesSerialAnumberoutofplaceRoute: ArticlesSerialAnumberoutofplaceRoute,
   ArticlesSerialCovetRoute: ArticlesSerialCovetRoute,
   ArticlesSerialIloveshoppingRoute: ArticlesSerialIloveshoppingRoute,
