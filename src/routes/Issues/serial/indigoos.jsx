@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-export const Route = createFileRoute("/articles/serial/indigoos")({
+export const Route = createFileRoute("/Issues/serial/indigoos")({
   component: RouteComponent,
 });
 

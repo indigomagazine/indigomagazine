@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 // youcantwisttimehtml is under legacy/articles/serial/youcantwisttime.html
 
-export const Route = createFileRoute("/articles/serial/youcantwisttime")({
+export const Route = createFileRoute("/Issues/serial/youcantwisttime")({
   component: RouteComponent,
 });
 

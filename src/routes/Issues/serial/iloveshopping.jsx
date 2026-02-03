@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 const IntrapersonalFont = "/fonts/Intrapersonal.otf";
 const SinoretaFont = "/fonts/Sinoreta.otf";
 
-export const Route = createFileRoute("/articles/serial/iloveshopping")({
+export const Route = createFileRoute("/Issues/serial/iloveshopping")({
   component: RouteComponent,
 });
 

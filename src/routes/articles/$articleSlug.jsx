@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Renderer } from '../../components/NewArticles/Renderer';
 import { getDispatchContent } from '../../services/api';
 
-export const Route = createFileRoute('/dynamicArticles/$articleSlug')({
+export const Route = createFileRoute('/articles/$articleSlug')({
   // The Loader: This is the critical part
   loader: async ({ params }) => {
     const data = await getDispatchContent(params.articleSlug);
@@ -16,6 +16,7 @@ export const Route = createFileRoute('/dynamicArticles/$articleSlug')({
   
   component: () => {
     const article = Route.useLoaderData();
+    console.log("Loaded article: ", article );
     return <Renderer article={article} />;
   },
   
