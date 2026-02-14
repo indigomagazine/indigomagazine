@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import heroVideo from "../../assets/hero videos/NOTgroup2vid.mp4";
-import heroFallback from "../../assets/hero videos/fallback.jpg";
+// Import correct video from the renamed folder
+import heroVideo from "../../assets/hero-videos/V-day.mp4";
+import heroFallback from "../../assets/hero-videos/fallback.jpg";
+import heroTitleSvg from "../../assets/logos/Hero Title.svg"; // Import SVG if needed for Title replacement
 import logoDark from "../../assets/logos/indigologowhite.png";
 import logoLight from "../../assets/logos/indigologoblack.png";
 import featuredImage from "../../legacy/article photos/western/moviePoster.png";
