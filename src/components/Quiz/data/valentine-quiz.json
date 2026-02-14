@@ -1,0 +1,209 @@
+{
+    "title": "What kind of Valentine are you?",
+    "questions": [
+        {
+            "id": 1,
+            "text": "When hanging out with friends your role is typically",
+            "options": [
+                {
+                    "text": "The Planner",
+                    "type": "A"
+                },
+                {
+                    "text": "Showing up fashionably late",
+                    "type": "B"
+                },
+                {
+                    "text": "The Ragebaiter",
+                    "type": "C"
+                },
+                {
+                    "text": "The Driver",
+                    "type": "D"
+                },
+                {
+                    "text": "Flaking",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "What’s your staple item in your pantry?",
+            "options": [
+                {
+                    "text": "Peanut butter!",
+                    "type": "A"
+                },
+                {
+                    "text": "Spicy Chips",
+                    "type": "B"
+                },
+                {
+                    "text": "Candy (or something sweet…)",
+                    "type": "C"
+                },
+                {
+                    "text": "Cup of Ramen",
+                    "type": "D"
+                },
+                {
+                    "text": "Creatine/Protein Powder",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "What kind of socks do you wear everyday?",
+            "options": [
+                {
+                    "text": "Classic white crew socks",
+                    "type": "A"
+                },
+                {
+                    "text": "Something with a design on it",
+                    "type": "B"
+                },
+                {
+                    "text": "Black ankle socks",
+                    "type": "C"
+                },
+                {
+                    "text": "Mismatched",
+                    "type": "D"
+                },
+                {
+                    "text": "The same pairs you’ve had since 7th grade",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "Pick an artist!!",
+            "options": [
+                {
+                    "text": "Jeff Buckley",
+                    "type": "A"
+                },
+                {
+                    "text": "Charli XCX",
+                    "type": "B"
+                },
+                {
+                    "text": "Slowdive",
+                    "type": "C"
+                },
+                {
+                    "text": "Radiohead",
+                    "type": "D"
+                },
+                {
+                    "text": "Aphex Twin",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "Pick a condiment/sauce",
+            "options": [
+                {
+                    "text": "Sweet Chili",
+                    "type": "A"
+                },
+                {
+                    "text": "Valentina",
+                    "type": "B"
+                },
+                {
+                    "text": "Truffle",
+                    "type": "C"
+                },
+                {
+                    "text": "Ranch",
+                    "type": "D"
+                },
+                {
+                    "text": "Horseradish",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "text": "You’re quitting your job You go about it by…",
+            "options": [
+                {
+                    "text": "Sending a 2 weeks notice email thanking your manager for the opportunity and your time there",
+                    "type": "A"
+                },
+                {
+                    "text": "Inviting your manager out to lunch to tell them in person",
+                    "type": "B"
+                },
+                {
+                    "text": "Telling your manager that you found another job",
+                    "type": "C"
+                },
+                {
+                    "text": "Apologizing and offer to stick around if they REALLY want you to",
+                    "type": "D"
+                },
+                {
+                    "text": "Not showing up to your shift/ghosting",
+                    "type": "E"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "text": "Choose a sweetener!!!",
+            "options": [
+                {
+                    "text": "Sugar",
+                    "type": "A"
+                },
+                {
+                    "text": "Honey",
+                    "type": "B"
+                },
+                {
+                    "text": "Vanilla syrup",
+                    "type": "C"
+                },
+                {
+                    "text": "Sweet ‘n’ low",
+                    "type": "D"
+                },
+                {
+                    "text": "Maple syrup",
+                    "type": "E"
+                }
+            ]
+        }
+    ],
+    "results": {
+        "A": {
+            "title": "The Romantic",
+            "description": "Passionate, devoted, sentimental"
+        },
+        "B": {
+            "title": "The Heartthrob",
+            "description": "Attractive, charming"
+        },
+        "C": {
+            "title": "The Heartbreaker",
+            "description": "Probably the type to stand-up your date, reserved"
+        },
+        "D": {
+            "title": "The Rebound",
+            "description": "Doesn’t realize they were not the first choice date"
+        },
+        "E": {
+            "title": "The Single",
+            "description": "Probably spending Valentine’s alone at home, perfectly content"
+        }
+    }
+}

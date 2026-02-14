@@ -1,0 +1,248 @@
+.home-container {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Taskbar container styling */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 10px 20px;
+    background-color: rgba(32, 32, 32, 0);
+    /* Extremely translucent */
+    backdrop-filter: blur(2px);
+    /* Added blur for a premium glass feel */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.414);
+
+}
+
+
+.nav-logo-link {
+    flex: 1;
+    /* Occupies left space */
+}
+
+.nav-links {
+    display: flex;
+    gap: 80px;
+    /* <--- Control horizontal gap between links here */
+    flex: 2;
+    /* Occupies middle space */
+    justify-content: center;
+}
+
+.nav-spacer {
+    flex: 1;
+    /* Occupies right space for symmetry */
+}
+
+.nav-logo {
+    height: 50px;
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    font-family: Garamond, serif;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    white-space: nowrap;
+    /* Keep "VISUAL ARTS" on one line */
+}
+
+.nav-links a:hover {
+    color: #170B3B;
+}
+
+/* Mobile Navigation Adjustments */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 10px 10px;
+    }
+
+    .nav-logo {
+        height: 35px;
+        /* Smaller logo on mobile to save space */
+    }
+
+    .nav-links {
+        gap: 35px;
+        /* Wider gap for easier tapping */
+        flex: 4;
+        /* Even more space for centering */
+    }
+
+    .nav-links a {
+        font-size: 1.1em;
+        /* Increased size for better visibility */
+    }
+}
+
+
+/* Hero section */
+.home-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.7);
+}
+
+.home-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/* Quiz Section (Replacing Featured Article) */
+.quiz-promo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 250px 20px;
+    /* <--- Control vertical space (top/bottom) here */
+    text-align: center;
+    gap: 80px;
+    /* <--- Control space between title and button here */
+}
+
+.quiz-main-title {
+    font-size: 3.5rem;
+    /* Slightly larger */
+    letter-spacing: 4px;
+    margin: 0;
+    color: #845eb8;
+    font-family: Garamond, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.9;
+    /* <--- Control how close the words are here (lower = closer) */
+    text-align: center;
+}
+
+/* --- Control the BLACK line here --- */
+.quiz-line-black {
+    width: 950px;
+    /* <--- Adjusted for cleaner look */
+    height: 2px;
+    background-color: white;
+    /* Default to white for dark mode */
+    margin: 0px 0 60px 0;
+    /* <--- Change the FIRST number (5px) to bring it closer or further from text */
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .quiz-line-black {
+    background-color: black;
+}
+
+
+
+.quiz-take-button {
+    background-color: #ECA9FF;
+    padding: 30px 40px;
+    border: none;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #C91C1D;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s;
+    max-width: 400px;
+    width: 100%;
+}
+
+.quiz-take-button:hover {
+    transform: scale(1.05);
+}
+
+/* Spotify & Socials */
+.home-spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-spotify iframe {
+    width: 60%;
+    max-width: 800px;
+}
+
+
+@media (max-width: 768px) {
+    .home-spotify {
+        flex-direction: column;
+    }
+
+    .home-spotify iframe {
+        width: 100%;
+    }
+}
+
+.home-socials {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+.home-socials a img {
+    width: 25px;
+    height: 25px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.home-socials a:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.2);
+}

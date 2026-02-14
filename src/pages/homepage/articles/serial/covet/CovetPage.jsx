@@ -5,20 +5,20 @@ import "../covet/covet.css"; // we’ll write skeleton CSS next
 
 // Example data for each spread/page of the article
 const spreads = [
-   {
+  {
     id: "title",
     layout: "title-page",
     title: "Covet",
     created: "Writen by - ",
     writer: "Joanna Virippil",
-    imageSrc: "../../legacy/article photos/covet/cereal-1.jpg",
-  
+    imageSrc: "/legacy/article photos/covet/cereal-1.jpg",
+
     accentColor: "#ff7ecf",
   },
   {
     id: "page-1",
     layout: "image-left-text-right",
-    imageSrc: "../../legacy/article photos/covet/cereal-2.jpg",
+    imageSrc: "/legacy/article photos/covet/cereal-2.jpg",
     rightTextLines: [
       "Greeting in open arms",
       "The same familiar smile between us",
@@ -31,7 +31,7 @@ const spreads = [
   {
     id: "page-2",
     layout: "image-left-text-right",
-    imageSrc: "../../legacy/article photos/covet/12-beforeFlick.jpg",
+    imageSrc: "/legacy/article photos/covet/12-beforeFlick.jpg",
     imageAlt: "Two friends sharing a secret",
     rightTextLines: [
       "We exchanged secrets, glances",
@@ -40,26 +40,26 @@ const spreads = [
       "",
     ],
   },
-     {
+  {
     id: "page-1-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/text2.png"
+    imageSrc: "/legacy/article photos/covet/text2.png"
   },
-    {
+  {
     id: "page-2",
     layout: "image-left-text-right",
-    imageSrc: "../../legacy/article photos/covet/12-beforeFlick.jpg",
+    imageSrc: "/legacy/article photos/covet/12-beforeFlick.jpg",
     imageAlt: "Two friends sharing a secret",
     rightTextLines: [
       "Mine feeling more a choker.",
       "Dread creeps out from the light",
     ],
   },
-  
+
   {
     id: "page-3",
     layout: "text-left-image-right",
-    imageSrc: "../../legacy/article photos/covet/11-flick.jpg",
+    imageSrc: "/legacy/article photos/covet/11-flick.jpg",
     imageAlt: "Jewelry flick caught in motion",
     leftTextLines: [
       "Idiosyncrasy that was left unnoticed",
@@ -74,7 +74,7 @@ const spreads = [
   {
     id: "page-4",
     layout: "image-left-text-right",
-    imageSrc: "../../legacy/article photos/covet/8-final.jpg",
+    imageSrc: "/legacy/article photos/covet/8-final.jpg",
     imageAlt: "Coat and shoes swapped between friends",
     rightTextLines: [
       "You point out my necklace,",
@@ -83,13 +83,13 @@ const spreads = [
       "You're the same as me aren’t you?",
       "",
       "Bracelets slip, tangled between wrists",
-    
+
     ],
   },
-   {
+  {
     id: "page-1-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/text.png"
+    imageSrc: "/legacy/article photos/covet/text.png"
   },
   {
     id: "page-6",
@@ -99,12 +99,12 @@ const spreads = [
       "Your coat draped over me, a conquest",
       "My shoes on your feet, stomping out my shadow",
     ],
-    
+
   },
   {
     id: "page-5",
     layout: "text-left-image-right",
-    imageSrc: "../../legacy/article photos/covet/6-hair.jpg",
+    imageSrc: "/legacy/article photos/covet/6-hair.jpg",
     imageAlt: "Jewelry being adjusted in hair",
     leftTextLines: [
       "I drape your shawl across my shoulders",
@@ -124,17 +124,17 @@ const spreads = [
       "I've become lost in my feelings",
       "how pathetic",
     ],
-    
+
   },
   {
     id: "page-2-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/5-final.jpg"
+    imageSrc: "/legacy/article photos/covet/5-final.jpg"
   },
   {
     id: "page-7",
     layout: "text-only-r",
-    imageSrc: "../../legacy/article photos/covet/3-punch.jpg",
+    imageSrc: "/legacy/article photos/covet/3-punch.jpg",
     imageAlt: "Punch frozen between two adorned figures",
     leftTextLines: [
       "Gilded strangers in borrowed skins",
@@ -146,22 +146,22 @@ const spreads = [
       "Hungry still,",
       "Clothed in each other’s stolen light.",
     ],
-    
+
   }, {
     id: "page-3-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/3-punch.jpg",
+    imageSrc: "/legacy/article photos/covet/3-punch.jpg",
   },
   {
     id: "page-4-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/4-punch.jpg",
+    imageSrc: "/legacy/article photos/covet/4-punch.jpg",
   }, {
     id: "page-5-images",
     layout: "image-only",
-    imageSrc: "../../legacy/article photos/covet/DILC.png",
+    imageSrc: "/legacy/article photos/covet/DILC.png",
   },
- 
+
 
 ];
 
@@ -260,7 +260,7 @@ function Spread(props) {
     imageAlt,
     accentColor,
   } = props;
- // NEW: title page (no poem)
+  // NEW: title page (no poem)
   if (layout === "title-page") {
     return (
       <section className="covet-spread covet-spread--title-page">
@@ -311,7 +311,7 @@ function Spread(props) {
               className="covet-image-only-img main"
             />
           )}
-        
+
         </div>
       </section>
     );
@@ -355,8 +355,8 @@ function Spread(props) {
     );
   }
 
-   if (layout === "text-only-r") {
-   return (
+  if (layout === "text-only-r") {
+    return (
       <section className="covet-spread covet-spread--text-left">
         <div className="covet-inner covet-two-col">
           <div className="covet-col covet-text-block">
@@ -379,7 +379,7 @@ function Spread(props) {
               <p key={i}>{line}</p>
             ))}
           </div>
-        
+
         </div>
       </section>
     );

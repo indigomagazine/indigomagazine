@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-
+import "./styles/style.css"
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 
@@ -17,4 +17,9 @@ if (!rootElement.innerHTML) {
       <RouterProvider router={router} />
     </StrictMode>
   );
+
+  // Initialize Analytics
+  import("./analytics").then(({ initAnalytics }) => {
+    initAnalytics();
+  });
 }
