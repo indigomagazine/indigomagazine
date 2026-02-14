@@ -94,10 +94,15 @@
     }
 
     .nav-links {
-        gap: 35px;
-        /* Wider gap for easier tapping */
+        gap: 15px;
+        /* Smaller gap to prevent overflow */
         flex: 4;
         /* Even more space for centering */
+    }
+
+    .nav-icon {
+        height: 20px;
+        /* Keep icons visible but not massive */
     }
 
     .nav-links a {
