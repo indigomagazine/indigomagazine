@@ -145,7 +145,23 @@
     /* Let clicks pass through if needed, though usually fine on title */
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
     /* Slight shadow for better contrast */
-    animation: fadeIn 1.5s ease-out;
+    opacity: 0;
+    /* Initialize hidden to prevent flash */
+    animation: heroSlideUp 1.5s ease-out forwards;
+}
+
+@keyframes heroSlideUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+        /* Start slightly lower */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        /* End at true center */
+    }
 }
 
 @media (min-width: 768px) {
