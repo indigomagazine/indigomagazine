@@ -237,7 +237,7 @@ body.light-mode .main-content {
     /* Slightly larger */
     letter-spacing: 4px;
     margin: 0;
-    color: #845eb8;
+    color: #FAE6FC;
     font-family: Garamond, serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -247,6 +247,10 @@ body.light-mode .main-content {
     opacity: 0;
     /* Start hidden */
     animation-delay: 0.2s;
+}
+
+body.light-mode .quiz-main-title {
+    color: #801e1e;
 }
 
 @media (max-width: 768px) {
