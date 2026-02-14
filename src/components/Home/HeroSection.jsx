@@ -17,10 +17,19 @@ const HeroSection = () => {
     const [heroImage, setHeroImage] = useState(null);
 
     useEffect(() => {
-        // Select a random image on mount to avoid hydration mismatch (if SSR) 
-        // or just to ensure it changes on reload.
-        const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
+        const lastIndex = localStorage.getItem("last_hero_index");
+        let randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
+
+        // Ensure we don't show the same image twice in a row if possible
+        if (lastIndex !== null && HERO_IMAGES.length > 1) {
+            const lastIdxNum = parseInt(lastIndex, 10);
+            if (randomIndex === lastIdxNum) {
+                randomIndex = (randomIndex + 1) % HERO_IMAGES.length;
+            }
+        }
+
         setHeroImage(HERO_IMAGES[randomIndex]);
+        localStorage.setItem("last_hero_index", randomIndex.toString());
     }, []);
 
     if (!heroImage) return null; // Avoid flash of empty or wrong content
