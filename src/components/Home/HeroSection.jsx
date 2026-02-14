@@ -1,7 +1,7 @@
 
 const HeroSection = () => {
     // Vite handles the base path. For assets in 'public', we should use absolute paths
-    const videoPath = new URL('../../assets/hero-videos/V-day.mp4', import.meta.url).href;
+    const videoPath = new URL('../../assets/hero-videos/v-day2.mp4', import.meta.url).href;
     const posterPath = new URL('../../assets/hero-videos/fallback.jpg', import.meta.url).href;
 
     // Import SVG directly (Vite handles space in filename string)
