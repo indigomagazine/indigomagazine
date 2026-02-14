@@ -1,0 +1,28 @@
+/* src/styles/articles/look-standard.css */
+@import "./base-article.css";
+
+.look-standard {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.look-standard .article-title {
+    font-size: 3.75rem;
+    /* text-6xl */
+}
+
+@media (min-width: 768px) {
+    .look-standard .article-title {
+        font-size: 6rem;
+        /* text-8xl */
+    }
+}
+
+.look-standard .block-image img {
+    filter: grayscale(100%);
+    transition: all 0.7s;
+}
+
+.look-standard .block-image img:hover {
+    filter: grayscale(0%);
+}

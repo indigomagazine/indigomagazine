@@ -26,12 +26,15 @@ export interface ArticleSummaryDTO {
   coverImage?: string;
 }
 
-// In Phase 1, we import the summary directly.
+// Phase 1, we import the summary directly.
+// alot easier for now. 
 // For Phase 2 (Automation), this will be fetched from a static asset or API.
+// if static asset --> box folder 
+// If api --> supabase 
 import articleSummaries from '../data/articles-summary.json';
 
 export async function getAllArticlePosts(): Promise<ArticleSummaryDTO[]> {
-  // Simulate network latency if desired, but for now just return the JSON
+  // Simulate network latency if desired, but for now just returns JSON
   return articleSummaries;
 }
 

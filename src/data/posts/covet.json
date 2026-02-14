@@ -6,7 +6,7 @@
     "category": "Editorial",
     "summary": "An exploration of shared light, stolen identity, and the weight of adornment.",
     "date": "2026-02-04",
-    "layout": "visual-heavy",
+    "layout": "editorial",
     "content": [
         {
             "type": "image",
@@ -16,21 +16,6 @@
         {
             "type": "text",
             "value": "Greeting in open arms. The same familiar smile between us. Your light and mine. Woven tightly as threads. No beginning no end. We exchanged secrets, glances. Like they were nothing. But meant everything. Mine feeling more a choker. Dread creeps out from the light."
-        },
-        {
-            "type": "image",
-            "url": "/assets/article photos/covet/cereal-2.jpg",
-            "alt": "Cereal spread"
-        },
-        {
-            "type": "image",
-            "url": "/assets/article photos/covet/12-beforeFlick.jpg",
-            "alt": "Two friends sharing a secret"
-        },
-        {
-            "type": "image",
-            "url": "/assets/article photos/covet/text2.png",
-            "alt": "Textual overlay"
         },
         {
             "type": "text",

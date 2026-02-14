@@ -1,0 +1,122 @@
+/* src/styles/articles/base-article.css */
+
+:root {
+  --article-max-width: 64rem; /* 1024px */
+  --content-max-width: 42rem; /* 672px */
+  --article-spacing-y: 5rem;
+  --article-accent: #6366f1; /* indigo-500 */
+}
+
+.article-container {
+  max-width: var(--article-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: var(--article-spacing-y);
+  padding-bottom: var(--article-spacing-y);
+}
+
+.article-header {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #e5e7eb; /* zinc-200 */
+  padding-bottom: 3rem;
+}
+
+.article-category {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #a1a1aa; /* zinc-400 */
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-family: serif;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.article-author {
+  font-family: serif;
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.article-date {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  color: #a1a1aa; /* zinc-400 */
+}
+
+/* Blocks */
+
+.block-text {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.block-text p {
+  font-family: serif;
+  font-size: 1.25rem;
+  line-height: 1.625;
+  color: #18181b; /* zinc-900 */
+}
+
+.block-image {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.block-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.block-image figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #71717a; /* zinc-500 */
+  font-style: italic;
+}
+
+.block-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .block-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gallery-item {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
