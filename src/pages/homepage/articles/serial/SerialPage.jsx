@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useRef, forwardRef } from "react";
 import { useState, useMemo } from "react";
+import { Link } from "@tanstack/react-router";
 import "./serial.css";
 import keyboardsImage from "../../../../assets/serial photos/group 3/nolan.png";
 import lifeInParadiseCover from "../../../../assets/serial photos/group9/group9cover.png";
@@ -39,7 +40,7 @@ const items = [
     description: "By: Sanhita Perkari",
     tags: ["INTERACTIVE"],
     // Replace with your local asset paths or URLs
-    image: "../../../../../legacy/article photos/stomachache/serialpicture.JPG",
+    image: "/legacy/article photos/stomachache/serialpicture.JPG",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/stomachache", // path to article
     coverPos: "center center",
@@ -51,7 +52,7 @@ const items = [
     description: "By: Karishma Pilla",
     tags: ["Western", "Serial Killer"],
     // Replace with your local asset paths or URLs
-    image: "../../legacy/article photos/western/teaser.jpg",
+    image: "/legacy/article photos/western/teaser.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/western", // path to article
     coverPos: "center center",
@@ -63,7 +64,7 @@ const items = [
     description: "By: Joanna Virippil",
     tags: ["Hate", "Friendship"],
     // Replace with your local asset paths or URLs
-    image: "../../legacy/article photos/covet/9-clothes-2.jpg",
+    image: "/legacy/article photos/covet/9-clothes-2.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/covet", // path to article
     coverPos: "center center",
@@ -101,7 +102,7 @@ const items = [
     tags: ["MATRIX", "NOVEMBER"],
     // Replace with your local asset paths or URLs
     image:
-      "../../legacy/article photos/anumberoutofplace/serial poster (text).png",
+      "/legacy/article photos/anumberoutofplace/serial poster (text).png",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/anumberoutofplace", // path to article
     coverPos: " left 25% top 10%",
@@ -114,7 +115,7 @@ const items = [
     description: "By: Zayeed A. ",
     tags: ["FASHION", "NOVEMBER"],
     // Replace with your local asset paths or URLs
-    image: "../../legacy/article photos/ILoveShopping/love is.jpg",
+    image: "/legacy/article photos/ILoveShopping/love is.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/iloveshopping", // path to article
     coverPos: " left 25% top 10%",
@@ -222,8 +223,8 @@ export default function Serial() {
       prevView === "scroll" && next === "grid"
         ? "slide-in-right"
         : prevView === "grid" && next === "scroll"
-        ? "slide-in-left"
-        : "";
+          ? "slide-in-left"
+          : "";
 
     setPrevView(next);
     setAnimClass(dir);
@@ -254,10 +255,10 @@ export default function Serial() {
       >
         <div className="serial-drawer__inner">
           <nav className="drawer-nav" aria-label="Section">
-            <a href="/legacy/index.html">Home</a>
-            <a href="/legacy/creative.html">Issues</a>
-            <a href="/legacy/about.html">About</a>
-            <a href="/legacy/visualarts.html">VisualArts</a>
+            <Link to="/">Home</Link>
+            <Link to="/issues">Issues</Link>
+            <Link to="/about">About</Link>
+            <Link to="/visual-arts">VisualArts</Link>
           </nav>
         </div>
       </aside>
