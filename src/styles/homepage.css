@@ -6,10 +6,10 @@
 /* Taskbar container styling */
 .nav-container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     position: fixed;
-    padding: 10px 20px;
+    padding: 5px 20px 0px 20px;
     background-color: rgba(32, 32, 32, 0);
     /* Extremely translucent */
     backdrop-filter: blur(2px);
@@ -65,7 +65,7 @@
 }
 
 .nav-icon {
-    height: 20px;
+    height: 26px;
     width: auto;
     display: block;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -74,8 +74,9 @@
 }
 
 .nav-links a:hover .nav-icon {
-    transform: scale(1.1);
-    filter: brightness(0) invert(1) drop-shadow(0 0 5px #e6e68ef9);
+    transform: scale(1.07);
+    color: #e6e68ef9;
+    filter: brightness(0) invert(1);
 }
 
 /* Light mode support for icons if needed, though header is usually specialized. 
@@ -85,12 +86,15 @@
 /* Mobile Navigation Adjustments */
 @media (max-width: 768px) {
     .nav-container {
-        padding: 10px 10px;
+        padding: 5px 10px 0px 10px;
     }
 
     .nav-logo {
-        height: 35px;
+        height: 30px;
         /* Smaller logo on mobile to save space */
+        position: absolute;
+        top: 10px;
+        left: 10px;
     }
 
     .nav-links {
@@ -98,10 +102,14 @@
         /* Smaller gap to prevent overflow */
         flex: 4;
         /* Even more space for centering */
+        justify-content: flex-end;
+        align-items: flex-end;
     }
 
+
+
     .nav-icon {
-        height: 20px;
+        height: 25px;
         /* Keep icons visible but not massive */
     }
 
@@ -277,9 +285,12 @@ body.light-mode .main-content {
     text-transform: uppercase;
     line-height: 0.9;
     text-align: center;
-    animation: slideUpFade 0.8s ease-out forwards;
     opacity: 0;
     /* Start hidden */
+}
+
+.quiz-promo-section.is-visible .quiz-main-title {
+    animation: slideUpFade 0.8s ease-out forwards;
     animation-delay: 0.2s;
 }
 
@@ -328,10 +339,13 @@ body.light-mode .quiz-main-title {
     margin: 0px 0 60px 0;
     /* <--- Change the FIRST number (5px) to bring it closer or further from text */
     transition: background-color 0.3s ease;
-    animation: scaleWidth 1s ease-out forwards;
     transform-origin: center;
     transform: scaleX(0);
     /* Start with width 0 */
+}
+
+.quiz-promo-section.is-visible .quiz-line-black {
+    animation: scaleWidth 1s ease-out forwards;
     animation-delay: 0.5s;
 }
 
@@ -358,9 +372,12 @@ body.light-mode .quiz-line-black {
     transition: transform 0.2s;
     max-width: 400px;
     width: 100%;
-    animation: slideUpFade 0.8s ease-out forwards;
     opacity: 0;
     /* Start hidden */
+}
+
+.quiz-promo-section.is-visible .quiz-take-button {
+    animation: slideUpFade 0.8s ease-out forwards;
     animation-delay: 0.8s;
 }
 

@@ -9,8 +9,7 @@ const SerialPromo = () => {
                 to="/serial"
                 className="serial-promo-button"
                 onClick={() => {
-                    import("../../analytics").then(({ initAnalytics, trackEvent }) => {
-                        initAnalytics(); // Ensure it's initialized
+                    import("../../analytics").then(({ trackEvent }) => {
                         trackEvent("Serial", "Click", "Quiz Promo Button");
                     });
                 }}

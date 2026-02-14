@@ -12,14 +12,14 @@ const router = createRouter({ routeTree });
 const rootElement = document.getElementById("root");
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
+  // Initialize Analytics
+  import("./analytics").then(({ initAnalytics }) => {
+    initAnalytics();
+  });
+
   root.render(
     <StrictMode>
       <RouterProvider router={router} />
     </StrictMode>
   );
-
-  // Initialize Analytics
-  import("./analytics").then(({ initAnalytics }) => {
-    initAnalytics();
-  });
 }
