@@ -1,0 +1,182 @@
+/* Font styles - assuming these inherit from body, but we can enforce if needed */
+
+.quiz-wrapper {
+    background-color: #F4D5FF;
+    min-height: 100vh;
+    width: 100%;
+    padding: 60px 0 20px 0;
+    /* Increased top padding to account for fixed progress bar */
+    font-family: sans-serif;
+}
+
+.quiz-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Translucent background */
+    z-index: 1000;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background-color: #845eb8;
+    /* Match header color */
+    transition: width 0.5s ease-out;
+}
+
+.quiz-content {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 180px;
+    /* Much wider spacing between each question card */
+    padding-bottom: 200px;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.quiz-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    background: #845eb8;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    font-family: sans-serif;
+}
+
+.quiz-header p {
+    font-size: 1.25rem;
+    color: #1b0836;
+    font-weight: 500;
+}
+
+.quiz-container {
+    width: 100%;
+    scroll-margin-top: 50px;
+    padding: 40px 0;
+    /* Vertical padding for each question block */
+}
+
+/* Question Card Styles */
+.question-card {
+    background-color: #ECA9FF;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question-text {
+    color: #C91C1D;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Options Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    /* <--- Control the spacing between answer buttons here */
+    width: 100%;
+}
+
+
+.option-button {
+    background-color: #FAE6FC;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 15px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, border 0.2s;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.option-button:hover {
+    transform: translateY(-2px);
+    background-color: #f0cfff;
+}
+
+.option-button.selected {
+    border: 2px solid #C91C1D;
+    background-color: #e5b3ff;
+}
+
+.option-button:active {
+    transform: translateY(0);
+}
+
+/* Result Styles */
+.result-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    border: 4px solid #ECA9FF;
+    margin-top: 40px;
+}
+
+.result-title {
+    color: #C91C1D;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.result-description {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .quiz-content {
+        max-width: 90%;
+        /* Prevent card from filling the full width on phones */
+        gap: 80px;
+        /* Reduce gap on mobile for better visibility */
+    }
+
+    .question-card {
+        padding: 20px 15px;
+        /* Smaller padding on mobile */
+    }
+
+    .question-text {
+        font-size: 20px;
+        /* Slightly smaller text */
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+        /* Stack options for easier tapping on mobile */
+        gap: 15px;
+    }
+
+    .quiz-header h1 {
+        font-size: 2.2rem;
+    }
+}

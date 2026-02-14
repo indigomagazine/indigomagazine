@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SerialRouteImport } from './routes/serial'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesSerialYoucantwisttimeRouteImport } from './routes/articles/serial/youcantwisttime'
 import { Route as ArticlesSerialWesternRouteImport } from './routes/articles/serial/western'
@@ -24,6 +25,11 @@ import { Route as ArticlesSerialAnumberoutofplaceRouteImport } from './routes/ar
 const SerialRoute = SerialRouteImport.update({
   id: '/serial',
   path: '/serial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -84,6 +90,7 @@ const ArticlesSerialAnumberoutofplaceRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
@@ -111,6 +119,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/quiz'
     | '/serial'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/quiz'
     | '/serial'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/quiz'
     | '/serial'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
@@ -166,6 +178,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  QuizRoute: typeof QuizRoute
   SerialRoute: typeof SerialRoute
   ArticlesSerialAnumberoutofplaceRoute: typeof ArticlesSerialAnumberoutofplaceRoute
   ArticlesSerialCovetRoute: typeof ArticlesSerialCovetRoute
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       path: '/serial'
       fullPath: '/serial'
       preLoaderRoute: typeof SerialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -262,6 +282,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  QuizRoute: QuizRoute,
   SerialRoute: SerialRoute,
   ArticlesSerialAnumberoutofplaceRoute: ArticlesSerialAnumberoutofplaceRoute,
   ArticlesSerialCovetRoute: ArticlesSerialCovetRoute,
