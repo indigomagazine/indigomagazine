@@ -249,4 +249,4 @@ function RouteComponent() {
   );
 }
 
-export default RouteComponent;
+// No default export needed
