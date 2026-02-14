@@ -1,5 +1,7 @@
-
 import { Link } from "@tanstack/react-router";
+import issuesSrc from "../../assets/logos/Issues.svg";
+import visualArtsSrc from "../../assets/logos/Visual-Arts.svg";
+import aboutSrc from "../../assets/logos/About.svg";
 
 const Taskbar = () => {
     return (
@@ -12,9 +14,15 @@ const Taskbar = () => {
                 />
             </Link>
             <div className="nav-links">
-                <Link to="/issues" className="link-bar hvr-fade CREATIVE"><p className="tabfont">ISSUES</p></Link>
-                <Link to="/visual-arts" className="link-bar hvr-fade VISUALARTS"><p className="tabfont">VISUAL ARTS</p></Link>
-                <Link to="/about" className="link-bar hvr-fade ABOUT"><p className="tabfont">ABOUT</p></Link>
+                <Link to="/issues" className="link-bar hvr-fade CREATIVE">
+                    <img src={issuesSrc} alt="ISSUES" className="nav-icon" />
+                </Link>
+                <Link to="/visual-arts" className="link-bar hvr-fade VISUALARTS">
+                    <img src={visualArtsSrc} alt="VISUAL ARTS" className="nav-icon" />
+                </Link>
+                <Link to="/about" className="link-bar hvr-fade ABOUT">
+                    <img src={aboutSrc} alt="ABOUT" className="nav-icon" />
+                </Link>
             </div>
             <div className="nav-spacer"></div>
         </nav>

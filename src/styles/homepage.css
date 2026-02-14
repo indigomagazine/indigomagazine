@@ -64,6 +64,24 @@
     color: #e6e68ef9;
 }
 
+.nav-icon {
+    height: 20px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0) invert(1);
+    /* Default white */
+}
+
+.nav-links a:hover .nav-icon {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px #e6e68ef9);
+}
+
+/* Light mode support for icons if needed, though header is usually specialized. 
+   Assuming white text/icons on glass background. */
+
+
 /* Mobile Navigation Adjustments */
 @media (max-width: 768px) {
     .nav-container {
