@@ -1,7 +1,6 @@
 .home-container {
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* Taskbar container styling */
@@ -62,7 +61,7 @@
 }
 
 .nav-links a:hover {
-    color: #170B3B;
+    color: #e6e68ef9;
 }
 
 /* Mobile Navigation Adjustments */
@@ -91,11 +90,20 @@
 
 
 /* Hero section */
-.home-hero {
+.hero-scroll-track {
+    height: 170vh;
+    /* Reduced buffer for snappier feel */
     position: relative;
+    /* Container for the sticky item */
+}
+
+.home-hero {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    z-index: 0;
 }
 
 .home-hero video {
@@ -120,17 +128,79 @@
     pointer-events: none;
 }
 
+.hero-title-svg {
+    position: absolute;
+    top: 48%;
+    /* Moved up slightly for mobile (was 50%) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    /* Above overlay */
+    width: 95%;
+    /* Bigger for mobile (was 90%) */
+    max-width: 1000px;
+    /* Increased max-width for large desktops */
+    height: auto;
+    pointer-events: none;
+    /* Let clicks pass through if needed, though usually fine on title */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    /* Slight shadow for better contrast */
+    animation: fadeIn 1.5s ease-out;
+}
+
+@media (min-width: 768px) {
+    .hero-title-svg {
+        width: 85%;
+        /* Slightly smaller scale on tablets */
+        top: 50%;
+        /* Reset to center for larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title-svg {
+        width: 75%;
+        /* Refined scale for desktops */
+    }
+}
+
 .theme-toggle {
     position: fixed;
     bottom: 20px;
     left: 20px;
     z-index: 1001;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
     border: none;
-    padding: 10px;
+    padding: 0;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
+    font-size: 2rem;
+    color: #845eb8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: #a881e6;
+}
+
+/* Main Content "Curtain" */
+.main-content {
+    position: relative;
+    z-index: 10;
+    background-color: #400707;
+    /* Default Dark Mode Background */
+    width: 100%;
+    /* Ensure it has a background to cover the sticky hero */
+    /* box-shadow: 0px 10px 40px #ffffd6de; */
+    /* Upward shadow for depth */
+    margin-top: -50px;
+    /* Overlap slightly even without radius for the shadow to pop */
+    padding-top: 50px;
+}
+
+body.light-mode .main-content {
+    background-color: #f0cfff;
+    /* Matching light mode background from style.css */
 }
 
 /* Quiz Section (Replacing Featured Article) */
@@ -156,8 +226,42 @@
     font-weight: bold;
     text-transform: uppercase;
     line-height: 0.9;
-    /* <--- Control how close the words are here (lower = closer) */
     text-align: center;
+    animation: slideUpFade 0.8s ease-out forwards;
+    opacity: 0;
+    /* Start hidden */
+    animation-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+    .quiz-main-title {
+        font-size: 2rem;
+        /* Smaller font for mobile */
+        letter-spacing: 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .quiz-main-title br {
+        display: none;
+        /* Hide the desktop br */
+    }
+
+    .quiz-take-button {
+        padding: 15px 30px;
+        /* Smaller padding */
+        font-size: 1.2rem;
+        /* Smaller text (was ~1.5rem/24px) */
+        max-width: 80%;
+        /* Adjusted width */
+        width: 100%;
+        border-radius: 10px;
+        /* Pill shape for mobile */
+        margin-top: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        /* distinct shadow for button */
+    }
 }
 
 /* --- Control the BLACK line here --- */
@@ -170,6 +274,11 @@
     margin: 0px 0 60px 0;
     /* <--- Change the FIRST number (5px) to bring it closer or further from text */
     transition: background-color 0.3s ease;
+    animation: scaleWidth 1s ease-out forwards;
+    transform-origin: center;
+    transform: scaleX(0);
+    /* Start with width 0 */
+    animation-delay: 0.5s;
 }
 
 body.light-mode .quiz-line-black {
@@ -183,6 +292,7 @@ body.light-mode .quiz-line-black {
     padding: 30px 40px;
     border: none;
     text-align: center;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: #C91C1D;
     font-family: sans-serif;
@@ -194,6 +304,10 @@ body.light-mode .quiz-line-black {
     transition: transform 0.2s;
     max-width: 400px;
     width: 100%;
+    animation: slideUpFade 0.8s ease-out forwards;
+    opacity: 0;
+    /* Start hidden */
+    animation-delay: 0.8s;
 }
 
 .quiz-take-button:hover {
@@ -245,4 +359,27 @@ body.light-mode .quiz-line-black {
 .home-socials a:hover img {
     filter: grayscale(0%);
     transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleWidth {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
 }

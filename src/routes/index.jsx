@@ -33,11 +33,11 @@ function RouteComponent() {
         {theme === "dark" ? "☼" : "☾"}
       </button>
 
-      <main>
+      <main className="main-content">
         {/* Quiz Promo Section - Replacing Featured Article */}
         <section className="quiz-promo-section">
           <h2 className="quiz-main-title">
-            What kind of Valentine <br /> are you?
+            <span>What kind of Valentine</span> <br className="desktop-only" /> <span>are you?</span>
           </h2>
           <div className="quiz-line-black"></div>
 

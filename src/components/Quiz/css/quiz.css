@@ -114,6 +114,14 @@
     text-align: center;
 }
 
+/* Center the last item if it's the only one in the row (odd count) */
+.options-grid> :last-child:nth-child(odd) {
+    grid-column: span 2;
+    justify-self: center;
+    width: calc(50% - 12.5px);
+    /* 50% width minus half the gap (25px/2) to match others */
+}
+
 .option-button:hover {
     transform: translateY(-2px);
     background-color: #f0cfff;
@@ -172,8 +180,8 @@
     }
 
     .options-grid {
-        grid-template-columns: 1fr;
-        /* Stack options for easier tapping on mobile */
+        grid-template-columns: 1fr 1fr;
+        /* Keep 2 columns on mobile (horizontal) */
         gap: 15px;
     }
 
