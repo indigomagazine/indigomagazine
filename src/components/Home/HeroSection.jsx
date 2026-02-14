@@ -7,8 +7,11 @@ import duo3 from "../../assets/logos/duo3.JPG";
 import group2 from "../../assets/logos/group2.JPG";
 import group3 from "../../assets/logos/Group3.JPG";
 import mirror from "../../assets/logos/mirror.JPG";
+import rare from "../../assets/logos/rare.png";
+import rare2 from "../../assets/logos/rare2.png";
 
-const HERO_IMAGES = [bunny2, duo3, group2, group3, mirror];
+
+const HERO_IMAGES = [bunny2, duo3, group2, group3, mirror, rare, rare2];
 
 const HeroSection = () => {
     const [heroImage, setHeroImage] = useState(null);
