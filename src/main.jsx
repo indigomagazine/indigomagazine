@@ -17,4 +17,9 @@ if (!rootElement.innerHTML) {
       <RouterProvider router={router} />
     </StrictMode>
   );
+
+  // Initialize Analytics
+  import("./analytics").then(({ initAnalytics }) => {
+    initAnalytics();
+  });
 }

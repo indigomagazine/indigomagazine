@@ -43,7 +43,13 @@ function RouteComponent() {
 
           <button
             className="quiz-take-button"
-            onClick={() => navigate({ to: "/quiz" })}
+            onClick={() => {
+              import("../analytics").then(({ initAnalytics, trackEvent }) => {
+                initAnalytics(); // Ensure it's initialized
+                trackEvent("Quiz", "Start", "Homepage Button");
+              });
+              navigate({ to: "/quiz" });
+            }}
           >
             TAKE THE QUIZ!
           </button>
