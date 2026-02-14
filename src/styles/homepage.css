@@ -11,9 +11,8 @@
     position: fixed;
     padding: 5px 20px 0px 20px;
     background-color: rgba(32, 32, 32, 0);
-    /* Extremely translucent */
+
     backdrop-filter: blur(2px);
-    /* Added blur for a premium glass feel */
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -25,21 +24,20 @@
 
 .nav-logo-link {
     flex: 1;
-    /* Occupies left space */
+
 }
 
 .nav-links {
     display: flex;
     gap: 80px;
-    /* <--- Control horizontal gap between links here */
     flex: 2;
-    /* Occupies middle space */
+
     justify-content: center;
 }
 
 .nav-spacer {
     flex: 1;
-    /* Occupies right space for symmetry */
+
 }
 
 .nav-logo {
@@ -57,7 +55,7 @@
     transition: color 0.3s ease;
     font-weight: bold;
     white-space: nowrap;
-    /* Keep "VISUAL ARTS" on one line */
+
 }
 
 .nav-links a:hover {
@@ -90,32 +88,29 @@
     }
 
     .nav-logo {
-        height: 30px;
-        /* Smaller logo on mobile to save space */
+        height: 25px;
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 12px;
+        left: 15px;
     }
 
     .nav-links {
-        gap: 15px;
-        /* Smaller gap to prevent overflow */
-        flex: 4;
-        /* Even more space for centering */
-        justify-content: flex-end;
-        align-items: flex-end;
+        gap: 12px;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        margin-right: -20px;
+        /* Offset to counter absolute logo visually if needed, but centering should be primary */
     }
 
 
 
     .nav-icon {
-        height: 25px;
-        /* Keep icons visible but not massive */
+        height: 14px;
     }
 
     .nav-links a {
-        font-size: 1.1em;
-        /* Increased size for better visibility */
+        font-size: 1.0em;
     }
 }
 
@@ -123,9 +118,7 @@
 /* Hero section */
 .hero-scroll-track {
     height: 170vh;
-    /* Reduced buffer for snappier feel */
     position: relative;
-    /* Container for the sticky item */
 }
 
 .home-hero {
@@ -196,22 +189,21 @@
     0% {
         opacity: 0;
         transform: translate(-50%, -40%);
-        /* Start slightly lower */
+
     }
 
     100% {
         opacity: 1;
         transform: translate(-50%, -50%);
-        /* End at true center */
+
     }
 }
 
 @media (min-width: 768px) {
     .hero-title-svg {
         width: 85%;
-        /* Slightly smaller scale on tablets */
         top: 50%;
-        /* Reset to center for larger screens */
+
     }
 }
 
