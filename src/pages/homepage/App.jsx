@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import heroVideo from "../../assets/hero videos/NOTgroup2vid.mp4";
 import heroFallback from "../../assets/hero videos/fallback.jpg";
 import logoDark from "../../assets/logos/indigologowhite.png";
@@ -24,9 +25,9 @@ import gmailIcon from "../../assets/socials/gmail.webp";
 import "./LegacyStyle.css";
 
 const NAV_LINKS = [
-  { label: "CREATIVE", href: "creative.html", className: "CREATIVE" },
-  { label: "VISUAL ARTS", href: "visualarts.html", className: "VISUALARTS" },
-  { label: "ABOUT", href: "about.html", className: "ABOUT" },
+  { label: "CREATIVE", href: "/issues", className: "CREATIVE" },
+  { label: "VISUAL ARTS", href: "/visual-arts", className: "VISUALARTS" },
+  { label: "ABOUT", href: "/about", className: "ABOUT" },
 ];
 
 const FEATURED_ARTICLE = {
@@ -181,21 +182,21 @@ function App() {
   return (
     <div>
       <div id="Taskbar-container" className="visible">
-        <a href="index.html" className="logo-link">
+        <Link to="/" className="logo-link">
           <img
             src={theme === "light" ? logoLight : logoDark}
             alt="Website Logo"
             className="logo"
           />
-        </a>
+        </Link>
         {NAV_LINKS.map((link) => (
-          <a
+          <Link
             key={link.label}
-            href={link.href}
+            to={link.href}
             className={`link-bar hvr-fade ${link.className}`}
           >
             <p className="tabfont taskbar-text">{link.label}</p>
-          </a>
+          </Link>
         ))}
       </div>
 

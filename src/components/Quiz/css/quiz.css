@@ -52,11 +52,12 @@
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
     line-height: 1.1;
-    font-family: sans-serif;
+    font-family: "Garamond, serif";
 }
 
 .quiz-header p {
     font-size: 1.25rem;
+    font-family: "Garamond, serif";
     color: #1b0836;
     font-weight: 500;
 }
@@ -179,4 +180,72 @@
     .quiz-header h1 {
         font-size: 2.2rem;
     }
+}
+
+/* Progress Bar */
+.quiz-progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    /* Slim bar at the top */
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1002;
+    /* Above everything */
+}
+
+.quiz-progress-bar-fill {
+    height: 100%;
+    background-color: #ECA9FF;
+    /* Matching quiz theme color */
+    width: 0%;
+    transition: width 0.3s ease-out;
+    box-shadow: 0 0 10px rgba(236, 169, 255, 0.5);
+}
+
+/* Serial Promo Section */
+.serial-promo-container {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #4d0404;
+    /* Dark background */
+    color: #ECA9FF;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.serial-promo-title {
+    font-family: "Garamond", serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #ECA9FF;
+    /* Matching accent color */
+    margin: 0;
+    text-shadow: 0 0 10px rgba(236, 169, 255, 0.3);
+}
+
+.serial-promo-button {
+    background-color: transparent;
+    border: 2px solid #ECA9FF;
+    color: #ECA9FF;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+}
+
+.serial-promo-button:hover {
+    background-color: #d48be8da;
+    color: rgb(255, 250, 156);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
 }

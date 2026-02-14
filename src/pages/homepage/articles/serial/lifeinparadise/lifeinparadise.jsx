@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./lifeinparadise.module.css";
-import "../../../../../../legacy/css/style.css";
+import "../../../../../styles/style.css";
 import cover from "../../../../../assets/serial photos/group9/cover.png";
 import page1 from "../../../../../assets/serial photos/group9/page 1.png";
 import page2 from "../../../../../assets/serial photos/group9/page 2.png";

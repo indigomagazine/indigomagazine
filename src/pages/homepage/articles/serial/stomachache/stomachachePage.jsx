@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import "./stomachache.css";
 
-import background from "../../../../../../legacy/article photos/stomachache/background.jpg";
-import firstsection from "../../../../../../legacy/article photos/stomachache/firstsection.jpg";
-import secondsection from "../../../../../../legacy/article photos/stomachache/secondsection.jpg";
-import image1 from "../../../../../../legacy/article photos/stomachache/image1.JPG";
-import image2 from "../../../../../../legacy/article photos/stomachache/image2.JPG";
-import image3 from "../../../../../../legacy/article photos/stomachache/image3.JPG";
-import image4 from "../../../../../../legacy/article photos/stomachache/image4.JPG";
-import image5 from "../../../../../../legacy/article photos/stomachache/image5.JPG";
-import image6 from "../../../../../../legacy/article photos/stomachache/image6.JPG";
+const background = "/legacy/article photos/stomachache/background.jpg";
+const firstsection = "/legacy/article photos/stomachache/firstsection.jpg";
+const secondsection = "/legacy/article photos/stomachache/secondsection.jpg";
+const image1 = "/legacy/article photos/stomachache/image1.JPG";
+const image2 = "/legacy/article photos/stomachache/image2.JPG";
+const image3 = "/legacy/article photos/stomachache/image3.JPG";
+const image4 = "/legacy/article photos/stomachache/image4.JPG";
+const image5 = "/legacy/article photos/stomachache/image5.JPG";
+const image6 = "/legacy/article photos/stomachache/image6.JPG";
 
 
 export default function StomachachePage() {

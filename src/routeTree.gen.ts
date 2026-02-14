@@ -9,8 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisualArtsRouteImport } from './routes/visual-arts'
 import { Route as SerialRouteImport } from './routes/serial'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as IssuesRouteImport } from './routes/issues'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesSerialYoucantwisttimeRouteImport } from './routes/articles/serial/youcantwisttime'
 import { Route as ArticlesSerialWesternRouteImport } from './routes/articles/serial/western'
@@ -22,6 +25,11 @@ import { Route as ArticlesSerialIloveshoppingRouteImport } from './routes/articl
 import { Route as ArticlesSerialCovetRouteImport } from './routes/articles/serial/covet'
 import { Route as ArticlesSerialAnumberoutofplaceRouteImport } from './routes/articles/serial/anumberoutofplace'
 
+const VisualArtsRoute = VisualArtsRouteImport.update({
+  id: '/visual-arts',
+  path: '/visual-arts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SerialRoute = SerialRouteImport.update({
   id: '/serial',
   path: '/serial',
@@ -30,6 +38,16 @@ const SerialRoute = SerialRouteImport.update({
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssuesRoute = IssuesRouteImport.update({
+  id: '/issues',
+  path: '/issues',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -90,8 +108,11 @@ const ArticlesSerialAnumberoutofplaceRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/issues': typeof IssuesRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
+  '/visual-arts': typeof VisualArtsRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -104,8 +125,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/issues': typeof IssuesRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
+  '/visual-arts': typeof VisualArtsRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -119,8 +143,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/issues': typeof IssuesRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
+  '/visual-arts': typeof VisualArtsRoute
   '/articles/serial/anumberoutofplace': typeof ArticlesSerialAnumberoutofplaceRoute
   '/articles/serial/covet': typeof ArticlesSerialCovetRoute
   '/articles/serial/iloveshopping': typeof ArticlesSerialIloveshoppingRoute
@@ -135,8 +162,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/issues'
     | '/quiz'
     | '/serial'
+    | '/visual-arts'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -149,8 +179,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/issues'
     | '/quiz'
     | '/serial'
+    | '/visual-arts'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -163,8 +196,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/issues'
     | '/quiz'
     | '/serial'
+    | '/visual-arts'
     | '/articles/serial/anumberoutofplace'
     | '/articles/serial/covet'
     | '/articles/serial/iloveshopping'
@@ -178,8 +214,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  IssuesRoute: typeof IssuesRoute
   QuizRoute: typeof QuizRoute
   SerialRoute: typeof SerialRoute
+  VisualArtsRoute: typeof VisualArtsRoute
   ArticlesSerialAnumberoutofplaceRoute: typeof ArticlesSerialAnumberoutofplaceRoute
   ArticlesSerialCovetRoute: typeof ArticlesSerialCovetRoute
   ArticlesSerialIloveshoppingRoute: typeof ArticlesSerialIloveshoppingRoute
@@ -193,6 +232,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/visual-arts': {
+      id: '/visual-arts'
+      path: '/visual-arts'
+      fullPath: '/visual-arts'
+      preLoaderRoute: typeof VisualArtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/serial': {
       id: '/serial'
       path: '/serial'
@@ -205,6 +251,20 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/quiz'
       preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/issues': {
+      id: '/issues'
+      path: '/issues'
+      fullPath: '/issues'
+      preLoaderRoute: typeof IssuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -282,8 +342,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  IssuesRoute: IssuesRoute,
   QuizRoute: QuizRoute,
   SerialRoute: SerialRoute,
+  VisualArtsRoute: VisualArtsRoute,
   ArticlesSerialAnumberoutofplaceRoute: ArticlesSerialAnumberoutofplaceRoute,
   ArticlesSerialCovetRoute: ArticlesSerialCovetRoute,
   ArticlesSerialIloveshoppingRoute: ArticlesSerialIloveshoppingRoute,

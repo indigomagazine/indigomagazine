@@ -82,6 +82,12 @@ const QuizContainer = () => {
 
     return (
         <div className="quiz-wrapper">
+            <div className="quiz-progress-bar-container">
+                <div
+                    className="quiz-progress-bar-fill"
+                    style={{ width: `${(Object.keys(userAnswers).length / quizData.questions.length) * 100}%` }}
+                ></div>
+            </div>
             <div className="quiz-content">
                 {quizData.questions.map((question, index) => (
                     <div

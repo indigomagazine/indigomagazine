@@ -4,14 +4,14 @@ const ResultCard = ({ result, onRetry }) => {
 
     return (
         <div className="result-card animate-fade-in-up">
-            <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>💖</div>
-            <h2 style={{ color: '#888', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '1.2rem', marginBottom: '1rem' }}>
+
+            <h2 style={{ color: '#888', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '1.2rem', marginBottom: '1rem', fontFamily: "Garamond, serif" }}>
                 You are...
             </h2>
-            <h1 className="result-title">
-                {result.title}
+            <h1 className="result-title" style={{ fontFamily: "Garamond, serif" }}>
+                {result.title}:
             </h1>
-            <p className="result-description">
+            <p className="result-description" style={{ fontFamily: "Garamond, serif" }}>
                 {result.description}
             </p>
 
