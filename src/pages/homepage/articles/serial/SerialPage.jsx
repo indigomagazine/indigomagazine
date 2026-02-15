@@ -17,7 +17,7 @@ const items = [
     description: "By: Kerstin T. & Manjiri C.",
     tags: ["INTERACTIVE", "VISUAL", "MAGAZINE"],
     image: lifeInParadiseCover,
-    to: "/articles/serial/lifeinparadise",
+    to: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/group9cover.png",
     coverPos: "center center",
   },
 
@@ -40,7 +40,7 @@ const items = [
     description: "By: Sanhita Perkari",
     tags: ["INTERACTIVE"],
     // Replace with your local asset paths or URLs
-    image: "/legacy/article photos/stomachache/serialpicture.JPG",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/serialpicture.JPG",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/stomachache", // path to article
     coverPos: "center center",
@@ -52,7 +52,7 @@ const items = [
     description: "By: Karishma Pilla",
     tags: ["Western", "Serial Killer"],
     // Replace with your local asset paths or URLs
-    image: "/legacy/article photos/western/teaser.jpg",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/teaser.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/western", // path to article
     coverPos: "center center",
@@ -64,7 +64,7 @@ const items = [
     description: "By: Joanna Virippil",
     tags: ["Hate", "Friendship"],
     // Replace with your local asset paths or URLs
-    image: "/legacy/article photos/covet/9-clothes-2.jpg",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/9-clothes-2.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/covet", // path to article
     coverPos: "center center",
@@ -76,7 +76,7 @@ const items = [
     description: "By: Jiya Gupta",
     tags: ["SCROLLABLE", "NOVEMBER"],
     // Replace with your local asset paths or URLs
-    image: "../../legacy/serial photos/final.png",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/you%20can%20twist%20time/final.png",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/youcantwisttime", // path to article
     coverPos: "center center",
@@ -91,7 +91,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: keyboardsImage,
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/keyboards", // path to article
+    to: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/anotha%20one.png", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
@@ -102,7 +102,7 @@ const items = [
     tags: ["MATRIX", "NOVEMBER"],
     // Replace with your local asset paths or URLs
     image:
-      "/legacy/article photos/anumberoutofplace/serial poster (text).png",
+      "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/anumberoutofplace", // path to article
     coverPos: " left 25% top 10%",
@@ -115,7 +115,7 @@ const items = [
     description: "By: Zayeed A. ",
     tags: ["FASHION", "NOVEMBER"],
     // Replace with your local asset paths or URLs
-    image: "/legacy/article photos/ILoveShopping/love is.jpg",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7684.jpg",
     // Optional: imageGird for grid view (else uses `image`)
     to: "/articles/serial/iloveshopping", // path to article
     coverPos: " left 25% top 10%",
