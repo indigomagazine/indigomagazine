@@ -16,8 +16,8 @@ const items = [
     title: "Life in Paradise",
     description: "By: Kerstin T. & Manjiri C.",
     tags: ["INTERACTIVE", "VISUAL", "MAGAZINE"],
-    image: lifeInParadiseCover,
-    to: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/group9cover.png",
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/group9cover.png",
+    to: "/articles/serial/lifeinparadise",
     coverPos: "center center",
   },
 
