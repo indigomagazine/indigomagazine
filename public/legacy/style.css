@@ -577,55 +577,6 @@ video::-webkit-media-controls {
   overflow: hidden; /* Ensures images stay within the page view */
 }
 
-.floating-photo-wrapper {
-  position: absolute;
-  animation: float 12s infinite ease-in-out; /* Updated floating animation */
-  z-index: 1;
-  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transitions */
-}
-
-/* Style for floating photos */
-.floating-photo {
-  width: 150px;
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform, filter, box-shadow;
-  border-radius: 50%; 
-}
-
-.floating-photo:hover {
-  transform: scale(1.4) rotate(12deg); 
-  filter: brightness(1.6) contrast(1.2); 
-  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5); 
-  border: 4px solid rgba(255, 255, 255, 0.9); 
-  cursor: pointer; 
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-              filter 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-              box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1); 
-}
-
-
-/* Smoother keyframes for floating animation */
-@keyframes float {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(10px, -15px) rotate(-2deg);
-  }
-  50% {
-    transform: translate(-15px, 10px) rotate(1deg);
-  }
-  75% {
-    transform: translate(15px, 5px) rotate(-1deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
 
 /* dark/light mode*/
 .change-mode {

@@ -11,14 +11,14 @@ const spreads = [
     title: "Covet",
     created: "Writen by - ",
     writer: "Joanna Virippil",
-    imageSrc: "/legacy/article photos/covet/cereal-1.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/cereal-1.jpg",
 
     accentColor: "#ff7ecf",
   },
   {
     id: "page-1",
     layout: "image-left-text-right",
-    imageSrc: "/legacy/article photos/covet/cereal-2.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/cereal-2.jpg",
     rightTextLines: [
       "Greeting in open arms",
       "The same familiar smile between us",
@@ -31,7 +31,7 @@ const spreads = [
   {
     id: "page-2",
     layout: "image-left-text-right",
-    imageSrc: "/legacy/article photos/covet/12-beforeFlick.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/12-beforeFlick.jpg",
     imageAlt: "Two friends sharing a secret",
     rightTextLines: [
       "We exchanged secrets, glances",
@@ -43,12 +43,12 @@ const spreads = [
   {
     id: "page-1-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/text2.png"
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/text2.png"
   },
   {
     id: "page-2",
     layout: "image-left-text-right",
-    imageSrc: "/legacy/article photos/covet/12-beforeFlick.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/12-beforeFlick.jpg",
     imageAlt: "Two friends sharing a secret",
     rightTextLines: [
       "Mine feeling more a choker.",
@@ -59,7 +59,7 @@ const spreads = [
   {
     id: "page-3",
     layout: "text-left-image-right",
-    imageSrc: "/legacy/article photos/covet/11-flick.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/11-flick.jpg",
     imageAlt: "Jewelry flick caught in motion",
     leftTextLines: [
       "Idiosyncrasy that was left unnoticed",
@@ -74,7 +74,7 @@ const spreads = [
   {
     id: "page-4",
     layout: "image-left-text-right",
-    imageSrc: "/legacy/article photos/covet/8-final.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/8-final.jpg",
     imageAlt: "Coat and shoes swapped between friends",
     rightTextLines: [
       "You point out my necklace,",
@@ -89,7 +89,7 @@ const spreads = [
   {
     id: "page-1-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/text.png"
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/text.png"
   },
   {
     id: "page-6",
@@ -104,7 +104,7 @@ const spreads = [
   {
     id: "page-5",
     layout: "text-left-image-right",
-    imageSrc: "/legacy/article photos/covet/6-hair.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/6-hair.jpg",
     imageAlt: "Jewelry being adjusted in hair",
     leftTextLines: [
       "I drape your shawl across my shoulders",
@@ -129,12 +129,12 @@ const spreads = [
   {
     id: "page-2-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/5-final.jpg"
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/5-final.jpg"
   },
   {
     id: "page-7",
     layout: "text-only-r",
-    imageSrc: "/legacy/article photos/covet/3-punch.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/3-punch.jpg",
     imageAlt: "Punch frozen between two adorned figures",
     leftTextLines: [
       "Gilded strangers in borrowed skins",
@@ -150,16 +150,16 @@ const spreads = [
   }, {
     id: "page-3-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/3-punch.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/3-punch.jpg",
   },
   {
     id: "page-4-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/4-punch.jpg",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/4-punch.jpg",
   }, {
     id: "page-5-images",
     layout: "image-only",
-    imageSrc: "/legacy/article photos/covet/DILC.png",
+    imageSrc: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/DILC.png",
   },
 
 

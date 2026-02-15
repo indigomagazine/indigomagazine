@@ -137,7 +137,7 @@ function RouteComponent() {
       >
         {/* Plate */}
         <img
-          src="https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/group1bg.png?raw=true"
+          src="https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/group1bg.png?raw=true" loading="lazy"
           alt="White plate"
           style={{
             width: "100%",
