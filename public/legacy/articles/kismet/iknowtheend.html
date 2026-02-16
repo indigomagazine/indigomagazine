@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigo Magazine - I Know (The End)</title>
+
+    <!-- google font -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/logos/indigologowhite.png">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Quintessential", serif;
+            font-weight: 300;
+            background: linear-gradient(to bottom, black, rgb(67, 0, 96), black);
+            color: white;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        /* sparkles background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .header-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 60%; /* Reduce size of the first image */
+            border: 5px solid rgba(255, 255, 255, 0.8); /* Add a white border */
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .content {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .paragraph {
+            font-size: 1.8rem;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Centering the fifth image */
+        .section:nth-of-type(4) img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            animation: glow 3s infinite alternate;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .section img {
+                flex: 1;
+            }
+
+            .paragraph {
+                flex: 2;
+                padding: 0 20px;
+            }
+
+            /* Maintain centering for the fifth image on wider screens */
+            .section:nth-of-type(4) {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* glow animation */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">I Know (The End)</div>
+
+    <div class="content">
+        <div class="section">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/i%20know%20the%20end/KISMET_G3_10.jpg" loading="lazy" alt="image1">
+            <div class="paragraph">
+                <p>I had a dream– an epiphanic vision!<br>
+                Of the day the world ends:<br>
+                Time stood still, the air heavy,<br>
+                and the Heavens fell to my feet.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/i%20know%20the%20end/KISMET_G3_11.jpg" loading="lazy" alt="image2">
+            <div class="paragraph">
+                <p>I could see the future so<br>
+                they cut out my tongue,<br>
+                Put crosses above windows and<br>
+                salt in doorways to keep me out.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/i%20know%20the%20end/KISMET_G3_6.jpg" loading="lazy" alt="image3">
+            <div class="paragraph">
+                <p>I know I had a hand in<br>
+                the fall of Rome,<br>
+                the flight of Icarus,<br>
+                the fate of Medusa.<br>
+                I tried to call out but<br>
+                they said I had crossed the line.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/i%20know%20the%20end/KISMET_G3_2.jpg" loading="lazy" alt="image4">
+        </div>
+
+        <div class="section">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/i%20know%20the%20end/KISMET_G3_9.jpg" loading="lazy" alt="image5">
+            <div class="paragraph">
+                <p>I know (the end)<br>
+                but they dismiss my warnings.<br>
+                So I instead sit in solemn silence–<br>
+                unburdened and unbothered.<br>
+                They hurtle to the edge and<br>
+                I now gladly watch them fall.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

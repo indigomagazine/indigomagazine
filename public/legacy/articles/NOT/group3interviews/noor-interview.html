@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../../assets/logos/indigologowhite.png">
+    <title>Indigo Magazine - Noor </title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../../../scripts/script.js"></script>
+    <style>
+        html{
+            cursor:url(../../../assets/cursors/sparkle-cursor.png);
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            font-size: 16.5px;
+            background-color: #e5dba8;
+            margin: 60px auto;
+            max-width: 800px;
+            padding: 0 20px;
+            color: black;
+            line-height: 1.6;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #664229;
+            letter-spacing: 0.5px;
+        }
+
+        .meta {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            font-size: 15px;
+            color: black;
+        }
+
+        .article-body {
+            font-family: 'Georgia', serif;
+            text-align: justify;
+        }
+
+        .authors-note {
+            max-width: 750px;
+            padding: 0 20px;
+            text-align: center;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        .speaker {
+            font-weight: 900;
+            color: #4B2E0F;
+            letter-spacing: 0.5;
+        }
+
+        .dashed-line {
+            border: none;
+            border-top: 3px dashed black;
+            margin: 75px auto;
+            width: 100%;
+        }
+
+        .left-article,
+        .right-article {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .left-article {
+            flex-direction: row;
+        }
+
+        .right-article {
+            flex-direction: row-reverse;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 0 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 700px;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin: 70px auto;
+            display: block;
+        }
+
+        .left-image-container img {
+            width: 350px;
+            height: 470px;
+        }
+
+        .right-image-container img {
+            width: 350px;
+            height: 470px;
+        }
+
+        .left-image-container img,
+        .right-image-container img {
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-container img:hover,
+        .left-image-container img:hover,
+        .right-image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .meta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .left-article {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .image-container img,
+            .left-image-container img {
+                width: 100%;
+                margin: 30px auto;
+            }
+
+            .authors-note {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Taskbar-container">
+        <!-- Logo on the left side, linking to the homepage -->
+        <a href="../../../index.html" class="logo-link">
+            <img src="../../../assets/logos/indigologoblack.png" alt="Website Logo" class="logo">
+        </a>
+    </div>
+
+    <h2>Interview #3: Noor</h2>
+    <div class="meta">
+        <span>By <strong>Susan E.</strong></span>
+        <span>NOT ISSUE</span>
+    </div>
+
+    <br><br>
+
+    <div class="article-body">
+
+        <div class="authors-note">
+            <p>The fate of our society should be determined by the quality of the way we treat each
+                other in the smallest acts of daily life, but has the avalanche of daily media cycles made
+                us too apathetic towards serious societal issues and events? As a Palestinian American,
+                this issue has certainly come to life for Noor, and this interview will include an open
+                conversation about this topic in more detail from her perspective.</p>
+        </div>
+
+        <hr class="dashed-line">
+
+            <p><span class="speaker"><strong>Susan Eltell</strong></span>: What big problem in our society today do you wish to clean up?</p><br>
+            <p><span class="speaker"><strong>Noor Riyal</strong></span>: The main problem I’m seeing is apathy. 
+                Society has become less empathetic towards certain minority groups and the situations they’re facing. An
+                example that touches home for me is the apathy towards Palestinians. What I mean by
+                that is I’ve heard lines like, “Why should I care if I’m not Palestinian?” Or “This is
+                happening across the world; I can’t do anything about it anyways.” This form of apathy
+                has been embedded and normalized within our society today. But what a lot may not
+                understand is that this very reason is why nothing can be done. As a collective, many
+                have chosen to turn a blind eye when, in reality, we are seeing difficult images of
+                innocent lives being lost in a long ongoing conflict that has destroyed lives. I think this
+                has continued for so long because people who have enough power to actually help are
+                choosing to worry about nothing but themselves and their own benefit. We also have
+                people who glorify what’s happening in Palestine and believe that Palestinians don’t
+                deserve to live or to have their rightfully owned land. All of this leads back to what I said
+                in the beginning. Apathy.</p>
+
+        <hr class="dashed-line">
+
+        <div class="right-article">
+            <p>Stereotypes in media and movies have contributed to the apathy shown towards Arabs
+                and other minority groups. In many instances and forms of media, they are portrayed as
+                the villains that serve as antagonists to the plot. This is not just the case for Arabs but for
+                many minorities who’ve suffered negative stereotypes through media portrayal. These
+                harmful stereotypes in media have made it a norm to view Arabs and other minority
+                groups in a bad light, which leads to dehumanization. This lack of humanization is
+                evident in the global reactions to what is happening in Gaza right now and how the
+                bombardment of negative portrayals have almost made it a norm to paint Arabs as “the
+                enemy” and applaud at their destruction.</p>
+            <div class="right-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/1.jpg" loading="lazy" alt="Image 1">
+            </div>
+        </div>
+
+        <hr class="dashed-line">
+
+            <p><span class="speaker"><strong>SE</strong></span>: Would you say that decades of negative portrayals have led us to this point of
+                disregard for Arab lives?</p><br>
+            <p><span class="speaker"><strong>NR</strong></span>: This is such a good point to bring up. In my opinion, I definitely do think that the
+                notion of Arabs being dangerous and threats in the news and media has a lot to do with
+                the apathy that we face even when we see videos surfacing out of Gaza. The harmful
+                portrayals of Arabs have made it a lot harder to get people to see the actual truth: that
+                we are just like any other ethnicity. We are humans. We have families that we hold close
+                to our hearts, we have feelings and dreams just like anyone else. However, living in
+                America all my life has shown me that we aren’t looked at this way, and it’s because of
+                this horrible culture that has been forced in American minds to believe we are the
+                opposite and should never be supported or fought for when it comes to basic human
+                rights and self-determination.</p><br>
+            <p><span class="speaker"><strong>SE</strong></span>: How have these negative portrayals and stereotypes impacted you personally?</p><br>
+            <p><span class="speaker"><strong>NR</strong></span>: The stereotypes that have led to the desensitization of Arabs have impacted my life
+                in a very negative way. As a Palestinian, I feel as though we don’t receive the same
+                human decency that others receive just because of this narrative that’s written of us. I
+                have experienced some of the craziest encounters that stick with me to this day. There
+                was a time when working in retail, I had someone ask me how I feel about “your people
+                being bombed all the time” with the most condescending tone. I don’t let these
+                encounters impact my life, and they remind me to be even prouder of where I stem from
+                because Palestinians are resilient, and nothing will erase our roots and history.</p>
+        </div>
+
+        <hr class="dashed-line">
+
+        <div class="authors-note">
+            <p>Noor’s experience is a great example of keeping your head up in the face of scrutiny, a
+                reality that is not unique to Arabs/Palestinians. The interconnectedness of struggle and
+                the fight for being seen is one shared with many minority groups who’ve been portrayed
+                as the “others” and held under the boot of the “elite.” Stereotypes plague every aspect of
+                our society and oftentimes follow us into our personal lives and interactions with others.
+                It is the responsibility of an individual to take the appropriate action in combating these
+                stereotypes and unlearning the biases they’ve upheld for so long.</p>
+        </div>
+
+        <hr class="dashed-line">
+            <p><span class="speaker"><strong>SE</strong></span>: What ways would you suggest to people so they can educate themselves on
+                Palestinian history, or really any social issue, and learn to overcome the embedded
+                apathy they’ve been programmed to display?</p><br>
+            <p><span class="speaker"><strong>NR</strong></span>: I think in order to combat this and really educate yourself on this matter, it’sbest
+                to do your research. Using Palestine as an example, there are so many sources out there
+                that explain the existence of Palestine from the very beginning and how the apartheid
+                came to be, which is very important to begin with for background knowledge. I also
+                highly encourage talking to people who are educated on this matter. So many of us think
+                we know enough on our own, but there are others around us who have lived through the
+                occupation of Palestine for certain periods of time. For instance, I know how it feels to
+                be back home and wake up to the sounds of bombs erupting on the mountain my
+                grandparents live on.</p>
+
+        <hr class="dashed-line">
+
+        <div class="authors-note">
+            <p>It’s easy to sit here for hours and write about all the people who are apathetic and lack
+                the empathy to care, but who wants to do that when you could write about all those
+                who’ve stood by you? Even in the darkest times, there are those who believe in you, trust
+                you, and fight for you; I think they deserve their mention as well. Every ally comes with
+                the message that humanity and empathy are not yet lost.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/4.jpg" loading="lazy" alt="Image 3">
+        </div>
+
+
+        <p><span class="speaker"><strong>SE</strong></span>: We cannot disregard those who have stood with Palestinians and other oppressed
+            groups all over the world. What message would you like to give these allies who have
+            been our source of camaraderie and community?</p><br>
+        <p><span class="speaker"><strong>NR</strong></span>: To the allies, I cannot express to you enough, as a Palestinian myself, how grateful
+            I am to have a community that sees Palestinians worth fighting for. I know that we put so
+            much on the line living in places where if we speak up about this, we may lose
+            opportunities, jobs, and so much more, yet you guys still choose to stand strong and
+            refuse to remain silent. This topic really hits a sensitive part of my heart, and I just want
+            to let allies know that I am grateful to have this community.</p>
+
+        <hr class="dashed-line">
+
+        <div class="authors-note">
+            <p>This issue is subject to a lot of scrutiny, and even now, as I write this piece, I find myself
+                walking on eggshells and putting the safety and best interest of myself and Noor ahead
+                of unfiltered journalism. We live in a polarizing time where everyone is sensitive to the
+                issues at hand, often turning on each other to find an outlet. There will always be grey
+                areas that leave us confused and uninformed. In the end, I believe common sense,
+                humanity, and peace should be the goal for all as we work to clean up the mess and
+                rebuild a society built on respect and empathy.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -55,10 +55,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Include legacy folder
+      - name: Post-build steps
         run: |
-          mkdir -p dist/legacy
-          cp -r legacy/* dist/legacy/
+          # legacy is already in dist/ because it's in public/
           cp dist/index.html dist/404.html
 
 

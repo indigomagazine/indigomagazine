@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../assets/logos/indigologowhite.png">
+    <title>Indigo Magazine - Air It Out </title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts/script.js"></script>
+    <style>
+        html {
+            cursor: url(../../assets/cursors/sparkle-cursor.png);
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            font-size: 17px;
+            background-color: #e5dba8;
+            margin: 60px auto;
+            max-width: 800px;
+            padding: 0 20px;
+            color: black;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            color: #664229;
+        }
+
+        .meta {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            font-size: 15px;
+            color: black;
+        }
+
+        .article-body {
+            text-align: justify;
+            font-family: 'Georgia', serif;
+        }
+
+        .author-letter-title {
+            text-align: center;
+            color: #664229;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .author-letter-message {
+            text-align: center;
+            color: #664229;
+            font-weight: 500;
+            margin: 10px auto;
+        }
+
+        .left-title {
+            text-align: left;
+        }
+
+        .right-title {
+            text-align: right;
+        }
+
+        .left-article {
+            flex-direction: row;
+        }
+
+        .right-article {
+            flex-direction: row-reverse;
+        }
+
+        .left-article,
+        .right-article {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 0 20px;
+        }
+
+        .image-container img {
+            max-width: 750px;
+            max-height: 600px;
+            margin: 70px auto;
+            display: block;
+        }
+
+        .left-image-container img {
+            max-width: 400px;
+            max-height: 500px;
+        }
+
+        .right-image-container img {
+            max-width: 500px;
+            max-height: 600px;
+        }
+
+        .image-container img,
+        .left-image-container img,
+        .right-image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-container img:hover,
+        .left-image-container img:hover,
+        .right-image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .read-more-button {
+            display: inline-block;
+            font-family: 'Georgia', serif;
+            background-color: transparent;
+            color: black;
+            border: 2px solid #A77F2B;
+            padding: 10px 20px;
+            margin-top: 25px;
+            margin-bottom: 75px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .read-more-button:hover {
+            font-weight: 700;
+            background-color: #A77F2B;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2, .author-letter-title {
+                font-size: 28px;
+            }
+
+            .meta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .left-article,
+            .right-article {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .image-container,
+            .left-image-container,
+            .right-image-container {
+                padding: 0;
+                margin: 40px auto;
+            }
+
+            .image-container img,
+            .left-image-container img,
+            .right-image-container img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                max-height: none;
+            }
+
+            .read-more-button {
+                padding: 8px 16px;
+                font-size: 15px;
+            }
+
+            .logo {
+                width: 120px;
+                height: auto;
+            }
+
+            #Taskbar-container {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Taskbar-container">
+        <!-- Logo on the left side, linking to the homepage -->
+        <a href="../../index.html" class="logo-link">
+            <img src="../../assets/logos/indigologoblack.png" alt="Website Logo" class="logo">
+        </a>
+    </div>
+
+    <h1> Air It Out </h1>
+    <div class="meta">
+        <span>By <strong>Susan E.</strong></span>
+        <span>NOT ISSUE</span>
+    </div>
+
+    <br>
+
+    <div class="article-body">
+        <br>
+        <h2 class="author-letter-title">A Letter From The Author</h2>
+        <p>We are often told not to air out our dirty laundry and
+            to preserve a certain image of ourselves. Controversial subjects are often deemed as
+            unworthy of discussion, leading to a habit of silencing those who have something to
+            say. I, for one, don’t think anyone should be shamed into silence, and believe it’s time to
+            air out all the dirty laundry our society tries so desperately to conceal. What you’re
+            about to embark on is a journey into the minds of your fellow UTD classmates as they
+            air out their personal experiences and “hot takes” on our society today. These articles
+            will highlight personal stories built on courage, an in-depth analysis of the path this
+            country is taking, and the fight against stereotypes.</p><br>
+
+        <p class="author-letter-message"><strong><em>Well, what are you waiting for?</em></strong></em></p>
+        <p style="text-align: center;">- Susan Eltell</p>
+
+        <div class="image-container">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/5.jpg" loading="lazy" alt="Image 1">
+        </div>
+
+        <br>
+
+        <h2 class="left-title">Interview #1: Julia</h2>
+
+        <p>Is the price of being yourself one you’re willing to pay? We often believe it is, holding
+            steadfast in our conviction to transform into the best, most authentic versions of
+            ourselves while simultaneously saying “screw them, this is my life” to those who would
+            oppose. In a perfect world, we would all have the freedom to ignore the outside noise,
+            but this isn’t a perfect world. It’s human nature to absorb the opinions of others when
+            going through life, often using them as guideposts that alert us if we’re about to fall off a
+            cliff. But maybe some of us intended to take a leap, and these opinions actually serve as
+            barbed wire, fencing us in and limiting growth.</p><br>
+        <p>Julia understands this feeling all too well, having grown up Catholic and born into a
+            multicultural household; her mother is Mexican and her father is a white American from
+            Texas. Julia often found it difficult to adhere to the strict teachings of the catholic
+            church while also living up to the expectations that were placed on her.</p>
+
+        <a href="../NOT/group3interviews/julia-interview.html" class="read-more-button">Unfold Julia’s Story ⤵</a>
+
+        <br>
+
+        <div class="right-article">
+            <div class="right-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/9.jpg" loading="lazy" alt="Image 2">
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="left-title">Interview #2: Manjiri</h2>
+
+        <p>When did individualism become isolation? Success become seclusion? Has our society
+            become so focused on individual achievements that we’ve lost touch with our sense of
+            community? These questions are heavy, and the answers may never be found. It’s the
+            natural law for societies to morph as they go through their cycles, locked in an infinite
+            spiral and leaving all of us desperately grasping to the debris to keep upright. However,
+            recently, we’ve found ourselves void of any ground to stand on while our society spirals
+            into a deep-seated era of hyper-individualism, and I’m not the only one who thinks so.
+            Manjiri has noticed the hard shift to hyper-individualism that has taken over our
+            society, leaving lasting routines that threaten to define the 21st century.</p>
+
+        <a href="../NOT/group3interviews/manjiri-interview.html" class="read-more-button">Inside The Spiral: Manjiri's
+            Take ⤵</a>
+
+        <br>
+
+        <div class="left-article">
+            <div class="left-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/7.jpg" loading="lazy" alt="Image 3">
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="left-title">Interview #3: Noor</h2>
+
+        <p>The fate of our society should be determined by the quality of the way we treat each
+            other in the smallest acts of daily life, but has the avalanche of daily media cycles made
+            us too apathetic towards serious societal issues and events? As a Palestinian American,
+            this issue has certainly come to life for Noor, and this interview will include an open
+            conversation about this topic in more detail from her perspective.</p>
+
+        <a href="../NOT/group3interviews/noor-interview.html" class="read-more-button">Witness Through Noor's Eyes ⤵</a>
+
+        <br>
+
+        <div class="right-article">
+            <div class="right-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/1.jpg" loading="lazy" alt="Image 2">
+            </div>
+        </div>
+</body>
+
+</html>

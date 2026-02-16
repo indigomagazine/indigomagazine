@@ -1,0 +1,459 @@
+.home-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Taskbar container styling */
+.nav-container {
+    display: flex;
+    align-items: center; /* center nav items vertically so text doesn't sit on the shadow */
+    justify-content: space-between;
+    position: fixed;
+    padding: 10px 20px; /* give extra bottom padding so content doesn't overlap the box-shadow */
+    background-color: rgba(32, 32, 32, 0);
+
+    backdrop-filter: blur(2px);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* slightly larger, pushed away from content */
+
+}
+
+
+.nav-logo-link {
+    flex: 1;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 80px;
+    flex: 2;
+
+    justify-content: center;
+}
+
+.nav-spacer {
+    flex: 1;
+
+}
+
+.nav-logo {
+    height: 50px;
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    font-family: Garamond, serif;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    white-space: nowrap;
+
+}
+
+.nav-links a:hover {
+    color: #e6e68ef9;
+}
+
+.nav-icon {
+    height: 26px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0) invert(1);
+    /* Default white */
+}
+
+.nav-links a:hover .nav-icon {
+    transform: scale(1.07);
+    color: #e6e68ef9;
+    filter: brightness(0) invert(1);
+}
+
+/* Light mode support for icons if needed, though header is usually specialized.
+    Assuming white text/icons on glass background. */
+
+/* Hidden state for taskbar when scrolling down */
+.nav-container.hidden {
+    transform: translateY(-120%);
+    transition: transform 260ms ease-in-out;
+    pointer-events: none; /* prevent interactions while hidden */
+}
+
+.nav-container {
+    transition: transform 260ms ease-in-out, background-color 0.3s ease;
+}
+
+
+/* Mobile Navigation Adjustments */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 5px 10px 0px 10px;
+    }
+
+    .nav-logo {
+        height: 25px;
+        position: absolute;
+        top: 12px;
+        left: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        margin-right: -20px;
+        /* Offset to counter absolute logo visually if needed, but centering should be primary */
+    }
+
+
+
+    .nav-icon {
+        height: 14px;
+    }
+
+    .nav-links a {
+        font-size: 1.0em;
+    }
+}
+
+
+/* Hero section */
+.hero-scroll-track {
+    height: 170vh;
+    position: relative;
+}
+
+.home-hero {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.home-hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.7);
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.7);
+}
+
+.home-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-title-svg {
+    position: absolute;
+    top: 48%;
+    /* Moved up slightly for mobile (was 50%) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    /* Above overlay */
+    width: 95%;
+    /* Bigger for mobile (was 90%) */
+    max-width: 1000px;
+    /* Increased max-width for large desktops */
+    height: auto;
+    pointer-events: none;
+    /* Let clicks pass through if needed, though usually fine on title */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    /* Slight shadow for better contrast */
+    opacity: 0;
+    /* Initialize hidden to prevent flash */
+    animation: heroSlideUp 1.5s ease-out forwards;
+}
+
+@keyframes heroSlideUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-title-svg {
+        width: 85%;
+        top: 50%;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title-svg {
+        width: 75%;
+        /* Refined scale for desktops */
+    }
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #845eb8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: #a881e6;
+}
+
+/* Main Content "Curtain" */
+.main-content {
+    position: relative;
+    z-index: 10;
+    background-color: #400707;
+    /* Default Dark Mode Background */
+    width: 100%;
+    /* Ensure it has a background to cover the sticky hero */
+    /* box-shadow: 0px 10px 40px #ffffd6de; */
+    /* Upward shadow for depth */
+    margin-top: -50px;
+    /* Overlap slightly even without radius for the shadow to pop */
+    padding-top: 50px;
+}
+
+body.light-mode .main-content {
+    background-color: #f0cfff;
+    /* Matching light mode background from style.css */
+}
+
+/* Quiz Section (Replacing Featured Article) */
+.quiz-promo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 250px 20px;
+    /* <--- Control vertical space (top/bottom) here */
+    text-align: center;
+    gap: 80px;
+    /* <--- Control space between title and button here */
+}
+
+.quiz-main-title {
+    font-size: 3.5rem;
+    /* Slightly larger */
+    letter-spacing: 4px;
+    margin: 0;
+    color: #FAE6FC;
+    font-family: Garamond, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.9;
+    text-align: center;
+    opacity: 0;
+    /* Start hidden */
+}
+
+.quiz-promo-section.is-visible .quiz-main-title {
+    animation: slideUpFade 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+body.light-mode .quiz-main-title {
+    color: #801e1e;
+}
+
+@media (max-width: 768px) {
+    .quiz-main-title {
+        font-size: 2rem;
+        /* Smaller font for mobile */
+        letter-spacing: 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .quiz-main-title br {
+        display: none;
+        /* Hide the desktop br */
+    }
+
+    .quiz-take-button {
+        padding: 15px 30px;
+        /* Smaller padding */
+        font-size: 1.2rem;
+        /* Smaller text (was ~1.5rem/24px) */
+        max-width: 80%;
+        /* Adjusted width */
+        width: 100%;
+        border-radius: 10px;
+        /* Pill shape for mobile */
+        margin-top: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        /* distinct shadow for button */
+    }
+}
+
+/* --- Control the BLACK line here --- */
+.quiz-line-black {
+    width: 950px;
+    /* <--- Adjusted for cleaner look */
+    height: 2px;
+    background-color: white;
+    /* Default to white for dark mode */
+    margin: 0px 0 60px 0;
+    /* <--- Change the FIRST number (5px) to bring it closer or further from text */
+    transition: background-color 0.3s ease;
+    transform-origin: center;
+    transform: scaleX(0);
+    /* Start with width 0 */
+}
+
+.quiz-promo-section.is-visible .quiz-line-black {
+    animation: scaleWidth 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+body.light-mode .quiz-line-black {
+    background-color: black;
+}
+
+
+
+.quiz-take-button {
+    background-color: #ECA9FF;
+    padding: 30px 40px;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #C91C1D;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    /* Start hidden */
+}
+
+.quiz-promo-section.is-visible .quiz-take-button {
+    animation: slideUpFade 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.quiz-take-button:hover {
+    transform: scale(1.05);
+}
+
+/* Spotify & Socials */
+.home-spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-spotify iframe {
+    width: 60%;
+    max-width: 800px;
+}
+
+
+@media (max-width: 768px) {
+    .home-spotify {
+        flex-direction: column;
+    }
+
+    .home-spotify iframe {
+        width: 100%;
+    }
+}
+
+.home-socials {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+.home-socials a img {
+    width: 25px;
+    height: 25px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.home-socials a:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleWidth {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}

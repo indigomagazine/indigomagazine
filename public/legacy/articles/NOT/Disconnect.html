@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../assets/logos/indigologowhite.png">
+  <title>Indigo Magazine - Disconnect </title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="scripts/script.js"></script>
+  <style>
+    html {
+      cursor: url(../../assets/cursors/sparkle-cursor.png);
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-weight: 400;
+      font-size: 17px;
+      margin: 0;
+      max-width: 800px;
+      padding: 60px 20px;
+      color: black;
+      line-height: 1.6;
+      margin-left: auto; 
+      margin-right: auto;
+      background-color: #fce4ec;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    }
+
+    h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      color: #664229;
+    }
+
+    .meta {
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: space-between;
+      border-top: 2px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      font-size: 15px;
+      color: black;
+    }
+
+    .article-body {
+      text-align: justify;
+      font-family: 'Georgia', serif;
+    }
+
+    .author-letter-title {
+      text-align: center;
+      color: #664229;
+      font-size: 35px;
+      font-weight: 700;
+    }
+
+    .author-letter-message {
+      text-align: center;
+      color: #664229;
+      font-weight: 500;
+      margin: 10px auto;
+    }
+
+    .left-title {
+      text-align: left;
+    }
+
+    .right-title {
+      text-align: right;
+    }
+
+    .left-article {
+      flex-direction: row;
+    }
+
+    .right-article {
+      flex-direction: row-reverse;
+    }
+
+    .left-article,
+    .right-article {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .image-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0px auto;
+      padding: 0 20px;
+    }
+
+    .image-container img {
+      max-width: 750px;
+      max-height: 600px;
+      margin: 70px auto;
+      display: block;
+    }
+
+    .left-image-container img {
+      max-width: 400px;
+      max-height: 500px;
+    }
+
+    .right-image-container img {
+      max-width: 500px;
+      max-height: 600px;
+    }
+
+    .image-container img,
+    .left-image-container img,
+    .right-image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-container img:hover,
+    .left-image-container img:hover,
+    .right-image-container img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .read-more-button {
+      display: inline-block;
+      font-family: 'Georgia', serif;
+      background-color: transparent;
+      color: black;
+      border: 2px solid #A77F2B;
+      padding: 10px 20px;
+      margin-top: 25px;
+      margin-bottom: 75px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .read-more-button:hover {
+      font-weight: 700;
+      background-color: #A77F2B;
+      color: white;
+    }
+    
+    .collage-paragraph span {
+      background-color: rgba(255, 255, 255, 0.85);
+      display: inline-block;
+      padding: 3px 6px;
+      margin: 2px 3px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transform: rotate(-1deg);
+      font-family: 'Georgia', serif;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .collage-paragraph span:nth-child(odd) {
+      background-color: rgba(255, 245, 240, 0.9);
+      transform: rotate(1.5deg);
+    }
+
+    .collage-paragraph span:hover {
+      transform: scale(1.05) rotate(0deg);
+      background-color: #f9e3e8;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+        margin: 30px auto;
+        padding: 0 15px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2, .author-letter-title {
+        font-size: 28px;
+      }
+
+      .meta {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left-article,
+      .right-article {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .image-container,
+      .left-image-container,
+      .right-image-container {
+        padding: 0;
+        margin: 40px auto;
+      }
+
+      .image-container img,
+      .left-image-container img,
+      .right-image-container img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+      }
+
+      .read-more-button {
+        padding: 8px 16px;
+        font-size: 15px;
+      }
+
+      .logo {
+        width: 120px;
+        height: auto;
+      }
+
+      #Taskbar-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="Taskbar-container">
+    <a href="../../index.html" class="logo-link">
+      <img src="../../assets/logos/indigologoblack.png" alt="Website Logo" class="logo">
+    </a>
+  </div>
+
+  <h1> Disconnect </h1>
+  <div class="meta">
+    <span>By <strong> Vivika Iyengar </strong></span>
+    <span>NOT ISSUE</span>
+  </div>
+
+  <br>
+
+  <div class="article-body">
+    <br>
+    <h2 class="author-letter-title"> In her corner </h2>
+    <p>Laying on the bedroom floor, the bed seemed too far– a comfort she felt like she didn’t deserve. The room had one window, overlooking the vastness of the city. The overarching shadows of the buildings towered over her small mid-rise apartment, engulfing her, taunting her: a reminder that no matter how hard she tried, she would always be small. 
+    
+    <p>She looked to her phone, waiting for something to pop up that could take her mind off the emptiness gnawing at her. The TV blared in the background as another episode of Bojack played while she kept going back and forth between Instagram, TikTok, and Reddit.</p><br>
+
+    <p>It had been three days since she’d felt the weight of words leave her mouth. Her tongue rested heavily on the back of her teeth, unused, except for the slow, absent-minded drag around the roof of her mouth. </p>
+    <p>Her days blur into one. Wake up. Wait to go to school. Come back. Wait to go to sleep. It hadn’t always been like this; there was a time that she felt passionate about cultivating a sense of self, but now all her actions feel regurgitated; all her words feel redundant.</p><br>
+    <div class="image-container">
+      <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/disconnect/rojanPonders.JPG" loading="lazy" alt="Image 3">
+    </div>
+
+    <p>Her phone rings. It’s Mom. She flips it down and hears it ring until the call fades. She waits, listening for her mom’s footsteps– half wanting to hear a light knock on the door. We have separate corners now– me on one side, Mom on another. The middle serves as a silent reminder of the distance between us.</p>
+    <p>Out of habit, Amani picks up her phone again, and a new message lights up the screen. </p>
+    <i>Mom: Hi honey, I'm getting Chinese? Do you want anything?</i><br>
+
+    <div class="image-container">
+      <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/disconnect/rojanLaying.JPG" loading="lazy" alt="Image 1">
+    </div>
+
+    <br>
+    <br>
+
+    <p>The question felt too light, as if the months of distance never existed. Amani used to love Friday Chinese takeout with her mother. The couch that she loved so fondly, how it dipped where they always sat. The sound of their laughter lit up the now-silent living room of their apartment. There were playful arguments about who would get the last dumpling– mom would always let Amani win. </p><br>
+    <p>Shaking her head, she goes back to her phone. Eyes glued to the screen, staring till the text message blurs and tears run down her eyes. She closes her messages and opens up Instagram again. Her mind wanders from the shambles of her relationship to this new lipstick that's supposed to stay for 24 hours.</p>
+    <p>The lights turn off in the living room, and she hears her mother go to bed. The click of the door signaling the end of another opportunity for connection.</p>
+
+    <div class="image-container">
+        <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/disconnect/rojanOverhead.jpg" loading="lazy" alt="Image 2">
+      </div>
+
+    <br>
+  </div>
+  <p>
+    She brought up the wildflowers again today.<br> He said he’d never noticed it before either-- that made her feel less alone.<br> She can’t place what it is about her that makes it irresistible to kiss her neck, but her words so<br> easy to ignore.<br> She always hopes that the next one who undresses her will be different<br> Perched at the end of the bed, looking down at her feet<br> It’s always the awkward, “You can sit on the bed, you know”,<br> The menial small talk about how their days have been<br> She fills the silence with a kiss, and maybe that’s enough.<br> Can it ever be enough?<br> Loneliness devours her..<br> Consumed by interactions that’ve never happened yet.<br> Replaying small things that might have meant something<br> She hangs on to the remains of her delusions<br> It is better than the alternative: an empty abyss<br> Every time she meets someone new, she’s left even more empty<br> Raw and red from all the expectations she had<br> Multiple love stories -all half written<br> Maybe next time she sees the wildflowers, she will have better things to think about
+  </p>
+
+    <br>
+</body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.article-body p').forEach(paragraph => {
+        const words = paragraph.innerHTML.trim().split(/(\s+|<br>)/g);
+        paragraph.innerHTML = words.map(word => {
+          if (word === '<br>' || /^\s+$/.test(word)) return word;
+          return `<span>${word}</span>`;
+        }).join('');
+        paragraph.classList.add("collage-paragraph");
+      });
+    });
+  </script>
+
+
+</html>

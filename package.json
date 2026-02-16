@@ -16,6 +16,7 @@
     "@tanstack/react-router-devtools": "^1.132.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-ga4": "^2.1.0",
     "react-router-dom": "^7.11.0",
     "tailwindcss": "^4.1.13"
   },

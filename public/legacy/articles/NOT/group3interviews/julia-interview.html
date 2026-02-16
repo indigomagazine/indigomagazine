@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../../assets/logos/indigologowhite.png">
+    <title>Indigo Magazine - Julia </title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../../../scripts/script.js"></script>
+    <style>
+        html{
+            cursor:url(../../../assets/cursors/sparkle-cursor.png);
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            font-size: 16.5px;
+            background-color: #e5dba8;
+            margin: 60px auto;
+            max-width: 800px;
+            padding: 0 20px;
+            color: black;
+            line-height: 1.6;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #664229;
+            letter-spacing: 0.5px;
+        }
+
+        .meta {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            font-size: 15px;
+            color: black;
+        }
+
+        .article-body {
+            font-family: 'Georgia', serif;
+            text-align: justify;
+        }
+
+        .authors-note {
+            max-width: 750px;
+            padding: 0 20px;
+            text-align: center;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        .speaker {
+            font-weight: 900;
+            color: #4B2E0F;
+            letter-spacing: 0.5;
+        }
+
+        .dashed-line {
+            border: none;
+            border-top: 3px dashed black;
+            margin: 70px auto;
+            width: 100%;
+        }
+
+        .left-article,
+        .right-article {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .left-article {
+            flex-direction: row;
+        }
+
+        .right-article {
+            flex-direction: row-reverse;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 0 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin: 70px auto;
+            display: block;
+        }
+
+        .left-image-container img {
+            width: 350px;
+            height: 470px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .right-image-container img {
+            width: 350px;
+            height: 470px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-container img:hover,
+        .left-image-container img:hover,
+        .right-image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .meta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .left-article,
+            .right-article {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .image-container img,
+            .left-image-container img,
+            .right-image-container img {
+                width: 100%;
+                margin: 30px auto;
+            }
+
+            .authors-note {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Taskbar-container">
+        <!-- Logo on the left side, linking to the homepage -->
+        <a href="../../../index.html" class="logo-link">
+            <img src="../../../assets/logos/indigologoblack.png" alt="Website Logo" class="logo">
+        </a>
+    </div>
+
+    <h2>Interview #1: Julia</h2>
+    <div class="meta">
+        <span>By <strong>Susan E.</strong></span>
+        <span>NOT ISSUE</span>
+    </div>
+
+    <br><br>
+
+    <div class="article-body">
+
+        <div class="left-article">
+            <p>Is the price of being yourself one you’re willing to pay? We often believe it is, holding
+                steadfast in our conviction to transform into the best, most authentic versions of
+                ourselves while simultaneously saying “screw them, this is my life” to those who would
+                oppose. In a perfect world, we would all have the freedom to ignore the outside noise,
+                but this isn’t a perfect world. It’s human nature to absorb the opinions of others when
+                going through life, often using them as guideposts that alert us if we’re about to fall off a
+                cliff. But maybe some of us intended to take a leap, and these opinions actually serve as
+                barbed wire, fencing us in and limiting growth. </p>
+            <div class="left-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/9.jpg" loading="lazy" alt="Image 1">
+            </div>
+        </div>
+
+        <br>
+        <p>Julia understands this feeling all too well, having grown up Catholic and born into a
+            multicultural household; her mother is Mexican and her father is a white American from
+            Texas. Julia often found it difficult to adhere to the strict teachings of the catholic
+            church while also living up to the expectations that were placed on her.</p>
+
+        <hr class="dashed-line">
+
+        <p><span class="speaker"><strong>Susan Eltell</strong></span>: How did being raised Catholic impact you growing
+            up?</p><br>
+        <p><span class="speaker"><strong>Julia Moore</strong></span>: It wasn’t always easy. Growing up, I was always
+            asking questions. I
+            remember sitting in church and asking, “Why are there no women priests?” I always had
+            an inquisitive mind, yet could never connect with the religion no matter how many
+            questions I asked.</p><br>
+        <p><span class="speaker"><strong>SE</strong></span>: In what ways did you not connect?</p><br>
+        <p><span class="speaker"><strong>JM</strong></span>: I didn’t like the expectations placed on women in the
+            church. We were expected to
+            dress a certain way, talk a certain way, and behave a certain way. I felt a lot of pressure
+            to adhere to the standards of a large Catholic family. I have 4 older sisters; the oldest
+            two aligned more with Catholic traditions, but the rest of us were more disconnected
+            from their teachings. Being the youngest, I was always kept in the dark about family
+            problems and overall details, so I naturally became very independent. I had to start
+            thinking for myself and making my own choices, and eventually, that meant leaving the
+            church when I turned fifteen, which I feel very at peace with. </p>
+
+        <hr class="dashed-line">
+
+        <div class="right-article">
+            <p>It’s never easy letting go of something you’ve known your whole life, especially with it
+                being so tightly intertwined with personal relationships such as family members and a
+                community you grew up around. It almost forces you to question whether the worlds we
+                are born into are those we’re meant to stay in and if going beyond them defies all laws of
+                normality. When she was starting her first year at college, Julia was approached by a
+                modeling agency, something she was hesitant to share with her family due to their
+                perceptions of it. It’s common for us to still consider the reactions of others when
+                embarking on different paths in life, even if their reactions don’t directly impact your
+                decision to move forward or not.</p>
+            <div class="right-image-container">
+                <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/7.jpg" loading="lazy" alt="Image 2">
+            </div>
+        </div>
+
+        <hr class="dashed-line">
+
+        <p><span class="speaker"><strong>SE</strong></span>: Were you expecting a negative reaction?</p><br>
+        <p><span class="speaker"><strong>JM</strong></span>: Yes, because they had already cut people off for not
+            adhering to their standards, so
+            I knew what was at stake for me. I hid many parts of the job from my family, only
+            sharing what I wanted them to know. For example, modeling in a swimsuit wouldn’t
+            have gone over well. The expectations of the culture and church I was raised in were all
+            about modesty and the proper ways for women to dress and act, and modeling was not
+            within that realm. I didn’t let that stop me, though; I pursued modeling and took the
+            opportunity head-on. For me, it was a way to break out of my sheltered environment and
+            explore new opportunities. I also saw it as a way to be an advocate for curvy girls in the
+            industry, making sure my work allowed them to see themselves on display and be proud
+            of the representation.</p>
+        
+        <hr class="dashed-line">
+
+        <div class="authors-note">
+            <p>The piper always comes around to collect his debt. Julia takes great pride in her
+                modeling, but she knows that living authentically comes at a cost. These repercussions
+                often slip into our consciousness discreetly, planting seeds of doubt and guilt for
+                choosing a path that is right for us, stirring up an internal storm where shame and doubt
+                reside. But under the swarming weight of criticism, there was a blinding light that tore
+                through the shadows: the ability to impact. Every single one of us has had the desire to
+                leave a mark on the world, a badge of honor that screams “I was here!”. In Julia’s case,
+                that mark was her ability to advocate for curvy bodies. The desire to show women with
+                her shape that they can be beautiful and proud of themselves was strong enough to
+                withstand the disapproval of those around her. And while she’s stood tall in the face of
+                harsh winds, the things that take us down are not always visible.</p>
+        </div>
+        <hr class="dashed-line">
+
+        <p><span class="speaker"><strong>SE</strong></span>: Do you still feel the lingering effects of the teachings
+            shared within the church
+            even though you no longer practice the religion?</p><br>
+        <p><span class="speaker"><strong>JM</strong></span>: Growing up in the church, I constantly heard messages of
+            modesty and
+            expectations for young girls, and as a curvier person, it was hard for me to accept my
+            body and feel confident. There was a lot of religious and emotional manipulation that I
+            had to unlearn and overcome, but I refused to let it stop me from pursuing this passion
+            and being an advocate for those like me. Modeling is something I’m proud of, but that
+            doesn’t mean I don’t still struggle with the stigmas surrounding it. People often think I
+            am full of myself and seek to profit off of my body, and I get anxious thinking this
+            mindset will transfer into the professional setting when applying for jobs. The inner part
+            of me that asks, “Is this appropriate for the workplace?” or “Can I have a career in HR
+            with this on my resume?” still speaks to me sometimes. I don’t let those assumptions
+            hold me back from doing it, but they leave me filled with anxiety about how it will be
+            perceived.</p>
+
+        <hr class="dashed-line">
+
+        <div class="authors-note">
+            <p>Beauty is in the eye of the beholder, everyone carrying a unique gaze that they set upon
+                the world. Where one sees freedom and expression, another sees rebellion and
+                distastefulness. This way of thinking is common in many cultures and communities,
+                limiting the growth and expression of others in the name of preserving some type of
+                image, and once you go against that image, you’re seen as a weight tipping the balanced
+                scale of conformity. We cannot control the ways in which others will view our choices
+                and lifestyles, as hard as we try to. You’re always going to have doubts in the back of
+                your head telling you the path you’ve chosen is a lonely one, but once you push past
+                them, you’ll free yourself of the societal ties that bind and begin your journey to
+                self-acceptance and love. Am I making it sound easier than it is? Possibly. The truth is
+                one cannot for sure say whether a journey will work out, but is that any reason not to
+                take the risk?</p>
+        </div>
+
+        <div class="image-container">
+            <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/air%20it%20out/3.jpg" loading="lazy" alt="Image 3">
+        </div>
+
+        <p><span class="speaker"><strong>SE</strong></span>: What final message would you like to share with our
+            readers?</p><br>
+        <p><span class="speaker"><strong>JM</strong></span>: Fight for yourself. I know it’s easier said than done, but
+            once you start fighting for
+            yourself, you’ll begin the process of taking control of your life. There are many things
+            that could have broken me on my path to pursue modeling and breaking away from the
+            expectations of those around me, but I pushed on and was able to see the benefit of not
+            taking the easy route. I became an advocate for curvy women through my modeling. I
+            gained emotional awareness and was able to accept the situations in life that led me to
+            this moment without allowing them to define me. So that’s my message: fight for
+            yourself and for what you believe is right.</p>
+    </div>
+</body>
+
+</html>

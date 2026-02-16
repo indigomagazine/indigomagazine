@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-// Importing images from the legacy folder
-import background from "../../../../../../legacy/article photos/western/group4Background.jpg";
-import paper from "../../../../../../legacy/article photos/western/group4Paper.jpg";
-import hat from "../../../../../../legacy/article photos/western/hat.png";
-import both from "../../../../../../legacy/article photos/western/both.png";
-import malePose from "../../../../../../legacy/article photos/western/malePose.png";
-import moneyShot from "../../../../../../legacy/article photos/western/moneyShot.png";
-import table from "../../../../../../legacy/article photos/western/table.png";
-import wantedPoster from "../../../../../../legacy/article photos/western/wantedPoster.png";
-import moviePoster from "../../../../../../legacy/article photos/western/moviePoster.png";
+const background = "/legacy/article photos/western/group4Background.jpg";
+const paper = "/legacy/article photos/western/group4Paper.jpg";
+const hat = "/legacy/article photos/western/hat.png";
+const both = "/legacy/article photos/western/both.png";
+const malePose = "/legacy/article photos/western/malePose.png";
+const moneyShot = "/legacy/article photos/western/moneyShot.png";
+const table = "/legacy/article photos/western/table.png";
+const wantedPoster = "/legacy/article photos/western/wantedPoster.png";
+const moviePoster = "/legacy/article photos/western/moviePoster.png";
 
 export default function WesternNewspaper() {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   // UPDATED: Now using the imported variables instead of string paths
   const images = [
     { src: wantedPoster, alt: 'wanted poster' },
@@ -58,7 +57,7 @@ export default function WesternNewspaper() {
 
   return (
     <>
-<style>{`
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rye&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&family=IM+Fell+English:ital@0;1&display=swap');
         
         body {
@@ -458,7 +457,7 @@ export default function WesternNewspaper() {
           <span className="close-btn" onClick={closeModal}>&times;</span>
           <span className="prev-btn" onClick={showPrev}>&#10094;</span>
           <span className="next-btn" onClick={showNext}>&#10095;</span>
-          
+
           <div className="film-strip-container">
             <div className="film-strip">
               <img className="gallery-content" src={images[currentIndex].src} alt={images[currentIndex].alt} />
