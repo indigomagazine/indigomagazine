@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import issuesSrc from "../../assets/logos/Issues.svg";
 import visualArtsSrc from "../../assets/logos/Visual-Arts.svg";
 import aboutSrc from "../../assets/logos/About.svg";
+import articlesSrc from "../../assets/logos/Articles.svg";
 
 const Taskbar = () => {
     const [visible, setVisible] = useState(true);
@@ -43,6 +44,9 @@ const Taskbar = () => {
                 />
             </Link>
             <div className="nav-links">
+                <Link to="/articles" className="link-bar hvr-fade ARTICLES">
+                    <img src={articlesSrc} alt="ARTICLES" className="nav-icon" />
+                </Link>
                 <Link to="/issues" className="link-bar hvr-fade CREATIVE">
                     <img src={issuesSrc} alt="ISSUES" className="nav-icon" />
                 </Link>

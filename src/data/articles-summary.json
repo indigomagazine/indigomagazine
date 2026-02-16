@@ -6,7 +6,7 @@
         "category": "Tech",
         "summary": "Exploring the new system architecture for our creative platform.",
         "date": "2026-01-31",
-        "coverImage": ""
+        "coverImage": "/assets/articles/trio2.JPG"
     },
     {
         "slug": "analog-revival",
@@ -15,7 +15,7 @@
         "category": "Art",
         "summary": "Why we are returning to cinematic candid photography this semester.",
         "date": "2026-01-30",
-        "coverImage": ""
+        "coverImage": "/assets/articles/trio2.JPG"
     },
     {
         "slug": "covet",
@@ -24,6 +24,6 @@
         "category": "Editorial",
         "summary": "An exploration of shared light, stolen identity, and the weight of adornment.",
         "date": "2026-02-04",
-        "coverImage": "/assets/article photos/covet/cereal-1.jpg"
+        "coverImage": "/assets/articles/trio2.JPG"
     }
 ]

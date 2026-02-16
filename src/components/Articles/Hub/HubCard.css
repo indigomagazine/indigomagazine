@@ -1,0 +1,112 @@
+/* HubCard.css */
+
+.hub-card-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hub-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 150%;
+    /* 640x980 aspect ratio proxy */
+
+    transition: all 0.5s ease-out;
+}
+
+.hub-card-container:hover .hub-card-image-wrapper {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.hub-card-image-inner {
+    position: absolute;
+    inset: 0;
+    padding: 5%;
+    padding-bottom: 20%;
+}
+
+.hub-card-image-clip {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f4f4f5;
+    /* bg-zinc-100 */
+    position: relative;
+}
+
+.hub-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.7s ease-in-out;
+    transform: scale(1);
+}
+
+
+
+.hub-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: -3rem;
+    /* -mt-12 */
+    z-index: 10;
+}
+
+.hub-card-metadata {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 9px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    letter-spacing: 0.1em;
+    color: #a1a1aa;
+    /* text-zinc-400 */
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.hub-card-container:hover .hub-card-metadata {
+    opacity: 1;
+}
+
+.hub-card-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background-color: #d4d4d8;
+    /* bg-zinc-300 */
+}
+
+.hub-card-title {
+    font-size: 1.875rem;
+    /* text-3xl */
+    line-height: 0.9;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    color: #18181b;
+    /* text-zinc-900 */
+    letter-spacing: -0.025em;
+    /* tracking-tight */
+    transition: color 0.3s duration;
+}
+
+.hub-card-container:hover .hub-card-title {
+    color: #e6e68ee2;
+    /* text-indigo-900 */
+}
+
+.hub-card-category-hidden {
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    position: relative;
+    height: 12px;
+}
