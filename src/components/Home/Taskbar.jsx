@@ -14,15 +14,15 @@ const Taskbar = () => {
                 />
             </Link>
             <div className="nav-links">
-                <Link to="/issues" className="link-bar hvr-fade CREATIVE">
+                <a href="/legacy/creative.html" className="link-bar hvr-fade CREATIVE">
                     <img src={issuesSrc} alt="ISSUES" className="nav-icon" />
-                </Link>
-                <Link to="/visual-arts" className="link-bar hvr-fade VISUALARTS">
+                </a>
+                <a href="/legacy/visualarts.html" className="link-bar hvr-fade VISUALARTS">
                     <img src={visualArtsSrc} alt="VISUAL ARTS" className="nav-icon" />
-                </Link>
-                <Link to="/about" className="link-bar hvr-fade ABOUT">
+                </a>
+                <a href="/legacy/about.html" className="link-bar hvr-fade ABOUT">
                     <img src={aboutSrc} alt="ABOUT" className="nav-icon" />
-                </Link>
+                </a>
             </div>
             <div className="nav-spacer"></div>
         </nav>

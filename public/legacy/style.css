@@ -661,10 +661,14 @@ video::-webkit-media-controls {
 /* Container for the issue covers */
 .issues-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 images per row for larger screens */
-  gap: 0; /* No gap between images */
-  padding: 0;
-  height: 100vh; /* Full viewport height */
+  /* Show 4 covers across on wide screens, fall back to fluid columns */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Small gap between covers */
+  padding: 10px;
+  /* Make the container fit the viewport minus the fixed header so 4 covers (2 rows) can be visible
+     on most devices without scrolling. Adjust the 80px if your taskbar height differs. */
+  height: calc(100vh - 80px);
+  grid-auto-rows: 1fr; /* Ensure rows share the available height equally */
 }
 
 /* Styling for each issue cover */
@@ -712,22 +716,33 @@ video::-webkit-media-controls {
 /* Media Queries for smaller screens (tablets, mobile) */
 @media (max-width: 1024px) {
   .issues-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 images per row for tablets */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    height: calc(100vh - 80px);
+    gap: 8px;
   }
 }
 
 @media (max-width: 768px) {
+  /* On small screens show a 2x2 grid so all four covers fit visible area */
   .issues-container {
-    grid-template-columns: 1fr; /* 1 image per row for mobile screens */
-    height: auto; /* Remove fixed height to allow scrolling on mobile */
+    grid-template-columns: repeat(2, 1fr);
+    height: calc(100vh - 80px);
+    gap: 6px;
   }
 
+  /* Each grid cell will auto-fill the available height (half the container height) */
   .issue {
-    height: 50vh; /* Adjust the height for mobile, making the image taller */
+    height: auto; /* Let grid rows control height */
+  }
+
+  .issue img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .issue-title {
-    font-size: 4vw; /* Make the title larger on mobile */
+    font-size: 4vw; /* Title scaling on mobile */
   }
 }
 
