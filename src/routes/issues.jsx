@@ -37,28 +37,28 @@ function Issues() {
       <div className="issues-container">
         <a href="/serial" className="issue">
           <img
-            src="/legacy/article photos/ILoveShopping/love is.jpg"
-            alt="Serial: Issue 10"
+            src="https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/i%20love%20shopping%20cover.jpg"
+            alt="Serial: Issue 11"
           />
           <div className="issue-title">Serial</div>
         </a>
 
         {/* NOT Issue */}
         <a href="/legacy/NOT.html" className="issue">
-          <img src="/legacy/article photos/laQuinta/F1-3.JPG" alt="NOT: Issue 09" />
+          <img src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/la%20quinta/F1-3.JPG" alt="NOT: Issue 10" />
           <div className="issue-title">NOT</div>
         </a>
 
         {/* Kismet Issue */}
         <a href="/legacy/kismet.html" className="issue">
-          <img src="/legacy/photos/group4/kismet.png" alt="Kismet: Issue 09" />
+          <img src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/the%20lady%20of%20the%20castle/kismet.png" alt="Kismet: Issue 09" />
           <div className="issue-title">Kismet</div>
         </a>
 
         {/* Reminiscence Issue */}
         <a href="/legacy/reminiscence.html" className="issue">
           <img
-            src="/legacy/photos/issue covers/reminiscence2.jpeg"
+            src="https://cdn.indigomagazinetx.com/article%20photos/8%20-%20reminiscence/amsterdam/amsterdamfinal.jpeg"
             alt="Reminiscence: Issue 08"
           />
           <div className="issue-title">Reminiscence</div>

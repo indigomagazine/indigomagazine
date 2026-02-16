@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import Taskbar from "../components/Home/Taskbar";
 
@@ -110,97 +110,69 @@ function VisualArts() {
 
             <div className="photo-container">
                 <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/quietdevourmentslideshow.html">
+                    <Link to="/articles/serial/anumberoutofplace">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group 6/pic5.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg')" }}
                         ></div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/echoslideshow.html">
+                    <Link to="/articles/serial/covet">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group2/IMG_4392.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/clothes-1.1.JPG')" }}
                         ></div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <div
-                        className="floating-photo"
-                        style={{ backgroundImage: "url('/legacy/NOT photos/group2/ascii-flower.png')" }}
-                    ></div>
-                </div>
-
-                <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/inthewindslideshow.html">
+                    <Link to="/articles/serial/iloveshopping">
                         <div
                             className="floating-photo"
-                            style={{
-                                backgroundImage:
-                                    "url('/legacy/NOT photos/group 4/Sarah_Rizvi_Final_Graphic_1.jpeg')",
-                            }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7721.jpg')" }}
                         ></div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/quietdevourmentslideshow.html">
-                        <div
-                            className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group 6/pic7.jpg')" }}
-                        ></div>
-                    </a>
-                </div>
-
-                <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/airitoutslideshow.html">
-                        <div
-                            className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group3/2.jpg')" }}
-                        ></div>
-                    </a>
-                </div>
-
-                <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/echoslideshow.html">
-                        <div
-                            className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group2/IMG_4345.jpg')" }}
-                        ></div>
-                    </a>
-                </div>
-
-                <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/inthewindslideshow.html">
+                    <Link to="/articles/serial/keyboards">
                         <div
                             className="floating-photo"
                             style={{
                                 backgroundImage:
-                                    "url('/legacy/NOT photos/group 4/Sarah_Rizvi_Final_Graphic_3.jpeg')",
+                                    "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/nolan%202.png')",
                             }}
                         ></div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/quietdevourmentslideshow.html">
+                    <Link to="/articles/serial/lifeinparadise">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group 6/pic6.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/page%201.png')" }}
                         ></div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <a href="/legacy/visuals/airitoutslideshow.html">
+                    <Link to="/articles/serial/western">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('/legacy/NOT photos/group3/11.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/both.png')" }}
                         ></div>
-                    </a>
+                    </Link>
+                </div>
+
+                <div className="floating-photo-wrapper">
+                    <Link to="/articles/serial/youcantwisttime">
+                        <div
+                            className="floating-photo"
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/you%20can%20twist%20time/final_edited3.png')" }}
+                        ></div>
+                    </Link>
                 </div>
             </div>
         </div>

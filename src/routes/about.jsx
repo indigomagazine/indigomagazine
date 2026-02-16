@@ -40,7 +40,7 @@ function About() {
       <br />
       <br />
 
-      <h1 className="mission-statement-header">Who We Are</h1>
+      <h1 className="mission-statement-header" style={{ textAlign: 'center' }}>Who We Are</h1>
       <div className="mission-statement">
         <p>
           Indigo Magazine is UT Dallas’s first completely student-run creative
@@ -50,11 +50,11 @@ function About() {
         </p>
       </div>
 
-      <h1 className="officer-heading">Officers</h1>
+      <h1 className="officer-heading" style={{ textAlign: 'center' }}>Officers</h1>
 
       <div className="officer-section">
         <div className="officer-card">
-          <img src="/legacy/photos/officers/manjiri.jpg" alt="Manjiri" />
+          <img src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/manjiri.jpg" alt="Manjiri" />
           <h2>
             Editor-in-Chief: <br /> Manjiri C.
           </h2>
@@ -62,7 +62,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/sanhita.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/sanhita.jpg"
             alt="Sanhita"
           />
           <h2>
@@ -72,7 +72,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/lauren.png?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/lauren.png"
             alt="Lauren Lowndes"
           />
           <h2>
@@ -82,7 +82,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/sreya.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/sreya.jpg"
             alt="Sreya I."
           />
           <h2>
@@ -92,7 +92,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/nicole.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/nicole.jpg"
             alt="Nicole C."
           />
           <h2>
@@ -102,7 +102,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/alaynna.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/alaynna.jpg"
             alt="Alaynna"
           />
           <h2>
@@ -112,7 +112,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/dhiraj.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/dhiraj.jpg"
             alt="Dhiraj"
           />
           <h2>
@@ -122,7 +122,7 @@ function About() {
 
         <div className="officer-card">
           <img
-            src="https://github.com/indigomagazine/website_images/blob/main/officer%20pics/jeslin.jpg?raw=true"
+            src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/jeslin.jpg"
             alt="Jeslin"
           />
           <h2>
@@ -131,7 +131,7 @@ function About() {
         </div>
 
         <div className="officer-card">
-          <img src="/legacy/photos/officers/emmagonzalez.jpg" alt="Emma Gonzalez" />
+          <img src="https://cdn.indigomagazinetx.com/indigo-media/about%20page/officer%20pics/291199FA-AC0E-4C55-ADCA-8CCFA99E5BD6_1_105_c.jpeg" alt="Emma Gonzalez" />
           <h2>
             Web Development: <br /> Emma Gonzalez
           </h2>

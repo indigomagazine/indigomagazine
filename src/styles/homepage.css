@@ -6,10 +6,10 @@
 /* Taskbar container styling */
 .nav-container {
     display: flex;
-    align-items: flex-end;
+    align-items: center; /* center nav items vertically so text doesn't sit on the shadow */
     justify-content: space-between;
     position: fixed;
-    padding: 5px 20px 0px 20px;
+    padding: 10px 20px; /* give extra bottom padding so content doesn't overlap the box-shadow */
     background-color: rgba(32, 32, 32, 0);
 
     backdrop-filter: blur(2px);
@@ -17,7 +17,7 @@
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.414);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* slightly larger, pushed away from content */
 
 }
 
@@ -77,8 +77,19 @@
     filter: brightness(0) invert(1);
 }
 
-/* Light mode support for icons if needed, though header is usually specialized. 
-   Assuming white text/icons on glass background. */
+/* Light mode support for icons if needed, though header is usually specialized.
+    Assuming white text/icons on glass background. */
+
+/* Hidden state for taskbar when scrolling down */
+.nav-container.hidden {
+    transform: translateY(-120%);
+    transition: transform 260ms ease-in-out;
+    pointer-events: none; /* prevent interactions while hidden */
+}
+
+.nav-container {
+    transition: transform 260ms ease-in-out, background-color 0.3s ease;
+}
 
 
 /* Mobile Navigation Adjustments */
