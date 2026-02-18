@@ -1,0 +1,201 @@
+<!-- hopes -->
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+/*     margin: 80px auto 80px auto; */
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  section {
+    margin: auto;
+    width: 80%;
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: dense;
+  }
+
+  section.heading h1 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section.heading h2 {
+    text-align: center;
+    margin-bottom: 3%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+  section.para p {
+    /*
+    width: 600px;
+    height: 597px;
+    
+    /*left: 130px;
+    top: 302px;
+*/
+    grid-column: 1/span 6;
+  }
+
+  section.para2 p {
+    /*
+    width: 600px;
+    height: 637px;
+    left: 670px;
+    top: 894px;
+    */
+    grid-column: 7/span 6;
+  }
+
+  section.paragraph p{
+    grid-column: 1/span 12;
+    
+  }
+  
+  section img {
+    margin: none;
+    max-width: 50vmax;
+  }
+
+  div.img {
+    grid-column: 7/span 6;
+    float: right;
+    /*
+    width: 500px;
+    height: 573px;
+    left: 690px;
+    top: 302px;
+    */
+  }
+
+  div.img2 {
+    grid-column: 1/span 6;
+    /*
+    width: 460px;
+    height: 656px;
+    left: 130px;
+    top: 899px;
+    */
+
+  }
+
+    @media (max-width: 1248px) {
+  section p  
+   {
+    font-size: 0.99em;
+  }
+}
+
+  @media(max-width: 800px) {
+  body {
+    width: 100%;
+  }
+    section p{
+      text-indent: 0;
+      line-height: 14px;
+      font-size: 0.6em;
+    }
+    section.heading h1, section.heading h2{
+      
+    }
+}
+
+    @media(max-width: 600px) {
+      
+      
+  section.heading h1, section.heading h2, section.para p, div.img, div.img2, section.para2 p, section.paragraph p, section p{
+    grid-column: 1/span 12;
+  } 
+  section p  
+   {
+    font-size: 0.3em;
+  }
+    section.heading h1, section.heading h2{
+    }
+}
+
+  @media (max-width: 500px){
+    
+
+
+  section.heading h1{
+    line-height: 40px;
+    font-size: 40px;
+  }
+    section img{
+      width: 100%;
+      max-height: none;
+    }
+}
+  
+</style>
+
+</html>
+
+
+<body>
+
+  <section class="heading">
+    <h1>Hopes of familiarity</h1>
+    <h2>Story by Rebecca D. and Graphic Design by Silas S.
+    </h2>
+  </section>
+
+  <section class="para">
+      <p>
+        We run headfirst into the open arms of familiarity, <br>
+Running back home, reigniting old friendships, <br>
+Embracing the senses of memory. <br>
+Listening to music of times past, paging through yearbooks,<br>
+Getting sucked into a fuzzy nostalgia.<br>
+<br><br>
+Then, there’s the shift.
+<br><br>
+Grasping onto old acquaintances, <br>
+We begin to drive ourselves mad<br>
+Itching and scratching for the way things were. <br>
+Trapped into some swirling pool of our own minds, and<br>
+Kept away from marching forward, alongside time. <br>
+<br><br>
+The present slips away while we’re in this nostalgia,<br>
+Minutes tick away looking at old photographs<br>
+Refusing to embrace new challenges and new successes. <br>
+Eventually, the past alienates us from the present,<br>
+Unless we finally embrace life for today. <br>
+
+      </p>
+
+    <div class="img">
+      <img src="article photos/article8/silasgd.PNG">
+    </div>
+
+  </section>
+
+</body>

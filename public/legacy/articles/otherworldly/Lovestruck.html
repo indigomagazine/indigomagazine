@@ -1,0 +1,363 @@
+<!-- Lovestruck-->
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /*body {
+     margin: 7% auto 7% auto; 
+  }*/
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  section {
+    margin: auto;
+    width: 80%;
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: dense;
+  }
+
+  section.heading h1 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section.heading h2 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: lowercase;
+    grid-column: 1/span 12;
+  }
+
+  section p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    /*text-transform: capitalize;*/
+    /*text-indent: 60px;*/
+  }
+
+  section.para p {
+    grid-column: 1/span 6;
+  }
+
+  section.para2 p {
+    grid-column: 7/span 6;
+  }
+
+  section.full-para p{
+    grid-column: 1/span 12;
+    text-align: center;
+    
+  }
+  
+  section img {
+    margin: 20px 0 20px 0;
+    max-height: 50vmax;
+    
+  }
+
+  div.img {
+    grid-column: 8/span 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  div.img2 {
+    grid-column: 1/span 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  div.img3{
+    grid-column: 1/span 12;
+    display: flex;
+    justify-content: center;
+  }
+
+  hr.author-line{
+    border: 0.02vmax solid black;
+  }
+
+  .tab {
+    display: inline-block;
+    margin-left: 40px;
+  }
+
+  @media (max-width: 1248px) {
+  section p  
+   {
+    font-size: 0.99em;
+  }
+}
+
+  @media(max-width: 800px) {
+  body {
+    width: 100%;
+  }
+    section p{
+      text-indent: 0;
+      line-height: 14px;
+      font-size: 0.6em;
+    }
+    section.heading h1, section.heading h2{
+      
+    }
+}
+
+    @media(max-width: 600px) {
+      
+      
+  section.heading h1, section.heading h2, section.para p, div.img, div.img2, section.para2 p, section.paragraph p, section p{
+    grid-column: 1/span 12;
+  } 
+  section p  
+   {
+    font-size: 0.6em;
+  }
+    section.heading h1, section.heading h2{
+    }
+}
+
+  @media (max-width: 500px){
+    
+
+
+  section.heading h1{
+    line-height: 40px;
+    font-size: 40px;
+  }
+    section img{
+      width: 100%;
+      max-height: none;
+    }
+}
+   
+
+</style>
+
+
+
+</html>
+
+
+<body>
+
+    <section class="heading">
+        <h1>Lovestruck</h1>
+        <h2>writing & photos by aisha a. </h2>
+    </section>
+
+<!--paragraph 1-->
+    <section class="para">
+        <p> How must it feel? 
+            <br>
+            What could it mean? 
+            <br>
+            To be human?
+            <br>
+            Oh, to be free.
+            <br><br>
+            <div class="img">
+                <img class="para1" src="assets/group9_1.jpeg">
+              </div>
+        </p>
+    </section>
+<!--paragraph 2-->
+    <section class="para">
+        <p> Void of wings and the commandments of the skies. 
+            <br>
+            To devote one heart to another,
+            <br>
+            knowing that in a world so transient, 
+            <br>
+            for such love there is always an end in sight. 
+            <br>
+            <div class="img">
+                <img class="para1" src="assets/group9_2.jpeg">
+              </div>
+        </p>
+    </section>
+    
+    <!--paragraph 3-->
+    <section class="para">
+        <p> 
+    Perhaps the angels are who they are, 
+    <br>
+    because their questions are of such a simple nature.
+    <br>
+    Curious are they, 
+    <br>
+    to understand how it sometimes seems,
+    <br>
+    that the softest of sin, 
+    <br>
+    string together to create stories of love so holy.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_3.jpeg">
+      </div>
+        </p>
+    </section>
+   
+    <!--paragraph 4-->
+    <section class="para">
+        <p> 
+    Like the sweethearts of park benches and grassy fields,
+    <br>
+    cobblestone and dancing curtains, 
+    <br>
+    undercover darkness, 
+    <br>
+    moonlit to the touch.
+    <br>
+    Everything they do,
+    <br>
+    Just to feel real.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_4.jpeg">
+      </div>
+        </p>
+    </section>
+  
+    <!--paragraph 5-->
+    <section class = "para">
+        <p>
+    Their stories so raw, so earthly,
+    <br>
+    a glimpse of which could compromise even an angel from above.
+    <br>
+ 
+    <!--paragraph 6-->
+    So they say curiosity killed the cat.
+    <br>
+    Or perhaps it seems that the forbidden fruit was bitten, 
+    <br>
+    just so a girl could laugh.
+    <br>
+    & it would be eaten to its core, 
+    <br>
+    because there is something so alluring about love that is ill fated from the first glance,
+    <br>
+    that even a saint could crave. 
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_5.jpeg">
+      </div>
+</p>
+</section>
+
+<!--paragraph 7-->
+<section class = "para">
+    <p>
+    This is where the pages turned.
+    <br>
+    This is when the clouds churned.
+    <br>
+    The valleys of innocence ran dry,
+    <br>
+    & from them an angel stepped into the sunlight.
+    <br>
+    Looking for love, 
+    <br>
+    in all the places where such a thing she would never find.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_6.jpeg">
+      </div>
+</p>
+</section>
+
+<!--paragraph 8-->
+<section class = "para">
+    <p>
+    It is quite difficult for a soul of pure nature, to differentiate between the whispers of lust, 
+    <br>
+    or the deep eyes of devotion.
+    <br>
+
+<!--paragraph 9-->
+    All the noise always sounds like music at first.
+    <br>
+    Until she has danced too hard.
+    <br>
+    Until there are too many ghosts in her heart's graveyard.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_7.jpeg">
+      </div>
+</p>
+</section>
+
+<!--paragraph 10-->
+<section class = "para">
+    <p>
+    Father.
+    <br>
+    She will look to You then,
+    <br>
+    supplications of mercy and salvage rolling off her tongue.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_8.jpeg">
+      </div>
+</p>
+</section>
+
+<!--paragraph 11-->
+<section class = "para">
+    <p>
+    The lips that kissed another, will now kiss the sky.
+    <br>
+    How she wishes to roam once again in Your gardens,
+    <br>
+    How she weeps again tonight 
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_9.jpeg">
+      </div>
+</p>
+</section>
+
+<!--paragraph 12-->
+<section class = "para">
+    <p>
+    But she has become bound to the mud.
+    <br>
+    She has become,
+    <br>
+    Struck with love.
+    <br>
+    <div class="img">
+        <img class="para1" src="assets/group9_10.jpeg">
+      </div>
+</p>
+</section>
+
+
+</body>
+

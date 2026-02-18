@@ -1,0 +1,260 @@
+<!-- 7 -->
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+/*     margin: 80px auto 80px auto; */
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  section {
+    margin: auto;
+    width: 80%;
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+/*     gap: 20px; */
+    grid-auto-flow: dense;
+  }
+
+  section.heading h1 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section.heading h2 {
+    text-align: center;
+    margin: none;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    grid-column: 1/span 12;
+  }
+
+  section p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+/*     text-indent: 60px; */
+  }
+  hr.author-line{
+    border: 0.02vmax solid black;
+  }
+
+  section.para p {
+    grid-column: 1/span 6;
+  }
+
+  section.para2 p {
+    grid-column: 7/span 6;
+  }
+
+  section.paragraph p{
+    grid-column: 1/span 12;
+    text-align: left;
+    
+  }
+  
+  section img {
+    margin: 20px 0 20px 0;
+    max-height: 30vmax;
+  }
+
+  div.img {
+    grid-column: 8/span 7;
+    
+  }
+
+  div.img2 {
+    grid-column: 1/span 6;
+    
+  }
+  .tab {
+    display: inline-block;
+    margin-left: 40px;
+  }
+
+  @media (max-width: 1248px) {
+  section p  
+   {
+    font-size: 0.99em;
+  }
+}
+
+  @media(max-width: 800px) {
+  body {
+    width: 100%;
+  }
+    section p{
+      text-indent: 0;
+      line-height: 14px;
+      font-size: 0.6em;
+    }
+    section.heading h1, section.heading h2{
+      
+    }
+}
+
+    @media(max-width: 600px) {
+      
+      
+  section.heading h1, section.heading h2, section.para p, div.img, div.img2, section.para2 p, section.paragraph p, section p{
+    grid-column: 1/span 12;
+  } 
+  section p  
+   {
+    font-size: 0.6em;
+  }
+    section.heading h1, section.heading h2{
+    }
+}
+
+  @media (max-width: 500px){
+    
+
+
+  section.heading h1{
+    line-height: 40px;
+    font-size: 40px;
+  }
+    section img{
+      width: 100%;
+      max-height: none;
+    }
+}
+  
+</style>
+
+</html>
+
+
+<body>
+
+  <section class="heading">
+    <h1>the seven</h1>
+  </section>
+    <hr class="author-line">
+  <section class="heading">
+    <h2> Story by Mia G. photo by Hitha G.</h2>
+  </section>
+
+  <section class="para">
+      <p>
+there is a painting in the town gallery <br>
+that tells the story <br>
+of the most horrific tragedies, <br>
+of the seven sins so deadly. 
+
+        <br>
+        <br>
+        every detail is ensnaring,<br>
+captivating its observer<br>
+with faint whispers and the ghostly <br>
+feeling of a hand gripping your shoulder.<br>
+
+<br>
+    <br>  
+      </p>
+        
+        <div class="img">
+      <img class="para1" src="article photos/7deadlySins/wrath.jpg">
+    </div>
+</section>
+        <section class="para2">
+          <p>
+        they say that to begin something in anger<br>
+is sure to end in shame<br>
+and that envy is a tie that <br>
+binds and binds until one cannot breathe. <br>
+<br>
+            
+        <br>
+            </p>
+        <div class="img2">
+      <img class="para2" src="article photos/7deadlySins/envy.jpg">
+    </div>
+  </section>
+  <section class="para">
+    <p>
+        
+        they say that to be gluttonous is to<br>
+dig your own grave with your teeth<br>
+and that laziness is a disease that infects genuineness, <br>
+often replacing it with what is convenient.<br>
+<br>
+        <br>
+        <br>
+    </p>
+    <div class="img">
+      <img class="para1" src="article photos/7deadlySins/gluttony.jpg">
+    </div>
+  </section>
+  <section class="para2">
+    <p>
+they say that sex becomes a consolation 
+when you can’t find love
+and that greed loses love
+in the pursuit of something more.
+<br>
+        <br>
+    </p>
+
+    <div class="img2">
+      <img class="para2" src="article photos/7deadlySins/lust.jpg">
+    </div>
+    
+  </section>
+  <section class="para">
+    <p>
+        they say that no one can be proud<br>
+when they are alone,<br>
+that the possession of pride will<br>
+make one the loneliest in a room full of people.<br>
+<br>
+<br>
+    </p>
+    
+    <div class="img">
+      <img class="para1" src="article photos/7deadlySins/greed.jpg">
+    </div>
+  </section>
+  <section class="para2">
+    <p>
+        suddenly the whispers stop and the hand slips,<br>
+but your breath is shallow and your mind fuzzy,<br>
+a feeling of paranoia now deeply rooted in your bones.<br>
+<br>
+<br>
+        there is a painting in the town gallery<br>
+that whispers the tragedies <br>
+of the seven sins so deadly and <br>
+denies the desired relief from its haunting story. <br>
+
+       
+      </p>
+
+
+  
+    <div class="img2">
+      <img class="para2" src="article photos/7deadlySins/pride.jpg">
+    </div>
+
+  </section>
+  
+</body>
