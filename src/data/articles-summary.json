@@ -1,29 +1,20 @@
 [
     {
-        "slug": "indigoos-review",
-        "title": "The IndigoOS Vision",
-        "author": "Luis Alarcon",
-        "category": "Tech",
-        "summary": "Exploring the new system architecture for our creative platform.",
-        "date": "2026-01-31",
-        "coverImage": "/assets/articles/trio2.JPG"
-    },
-    {
-        "slug": "analog-revival",
-        "title": "Analog Revival",
-        "author": "Photography Dept",
-        "category": "Art",
-        "summary": "Why we are returning to cinematic candid photography this semester.",
-        "date": "2026-01-30",
-        "coverImage": "/assets/articles/trio2.JPG"
-    },
-    {
         "slug": "covet",
         "title": "Covet",
         "author": "Joanna Virippil",
         "category": "Editorial",
         "summary": "An exploration of shared light, stolen identity, and the weight of adornment.",
         "date": "2026-02-04",
+        "coverImage": "/assets/articles/trio2.JPG"
+    },
+    {
+        "slug": "how-to-ruin-a-first-date",
+        "title": "How To Ruin A First Date!",
+        "author": "Manogna ",
+        "category": "Valentine",
+        "summary": "Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
+        "date": "2026-02-18",
         "coverImage": "/assets/articles/trio2.JPG"
     }
 ]
