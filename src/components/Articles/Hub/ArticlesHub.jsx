@@ -8,20 +8,20 @@ import './ArticlesHub.css';
 export const ArticlesHub = ({ posts }) => {
     return (
         <div className="articles-page-wrapper">
-            <Taskbar />
+            <Taskbar darkIcons={true} />
 
             <div className="articles-hub-container max-w-7xl mx-auto p-8 pt-32 relative z-10">
                 <header className="mb-24 flex flex-col items-center justify-center text-center space-y-6 articles-hub-header">
                     <img
                         src={articlesSvg}
                         alt="Articles"
-                        className="h-10 md:h-14 w-auto svg-white"
+                        className="h-10 md:h-14 w-auto svg-black"
                     />
-                    <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">The latest from the writing department</p>
+
                     <hr className="hub-separator" />
                 </header>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-x-10 gap-y-20">
                     {posts.map((post) => (
                         <Link
                             key={post.id}

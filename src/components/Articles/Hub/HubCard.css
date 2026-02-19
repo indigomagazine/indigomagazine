@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 
 .hub-card-container {
-    width: 100%;
+    width: 120%;
     height: 100%;
     /* Scale down by limiting width */
     max-width: 85%;
@@ -19,10 +19,10 @@
     transition: all 0.5s ease-out;
 }
 
-.hub-card-container:hover {
+/* .hub-card-container:hover {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     transform: translateY(-4px);
-}
+} */
 
 .hub-card-image-wrapper {
     position: relative;
