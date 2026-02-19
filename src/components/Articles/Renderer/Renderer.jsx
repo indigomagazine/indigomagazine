@@ -1,11 +1,12 @@
 import React from 'react';
 import { StandardTemplate } from '../Templates/StandardTemplate';
 import { EditorialTemplate } from '../Templates/EditorialTemplate';
+import { ValentinesTemplate } from '../Templates/Valentines';
 
-// wraps templates to an object 
 const templates = {
   standard: StandardTemplate,
   editorial: EditorialTemplate,
+  valentines: ValentinesTemplate,
 };
 
 export function Renderer({ article }) {
