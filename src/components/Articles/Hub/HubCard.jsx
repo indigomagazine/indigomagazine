@@ -15,7 +15,7 @@ export function HubCard({ post }) {
             className="hub-card-image"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-zinc-100 text-zinc-400 font-serif italic text-lg">
+          <div className="w-full h-full flex items-center justify-center bg-zinc-100 text-zinc-400 font-serif italic text-sm">
             Ind.
           </div>
         )}
