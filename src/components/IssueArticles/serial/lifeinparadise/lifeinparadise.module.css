@@ -1,0 +1,64 @@
+.viewer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: whitesmoke; 
+    overflow: hidden;
+}
+
+.backgroundVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.imageContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transform: rotate(-3deg); 
+}
+
+.singleImage {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.doubleImage {
+    display: flex;
+    gap: 0;
+    max-height: 90vh;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.halfImage {
+    max-width: 45vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.leftPage {
+    border-right: 1px solid #ddd;
+}
+
+.rightPage {
+    border-left: 1px solid #ddd;
+}

@@ -1,0 +1,221 @@
+/* src/styles/articles/look-valentines.css */
+@import "./base-article.css";
+
+.look-valentines {
+  font-family: 'Times New Roman', Times, serif;
+  min-height: 100vh;
+  background-color: #fff;
+  padding-top: 70px; /* space for fixed header */
+}
+
+/* Header matches Valentines accent red (#B01616 from SVG) */
+.look-valentines .nav-container {
+  background-color: rgba(176, 22, 22, 0.95);
+}
+
+.look-valentines :root {
+  --valentines-accent: #B01616;
+}
+
+/* Valentines Title Block */
+.look-valentines .block-valentines-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.look-valentines .block-valentines-title .valentines-title-svg {
+  max-width: 100%;
+  height: auto;
+  min-height: 60px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.look-valentines .block-valentines-title .valentines-title-fallback {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 700;
+  color: var(--valentines-accent, #B01616);
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.look-valentines .block-valentines-title .article-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1rem;
+  color: #000;
+}
+
+.look-valentines .block-valentines-title .article-author,
+.look-valentines .block-valentines-title .article-designers {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Valentines Para Title Block */
+.look-valentines .block-valentines-para-title {
+  text-align: center;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Reduce duplicate gap when para title follows a gallery */
+.look-valentines .block-hscroll-gallery + .block-valentines-para-title,
+.look-valentines .block-valentines-hscroll-gallery + .block-valentines-para-title {
+  margin-top: 1.5rem;
+}
+
+.look-valentines .block-valentines-para-title h2 {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  color: #B01616;
+}
+
+/* Valentines Credits Block (end of article) */
+.look-valentines .block-valentines-credits {
+  max-width: var(--content-max-width);
+  margin: 2rem auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.look-valentines .block-valentines-credits .credits-line {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #000;
+  margin: 0.25rem 0;
+}
+
+/* Valentines Paragraph Block */
+.look-valentines .block-valentines-paragraph {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.look-valentines .block-valentines-paragraph p {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.625;
+  color: #000;
+  text-align: center;
+}
+
+/* Video Gallery Block */
+.look-valentines .block-video-gallery {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.look-valentines .block-video-gallery .video-gallery-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* HScroll Gallery Block */
+.look-valentines .block-hscroll-gallery,
+.look-valentines .block-valentines-hscroll-gallery {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+  height: 420px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+
+.look-valentines .block-hscroll-gallery::-webkit-scrollbar,
+.look-valentines .block-valentines-hscroll-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.look-valentines .block-hscroll-gallery::-webkit-scrollbar-track,
+.look-valentines .block-valentines-hscroll-gallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.look-valentines .block-hscroll-gallery::-webkit-scrollbar-thumb,
+.look-valentines .block-valentines-hscroll-gallery::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.look-valentines .hscroll-gallery-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  min-width: min-content;
+  height: 100%;
+}
+
+.look-valentines .hscroll-gallery-item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  height: 100%;
+  min-width: 200px; /* keep slot visible even if image fails to load */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+/* Height fills container, width scales proportionally – no cropping */
+.look-valentines .hscroll-gallery-item img {
+  height: 100%;
+  width: auto;
+  min-width: 150px; /* prevent collapse on load error */
+  display: block;
+  object-fit: contain;
+}
+
+.look-valentines .hscroll-gallery-text-blurb {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+  padding: 1rem 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #B01616;
+}
+
+
+@media (max-width: 768px) {
+  .look-valentines .block-valentines-title .valentines-title-svg {
+    max-width: 90%;
+  }
+
+  .look-valentines .block-hscroll-gallery,
+  .look-valentines .block-valentines-hscroll-gallery {
+    padding: 0 1.5rem;
+    height: 320px;
+  }
+}

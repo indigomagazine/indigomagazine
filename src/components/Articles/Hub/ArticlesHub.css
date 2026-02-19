@@ -1,0 +1,24 @@
+/* ArticlesHub.css */
+
+.articles-page-wrapper {
+  background-color: white;
+  min-height: 100vh;
+  color: #000;
+}
+
+/* Nav bar on articles page: white background so top isn't red */
+.articles-page-wrapper .nav-container {
+  background-color: white;
+}
+
+/* Push the content down significantly */
+.articles-hub-header {
+    margin-top: 3rem;
+    /* Adjust as needed */
+    padding-top: 3rem;
+}
+
+/* Invert colors to make white SVG black */
+.svg-black {
+    filter: invert(1) brightness(0);
+}

@@ -1,0 +1,36 @@
+{
+    "id": "1",
+    "slug": "indigoos-review",
+    "title": "The IndigoOS Vision",
+    "author": "Luis Alarcon",
+    "category": "Tech",
+    "summary": "Exploring the new system architecture for our creative platform.",
+    "date": "2026-01-31",
+    "layout": "standard",
+    "content": [
+        {
+            "type": "text",
+            "value": "The intersection of software and soul is where IndigoOS lives."
+        },
+        {
+            "type": "image",
+            "url": "",
+            "caption": "Early architecture sketches, 2026."
+        },
+        {
+            "type": "text",
+            "value": "We wanted to build something that felt less like a tool and more like an extension of the creative mind."
+        },
+        {
+            "type": "gallery",
+            "images": [
+                {
+                    "url": ""
+                },
+                {
+                    "url": ""
+                }
+            ]
+        }
+    ]
+}

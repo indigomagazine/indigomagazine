@@ -1,0 +1,452 @@
+
+.mg-root { background: var(--bg); }
+:root {
+  --pad: 24px;
+  --gap: 16px;
+  --border: 1px solid rgba(242, 209, 234, 0.25);
+  --bg: #fffcf1;
+  --text: #F5E7BA;
+  --muted: rgba(255,255,255,0.7);
+  --accent: #F5E7BA;
+}
+
+body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
+
+.serial-launcher {
+ position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 60; /* above header & content */
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1px solid rgba(159, 92, 157, 0.812);
+  background: #cf85c582;
+  color: #fff;
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.serial-taskbar {
+    position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 55;
+  transform: translateY(-100%);
+  transition: transform 260ms ease;
+  will-change: transform;
+  /* glassy look */
+  background: rgba(10,10,10,0.60);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.serial-taskbar.open {
+  transform: translateY(0);
+}
+
+.serial-taskbar_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--accent);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  color: hwb(228 64% 13% / 0.877);
+}
+
+.serial-taskbar .taskbar-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.serial-taskbar .taskbar-actions a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+}
+.serial-taskbar .taskbar-actions a:hover { opacity: 1; }
+
+
+
+.mg-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.mg-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 40;
+  padding: 12px;
+}
+
+.mg-toggle .toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mg-toggle .toggle input { display: none; }
+
+.mg-toggle .slider {
+  width: 48px;
+  height: 26px;
+  background: #cf85c582;
+  border-radius: 99px;
+  position: relative;
+  border: 1px solid #a480aaff;
+  transition: background .2s ease;
+}
+.mg-toggle .slider::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 22px; height: 22px;
+  background: #F5E7BA;
+  border-radius: 50%;
+  transition: transform .2s ease;
+}
+.mg-toggle input:checked + .slider { background: #2c2c2c; }
+.mg-toggle input:checked + .slider::after { transform: translateX(22px); }
+.mg-toggle .label { font-size: 12px; color: #a480aaff; }
+
+/* Scroll view */
+.snap-wrapper {
+  height: 100svh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;;
+  scroll-snap-type: y mandatory; /* gentle 'resistance' snap, not hard lock */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-wrapper::-webkit-scrollbar { display: none; }
+
+.snap-section {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  scroll-snap-align: start;
+  height: 100svh;     /* good for mobile chrome URL bar */
+ min-height: 100vh; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+.logo-link {
+  margin-left: auto;
+  
+}
+
+ .logo {
+  height: 50px; 
+  left: 20px;
+  width: auto;  
+  transition: opacity 0.3s ease;
+}
+
+.snap-section .hit-area {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) contrast(1.05);
+  opacity: 0.98;
+  filter: saturate(.95) contrast(1.05);
+  opacity: 1;
+}
+/* Reuse existing look; only affect items we mark */
+.is-blurred {
+  filter: blur(7px)  contrast(0.95) ;
+}
+
+/* Disable clicks on placeholder */
+.is-coming-soon .card-link,
+.is-coming-soon .hit-area {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Subtle badge in the overlay */
+.meta .badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(254,254,254,0.25);
+  background: rgba(0,0,0,0.35);
+  color: #F5E7BA;
+  backdrop-filter: blur(2px);
+}
+
+
+@media (min-width: 900px) {
+  .cover {
+    object-position: var(--cover-pos,center);
+  }
+}
+
+.meta {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  z-index: 10;
+  color: var(--text);
+  padding: 16px 18px;
+  border-radius: 12px;
+ 
+  backdrop-filter: blur(4px);
+}
+.meta .bullet { font-size: 10px; margin-bottom: 8px; }
+.meta .title {
+  font-size: clamp(24px, 5vw, 48px);
+  line-height: 1.05;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.2px;
+}
+.meta .desc {
+  margin: 0 0 10px 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1.7vw, 16px);
+}
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid rgba(254, 254, 254, 0.25);
+  border-radius: 16px;
+  color: var(--accent);
+  background: rgba(235, 154, 228, 0.2);
+}
+
+
+.grid-wrapper {
+  padding: calc(var(--pad) + 52px) var(--pad) var(--pad);
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* max 2 columns */
+  gap: var(--gap);
+}
+@media (max-width: 640px) {
+  .grid-wrapper { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+
+
+/* Make the cards smaller & consistent using aspect-ratio */
+.grid-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;       /* soften corners */
+  aspect-ratio: 4 / 5;       /* smaller/taller cards; tweak to taste */
+}
+
+/* Image behavior (grid only) */
+.grid-card .thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Per-item control for grid only (set from JSX via --obj-pos) */
+  object-position: var(--obj-pos, center center);
+  display: block;
+  transition: transform 200ms ease;
+}
+
+/* Optional hover zoom for non-coming-soon cards */
+.grid-card:not(.is-coming-soon):hover .thumb {
+  transform: scale(1.02);
+}
+
+/* Title area */
+.grid-card .card-meta {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+/* --- “Coming soon” (darken + blur image, keep text readable) --- */
+.grid-card.is-coming-soon .thumb {
+  filter: blur(1px) brightness(1) saturate(0.85);
+}
+
+/* Extra blackout overlay so it feels intentionally “disabled” */
+.grid-card.is-coming-soon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(transparent, rgba(0,0,0,0.55));
+  z-index: 1;
+}
+
+/* Badge style if you show a label */
+.grid-card.is-coming-soon .badge {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 3px 9px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+}
+
+/* Turn off clicks for coming soon */
+.grid-card.is-coming-soon .card-link {
+  pointer-events: none;
+  cursor: default;
+}
+/* apply scale only on devices that support hover (avoids touch quirks) */
+@media (hover: hover) and (pointer: fine) {
+  .grid-card:hover .thumb,
+  .grid-card:focus-within .thumb {
+    transform: scale(1.06); /* change scale value to taste */
+  }
+}
+
+/* disable hover transforms on touch devices for stability */
+@media (hover: none) {
+  .thumb {
+    transition: none;
+    transform: none;
+  }
+}
+
+
+
+/* REPLACE .card-meta & children */
+.card-meta {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  right: 14px;       /* keep some breathing room if titles wrap */
+  z-index: 2;
+  padding: 0;        /* remove card bar spacing */
+  background: none;  /* no background bar */
+}
+.card-meta .title {
+  margin: 0;
+  font-size: clamp(1rem, 1.2vw + 0.6rem, 1.5rem);
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.55); /* readability on bright images */
+}
+
+/* (Optional) hide desc/tags in grid if you want pure image + title */
+.grid-card .desc,
+.grid-card .tags { display: none; }
+
+
+/* ---------- Left Drawer ---------- */
+.serial-drawer {
+  --w: var(--drawer-w, 150px);
+  --h: var(--drawer-h, 100vh);
+  --bg: var(--drawer-bg, #030b3125);
+  --fg: var(--drawer-color, #ffffff);
+  --acc: var(--drawer-accent, rgba(255, 255, 255, 0.2));
+  --spd: var(--drawer-speed, 260ms);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--w);
+  height: var(--h);
+  transform: translateX(calc(-1 * var(--w))); /* hidden to the left */
+  transition: transform var(--spd) ease;
+  z-index: 70;
+
+  background: var(--bg);
+  color: var(--fg);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid var(--acc);
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+
+  display: flex;
+  flex-direction: column;
+}
+.serial-drawer.is-open { transform: translateX(0); }
+
+/* inner content area */
+.serial-drawer__inner {
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* vertical nav: spaced short texts */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 125px;
+  /* center in the middle of the drawer */
+  justify-content: flex-start;
+  padding-top: 120px;
+  align-items: center;
+  
+}
+.drawer-nav a {
+  color: rgb(238, 210, 243);
+  text-decoration: underline  white ;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: .2px;
+  opacity: 0.92;
+}
+.drawer-nav a:hover { opacity: 1; }
+
+/* ---------- Tab/Asset that rides with the drawer edge ---------- */
+.drawer-tab {
+  --w: var(--drawer-w, 30px);
+  --spd: var(--drawer-speed, 260ms);
+
+  position: fixed;
+  top: 12px;
+  left: 10px;
+  z-index: 75;                 /* above drawer */
+  transform: translateX(0);    /* at far-left when closed */
+  transition: transform var(--spd) ease;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.drawer-tab img { width: 55px; height: 55px; }
+
+.drawer-tab.is-open {
+  /* When open, “dock” to the drawer’s right edge */
+  transform: translateX(var(--w));
+}
+
+/* Optional: keep your existing top-right header/toggle as-is */
