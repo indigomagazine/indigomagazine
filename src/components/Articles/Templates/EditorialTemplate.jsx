@@ -11,7 +11,7 @@ export function EditorialTemplate({ article }) {
         <div className="look-editorial">
             <article className="article-container">
                 <header className="article-header">
-                    <span className="article-category">{article.category}</span>
+
                     <h1 className="article-title">{article.title}</h1>
                     <div className="article-meta">
                         <p className="article-author">{article.author}</p>

@@ -1,22 +1,25 @@
 import React from 'react';
 import { TextBlock } from '../Renderer/blocks/TextBlock';
-import { TitleBlock } from '../Renderer/blocks/TitleBlock';
 import { HeadingBlock } from '../Renderer/blocks/HeadingBlock';
 import { ImageBlock } from '../Renderer/blocks/ImageBlock';
 import { GalleryBlock } from '../Renderer/blocks/GalleryBlock';
+
 import '../../../styles/articles/look-standard.css';
 
 export function StandardTemplate({ article }) {
     return (
         <div className="look-standard">
             <article className="article-container">
-                <TitleBlock
-                    category={article.category}
-                    title={article.title}
-                    subtitle={article.summary}
-                    author={article.author}
-                    date={article.date}
-                />
+                <header className="article-header">
+
+
+                    <div className="article-meta">
+                        <h1 className="article-title">{article.title}</h1>
+                        {article.author && <span className="article-author">By {article.author}</span>}
+                        {article.date && <span className="article-date">{article.date}</span>}
+                    </div>
+                    <hr className="title-divider" />
+                </header>
 
                 <main>
                     {article.content.map((block, index) => {
