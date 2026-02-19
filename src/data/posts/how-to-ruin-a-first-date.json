@@ -23,7 +23,7 @@
       "type": "valentinesHScrollGallery",
       "images": [
         {
-          "url": "/assets/articles/indigovalentinesphotos/1.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/1.png",
           "alt": ""
         },
         {
@@ -36,6 +36,10 @@
         },
         {
           "url": "/assets/articles/indigovalentinesphotos/4.jpg",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/5.jpg",
           "alt": ""
         }
       ],
@@ -57,11 +61,7 @@
       "type": "valentinesHScrollGallery",
       "images": [
         {
-          "url": "/assets/articles/indigovalentinesphotos/5.jpg",
-          "alt": ""
-        },
-        {
-          "url": "/assets/articles/indigovalentinesphotos/6.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/6.png",
           "alt": ""
         },
         {
@@ -71,9 +71,17 @@
         {
           "url": "/assets/articles/indigovalentinesphotos/8.jpg",
           "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/9.jpg",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/10.jpg",
+          "alt": ""
         }
       ],
-      "textBlurb": "hearts"
+      "textBlurb": "love"
     },
     {
       "type": "valentinesParaTitle",
@@ -91,23 +99,27 @@
       "type": "valentinesHScrollGallery",
       "images": [
         {
-          "url": "/assets/articles/indigovalentinesphotos/9.jpg",
-          "alt": ""
-        },
-        {
-          "url": "/assets/articles/indigovalentinesphotos/10.jpg",
-          "alt": ""
-        },
-        {
-          "url": "/assets/articles/indigovalentinesphotos/11.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/11.png",
           "alt": ""
         },
         {
           "url": "/assets/articles/indigovalentinesphotos/12.jpg",
           "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/13.jpg",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/14.jpg",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/15.jpg",
+          "alt": ""
         }
       ],
-      "textBlurb": "blossom"
+      "textBlurb": "love"
     },
     {
       "type": "valentinesParaTitle",
@@ -125,23 +137,27 @@
       "type": "valentinesHScrollGallery",
       "images": [
         {
-          "url": "/assets/articles/indigovalentinesphotos/13.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/16.png",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/14.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/17.JPG",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/15.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/18_clean.JPG",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/16.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/19.JPG",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/20.JPG",
           "alt": ""
         }
       ],
-      "textBlurb": "cute"
+      "textBlurb": "love"
     },
     {
       "type": "valentinesParaTitle",
@@ -167,23 +183,27 @@
       "type": "valentinesHScrollGallery",
       "images": [
         {
-          "url": "/assets/articles/indigovalentinesphotos/17.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/21.jpg",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/18.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/22.jpg",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/19.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/23.jpg",
           "alt": ""
         },
         {
-          "url": "/assets/articles/indigovalentinesphotos/20.jpg",
+          "url": "/assets/articles/indigovalentinesphotos/24.jpg",
+          "alt": ""
+        },
+        {
+          "url": "/assets/articles/indigovalentinesphotos/25.JPG",
           "alt": ""
         }
       ],
-      "textBlurb": "pink"
+      "textBlurb": "love"
     }
   ]
 }

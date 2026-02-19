@@ -8,9 +8,9 @@
   padding-top: 70px; /* space for fixed header */
 }
 
-/* Header visible on white background */
+/* Header matches Valentines accent red (#B01616 from SVG) */
 .look-valentines .nav-container {
-  background-color: rgba(32, 32, 32, 0.9);
+  background-color: rgba(176, 22, 22, 0.95);
 }
 
 .look-valentines :root {
@@ -27,10 +27,19 @@
 .look-valentines .block-valentines-title .valentines-title-svg {
   max-width: 100%;
   height: auto;
+  min-height: 60px;
   margin-bottom: 1rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.look-valentines .block-valentines-title .valentines-title-fallback {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 700;
+  color: var(--valentines-accent, #B01616);
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
 }
 
 .look-valentines .block-valentines-title .article-meta {
@@ -166,6 +175,7 @@
   flex-shrink: 0;
   scroll-snap-align: start;
   height: 100%;
+  min-width: 200px; /* keep slot visible even if image fails to load */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -176,6 +186,7 @@
 .look-valentines .hscroll-gallery-item img {
   height: 100%;
   width: auto;
+  min-width: 150px; /* prevent collapse on load error */
   display: block;
   object-fit: contain;
 }

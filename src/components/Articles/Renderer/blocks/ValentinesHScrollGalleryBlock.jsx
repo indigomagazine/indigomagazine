@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { ImageWithExtensionFallback } from './ImageWithExtensionFallback';
 
-function renderSlotContent(item, key) {
+function renderSlotContent(item, idx) {
+  const key = item.type === 'text' ? `text-${idx}` : item.url;
   if (item.type === 'text') {
     return (
       <div key={key} className="hscroll-gallery-text-blurb">
@@ -11,7 +11,7 @@ function renderSlotContent(item, key) {
   }
   return (
     <div key={key} className="hscroll-gallery-item">
-      <ImageWithExtensionFallback url={item.url} alt={item.alt || ''} />
+      <img src={item.url} alt={item.alt || ''} />
     </div>
   );
 }
