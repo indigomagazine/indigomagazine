@@ -6,10 +6,12 @@
 /* Taskbar container styling */
 .nav-container {
     display: flex;
-    align-items: center; /* center nav items vertically so text doesn't sit on the shadow */
+    align-items: center;
+    /* center nav items vertically so text doesn't sit on the shadow */
     justify-content: space-between;
     position: fixed;
-    padding: 10px 20px; /* give extra bottom padding so content doesn't overlap the box-shadow */
+    padding: 10px 20px;
+    /* give extra bottom padding so content doesn't overlap the box-shadow */
     background-color: rgba(32, 32, 32, 0);
 
     backdrop-filter: blur(2px);
@@ -17,7 +19,8 @@
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* slightly larger, pushed away from content */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    /* slightly larger, pushed away from content */
 
 }
 
@@ -84,7 +87,8 @@
 .nav-container.hidden {
     transform: translateY(-120%);
     transition: transform 260ms ease-in-out;
-    pointer-events: none; /* prevent interactions while hidden */
+    pointer-events: none;
+    /* prevent interactions while hidden */
 }
 
 .nav-container {
@@ -92,36 +96,62 @@
 }
 
 
+/* Desktop/Mobile View Toggles */
+.mobile-view {
+    display: none;
+}
+
+.desktop-view {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* Mobile Navigation Adjustments */
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 5px 10px 0px 10px;
+    .desktop-view {
+        display: none;
     }
 
-    .nav-logo {
-        height: 25px;
-        position: absolute;
-        top: 12px;
-        left: 15px;
-    }
-
-    .nav-links {
-        gap: 12px;
-        flex: 1;
-        justify-content: center;
+    .mobile-view {
+        display: flex;
+        width: 100%;
         align-items: center;
-        margin-right: -20px;
-        /* Offset to counter absolute logo visually if needed, but centering should be primary */
+        justify-content: space-between;
     }
 
-
-
-    .nav-icon {
-        height: 14px;
+    .nav-container {
+        padding: 10px 15px;
+        min-height: 60px;
     }
 
-    .nav-links a {
-        font-size: 1.0em;
+    /* Mobile Specific Styles */
+    .mobile-logo {
+        height: 30px;
+        /* Adjust mobile logo size here */
+        width: auto;
+    }
+
+    .mobile-links {
+        display: flex;
+        gap: 40px;
+        /* Adjust spacing between icons here */
+        align-items: center;
+    }
+
+    .mobile-icon {
+        height: 20px;
+        /* Adjust mobile icon size here */
+        width: auto;
+        display: block;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: brightness(0) invert(1);
+    }
+
+    .mobile-link {
+        display: block;
+        /* Ensure link wraps icon */
     }
 }
 
