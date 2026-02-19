@@ -3,7 +3,12 @@
 export type ContentBlock =
   | { type: 'text'; value: string }
   | { type: 'image'; url: string; caption?: string; alt?: string }
-  | { type: 'gallery'; images: { url: string; caption?: string }[] };
+  | { type: 'gallery'; images: { url: string; caption?: string }[] }
+  | { type: 'valentinesTitle'; title: string; author?: string; designers?: string }
+  | { type: 'valentinesParaTitle'; value: string }
+  | { type: 'valentinesParagraph'; value: string }
+  | { type: 'hScrollGallery'; images: { url: string; alt?: string }[] }
+  | { type: 'valentinesHScrollGallery'; images: { url: string; alt?: string }[]; textBlurb: string };
 
 export interface Article {
   id: string;
@@ -13,6 +18,7 @@ export interface Article {
   summary: string;
   category: string;
   date: string;
+  designers?: string;
   content: ContentBlock[];
 }
 

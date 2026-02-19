@@ -83,6 +83,11 @@
 /* Light mode support for icons if needed, though header is usually specialized.
     Assuming white text/icons on glass background. */
 
+/* Header visible on light backgrounds (articles hub, etc.) */
+.articles-hub-container .nav-container {
+    background-color: rgba(32, 32, 32, 0.9);
+}
+
 /* Hidden state for taskbar when scrolling down */
 .nav-container.hidden {
     transform: translateY(-120%);
