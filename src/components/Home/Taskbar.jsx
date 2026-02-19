@@ -5,7 +5,7 @@ import visualArtsSrc from "../../assets/logos/Visual-Arts.svg";
 import aboutSrc from "../../assets/logos/About.svg";
 import articlesSrc from "../../assets/logos/Articles.svg";
 
-const Taskbar = () => {
+const Taskbar = ({ darkIcons = false }) => {
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
@@ -34,6 +34,8 @@ const Taskbar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    const iconStyle = darkIcons ? { filter: 'invert(1) brightness(0)' } : {};
+
     return (
         <nav className={`nav-container persistent ${visible ? "" : "hidden"}`}>
             <Link to="/" className="nav-logo-link">
@@ -41,20 +43,21 @@ const Taskbar = () => {
                     src="/legacy/assets/logos/indigologowhite.png"
                     alt="Indigo Logo"
                     className="nav-logo"
+                    style={iconStyle}
                 />
             </Link>
             <div className="nav-links">
                 <Link to="/articles" className="link-bar hvr-fade ARTICLES">
-                    <img src={articlesSrc} alt="ARTICLES" className="nav-icon" />
+                    <img src={articlesSrc} alt="ARTICLES" className="nav-icon" style={iconStyle} />
                 </Link>
                 <Link to="/issues" className="link-bar hvr-fade CREATIVE">
-                    <img src={issuesSrc} alt="ISSUES" className="nav-icon" />
+                    <img src={issuesSrc} alt="ISSUES" className="nav-icon" style={iconStyle} />
                 </Link>
                 <Link to="/visual-arts" className="link-bar hvr-fade VISUALARTS">
-                    <img src={visualArtsSrc} alt="VISUAL ARTS" className="nav-icon" />
+                    <img src={visualArtsSrc} alt="VISUAL ARTS" className="nav-icon" style={iconStyle} />
                 </Link>
                 <Link to="/about" className="link-bar hvr-fade ABOUT">
-                    <img src={aboutSrc} alt="ABOUT" className="nav-icon" />
+                    <img src={aboutSrc} alt="ABOUT" className="nav-icon" style={iconStyle} />
                 </Link>
             </div>
             <div className="nav-spacer"></div>

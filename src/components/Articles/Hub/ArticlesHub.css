@@ -1,0 +1,13 @@
+/* ArticlesHub.css */
+
+/* Push the content down significantly */
+.articles-hub-header {
+    margin-top: 3rem;
+    /* Adjust as needed */
+    padding-top: 3rem;
+}
+
+/* Invert colors to make white SVG black */
+.svg-black {
+    filter: invert(1) brightness(0);
+}
