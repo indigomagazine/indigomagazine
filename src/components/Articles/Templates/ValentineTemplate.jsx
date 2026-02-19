@@ -4,18 +4,21 @@ import { HeadingBlock } from '../Renderer/blocks/HeadingBlock';
 import { ImageBlock } from '../Renderer/blocks/ImageBlock';
 import { GalleryBlock } from '../Renderer/blocks/GalleryBlock';
 
-import '../../../styles/articles/look-standard.css';
+import '../../../styles/articles/look-valentine.css';
 
-export function StandardTemplate({ article }) {
+export function ValentineTemplate({ article }) {
     return (
-        <div className="look-standard">
+        <div className="look-valentine">
             <article className="article-container">
                 <header className="article-header">
-
+                    <img
+                        src="/assets/articles/Title.svg"
+                        alt={article.title}
+                        className="article-title-image"
+                    />
 
                     <div className="article-meta">
-                        <h1 className="article-title">{article.title}</h1>
-                        {article.author && <span className="article-author">By {article.author}</span>}
+
                         {article.date && <span className="article-date">{article.date}</span>}
                     </div>
                     <hr className="title-divider" />

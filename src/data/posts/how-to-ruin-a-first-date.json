@@ -5,8 +5,8 @@
     "author": "Manogna",
     "category": "",
     "summary": "Navigating the dating scene is like navigating a landmine  — there’s really no reason to root for anything to blow up! Thankfully, Indigo Magazine is here to save the day and ease your nerves. Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
-    "date": "",
-    "layout": "standard",
+    "date": "February 19, 2026",
+    "layout": "valentine",
     "content": [
         {
             "type": "text",
@@ -14,7 +14,7 @@
         },
         {
             "type": "heading",
-            "value": "1. Let Love Affairs Be…If They’re With Fashion"
+            "value": "“Let Love Affairs Be…If They’re With Fashion”"
         },
         {
             "type": "text",
@@ -26,7 +26,7 @@
         },
         {
             "type": "heading",
-            "value": "2. Maybe Make Sure You Know Where She’s Sitting"
+            "value": "“Maybe Make Sure You Know Where She’s Sitting”"
         },
         {
             "type": "text",
@@ -38,7 +38,7 @@
         },
         {
             "type": "heading",
-            "value": "3. Leave the Tokyo Drifting To Those Equipped For It"
+            "value": "“Leave the Tokyo Drifting To Those Equipped For It”"
         },
         {
             "type": "text",
@@ -50,7 +50,7 @@
         },
         {
             "type": "heading",
-            "value": "4. Eat And Tell !!!"
+            "value": "“Eat And Tell !!!”"
         },
         {
             "type": "text",

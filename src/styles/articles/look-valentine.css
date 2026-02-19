@@ -1,16 +1,15 @@
-/* src/styles/articles/look-standard.css */
+/* src/styles/articles/look-valentine.css */
 @import "./base-article.css";
 
-.look-standard {
+.look-valentine {
     min-height: 100vh;
     background-color: #fff;
     padding-top: 6rem;
-    /* Increased padding to clear any fixed header */
     padding-bottom: 4rem;
 }
 
 /* Title Header Styles */
-.look-standard .article-header {
+.look-valentine .article-header {
     margin-bottom: 6rem;
     text-align: center;
     display: flex;
@@ -19,28 +18,22 @@
     width: 100%;
     position: relative;
     z-index: 10;
-    /* Ensure title is selectable/clickable above other layers */
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.5rem;
 }
 
-.look-standard .article-title {
-    /* Use clamp for smooth scaling: min 2rem, preferred 5vw, max 4.5rem */
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    color: #000;
-    line-height: 1.2;
-    margin-bottom: 2rem;
+.look-valentine .article-title-image {
     display: block;
-    width: 100%;
-    font-family: serif;
-    font-weight: 400;
-    visibility: visible;
-    opacity: 1;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: 0 auto 2rem auto;
+    object-fit: contain;
 }
 
-.look-standard .article-meta {
+.look-valentine .article-meta {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,13 +45,13 @@
     letter-spacing: 0.1em;
 }
 
-.look-standard .article-author {
+.look-valentine .article-author {
     font-style: italic;
     font-family: serif;
     color: #444;
 }
 
-.look-standard .title-divider {
+.look-valentine .title-divider {
     width: 60px;
     height: 1px;
     background-color: #000;
@@ -66,13 +59,11 @@
     border: none;
 }
 
-
-/* Heading Block Styles */
-.look-standard .block-heading h2 {
+/* Heading Block Styles - Matching Standard but scoped to valentine */
+.look-valentine .block-heading h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 4rem;
-    /* More space before new sections */
     margin-bottom: 1.5rem;
     color: #B01616;
     text-align: center;
@@ -81,11 +72,11 @@
     margin-right: auto;
 }
 
-.look-standard .block-image img {
+.look-valentine .block-image img {
     filter: grayscale(100%);
     transition: all 0.7s;
 }
 
-.look-standard .block-image img:hover {
+.look-valentine .block-image img:hover {
     filter: grayscale(0%);
 }
