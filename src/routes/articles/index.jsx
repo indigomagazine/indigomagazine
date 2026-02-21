@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { getAllArticlePosts } from '../../services/api';
-import { ArticlesHub } from '../../components/Articles/Hub/ArticlesHub';
+import { ArticlesHub } from '../../../components/Articles/Hub/ArticlesHub';
 
 export const Route = createFileRoute('/articles/')({
   // THE BRAIN: Fetch metadata for all available articles
