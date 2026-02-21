@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Renderer } from '../../../components/Articles/Renderer/Renderer';
+import { Renderer } from '../../components/Articles/Renderer/Renderer';
 import { getArticle } from '../../services/api';
 
 export const Route = createFileRoute('/articles/$articleSlug')({
