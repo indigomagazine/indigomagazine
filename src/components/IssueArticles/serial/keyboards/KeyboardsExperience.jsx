@@ -5,17 +5,17 @@ import ChoiceButtons from "./ChoiceButtons";
 import { scenes, eyeColors } from "./storyFlow";
 
 // Import images
-import image1 from "../../../../../assets/serial photos/group 3/tentative final 1.png";
-import image2 from "../../../../../assets/serial photos/group 3/tentative final 2.1.png";
-import image3 from "../../../../../assets/serial photos/group 3/tentative final 2.2.png";
-import image4 from "../../../../../assets/serial photos/group 3/both models.png";
-import image5 from "../../../../../assets/serial photos/group 3/chrome.png";
-import image6 from "../../../../../assets/serial photos/group 3/nolan.png";
-import image7 from "../../../../../assets/serial photos/group 3/keyboard.png";
-import image8 from "../../../../../assets/serial photos/group 3/nolan 2.png";
-import image9 from "../../../../../assets/serial photos/group 3/tomiwa 1.png";
-import image10 from "../../../../../assets/serial photos/group 3/tomiwa 2.png";
-import image11 from "../../../../../assets/serial photos/group 3/anotha one.png";
+import image1 from "../../../../assets/serial photos/group 3/tentative final 1.png";
+import image2 from "../../../../assets/serial photos/group 3/tentative final 2.1.png";
+import image3 from "../../../../assets/serial photos/group 3/tentative final 2.2.png";
+import image4 from "../../../../assets/serial photos/group 3/both models.png";
+import image5 from "../../../../assets/serial photos/group 3/chrome.png";
+import image6 from "../../../../assets/serial photos/group 3/nolan.png";
+import image7 from "../../../../assets/serial photos/group 3/keyboard.png";
+import image8 from "../../../../assets/serial photos/group 3/nolan 2.png";
+import image9 from "../../../../assets/serial photos/group 3/tomiwa 1.png";
+import image10 from "../../../../assets/serial photos/group 3/tomiwa 2.png";
+import image11 from "../../../../assets/serial photos/group 3/anotha one.png";
 
 // Import background music
 import backgroundMusic from "./audio/Yaka-anima (Sábila Orbe) - Creepy Tears.mp3";
@@ -67,7 +67,7 @@ export default function KeyboardsExperience() {
   const [currentShutdownImage, setCurrentShutdownImage] = useState(null);
   const [imageFading, setImageFading] = useState(false);
   const [showPoem, setShowPoem] = useState(false);
-  
+
   // Audio ref for background music
   const audioRef = useRef(null);
 
@@ -76,9 +76,9 @@ export default function KeyboardsExperience() {
     if (audioRef.current) {
       audioRef.current.volume = 0.3;
       audioRef.current.loop = true;
-      
+
       const playPromise = audioRef.current.play();
-      
+
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
@@ -108,7 +108,7 @@ export default function KeyboardsExperience() {
   // Preload shutdown sequence images so they're ready when needed
   useEffect(() => {
     const shutdownImages = [images.image1, images.image2, images.image3];
-    
+
     shutdownImages.forEach((imageSrc) => {
       const img = new Image();
       img.src = imageSrc;
@@ -234,10 +234,10 @@ export default function KeyboardsExperience() {
     // Check if mobile (screen width <= 768px) and adjust timing accordingly
     const isMobile = window.innerWidth <= 768;
     const animationDuration = isMobile ? 90000 : 65000; // 90s mobile, 65s desktop
-    const restartDelay = isMobile 
+    const restartDelay = isMobile
       ? Math.floor(animationDuration * 0.90) - 5000 // 90% minus 5 seconds for mobile
       : Math.floor(animationDuration * 0.90) - 5000; // 90% minus 5 seconds for desktop
-    
+
     setTimeout(() => {
       setShowRestart(true);
     }, restartDelay);
@@ -340,9 +340,8 @@ export default function KeyboardsExperience() {
             <img
               src={images[currentShutdownImage]}
               alt="Memory"
-              className={`${styles.shutdownImage} ${
-                !imageFading ? styles.shutdownImageVisible : ""
-              }`}
+              className={`${styles.shutdownImage} ${!imageFading ? styles.shutdownImageVisible : ""
+                }`}
             />
           </div>
         );
@@ -351,166 +350,163 @@ export default function KeyboardsExperience() {
       if (showPoem) {
         return (
           <div className={styles.shutdownContainer}>
-          <div className={styles.poemScrollWrapper}>
-            <div className={styles.poemScrollContent}>
-              <div className={styles.poemSpread}>
-                <div className={styles.poemColumn}>
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>ACETYLCHOLINE.</div>
-                    <p className={styles.poemLine}>Hand moves to meet your waist.</p>
-                    <p className={styles.poemLine}>Lips move to catch your lips.</p>
-                    <p className={styles.poemLine}>I move to you.</p>
+            <div className={styles.poemScrollWrapper}>
+              <div className={styles.poemScrollContent}>
+                <div className={styles.poemSpread}>
+                  <div className={styles.poemColumn}>
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>ACETYLCHOLINE.</div>
+                      <p className={styles.poemLine}>Hand moves to meet your waist.</p>
+                      <p className={styles.poemLine}>Lips move to catch your lips.</p>
+                      <p className={styles.poemLine}>I move to you.</p>
+                    </div>
+
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>SEROTONIN.</div>
+                      <p className={styles.poemLine}>Joy when I see you smile.</p>
+                      <p className={styles.poemLine}>It&apos;s as simple as that.</p>
+                      <p className={styles.poemLine}>I feel with you.</p>
+                    </div>
+
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>OXYTOCIN.</div>
+                      <p className={styles.poemLine}>I love you.</p>
+                      <p className={styles.poemLine}>Do you?</p>
+                      <p className={styles.poemLine}>I do.</p>
+                    </div>
+
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>ADRENALINE.</div>
+                      <p className={styles.poemLine}>I see you across the room.</p>
+                      <p className={styles.poemLine}>Your green eyes captivate me.</p>
+                      <p className={styles.poemLine}>Your green eyes captivate me.</p>
+                    </div>
                   </div>
 
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>SEROTONIN.</div>
-                    <p className={styles.poemLine}>Joy when I see you smile.</p>
-                    <p className={styles.poemLine}>It&apos;s as simple as that.</p>
-                    <p className={styles.poemLine}>I feel with you.</p>
+                  <div className={styles.poemCenterNote}>
+                    <p>Have I already said that?</p>
+                    <p>Sorry. I get so lost in you.</p>
                   </div>
 
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>OXYTOCIN.</div>
-                    <p className={styles.poemLine}>I love you.</p>
-                    <p className={styles.poemLine}>Do you?</p>
-                    <p className={styles.poemLine}>I do.</p>
-                  </div>
+                  <div className={`${styles.poemColumn} ${styles.poemColumnRight}`}>
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>ACETYLCHOLINE.</div>
+                      <p className={styles.poemLine}>My hands won&apos;t move to you.</p>
+                      <p className={styles.poemLine}>
+                        My lips haven&apos;t met yours in weeks.
+                      </p>
+                      <p className={styles.poemLine}>You move from me.</p>
+                    </div>
 
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>ADRENALINE.</div>
-                    <p className={styles.poemLine}>I see you across the room.</p>
-                    <p className={styles.poemLine}>Your green eyes captivate me.</p>
-                    <p className={styles.poemLine}>Your green eyes captivate me.</p>
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>SEROTONIN.</div>
+                      <p className={styles.poemLine}>Numbness when I see you smile.</p>
+                      <p className={styles.poemLine}>It&apos;s not so simple anymore.</p>
+                      <p className={styles.poemLine}>You feel in spite of me.</p>
+                    </div>
+
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>OXYTOCIN.</div>
+                      <p className={styles.poemLine}>I hate you.</p>
+                      <p className={styles.poemLine}>Do you?</p>
+                      <p className={styles.poemLine}>You don&apos;t.</p>
+                    </div>
+
+                    <div className={styles.poemSection}>
+                      <div className={styles.poemSectionTitle}>ADRENALINE.</div>
+                      <p className={styles.poemLine}>
+                        I wish you were across the fucking room.
+                      </p>
+                      <p className={styles.poemLine}>My eyes are seeing red.</p>
+                      <p className={styles.poemLine}>My eyes are seeing red.</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className={styles.poemCenterNote}>
-                  <p>Have I already said that?</p>
-                  <p>Sorry. I get so lost in you.</p>
+                <div className={styles.poemBottomNote}>
+                  <p>Have you already left me?</p>
+                  <p>Tell me you love me again.</p>
                 </div>
 
-                <div className={`${styles.poemColumn} ${styles.poemColumnRight}`}>
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>ACETYLCHOLINE.</div>
-                    <p className={styles.poemLine}>My hands won&apos;t move to you.</p>
-                    <p className={styles.poemLine}>
-                      My lips haven&apos;t met yours in weeks.
-                    </p>
-                    <p className={styles.poemLine}>You move from me.</p>
-                  </div>
-
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>SEROTONIN.</div>
-                    <p className={styles.poemLine}>Numbness when I see you smile.</p>
-                    <p className={styles.poemLine}>It&apos;s not so simple anymore.</p>
-                    <p className={styles.poemLine}>You feel in spite of me.</p>
-                  </div>
-
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>OXYTOCIN.</div>
-                    <p className={styles.poemLine}>I hate you.</p>
-                    <p className={styles.poemLine}>Do you?</p>
-                    <p className={styles.poemLine}>You don&apos;t.</p>
-                  </div>
-
-                  <div className={styles.poemSection}>
-                    <div className={styles.poemSectionTitle}>ADRENALINE.</div>
-                    <p className={styles.poemLine}>
-                      I wish you were across the fucking room.
-                    </p>
-                    <p className={styles.poemLine}>My eyes are seeing red.</p>
-                    <p className={styles.poemLine}>My eyes are seeing red.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.poemBottomNote}>
-                <p>Have you already left me?</p>
-                <p>Tell me you love me again.</p>
-              </div>
-
-              <div className={styles.poemImageGallery}>
-                <img
-                  src={images.image5}
-                  alt="Editorial Name"
-                  className={styles.poemEditorialName}
-                />
-                {["image4", "image11", "image6", "image7", "image8", "image9", "image10"].map((imgKey) => (
+                <div className={styles.poemImageGallery}>
                   <img
-                    key={imgKey}
-                    src={images[imgKey]}
-                    alt="Memory"
-                    className={styles.poemGalleryImage}
+                    src={images.image5}
+                    alt="Editorial Name"
+                    className={styles.poemEditorialName}
                   />
-                ))}
+                  {["image4", "image11", "image6", "image7", "image8", "image9", "image10"].map((imgKey) => (
+                    <img
+                      key={imgKey}
+                      src={images[imgKey]}
+                      alt="Memory"
+                      className={styles.poemGalleryImage}
+                    />
+                  ))}
+                </div>
+
+                <div className={styles.poemCredits}>
+                  <div>Written by: Manogna Bedhu</div>
+                  <div>Graphics: Sreya Iyer, Sahasra, Manjiri</div>
+                  <div>Web Development: Ethan Scherwitz</div>
+                  <div>Photography: Sruja Peruka</div>
+                  <div>Behind the Scenes: Dorlinda Hickerson</div>
+                </div>
+
+                <div className={styles.musicCredit}>
+                  Music: "Creepy Tears" by Yaka-anima (Sábila Orbe) | Source: Free Music Archive | License: CC BY-NC-ND
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div
+          className={`${styles.container} ${screenPoweredOff ? styles.containerFadeOut : ""
+            }`}
+        >
+          <div
+            className={`${styles.textLinesContainer} ${screenFlashing ? styles.textLinesFlashing : ""
+              }`}
+          >
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+            <div className={styles.textLine}>{generateRandomText(150)}</div>
+          </div>
+
+          <div
+            className={`${styles.screen} ${screenFlashing ? styles.screenFlashing : ""
+              } ${screenPoweredOff ? styles.screenPowerOff : ""}`}
+          >
+            <div className={styles.content}>
+              <div className={styles.asciiBorder}>
+                ⌈ ═══════════════════════════════ ⌉
               </div>
 
-              <div className={styles.poemCredits}>
-                <div>Written by: Manogna Bedhu</div>
-                <div>Graphics: Sreya Iyer, Sahasra, Manjiri</div>
-                <div>Web Development: Ethan Scherwitz</div>
-                <div>Photography: Sruja Peruka</div>
-                <div>Behind the Scenes: Dorlinda Hickerson</div>
+              <div className={styles.dialogueBox}>
+                <div className={styles.errorText}>[SYSTEM TERMINATED]</div>
               </div>
 
-              <div className={styles.musicCredit}>
-                Music: "Creepy Tears" by Yaka-anima (Sábila Orbe) | Source: Free Music Archive | License: CC BY-NC-ND
+              <div className={styles.asciiBorder}>
+                ⌊ ═══════════════════════════════ ⌋
               </div>
             </div>
           </div>
         </div>
       );
-    }
-
-    return (
-      <div
-        className={`${styles.container} ${
-          screenPoweredOff ? styles.containerFadeOut : ""
-        }`}
-      >
-          <div
-            className={`${styles.textLinesContainer} ${
-              screenFlashing ? styles.textLinesFlashing : ""
-            }`}
-          >
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-          <div className={styles.textLine}>{generateRandomText(150)}</div>
-        </div>
-
-        <div
-          className={`${styles.screen} ${
-            screenFlashing ? styles.screenFlashing : ""
-          } ${screenPoweredOff ? styles.screenPowerOff : ""}`}
-        >
-          <div className={styles.content}>
-            <div className={styles.asciiBorder}>
-              ⌈ ═══════════════════════════════ ⌉
-            </div>
-
-            <div className={styles.dialogueBox}>
-              <div className={styles.errorText}>[SYSTEM TERMINATED]</div>
-            </div>
-
-            <div className={styles.asciiBorder}>
-              ⌊ ═══════════════════════════════ ⌋
-            </div>
-          </div>
-        </div>
-      </div>
-    );
     }
 
     // Username/eye color input screen
@@ -580,7 +576,7 @@ export default function KeyboardsExperience() {
                 <ChoiceButtons
                   choices={[{ text: "INITIALIZE", value: "submit" }]}
                   onChoice={() =>
-                    handleUsernameSubmit({ preventDefault: () => {} })
+                    handleUsernameSubmit({ preventDefault: () => { } })
                   }
                 />
               </form>
@@ -628,9 +624,8 @@ export default function KeyboardsExperience() {
                 <div className={styles.loadingTitle}>LOADING ILOVEYOU.EXE...</div>
 
                 <div
-                  className={`${styles.loadingBarContainer} ${
-                    loadingGlitch ? styles.loadingBarGlitch : ""
-                  }`}
+                  className={`${styles.loadingBarContainer} ${loadingGlitch ? styles.loadingBarGlitch : ""
+                    }`}
                 >
                   {Array.from({ length: 20 }).map((_, index) => {
                     const blockThreshold = (index + 1) * 5;
@@ -700,9 +695,8 @@ export default function KeyboardsExperience() {
                 <div className={styles.inputContainer}>
                   <input
                     type="text"
-                    className={`${styles.textInput} ${
-                      isError ? styles.errorInput : ""
-                    }`}
+                    className={`${styles.textInput} ${isError ? styles.errorInput : ""
+                      }`}
                     placeholder=""
                     value={loveInput}
                     onChange={(e) => setLoveInput(e.target.value)}
@@ -777,8 +771,8 @@ export default function KeyboardsExperience() {
 
   return (
     <>
-      <audio 
-        ref={audioRef} 
+      <audio
+        ref={audioRef}
         src={backgroundMusic}
         preload="auto"
         onLoadedData={() => {
