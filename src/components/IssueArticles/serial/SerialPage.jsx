@@ -17,7 +17,7 @@ const items = [
     description: "By: Kerstin T. & Manjiri C.",
     tags: ["INTERACTIVE", "VISUAL", "MAGAZINE"],
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/group9cover.png",
-    to: "/articles/serial/lifeinparadise",
+    to: "/Issues/serial/lifeinparadise",
     coverPos: "center center",
   },
 
@@ -30,7 +30,7 @@ const items = [
     image:
       "https://res.cloudinary.com/dyj46skdc/image/upload/v1765339839/facestretch_sadc29.png",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/indigoos", // path to article
+    to: "/Issues/serial/indigoos", // path to article
     coverPos: " left 25% top 10%",
     // gridPosL optional: "center center",
   },
@@ -42,7 +42,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/serialpicture.JPG",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/stomachache", // path to article
+    to: "/Issues/serial/stomachache", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
@@ -54,7 +54,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/teaser.jpg",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/western", // path to article
+    to: "/Issues/serial/western", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
@@ -66,7 +66,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/9-clothes-2.jpg",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/covet", // path to article
+    to: "/Issues/serial/covet", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
@@ -78,7 +78,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/you%20can%20twist%20time/final.png",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/youcantwisttime", // path to article
+    to: "/Issues/serial/youcantwisttime", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
@@ -104,7 +104,7 @@ const items = [
     image:
       "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/anumberoutofplace", // path to article
+    to: "/Issues/serial/anumberoutofplace", // path to article
     coverPos: " left 25% top 10%",
     // gridPosL optional: "center center",
   },
@@ -117,7 +117,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7684.jpg",
     // Optional: imageGird for grid view (else uses `image`)
-    to: "/articles/serial/iloveshopping", // path to article
+    to: "/Issues/serial/iloveshopping", // path to article
     coverPos: " left 25% top 10%",
     // gridPosL optional: "center center",
   },
