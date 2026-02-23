@@ -91,7 +91,7 @@ const items = [
     // Replace with your local asset paths or URLs
     image: keyboardsImage,
     // Optional: imageGird for grid view (else uses `image`)
-    to: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/anotha%20one.png", // path to article
+    to: "Issues/serial/keyboards", // path to article
     coverPos: "center center",
     // gridPosL optional: "center center",
   },
