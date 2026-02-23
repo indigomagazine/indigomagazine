@@ -89,7 +89,7 @@ const items = [
     description: "By: Manogna Bedhu",
     tags: ["INTERACTIVE", "NOVEMBER"],
     // Replace with your local asset paths or URLs
-    image: keyboardsImage,
+    image: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/anotha%20one.png",
     // Optional: imageGird for grid view (else uses `image`)
     to: "Issues/serial/keyboards", // path to article
     coverPos: "center center",
