@@ -142,15 +142,48 @@ export default function Serial() {
   const [view, setView] = useState("scroll"); // 'scroll' | 'grid'
   const data = useMemo(() => items, []);
 
-  // ADD: place right after your existing useState/useMemo in Serial()
   const [prevView, setPrevView] = useState("scroll");
   const [animClass, setAnimClass] = useState(""); // "slide-in-left" | "slide-in-right" | ""
+
+  // Scroll-hint state
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [showHint, setShowHint] = useState(false);
+  const hasScrolled = useRef(false);
 
   const scrollerRef = useRef(null);
   const isSnappingRef = useRef(false);
   const sectionHRef = useRef(0);
 
   const [barOpen, setBarOpen] = useState(false);
+
+  // Show bounce hint after 2 s (reset if user already scrolled)
+  useEffect(() => {
+    if (view !== "scroll") return;
+    hasScrolled.current = false;
+    setActiveIndex(0);
+    setShowHint(false);
+    const timer = setTimeout(() => {
+      if (!hasScrolled.current) setShowHint(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [view]);
+
+  // Track active dot index + hide hint on first scroll
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el || view !== "scroll") return;
+    const onScroll = () => {
+      const h = sectionHRef.current || el.clientHeight;
+      const idx = Math.round(el.scrollTop / h);
+      setActiveIndex(idx);
+      if (!hasScrolled.current) {
+        hasScrolled.current = true;
+        setShowHint(false);
+      }
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [view]);
 
   useEffect(() => {
     const prev = document.body.style.margin;
@@ -282,6 +315,33 @@ export default function Serial() {
           <GridGallery items={data} />
         )}
       </div>
+
+      {/* Vertical progress dots — top-right */}
+      {view === "scroll" && (
+        <div className="scroll-dots" aria-hidden="true">
+          {data.map((_, i) => (
+            <span
+              key={i}
+              className={`scroll-dot${i === activeIndex ? " is-active" : ""}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Bouncing scroll hint chevron */}
+      {view === "scroll" && showHint && activeIndex < data.length - 1 && (
+        <div className="scroll-hint" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <polyline
+              points="6 9 12 15 18 9"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      )}
     </div>
   );
 }
