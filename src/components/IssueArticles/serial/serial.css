@@ -1,22 +1,28 @@
+.mg-root {
+  background: var(--bg);
+}
 
-.mg-root { background: var(--bg); }
 :root {
   --pad: 24px;
   --gap: 16px;
   --border: 1px solid rgba(242, 209, 234, 0.25);
   --bg: #fffcf1;
   --text: #F5E7BA;
-  --muted: rgba(255,255,255,0.7);
+  --muted: rgba(255, 255, 255, 0.7);
   --accent: #F5E7BA;
 }
 
-body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
+body.body--lock-scroll,
+body.body--lock-scroll #root {
+  overflow: hidden;
+}
 
 .serial-launcher {
- position: fixed;
+  position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 60; /* above header & content */
+  z-index: 60;
+  /* above header & content */
   width: 42px;
   height: 42px;
   border-radius: 20px;
@@ -32,16 +38,18 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
 }
 
 .serial-taskbar {
-    position: fixed;
-  top: 0; left: 0; right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 55;
   transform: translateY(-100%);
   transition: transform 260ms ease;
   will-change: transform;
   /* glassy look */
-  background: rgba(10,10,10,0.60);
+  background: rgba(10, 10, 10, 0.60);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .serial-taskbar.open {
@@ -53,7 +61,7 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   align-items: center;
   justify-content: space-between;
   padding: 12px var(--accent);
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   color: hwb(228 64% 13% / 0.877);
 }
 
@@ -67,7 +75,10 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   text-decoration: none;
   opacity: 0.9;
 }
-.serial-taskbar .taskbar-actions a:hover { opacity: 1; }
+
+.serial-taskbar .taskbar-actions a:hover {
+  opacity: 1;
+}
 
 
 
@@ -94,7 +105,9 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   user-select: none;
 }
 
-.mg-toggle .toggle input { display: none; }
+.mg-toggle .toggle input {
+  display: none;
+}
 
 .mg-toggle .slider {
   width: 48px;
@@ -105,54 +118,73 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   border: 1px solid #a480aaff;
   transition: background .2s ease;
 }
+
 .mg-toggle .slider::after {
   content: "";
   position: absolute;
-  top: 2px; left: 2px;
-  width: 22px; height: 22px;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
   background: #F5E7BA;
   border-radius: 50%;
   transition: transform .2s ease;
 }
-.mg-toggle input:checked + .slider { background: #2c2c2c; }
-.mg-toggle input:checked + .slider::after { transform: translateX(22px); }
-.mg-toggle .label { font-size: 12px; color: #a480aaff; }
+
+.mg-toggle input:checked+.slider {
+  background: #2c2c2c;
+}
+
+.mg-toggle input:checked+.slider::after {
+  transform: translateX(22px);
+}
+
+.mg-toggle .label {
+  font-size: 12px;
+  color: #a480aaff;
+}
 
 /* Scroll view */
 .snap-wrapper {
   height: 100svh;
   overflow-y: auto;
   scrollbar-width: none;
-  -ms-overflow-style: none;;
-  scroll-snap-type: y mandatory; /* gentle 'resistance' snap, not hard lock */
+  -ms-overflow-style: none;
+  ;
+  scroll-snap-type: y mandatory;
+  /* gentle 'resistance' snap, not hard lock */
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 }
 
-.snap-wrapper::-webkit-scrollbar { display: none; }
+.snap-wrapper::-webkit-scrollbar {
+  display: none;
+}
 
 .snap-section {
   position: relative;
   height: 100svh;
   width: 100%;
   scroll-snap-align: start;
-  height: 100svh;     /* good for mobile chrome URL bar */
- min-height: 100vh; 
+  height: 100svh;
+  /* good for mobile chrome URL bar */
+  min-height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
   background: #111;
 }
+
 .logo-link {
   margin-left: auto;
-  
+
 }
 
- .logo {
-  height: 50px; 
+.logo {
+  height: 50px;
   left: 20px;
-  width: auto;  
+  width: auto;
   transition: opacity 0.3s ease;
 }
 
@@ -174,9 +206,10 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   filter: saturate(.95) contrast(1.05);
   opacity: 1;
 }
+
 /* Reuse existing look; only affect items we mark */
 .is-blurred {
-  filter: blur(7px)  contrast(0.95) ;
+  filter: blur(7px) contrast(0.95);
 }
 
 /* Disable clicks on placeholder */
@@ -193,8 +226,8 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   padding: 4px 10px;
   font-size: 12px;
   border-radius: 999px;
-  border: 1px solid rgba(254,254,254,0.25);
-  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(254, 254, 254, 0.25);
+  background: rgba(0, 0, 0, 0.35);
   color: #F5E7BA;
   backdrop-filter: blur(2px);
 }
@@ -202,7 +235,7 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
 
 @media (min-width: 900px) {
   .cover {
-    object-position: var(--cover-pos,center);
+    object-position: var(--cover-pos, center);
   }
 }
 
@@ -215,22 +248,34 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   color: var(--text);
   padding: 16px 18px;
   border-radius: 12px;
- 
+
   backdrop-filter: blur(4px);
 }
-.meta .bullet { font-size: 10px; margin-bottom: 8px; }
+
+.meta .bullet {
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
 .meta .title {
   font-size: clamp(24px, 5vw, 48px);
   line-height: 1.05;
   margin: 0 0 6px 0;
   letter-spacing: 0.2px;
 }
+
 .meta .desc {
   margin: 0 0 10px 0;
   color: var(--muted);
   font-size: clamp(14px, 1.7vw, 16px);
 }
-.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .tag {
   font-size: 12px;
   padding: 4px 8px;
@@ -245,11 +290,15 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   padding: calc(var(--pad) + 52px) var(--pad) var(--pad);
   display: grid;
   align-items: stretch;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* max 2 columns */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* max 2 columns */
   gap: var(--gap);
 }
+
 @media (max-width: 640px) {
-  .grid-wrapper { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grid-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 
@@ -258,8 +307,10 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
 .grid-card {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;       /* soften corners */
-  aspect-ratio: 4 / 5;       /* smaller/taller cards; tweak to taste */
+  border-radius: 10px;
+  /* soften corners */
+  aspect-ratio: 4 / 5;
+  /* smaller/taller cards; tweak to taste */
 }
 
 /* Image behavior (grid only) */
@@ -284,7 +335,7 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   left: 10px;
   bottom: 10px;
   color: #fff;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
   z-index: 2;
 }
 
@@ -298,7 +349,7 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(transparent, rgba(0,0,0,0.55));
+  background: radial-gradient(transparent, rgba(0, 0, 0, 0.55));
   z-index: 1;
 }
 
@@ -309,8 +360,8 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   padding: 3px 9px;
   font-size: 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(2px);
 }
 
@@ -319,11 +370,14 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   pointer-events: none;
   cursor: default;
 }
+
 /* apply scale only on devices that support hover (avoids touch quirks) */
 @media (hover: hover) and (pointer: fine) {
+
   .grid-card:hover .thumb,
   .grid-card:focus-within .thumb {
-    transform: scale(1.06); /* change scale value to taste */
+    transform: scale(1.06);
+    /* change scale value to taste */
   }
 }
 
@@ -342,22 +396,29 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   position: absolute;
   left: 14px;
   bottom: 14px;
-  right: 14px;       /* keep some breathing room if titles wrap */
+  right: 14px;
+  /* keep some breathing room if titles wrap */
   z-index: 2;
-  padding: 0;        /* remove card bar spacing */
-  background: none;  /* no background bar */
+  padding: 0;
+  /* remove card bar spacing */
+  background: none;
+  /* no background bar */
 }
+
 .card-meta .title {
   margin: 0;
   font-size: clamp(1rem, 1.2vw + 0.6rem, 1.5rem);
   line-height: 1.1;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.55); /* readability on bright images */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  /* readability on bright images */
 }
 
 /* (Optional) hide desc/tags in grid if you want pure image + title */
 .grid-card .desc,
-.grid-card .tags { display: none; }
+.grid-card .tags {
+  display: none;
+}
 
 
 /* ---------- Left Drawer ---------- */
@@ -374,7 +435,8 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   left: 0;
   width: var(--w);
   height: var(--h);
-  transform: translateX(calc(-1 * var(--w))); /* hidden to the left */
+  transform: translateX(calc(-1 * var(--w)));
+  /* hidden to the left */
   transition: transform var(--spd) ease;
   z-index: 70;
 
@@ -388,7 +450,10 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   display: flex;
   flex-direction: column;
 }
-.serial-drawer.is-open { transform: translateX(0); }
+
+.serial-drawer.is-open {
+  transform: translateX(0);
+}
 
 /* inner content area */
 .serial-drawer__inner {
@@ -407,17 +472,21 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   justify-content: flex-start;
   padding-top: 120px;
   align-items: center;
-  
+
 }
+
 .drawer-nav a {
   color: rgb(238, 210, 243);
-  text-decoration: underline  white ;
+  text-decoration: underline white;
   font-weight: 600;
   font-size: 25px;
   letter-spacing: .2px;
   opacity: 0.92;
 }
-.drawer-nav a:hover { opacity: 1; }
+
+.drawer-nav a:hover {
+  opacity: 1;
+}
 
 /* ---------- Tab/Asset that rides with the drawer edge ---------- */
 .drawer-tab {
@@ -427,8 +496,10 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   position: fixed;
   top: 12px;
   left: 10px;
-  z-index: 75;                 /* above drawer */
-  transform: translateX(0);    /* at far-left when closed */
+  z-index: 75;
+  /* above drawer */
+  transform: translateX(0);
+  /* at far-left when closed */
   transition: transform var(--spd) ease;
 
   width: 44px;
@@ -442,7 +513,11 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
   place-items: center;
   cursor: pointer;
 }
-.drawer-tab img { width: 55px; height: 55px; }
+
+.drawer-tab img {
+  width: 55px;
+  height: 55px;
+}
 
 .drawer-tab.is-open {
   /* When open, “dock” to the drawer’s right edge */
@@ -450,3 +525,61 @@ body.body--lock-scroll, body.body--lock-scroll #root { overflow: hidden; }
 }
 
 /* Optional: keep your existing top-right header/toggle as-is */
+
+/* ---------- Vertical progress dots (top-right) ---------- */
+.scroll-dots {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  z-index: 50;
+  padding: 8px;
+}
+
+.scroll-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-dot.is-active {
+  background: #F5E7BA;
+  transform: scale(1.5);
+  border-color: rgba(245, 231, 186, 0.5);
+}
+
+/* ---------- Bouncing chevron scroll hint ---------- */
+.scroll-hint {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  color: rgba(255, 255, 255, 0.75);
+  animation: bounce-down 1.4s ease-in-out 0s infinite;
+  pointer-events: none;
+}
+
+@keyframes bounce-down {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint {
+    animation: none;
+  }
+}
