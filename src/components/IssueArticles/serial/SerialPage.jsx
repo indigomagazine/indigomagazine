@@ -7,6 +7,7 @@ import keyboardsImage from "../../../assets/serial photos/group 3/nolan.png";
 import lifeInParadiseCover from "../../../assets/serial photos/group9/group9cover.png";
 
 
+
 /* Where you will add article data */
 /* Make sure to add new item at the top of the list so it appears first */
 /* Will add more fields to allow custom colors for titles and tags.  */
@@ -146,7 +147,10 @@ export default function Serial() {
   const [animClass, setAnimClass] = useState(""); // "slide-in-left" | "slide-in-right" | ""
 
   // Scroll-hint state
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const saved = localStorage.getItem("serial_last_index");
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const [showHint, setShowHint] = useState(false);
   const hasScrolled = useRef(false);
 
@@ -159,8 +163,15 @@ export default function Serial() {
   // Show bounce hint after 2 s (reset if user already scrolled)
   useEffect(() => {
     if (view !== "scroll") return;
+
+    // If we're starting at a saved position, we've effectively already scrolled
+    if (activeIndex > 0) {
+      hasScrolled.current = true;
+      setShowHint(false);
+      return;
+    }
+
     hasScrolled.current = false;
-    setActiveIndex(0);
     setShowHint(false);
     const timer = setTimeout(() => {
       if (!hasScrolled.current) setShowHint(true);
@@ -175,7 +186,10 @@ export default function Serial() {
     const onScroll = () => {
       const h = sectionHRef.current || el.clientHeight;
       const idx = Math.round(el.scrollTop / h);
-      setActiveIndex(idx);
+      if (idx !== activeIndex) {
+        setActiveIndex(idx);
+        localStorage.setItem("serial_last_index", idx);
+      }
       if (!hasScrolled.current) {
         hasScrolled.current = true;
         setShowHint(false);
@@ -243,6 +257,12 @@ export default function Serial() {
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
+
+    // Restore scroll position
+    if (activeIndex > 0) {
+      el.scrollTop = activeIndex * el.clientHeight;
+    }
+
     return () => {
       window.removeEventListener("resize", onResize);
       el.removeEventListener("wheel", onWheel);
