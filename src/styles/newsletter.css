@@ -1,0 +1,236 @@
+/* Newsletter Page Styles */
+
+.newsletter-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-color: #FFFAE7;
+    /* From Figma screenshots */
+    box-sizing: border-box;
+}
+
+.newsletter-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.newsletter-container,
+.confirmation-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    /* Gap between title and input */
+}
+
+.main-text-svg {
+    width: 100%;
+    max-width: 523px;
+    height: auto;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    /* Removing gap, button is absolute now */
+    width: 100%;
+    position: relative;
+    /* For absolute button positioning */
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    /* Adjust based on form structure if needed */
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 339px;
+    aspect-ratio: 339 / 68;
+}
+
+.text-box-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.newsletter-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 0 1.5rem;
+    font-size: 1.2rem;
+    outline: none;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-input:focus {
+    outline: none;
+}
+
+.submit-button-wrapper {
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.custom-submit-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.custom-submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.submit-svg {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.submit-svg:hover {
+    transform: scale(1.05);
+}
+
+.reset-button {
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+.reset-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.zelle-button {
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.zelle-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.zelle-button.copyable {
+    border-style: dashed;
+}
+
+.zelle-button.copied {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.thank-you-svg {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.popup-text-svg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.newsletter-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+
+.footer-title1 {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+.footer-title2 {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Confirmation State */
+.confirmation-container {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
