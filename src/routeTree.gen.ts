@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualArtsRouteImport } from './routes/visual-arts'
 import { Route as SerialRouteImport } from './routes/serial'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IssuesRouteImport } from './routes/issues'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,6 +41,11 @@ const SerialRoute = SerialRouteImport.update({
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IssuesRoute = IssuesRouteImport.update({
@@ -121,6 +127,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+  '/newsletter': typeof NewsletterRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -140,6 +147,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+  '/newsletter': typeof NewsletterRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -160,6 +168,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+  '/newsletter': typeof NewsletterRoute
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+    | '/newsletter'
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -200,6 +210,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+    | '/newsletter'
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+    | '/newsletter'
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -239,6 +251,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   IssuesRoute: typeof IssuesRoute
+  NewsletterRoute: typeof NewsletterRoute
   QuizRoute: typeof QuizRoute
   SerialRoute: typeof SerialRoute
   VisualArtsRoute: typeof VisualArtsRoute
@@ -276,6 +289,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/quiz'
       preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/issues': {
@@ -383,6 +403,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   IssuesRoute: IssuesRoute,
+  NewsletterRoute: NewsletterRoute,
   QuizRoute: QuizRoute,
   SerialRoute: SerialRoute,
   VisualArtsRoute: VisualArtsRoute,
