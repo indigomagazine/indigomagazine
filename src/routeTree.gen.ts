@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualArtsRouteImport } from './routes/visual-arts'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as PhotoboothRouteImport } from './routes/photobooth'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IssuesRouteImport } from './routes/issues'
 import { Route as AboutRouteImport } from './routes/about'
@@ -38,6 +39,11 @@ const VisualArtsRoute = VisualArtsRouteImport.update({
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotoboothRoute = PhotoboothRouteImport.update({
+  id: '/photobooth',
+  path: '/photobooth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsletterRoute = NewsletterRouteImport.update({
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRouteWithChildren
   '/newsletter': typeof NewsletterRoute
+  '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/newsletter': typeof NewsletterRoute
+  '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRouteWithChildren
   '/newsletter': typeof NewsletterRoute
+  '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/issues'
     | '/newsletter'
+    | '/photobooth'
     | '/quiz'
     | '/visual-arts'
     | '/articles/$articleSlug'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/newsletter'
+    | '/photobooth'
     | '/quiz'
     | '/visual-arts'
     | '/articles/$articleSlug'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/issues'
     | '/newsletter'
+    | '/photobooth'
     | '/quiz'
     | '/visual-arts'
     | '/articles/$articleSlug'
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   IssuesRoute: typeof IssuesRouteWithChildren
   NewsletterRoute: typeof NewsletterRoute
+  PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
   VisualArtsRoute: typeof VisualArtsRoute
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
@@ -292,6 +305,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/quiz'
       preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photobooth': {
+      id: '/photobooth'
+      path: '/photobooth'
+      fullPath: '/photobooth'
+      preLoaderRoute: typeof PhotoboothRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/newsletter': {
@@ -423,20 +443,17 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface IssuesSerialRouteChildren {
-  IssuesSerialAnumberoutofplaceRoute: typeof IssuesSerialAnumberoutofplaceRoute
-  IssuesSerialCovetRoute: typeof IssuesSerialCovetRoute
-  IssuesSerialIloveshoppingRoute: typeof IssuesSerialIloveshoppingRoute
-  IssuesSerialIndigoosRoute: typeof IssuesSerialIndigoosRoute
-  IssuesSerialKeyboardsRoute: typeof IssuesSerialKeyboardsRoute
-  IssuesSerialLifeinparadiseRoute: typeof IssuesSerialLifeinparadiseRoute
-  IssuesSerialStomachacheRoute: typeof IssuesSerialStomachacheRoute
-  IssuesSerialWesternRoute: typeof IssuesSerialWesternRoute
-  IssuesSerialYoucantwisttimeRoute: typeof IssuesSerialYoucantwisttimeRoute
-  IssuesSerialIndexRoute: typeof IssuesSerialIndexRoute
-}
-
-const IssuesSerialRouteChildren: IssuesSerialRouteChildren = {
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  IssuesRoute: IssuesRoute,
+  NewsletterRoute: NewsletterRoute,
+  PhotoboothRoute: PhotoboothRoute,
+  QuizRoute: QuizRoute,
+  SerialRoute: SerialRoute,
+  VisualArtsRoute: VisualArtsRoute,
+  ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
+  ArticlesIndexRoute: ArticlesIndexRoute,
   IssuesSerialAnumberoutofplaceRoute: IssuesSerialAnumberoutofplaceRoute,
   IssuesSerialCovetRoute: IssuesSerialCovetRoute,
   IssuesSerialIloveshoppingRoute: IssuesSerialIloveshoppingRoute,
