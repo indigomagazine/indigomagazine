@@ -25,8 +25,8 @@ const FontLink = () => {
    Swap out colors/borders/fonts later.
 ───────────────────────────────────────── */
 const SLOT_W = 200;
-const SLOT_H = 154;
-const STRIP_W = 240; // slotW + horizontal padding
+const SLOT_H = 180;
+const STRIP_W = 300;
 
 const FRAME_DESIGNS = {
   design1: {
