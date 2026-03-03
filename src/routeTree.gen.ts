@@ -12,7 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualArtsRouteImport } from './routes/visual-arts'
 import { Route as SerialRouteImport } from './routes/serial'
 import { Route as QuizRouteImport } from './routes/quiz'
+<<<<<<< Updated upstream
 import { Route as NewsletterRouteImport } from './routes/newsletter'
+=======
+import { Route as PhotoboothRouteImport } from './routes/photobooth'
+>>>>>>> Stashed changes
 import { Route as IssuesRouteImport } from './routes/issues'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,9 +47,15 @@ const QuizRoute = QuizRouteImport.update({
   path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< Updated upstream
 const NewsletterRoute = NewsletterRouteImport.update({
   id: '/newsletter',
   path: '/newsletter',
+=======
+const PhotoboothRoute = PhotoboothRouteImport.update({
+  id: '/photobooth',
+  path: '/photobooth',
+>>>>>>> Stashed changes
   getParentRoute: () => rootRouteImport,
 } as any)
 const IssuesRoute = IssuesRouteImport.update({
@@ -127,7 +137,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -147,7 +161,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -168,7 +186,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/issues': typeof IssuesRoute
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
   '/quiz': typeof QuizRoute
   '/serial': typeof SerialRoute
   '/visual-arts': typeof VisualArtsRoute
@@ -190,7 +212,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -210,7 +236,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -230,7 +260,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/issues'
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
     | '/quiz'
     | '/serial'
     | '/visual-arts'
@@ -251,7 +285,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   IssuesRoute: typeof IssuesRoute
+<<<<<<< Updated upstream
   NewsletterRoute: typeof NewsletterRoute
+=======
+  PhotoboothRoute: typeof PhotoboothRoute
+>>>>>>> Stashed changes
   QuizRoute: typeof QuizRoute
   SerialRoute: typeof SerialRoute
   VisualArtsRoute: typeof VisualArtsRoute
@@ -291,11 +329,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< Updated upstream
     '/newsletter': {
       id: '/newsletter'
       path: '/newsletter'
       fullPath: '/newsletter'
       preLoaderRoute: typeof NewsletterRouteImport
+=======
+    '/photobooth': {
+      id: '/photobooth'
+      path: '/photobooth'
+      fullPath: '/photobooth'
+      preLoaderRoute: typeof PhotoboothRouteImport
+>>>>>>> Stashed changes
       parentRoute: typeof rootRouteImport
     }
     '/issues': {
@@ -403,7 +449,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   IssuesRoute: IssuesRoute,
+<<<<<<< Updated upstream
   NewsletterRoute: NewsletterRoute,
+=======
+  PhotoboothRoute: PhotoboothRoute,
+>>>>>>> Stashed changes
   QuizRoute: QuizRoute,
   SerialRoute: SerialRoute,
   VisualArtsRoute: VisualArtsRoute,
