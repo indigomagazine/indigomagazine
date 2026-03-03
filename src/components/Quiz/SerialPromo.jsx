@@ -6,7 +6,7 @@ const SerialPromo = () => {
         <div className="serial-promo-container">
             <h2 className="serial-promo-title">Hungry for more?</h2>
             <Link
-                to="/serial"
+                to="/issues/serial"
                 className="serial-promo-button"
                 onClick={() => {
                     import("../../analytics").then(({ trackEvent }) => {
