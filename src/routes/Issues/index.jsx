@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import Taskbar from "../../components/Home/Taskbar";
 
-export const Route = createFileRoute("/issues/")({
+export const Route = createFileRoute("/Issues/")({
   component: RouteComponent,
 });
 

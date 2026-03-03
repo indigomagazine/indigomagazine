@@ -16,20 +16,20 @@ import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IssuesRouteImport } from './routes/issues'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as IssuesIndexRouteImport } from './routes/issues/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
-import { Route as IssuesSerialRouteImport } from './routes/issues/serial'
+import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
-import { Route as IssuesSerialIndexRouteImport } from './routes/issues/serial/index'
-import { Route as IssuesSerialYoucantwisttimeRouteImport } from './routes/issues/serial/youcantwisttime'
-import { Route as IssuesSerialWesternRouteImport } from './routes/issues/serial/western'
-import { Route as IssuesSerialStomachacheRouteImport } from './routes/issues/serial/stomachache'
-import { Route as IssuesSerialLifeinparadiseRouteImport } from './routes/issues/serial/lifeinparadise'
-import { Route as IssuesSerialKeyboardsRouteImport } from './routes/issues/serial/keyboards'
-import { Route as IssuesSerialIndigoosRouteImport } from './routes/issues/serial/indigoos'
-import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/issues/serial/iloveshopping'
-import { Route as IssuesSerialCovetRouteImport } from './routes/issues/serial/covet'
-import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/issues/serial/anumberoutofplace'
+import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
+import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
+import { Route as IssuesSerialYoucantwisttimeRouteImport } from './routes/Issues/serial/youcantwisttime'
+import { Route as IssuesSerialWesternRouteImport } from './routes/Issues/serial/western'
+import { Route as IssuesSerialStomachacheRouteImport } from './routes/Issues/serial/stomachache'
+import { Route as IssuesSerialLifeinparadiseRouteImport } from './routes/Issues/serial/lifeinparadise'
+import { Route as IssuesSerialKeyboardsRouteImport } from './routes/Issues/serial/keyboards'
+import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial/indigoos'
+import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
+import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
+import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
@@ -66,24 +66,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IssuesIndexRoute = IssuesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => IssuesRoute,
-} as any)
 const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
   id: '/articles/',
   path: '/articles/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IssuesSerialRoute = IssuesSerialRouteImport.update({
-  id: '/serial',
-  path: '/serial',
-  getParentRoute: () => IssuesRoute,
+const IssuesIndexRoute = IssuesIndexRouteImport.update({
+  id: '/Issues/',
+  path: '/Issues/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
   id: '/articles/$articleSlug',
   path: '/articles/$articleSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssuesSerialRoute = IssuesSerialRouteImport.update({
+  id: '/Issues/serial',
+  path: '/Issues/serial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IssuesSerialIndexRoute = IssuesSerialIndexRouteImport.update({
@@ -144,70 +144,71 @@ const IssuesSerialAnumberoutofplaceRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/issues': typeof IssuesRouteWithChildren
+  '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
-  '/issues/serial': typeof IssuesSerialRouteWithChildren
+  '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/issues/': typeof IssuesIndexRoute
-  '/issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
-  '/issues/serial/covet': typeof IssuesSerialCovetRoute
-  '/issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
-  '/issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
-  '/issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
-  '/issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
-  '/issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
-  '/issues/serial/western': typeof IssuesSerialWesternRoute
-  '/issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
-  '/issues/serial/': typeof IssuesSerialIndexRoute
+  '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
+  '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
+  '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
+  '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
+  '/Issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
+  '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
+  '/Issues/serial/western': typeof IssuesSerialWesternRoute
+  '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/serial/': typeof IssuesSerialIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/issues': typeof IssuesIndexRoute
-  '/issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
-  '/issues/serial/covet': typeof IssuesSerialCovetRoute
-  '/issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
-  '/issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
-  '/issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
-  '/issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
-  '/issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
-  '/issues/serial/western': typeof IssuesSerialWesternRoute
-  '/issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
-  '/issues/serial': typeof IssuesSerialIndexRoute
+  '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
+  '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
+  '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
+  '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
+  '/Issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
+  '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
+  '/Issues/serial/western': typeof IssuesSerialWesternRoute
+  '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/serial': typeof IssuesSerialIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/issues': typeof IssuesRouteWithChildren
+  '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
-  '/issues/serial': typeof IssuesSerialRouteWithChildren
+  '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
-  '/issues/': typeof IssuesIndexRoute
-  '/issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
-  '/issues/serial/covet': typeof IssuesSerialCovetRoute
-  '/issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
-  '/issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
-  '/issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
-  '/issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
-  '/issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
-  '/issues/serial/western': typeof IssuesSerialWesternRoute
-  '/issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
-  '/issues/serial/': typeof IssuesSerialIndexRoute
+  '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
+  '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
+  '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
+  '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
+  '/Issues/serial/lifeinparadise': typeof IssuesSerialLifeinparadiseRoute
+  '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
+  '/Issues/serial/western': typeof IssuesSerialWesternRoute
+  '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/serial/': typeof IssuesSerialIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -219,41 +220,42 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/serial'
     | '/articles/$articleSlug'
-    | '/issues/serial'
+    | '/Issues'
     | '/articles'
-    | '/issues/'
-    | '/issues/serial/anumberoutofplace'
-    | '/issues/serial/covet'
-    | '/issues/serial/iloveshopping'
-    | '/issues/serial/indigoos'
-    | '/issues/serial/keyboards'
-    | '/issues/serial/lifeinparadise'
-    | '/issues/serial/stomachache'
-    | '/issues/serial/western'
-    | '/issues/serial/youcantwisttime'
-    | '/issues/serial/'
+    | '/Issues/serial/anumberoutofplace'
+    | '/Issues/serial/covet'
+    | '/Issues/serial/iloveshopping'
+    | '/Issues/serial/indigoos'
+    | '/Issues/serial/keyboards'
+    | '/Issues/serial/lifeinparadise'
+    | '/Issues/serial/stomachache'
+    | '/Issues/serial/western'
+    | '/Issues/serial/youcantwisttime'
+    | '/Issues/serial/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/issues'
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
     | '/articles/$articleSlug'
+    | '/Issues'
     | '/articles'
-    | '/issues'
-    | '/issues/serial/anumberoutofplace'
-    | '/issues/serial/covet'
-    | '/issues/serial/iloveshopping'
-    | '/issues/serial/indigoos'
-    | '/issues/serial/keyboards'
-    | '/issues/serial/lifeinparadise'
-    | '/issues/serial/stomachache'
-    | '/issues/serial/western'
-    | '/issues/serial/youcantwisttime'
-    | '/issues/serial'
+    | '/Issues/serial/anumberoutofplace'
+    | '/Issues/serial/covet'
+    | '/Issues/serial/iloveshopping'
+    | '/Issues/serial/indigoos'
+    | '/Issues/serial/keyboards'
+    | '/Issues/serial/lifeinparadise'
+    | '/Issues/serial/stomachache'
+    | '/Issues/serial/western'
+    | '/Issues/serial/youcantwisttime'
+    | '/Issues/serial'
   id:
     | '__root__'
     | '/'
@@ -263,31 +265,33 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/serial'
     | '/articles/$articleSlug'
-    | '/issues/serial'
+    | '/Issues/'
     | '/articles/'
-    | '/issues/'
-    | '/issues/serial/anumberoutofplace'
-    | '/issues/serial/covet'
-    | '/issues/serial/iloveshopping'
-    | '/issues/serial/indigoos'
-    | '/issues/serial/keyboards'
-    | '/issues/serial/lifeinparadise'
-    | '/issues/serial/stomachache'
-    | '/issues/serial/western'
-    | '/issues/serial/youcantwisttime'
-    | '/issues/serial/'
+    | '/Issues/serial/anumberoutofplace'
+    | '/Issues/serial/covet'
+    | '/Issues/serial/iloveshopping'
+    | '/Issues/serial/indigoos'
+    | '/Issues/serial/keyboards'
+    | '/Issues/serial/lifeinparadise'
+    | '/Issues/serial/stomachache'
+    | '/Issues/serial/western'
+    | '/Issues/serial/youcantwisttime'
+    | '/Issues/serial/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  IssuesRoute: typeof IssuesRouteWithChildren
+  IssuesRoute: typeof IssuesRoute
   NewsletterRoute: typeof NewsletterRoute
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
   VisualArtsRoute: typeof VisualArtsRoute
+  IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
+  IssuesIndexRoute: typeof IssuesIndexRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
 }
 
@@ -342,13 +346,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/issues/': {
-      id: '/issues/'
-      path: '/'
-      fullPath: '/issues/'
-      preLoaderRoute: typeof IssuesIndexRouteImport
-      parentRoute: typeof IssuesRoute
-    }
     '/articles/': {
       id: '/articles/'
       path: '/articles'
@@ -356,12 +353,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticlesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/issues/serial': {
-      id: '/issues/serial'
-      path: '/serial'
-      fullPath: '/issues/serial'
-      preLoaderRoute: typeof IssuesSerialRouteImport
-      parentRoute: typeof IssuesRoute
+    '/Issues/': {
+      id: '/Issues/'
+      path: '/Issues'
+      fullPath: '/Issues'
+      preLoaderRoute: typeof IssuesIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/articles/$articleSlug': {
       id: '/articles/$articleSlug'
@@ -370,90 +367,100 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticlesArticleSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/issues/serial/': {
-      id: '/issues/serial/'
+    '/Issues/serial': {
+      id: '/Issues/serial'
+      path: '/Issues/serial'
+      fullPath: '/Issues/serial'
+      preLoaderRoute: typeof IssuesSerialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Issues/serial/': {
+      id: '/Issues/serial/'
       path: '/'
-      fullPath: '/issues/serial/'
+      fullPath: '/Issues/serial/'
       preLoaderRoute: typeof IssuesSerialIndexRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/youcantwisttime': {
-      id: '/issues/serial/youcantwisttime'
+    '/Issues/serial/youcantwisttime': {
+      id: '/Issues/serial/youcantwisttime'
       path: '/youcantwisttime'
-      fullPath: '/issues/serial/youcantwisttime'
+      fullPath: '/Issues/serial/youcantwisttime'
       preLoaderRoute: typeof IssuesSerialYoucantwisttimeRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/western': {
-      id: '/issues/serial/western'
+    '/Issues/serial/western': {
+      id: '/Issues/serial/western'
       path: '/western'
-      fullPath: '/issues/serial/western'
+      fullPath: '/Issues/serial/western'
       preLoaderRoute: typeof IssuesSerialWesternRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/stomachache': {
-      id: '/issues/serial/stomachache'
+    '/Issues/serial/stomachache': {
+      id: '/Issues/serial/stomachache'
       path: '/stomachache'
-      fullPath: '/issues/serial/stomachache'
+      fullPath: '/Issues/serial/stomachache'
       preLoaderRoute: typeof IssuesSerialStomachacheRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/lifeinparadise': {
-      id: '/issues/serial/lifeinparadise'
+    '/Issues/serial/lifeinparadise': {
+      id: '/Issues/serial/lifeinparadise'
       path: '/lifeinparadise'
-      fullPath: '/issues/serial/lifeinparadise'
+      fullPath: '/Issues/serial/lifeinparadise'
       preLoaderRoute: typeof IssuesSerialLifeinparadiseRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/keyboards': {
-      id: '/issues/serial/keyboards'
+    '/Issues/serial/keyboards': {
+      id: '/Issues/serial/keyboards'
       path: '/keyboards'
-      fullPath: '/issues/serial/keyboards'
+      fullPath: '/Issues/serial/keyboards'
       preLoaderRoute: typeof IssuesSerialKeyboardsRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/indigoos': {
-      id: '/issues/serial/indigoos'
+    '/Issues/serial/indigoos': {
+      id: '/Issues/serial/indigoos'
       path: '/indigoos'
-      fullPath: '/issues/serial/indigoos'
+      fullPath: '/Issues/serial/indigoos'
       preLoaderRoute: typeof IssuesSerialIndigoosRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/iloveshopping': {
-      id: '/issues/serial/iloveshopping'
+    '/Issues/serial/iloveshopping': {
+      id: '/Issues/serial/iloveshopping'
       path: '/iloveshopping'
-      fullPath: '/issues/serial/iloveshopping'
+      fullPath: '/Issues/serial/iloveshopping'
       preLoaderRoute: typeof IssuesSerialIloveshoppingRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/covet': {
-      id: '/issues/serial/covet'
+    '/Issues/serial/covet': {
+      id: '/Issues/serial/covet'
       path: '/covet'
-      fullPath: '/issues/serial/covet'
+      fullPath: '/Issues/serial/covet'
       preLoaderRoute: typeof IssuesSerialCovetRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/issues/serial/anumberoutofplace': {
-      id: '/issues/serial/anumberoutofplace'
+    '/Issues/serial/anumberoutofplace': {
+      id: '/Issues/serial/anumberoutofplace'
       path: '/anumberoutofplace'
-      fullPath: '/issues/serial/anumberoutofplace'
+      fullPath: '/Issues/serial/anumberoutofplace'
       preLoaderRoute: typeof IssuesSerialAnumberoutofplaceRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
   }
 }
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  IssuesRoute: IssuesRoute,
-  NewsletterRoute: NewsletterRoute,
-  PhotoboothRoute: PhotoboothRoute,
-  QuizRoute: QuizRoute,
-  SerialRoute: SerialRoute,
-  VisualArtsRoute: VisualArtsRoute,
-  ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
-  ArticlesIndexRoute: ArticlesIndexRoute,
+interface IssuesSerialRouteChildren {
+  IssuesSerialAnumberoutofplaceRoute: typeof IssuesSerialAnumberoutofplaceRoute
+  IssuesSerialCovetRoute: typeof IssuesSerialCovetRoute
+  IssuesSerialIloveshoppingRoute: typeof IssuesSerialIloveshoppingRoute
+  IssuesSerialIndigoosRoute: typeof IssuesSerialIndigoosRoute
+  IssuesSerialKeyboardsRoute: typeof IssuesSerialKeyboardsRoute
+  IssuesSerialLifeinparadiseRoute: typeof IssuesSerialLifeinparadiseRoute
+  IssuesSerialStomachacheRoute: typeof IssuesSerialStomachacheRoute
+  IssuesSerialWesternRoute: typeof IssuesSerialWesternRoute
+  IssuesSerialYoucantwisttimeRoute: typeof IssuesSerialYoucantwisttimeRoute
+  IssuesSerialIndexRoute: typeof IssuesSerialIndexRoute
+}
+
+const IssuesSerialRouteChildren: IssuesSerialRouteChildren = {
   IssuesSerialAnumberoutofplaceRoute: IssuesSerialAnumberoutofplaceRoute,
   IssuesSerialCovetRoute: IssuesSerialCovetRoute,
   IssuesSerialIloveshoppingRoute: IssuesSerialIloveshoppingRoute,
@@ -470,27 +477,17 @@ const IssuesSerialRouteWithChildren = IssuesSerialRoute._addFileChildren(
   IssuesSerialRouteChildren,
 )
 
-interface IssuesRouteChildren {
-  IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
-  IssuesIndexRoute: typeof IssuesIndexRoute
-}
-
-const IssuesRouteChildren: IssuesRouteChildren = {
-  IssuesSerialRoute: IssuesSerialRouteWithChildren,
-  IssuesIndexRoute: IssuesIndexRoute,
-}
-
-const IssuesRouteWithChildren =
-  IssuesRoute._addFileChildren(IssuesRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  IssuesRoute: IssuesRouteWithChildren,
+  IssuesRoute: IssuesRoute,
   NewsletterRoute: NewsletterRoute,
+  PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
   VisualArtsRoute: VisualArtsRoute,
+  IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
+  IssuesIndexRoute: IssuesIndexRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
 }
 export const routeTree = rootRouteImport

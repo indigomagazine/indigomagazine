@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/issues/serial/indigoos")({
+export const Route = createFileRoute("/Issues/serial/indigoos")({
   component: RouteComponent,
 });
 
