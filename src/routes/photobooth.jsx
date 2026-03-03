@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { createFileRoute } from "@tanstack/react-router";
 import Taskbar from "../components/Home/Taskbar";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/photobooth")({
     component: RouteComponent,
@@ -197,7 +197,7 @@ function PageSelect({ onStart }) {
    PAGE 2 — Capture
 ══════════════════════════════════════════ */
 function PageCapture({ design, onDone }) {
-  const videoRef = useRef(null);
+  const videoRefs = useRef([null, null, null]);
   const canvasRefs = useRef([null, null, null]);
   const streamRef = useRef(null);
 
@@ -208,7 +208,6 @@ function PageCapture({ design, onDone }) {
   const [flash, setFlash] = useState(false);
   const [camError, setCamError] = useState(false);
 
-  /* Start camera */
   useEffect(() => {
     (async () => {
       try {
@@ -217,7 +216,9 @@ function PageCapture({ design, onDone }) {
           audio: false,
         });
         streamRef.current = s;
-        if (videoRef.current) videoRef.current.srcObject = s;
+        videoRefs.current.forEach((vid) => {
+          if (vid) vid.srcObject = s;
+        });
       } catch {
         setCamError(true);
       }
@@ -234,7 +235,7 @@ function PageCapture({ design, onDone }) {
     });
 
   const captureSlot = useCallback((slotIdx) => {
-    const video = videoRef.current;
+    const video = videoRefs.current[slotIdx];
     const canvas = canvasRefs.current[slotIdx];
     if (!video || !canvas) return null;
     canvas.width = SLOT_W * 3;
@@ -262,7 +263,6 @@ function PageCapture({ design, onDone }) {
       setCountdown(null);
       await doFlash();
       captured[i] = captureSlot(i);
-      // Update snaps immutably so captured images persist
       setSnaps([captured[0], captured[1], captured[2]]);
       await delay(350);
     }
@@ -280,13 +280,13 @@ function PageCapture({ design, onDone }) {
 
     return (
       <div key={i} style={{ position: "relative", width: "100%", height: "100%" }}>
-
-        {/* Hidden capture canvas — always mounted */}
         <canvas ref={(el) => (canvasRefs.current[i] = el)} style={{ display: "none" }} />
 
-        {/* Single shared video element — always visible, hidden by snap once captured */}
         <video
-          ref={i === 0 ? videoRef : undefined}
+          ref={(el) => {
+            videoRefs.current[i] = el;
+            if (el && streamRef.current) el.srcObject = streamRef.current;
+          }}
           autoPlay
           playsInline
           muted
@@ -298,12 +298,10 @@ function PageCapture({ design, onDone }) {
             objectFit: "cover",
             display: "block",
             transform: "scaleX(-1)",
-            // Hide video once this slot is captured, show snap instead
             opacity: snap ? 0 : 1,
           }}
         />
 
-        {/* Show captured image on top once snapped */}
         {snap && (
           <img
             src={snap}
@@ -318,39 +316,27 @@ function PageCapture({ design, onDone }) {
           />
         )}
 
-        {/* Countdown overlay */}
         {isActive && countdown !== null && (
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(90,8,8,0.55)",
-              fontFamily: "'Great Vibes', cursive",
-              fontSize: SLOT_H * 0.55,
-              color: "white",
-              textShadow: "0 2px 12px rgba(0,0,0,0.5)",
-              pointerEvents: "none",
-              zIndex: 2,
-            }}
-          >
+          <div style={{
+            position: "absolute", inset: 0,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            background: "rgba(90,8,8,0.55)",
+            fontFamily: "'Great Vibes', cursive",
+            fontSize: SLOT_H * 0.55,
+            color: "white",
+            textShadow: "0 2px 12px rgba(0,0,0,0.5)",
+            pointerEvents: "none", zIndex: 2,
+          }}>
             {countdown}
           </div>
         )}
 
-        {/* Active slot glow */}
         {isActive && (
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              boxShadow: "inset 0 0 0 3px #f0d4b0",
-              pointerEvents: "none",
-              zIndex: 3,
-            }}
-          />
+          <div style={{
+            position: "absolute", inset: 0,
+            boxShadow: "inset 0 0 0 3px #f0d4b0",
+            pointerEvents: "none", zIndex: 3,
+          }} />
         )}
       </div>
     );
@@ -359,16 +345,11 @@ function PageCapture({ design, onDone }) {
   return (
     <div style={styles.page}>
       {flash && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "white",
-            opacity: 0.92,
-            zIndex: 9999,
-            pointerEvents: "none",
-          }}
-        />
+        <div style={{
+          position: "fixed", inset: 0,
+          background: "white", opacity: 0.92,
+          zIndex: 9999, pointerEvents: "none",
+        }} />
       )}
 
       <PhotoStrip design={design} slots={slots} />
@@ -379,24 +360,24 @@ function PageCapture({ design, onDone }) {
         </p>
       )}
 
-      {!isBusy && (
-        <>
-          <CameraButton onClick={startSequence} />
-          <p style={{
-            fontFamily: "'Great Vibes', cursive",
-            color: "#8b0000",
-            fontSize: "1.9rem",
-            marginTop: 10,
-            animation: "pulse 2s ease-in-out infinite",
-          }}>
-            Click to capture!
-          </p>
-          <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}`}</style>
-        </>
-      )}
-    </div>
-  );
-}
+        {!isBusy && (
+          <>
+            <CameraButton onClick={startSequence} />
+            <p style={{
+              fontFamily: "'Great Vibes', cursive",
+              color: "#8b0000",
+              fontSize: "1.9rem",
+              marginTop: 10,
+              animation: "pulse 2s ease-in-out infinite",
+            }}>
+              Click to capture!
+            </p>
+            <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}`}</style>
+          </>
+        )}
+      </div>
+    );
+  }
 
 /* ══════════════════════════════════════════
    PAGE 3 — Result
