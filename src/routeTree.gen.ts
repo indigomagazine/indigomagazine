@@ -14,7 +14,11 @@ import { Route as SerialRouteImport } from './routes/serial'
 import { Route as QuizRouteImport } from './routes/quiz'
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { Route as NewsletterRouteImport } from './routes/newsletter'
+=======
+import { Route as PhotoboothRouteImport } from './routes/photobooth'
+>>>>>>> Stashed changes
 =======
 import { Route as PhotoboothRouteImport } from './routes/photobooth'
 >>>>>>> Stashed changes
@@ -53,9 +57,15 @@ const QuizRoute = QuizRouteImport.update({
 } as any)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 const NewsletterRoute = NewsletterRouteImport.update({
   id: '/newsletter',
   path: '/newsletter',
+=======
+const PhotoboothRoute = PhotoboothRouteImport.update({
+  id: '/photobooth',
+  path: '/photobooth',
+>>>>>>> Stashed changes
 =======
 const PhotoboothRoute = PhotoboothRouteImport.update({
   id: '/photobooth',
@@ -149,7 +159,11 @@ export interface FileRoutesByFullPath {
   '/issues': typeof IssuesRoute
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
 =======
   '/photobooth': typeof PhotoboothRoute
 >>>>>>> Stashed changes
@@ -177,7 +191,11 @@ export interface FileRoutesByTo {
   '/issues': typeof IssuesRoute
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
 =======
   '/photobooth': typeof PhotoboothRoute
 >>>>>>> Stashed changes
@@ -206,7 +224,11 @@ export interface FileRoutesById {
   '/issues': typeof IssuesRoute
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   '/newsletter': typeof NewsletterRoute
+=======
+  '/photobooth': typeof PhotoboothRoute
+>>>>>>> Stashed changes
 =======
   '/photobooth': typeof PhotoboothRoute
 >>>>>>> Stashed changes
@@ -236,7 +258,11 @@ export interface FileRouteTypes {
     | '/issues'
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
 =======
     | '/photobooth'
 >>>>>>> Stashed changes
@@ -264,7 +290,11 @@ export interface FileRouteTypes {
     | '/issues'
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
 =======
     | '/photobooth'
 >>>>>>> Stashed changes
@@ -292,7 +322,11 @@ export interface FileRouteTypes {
     | '/issues'
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     | '/newsletter'
+=======
+    | '/photobooth'
+>>>>>>> Stashed changes
 =======
     | '/photobooth'
 >>>>>>> Stashed changes
@@ -321,7 +355,11 @@ export interface RootRouteChildren {
   IssuesRoute: typeof IssuesRoute
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   NewsletterRoute: typeof NewsletterRoute
+=======
+  PhotoboothRoute: typeof PhotoboothRoute
+>>>>>>> Stashed changes
 =======
   PhotoboothRoute: typeof PhotoboothRoute
 >>>>>>> Stashed changes
@@ -369,6 +407,7 @@ declare module '@tanstack/react-router' {
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     '/newsletter': {
       id: '/newsletter'
       path: '/newsletter'
@@ -377,12 +416,17 @@ declare module '@tanstack/react-router' {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     '/photobooth': {
       id: '/photobooth'
       path: '/photobooth'
       fullPath: '/photobooth'
       preLoaderRoute: typeof PhotoboothRouteImport
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -495,7 +539,11 @@ const rootRouteChildren: RootRouteChildren = {
   IssuesRoute: IssuesRoute,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   NewsletterRoute: NewsletterRoute,
+=======
+  PhotoboothRoute: PhotoboothRoute,
+>>>>>>> Stashed changes
 =======
   PhotoboothRoute: PhotoboothRoute,
 >>>>>>> Stashed changes
