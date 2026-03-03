@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Taskbar from "../components/Home/Taskbar";
 import { createFileRoute } from "@tanstack/react-router";
+import "../styles/homepage.css"
 
 export const Route = createFileRoute("/photobooth")({
-    component: RouteComponent,
-    });
+  component: RouteComponent,
+});
 
 /* ── Google Fonts injected once ── */
 const FontLink = () => {
@@ -22,11 +23,20 @@ const FontLink = () => {
    FRAME DESIGN CONFIGS
    All the same dimensions — only visual
    styling differs between designs.
-   Swap out colors/borders/fonts later.
 ───────────────────────────────────────── */
 const SLOT_W = 200;
 const SLOT_H = 200;
 const STRIP_W = 300;
+
+// Derived layout constants — do not edit these manually
+const PAD_X = (STRIP_W - SLOT_W) / 2;  // horizontal padding on each side
+const PAD_Y = 14;                        // vertical padding top & bottom
+const TITLE_H = 34;                      // height reserved for "And Scene..."
+const GAP = 10;                          // gap between photo slots
+const SCALE = 3;                         // export resolution multiplier
+
+// Full strip height in screen px (used for canvas export)
+const STRIP_H = PAD_Y * 2 + TITLE_H + SLOT_H * 3 + GAP * 2;
 
 const FRAME_DESIGNS = {
   design1: {
@@ -35,8 +45,6 @@ const FRAME_DESIGNS = {
     slotBg: "#1a0000",
     titleColor: "#e8c4b8",
     titleFont: "'Great Vibes', cursive",
-    gap: 10,
-    padding: "14px 12px",
   },
   design2: {
     label: "Design 2",
@@ -44,8 +52,6 @@ const FRAME_DESIGNS = {
     slotBg: "#1a0000",
     titleColor: "#e8c4b8",
     titleFont: "'Great Vibes', cursive",
-    gap: 10,
-    padding: "14px 12px",
   },
   design3: {
     label: "Design 3",
@@ -53,8 +59,6 @@ const FRAME_DESIGNS = {
     slotBg: "#1a0000",
     titleColor: "#e8c4b8",
     titleFont: "'Great Vibes', cursive",
-    gap: 10,
-    padding: "14px 12px",
   },
 };
 
@@ -73,9 +77,13 @@ function PhotoStrip({ design, slots, id, extraStyle = {} }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: cfg.padding,
-        gap: cfg.gap,
+        paddingTop: PAD_Y,
+        paddingBottom: PAD_Y,
+        paddingLeft: PAD_X,
+        paddingRight: PAD_X,
+        gap: GAP,
         flexShrink: 0,
+        boxSizing: "border-box",
         ...extraStyle,
       }}
     >
@@ -88,6 +96,10 @@ function PhotoStrip({ design, slots, id, extraStyle = {} }) {
           width: "100%",
           textAlign: "center",
           lineHeight: 1.1,
+          height: TITLE_H,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         And Scene...
@@ -115,7 +127,7 @@ function PhotoStrip({ design, slots, id, extraStyle = {} }) {
 /* ══════════════════════════════════════════
    PAGE 1 — Design Select
 ══════════════════════════════════════════ */
-function PageSelect({ onStart }) {
+function PageSelect({ onStart, theme }) {
   const [selected, setSelected] = useState(null);
 
   const placeholderSlots = [
@@ -125,8 +137,8 @@ function PageSelect({ onStart }) {
   ];
 
   return (
-    <div style={styles.page}>
-      <h2 style={styles.heading}>Select a Frame</h2>
+  <div style={{ ...styles.page, background: theme === "dark" ? "#1a1a1a" : "#d5d5d5" }}>
+      <h2 style={{ ...styles.heading, color: theme === "dark" ? "#e8c4b8" : "#8b0000" }}> Select a Frame</h2>
 
       <div
         style={{
@@ -164,7 +176,7 @@ function PageSelect({ onStart }) {
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontStyle: "italic",
-                color: selected === key ? "#8b0000" : "#777",
+                color: selected === key ? (theme === "dark" ? "#e8c4b8" : "#8b0000") : "#777",
                 fontSize: "0.9rem",
                 transition: "color 0.2s",
               }}
@@ -196,12 +208,12 @@ function PageSelect({ onStart }) {
 /* ══════════════════════════════════════════
    PAGE 2 — Capture
 ══════════════════════════════════════════ */
-function PageCapture({ design, onDone }) {
+function PageCapture({ design, onDone, retakeSlot = null, existingSnaps = [null, null, null], theme }) {
   const videoRefs = useRef([null, null, null]);
   const canvasRefs = useRef([null, null, null]);
   const streamRef = useRef(null);
 
-  const [snaps, setSnaps] = useState([null, null, null]);
+  const [snaps, setSnaps] = useState(existingSnaps);
   const [activeSlot, setActiveSlot] = useState(null);
   const [countdown, setCountdown] = useState(null);
   const [isBusy, setIsBusy] = useState(false);
@@ -226,6 +238,15 @@ function PageCapture({ design, onDone }) {
     return () => streamRef.current?.getTracks().forEach((t) => t.stop());
   }, []);
 
+  // Auto-start countdown when retaking a single slot
+  useEffect(() => {
+    if (retakeSlot !== null) {
+      // Small delay to let the camera stream attach first
+      const t = setTimeout(() => startSequence(), 800);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   const doFlash = () =>
@@ -238,13 +259,35 @@ function PageCapture({ design, onDone }) {
     const video = videoRefs.current[slotIdx];
     const canvas = canvasRefs.current[slotIdx];
     if (!video || !canvas) return null;
-    canvas.width = SLOT_W * 3;
-    canvas.height = SLOT_H * 3;
+
+    // Capture at SLOT aspect ratio, not the raw video aspect ratio
+    canvas.width = SLOT_W * SCALE;
+    canvas.height = SLOT_H * SCALE;
     const ctx = canvas.getContext("2d");
     ctx.save();
+
+    // Mirror horizontally for selfie cam
     ctx.translate(canvas.width, 0);
     ctx.scale(-1, 1);
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Cover-fit: crop the video to fill the slot exactly
+    const vw = video.videoWidth || video.clientWidth;
+    const vh = video.videoHeight || video.clientHeight;
+    const targetAspect = SLOT_W / SLOT_H;
+    const videoAspect = vw / vh;
+
+    let sx = 0, sy = 0, sw = vw, sh = vh;
+    if (videoAspect > targetAspect) {
+      // Video is wider than slot — crop sides
+      sw = vh * targetAspect;
+      sx = (vw - sw) / 2;
+    } else {
+      // Video is taller than slot — crop top/bottom
+      sh = vw / targetAspect;
+      sy = (vh - sh) / 2;
+    }
+
+    ctx.drawImage(video, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
     ctx.restore();
     return canvas.toDataURL("image/png");
   }, []);
@@ -252,9 +295,11 @@ function PageCapture({ design, onDone }) {
   const startSequence = async () => {
     if (isBusy) return;
     setIsBusy(true);
-    const captured = [null, null, null];
+    // If retaking a single slot, only shoot that one; otherwise shoot all 3
+    const slotsToShoot = retakeSlot !== null ? [retakeSlot] : [0, 1, 2];
+    const captured = [...existingSnaps];
 
-    for (let i = 0; i < 3; i++) {
+    for (const i of slotsToShoot) {
       setActiveSlot(i);
       for (let c = 3; c >= 1; c--) {
         setCountdown(c);
@@ -263,7 +308,7 @@ function PageCapture({ design, onDone }) {
       setCountdown(null);
       await doFlash();
       captured[i] = captureSlot(i);
-      setSnaps([captured[0], captured[1], captured[2]]);
+      setSnaps([...captured]);
       await delay(350);
     }
 
@@ -280,8 +325,10 @@ function PageCapture({ design, onDone }) {
 
     return (
       <div key={i} style={{ position: "relative", width: "100%", height: "100%" }}>
+        {/* Always mounted — needed for capture */}
         <canvas ref={(el) => (canvasRefs.current[i] = el)} style={{ display: "none" }} />
 
+        {/* Live video feed — hidden once snapped */}
         <video
           ref={(el) => {
             videoRefs.current[i] = el;
@@ -302,6 +349,7 @@ function PageCapture({ design, onDone }) {
           }}
         />
 
+        {/* Captured photo */}
         {snap && (
           <img
             src={snap}
@@ -316,117 +364,186 @@ function PageCapture({ design, onDone }) {
           />
         )}
 
+        {/* Countdown overlay */}
         {isActive && countdown !== null && (
-          <div style={{
-            position: "absolute", inset: 0,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            background: "rgba(90,8,8,0.55)",
-            fontFamily: "'Great Vibes', cursive",
-            fontSize: SLOT_H * 0.55,
-            color: "white",
-            textShadow: "0 2px 12px rgba(0,0,0,0.5)",
-            pointerEvents: "none", zIndex: 2,
-          }}>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "rgba(90,8,8,0.55)",
+              fontFamily: "'Great Vibes', cursive",
+              fontSize: SLOT_H * 0.55,
+              color: "white",
+              textShadow: "0 2px 12px rgba(0,0,0,0.5)",
+              pointerEvents: "none",
+              zIndex: 2,
+            }}
+          >
             {countdown}
           </div>
         )}
 
+        {/* Active slot glow */}
         {isActive && (
-          <div style={{
-            position: "absolute", inset: 0,
-            boxShadow: "inset 0 0 0 3px #f0d4b0",
-            pointerEvents: "none", zIndex: 3,
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              boxShadow: "inset 0 0 0 3px #f0d4b0",
+              pointerEvents: "none",
+              zIndex: 3,
+            }}
+          />
         )}
       </div>
     );
   });
 
   return (
-    <div style={styles.page}>
+    <div style={{ ...styles.page, background: theme === "dark" ? "#1a1a1a" : "#d5d5d5" }}>
+      {/* Flash overlay */}
       {flash && (
-        <div style={{
-          position: "fixed", inset: 0,
-          background: "white", opacity: 0.92,
-          zIndex: 9999, pointerEvents: "none",
-        }} />
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "white",
+            opacity: 0.92,
+            zIndex: 9999,
+            pointerEvents: "none",
+          }}
+        />
       )}
 
       <PhotoStrip design={design} slots={slots} />
 
       {camError && (
-        <p style={{ color: "#8b0000", fontStyle: "italic", marginTop: 16, fontFamily: "'Cormorant Garamond', serif" }}>
+        <p
+          style={{
+            color: "#8b0000",
+            fontStyle: "italic",
+            marginTop: 16,
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
           Camera access required — please allow permissions and refresh.
         </p>
       )}
 
-        {!isBusy && (
-          <>
-            <CameraButton onClick={startSequence} />
-            <p style={{
+      {!isBusy && (
+        <>
+          <CameraButton onClick={startSequence} theme={theme} />
+          <p
+            style={{
               fontFamily: "'Great Vibes', cursive",
-              color: "#8b0000",
+              color: theme === "dark" ? "#e8c4b8" : "#8b0000",
               fontSize: "1.9rem",
               marginTop: 10,
               animation: "pulse 2s ease-in-out infinite",
-            }}>
-              Click to capture!
-            </p>
-            <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}`}</style>
-          </>
-        )}
-      </div>
-    );
-  }
+            }}
+          >
+            Click to capture!
+          </p>
+          <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}`}</style>
+        </>
+      )}
+    </div>
+  );
+}
 
 /* ══════════════════════════════════════════
    PAGE 3 — Result
 ══════════════════════════════════════════ */
-function PageResult({ snaps, design, onRetake }) {
+function PageResult({ snaps, design, onRetakeAll, onRetakeSlot, theme }) {
   const cfg = FRAME_DESIGNS[design] || FRAME_DESIGNS.design1;
+  const [hoveredSlot, setHoveredSlot] = useState(null);
 
   const slots = snaps.map((src, i) => (
-    <img
+    <div
       key={i}
-      src={src || ""}
-      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-    />
+      style={{ position: "relative", width: "100%", height: "100%" }}
+      onMouseEnter={() => setHoveredSlot(i)}
+      onMouseLeave={() => setHoveredSlot(null)}
+    >
+      <img
+        src={src || ""}
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+      {/* Per-slot retake button on hover */}
+      {hoveredSlot === i && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.45)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+          }}
+          onClick={() => onRetakeSlot(i)}
+        >
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 6,
+            color: "white",
+          }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" width={SLOT_H * 0.22} height={SLOT_H * 0.22}>
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+            <span style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "0.78rem",
+              letterSpacing: "0.05em",
+            }}>
+              Retake
+            </span>
+          </div>
+        </div>
+      )}
+    </div>
   ));
 
   const saveToDevice = async () => {
-    const padX = 16;
-    const padY = 14;
-    const gap = cfg.gap;
-    const titleH = 34;
-    const scale = 3;
-    const W = STRIP_W * scale;
-    const H =
-      padY * 2 * scale +
-      titleH * scale +
-      3 * SLOT_H * scale +
-      2 * gap * scale;
+    const W = STRIP_W * SCALE;
+    const H = STRIP_H * SCALE;
 
     const canvas = document.createElement("canvas");
     canvas.width = W;
     canvas.height = H;
     const ctx = canvas.getContext("2d");
 
+    // Strip background
     ctx.fillStyle = cfg.stripBg;
     ctx.fillRect(0, 0, W, H);
 
+    // Title — centered
     ctx.fillStyle = cfg.titleColor;
-    ctx.font = `${STRIP_W * 0.115 * scale}px ${cfg.titleFont}`;
+    ctx.font = `${STRIP_W * 0.115 * SCALE}px ${cfg.titleFont}`;
     ctx.textAlign = "center";
-    ctx.fillText("And Scene...", W / 2, padY * scale + titleH * scale * 0.78);
+    ctx.textBaseline = "middle";
+    ctx.fillText(
+      "And Scene...",
+      W / 2,
+      (PAD_Y + TITLE_H / 2) * SCALE
+    );
 
+    // Photos — each perfectly centered using derived PAD_X
     for (let i = 0; i < 3; i++) {
       if (!snaps[i]) continue;
       const img = new Image();
       img.src = snaps[i];
       await new Promise((res) => { img.onload = res; });
-      const x = padX * scale;
-      const y = padY * scale + titleH * scale + i * (SLOT_H * scale + gap * scale);
-      ctx.drawImage(img, x, y, SLOT_W * scale, SLOT_H * scale);
+
+      const x = PAD_X * SCALE;
+      const y = (PAD_Y + TITLE_H + i * (SLOT_H + GAP)) * SCALE;
+      ctx.drawImage(img, x, y, SLOT_W * SCALE, SLOT_H * SCALE);
     }
 
     const link = document.createElement("a");
@@ -436,51 +553,30 @@ function PageResult({ snaps, design, onRetake }) {
   };
 
   return (
-    <div style={{ ...styles.page, position: "relative" }}>
-      {/* Blue corner decorations */}
-      {[
-        { top: 16, left: 16, borderWidth: "3px 0 0 3px" },
-        { top: 16, right: 16, borderWidth: "3px 3px 0 0" },
-        { bottom: 16, left: 16, borderWidth: "0 0 3px 3px" },
-        { bottom: 16, right: 16, borderWidth: "0 3px 3px 0" },
-      ].map((s, i) => (
-        <div
-          key={i}
-          style={{
-            position: "fixed",
-            width: 52,
-            height: 52,
-            borderColor: "#4aa3c8",
-            borderStyle: "solid",
-            opacity: 0.65,
-            ...s,
-          }}
-        />
-      ))}
-
+    <div style={{ ...styles.page, position: "relative", background: theme === "dark" ? "#1a1a1a" : "#d5d5d5" }}>
       <PhotoStrip design={design} slots={slots} />
 
       <div style={{ display: "flex", gap: 44, marginTop: 32 }}>
-        <ActionButton icon={<SaveIcon />} label="Save to device" onClick={saveToDevice} />
-        <ActionButton icon={<CameraIcon />} label="Retake Photos" onClick={onRetake} />
+        <ActionButton icon={<SaveIcon />} label="Save to device" onClick={saveToDevice} theme={theme} />
+        <ActionButton icon={<CameraIcon />} label="Retake All" onClick={onRetakeAll} theme={theme} />
       </div>
     </div>
   );
 }
 
 /* ── Shared UI atoms ── */
-function CameraButton({ onClick }) {
+function CameraButton({ onClick, theme }) {
   const [hover, setHover] = useState(false);
   return (
     <button
-      onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
+        onClick={onClick}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
         marginTop: 20,
-        background: hover ? "#7a0c0c" : "none",
-        border: "2px solid #7a0c0c",
-        color: hover ? "white" : "#7a0c0c",
+        border: `2px solid ${theme === "dark" ? "#e8c4b8" : "#7a0c0c"}`,
+        color: hover ? "white": (theme === "dark" ? "#e8c4b8" : "#7a0c0c"),
+        background: hover ? (theme === "dark" ? "#5a0808" : "#7a0c0c") : "none",
         width: 54,
         height: 54,
         borderRadius: "50%",
@@ -497,7 +593,7 @@ function CameraButton({ onClick }) {
   );
 }
 
-function ActionButton({ icon, label, onClick }) {
+function ActionButton({ icon, label, onClick, theme }) {
   const [hover, setHover] = useState(false);
   return (
     <button
@@ -509,9 +605,9 @@ function ActionButton({ icon, label, onClick }) {
         flexDirection: "column",
         alignItems: "center",
         gap: 8,
-        background: hover ? "#7a0c0c" : "none",
-        border: "1.5px solid #7a0c0c",
-        color: hover ? "white" : "#7a0c0c",
+        border: `2px solid ${theme === "dark" ? "#e8c4b8" : "#7a0c0c"}`,
+        color: hover ? "white" : (theme === "dark" ? "#e8c4b8" : "#7a0c0c"),
+        background: hover ? (theme === "dark" ? "#5a0808" : "#7a0c0c"): "none",
         padding: "12px 18px",
         cursor: "pointer",
         fontFamily: "'Cormorant Garamond', serif",
@@ -557,6 +653,7 @@ const styles = {
     padding: "40px 20px",
     width: "100%",
     background: "#d5d5d5",
+    padding: "100px 20px 40px 20px"
   },
   heading: {
     fontFamily: "'Great Vibes', cursive",
@@ -578,37 +675,75 @@ const styles = {
 /* ══════════════════════════════════════════
    ROOT APP
 ══════════════════════════════════════════ */
-function RouteComponent(){
+function RouteComponent() {
   const [page, setPage] = useState("select");
   const [design, setDesign] = useState(null);
   const [snaps, setSnaps] = useState([null, null, null]);
+  const [retakeSlot, setRetakeSlot] = useState(null);
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.body.classList.toggle("light-mode", newTheme === "light");
+  };
+
+  useEffect(() => {
+    document.body.classList.toggle("light-mode", theme === "light");
+  }, [theme]);
 
   const handleStart = (selectedDesign) => {
     setDesign(selectedDesign);
     setSnaps([null, null, null]);
+    setRetakeSlot(null);
     setPage("capture");
   };
 
   const handleDone = (captured, usedDesign) => {
     setSnaps(captured);
     setDesign(usedDesign);
+    setRetakeSlot(null);
     setPage("result");
   };
 
-  const handleRetake = () => {
+  const handleRetakeAll = () => {
+    setRetakeSlot(null);
     setPage("select");
+  };
+
+  const handleRetakeSlot = (slotIdx) => {
+    setRetakeSlot(slotIdx);
+    setPage("capture");
   };
 
   return (
     <>
+    <Taskbar />
+      <button onClick={toggleTheme} className="theme-toggle">
+        {theme === "dark" ? "☼" : "☾"}
+      </button>
       <FontLink />
-      <div style={{ background: "#d5d5d5", minHeight: "100vh" }}>
-        {page === "select" && <PageSelect onStart={handleStart} />}
+      <div style={{ background: theme === "dark" ? "#1a1a1a" : "#d5d5d5", minHeight: "100vh" }}>
+        {page === "select" && <PageSelect onStart={handleStart} theme={theme} />}
         {page === "capture" && (
-          <PageCapture key={design} design={design} onDone={handleDone} />
+          <PageCapture
+            key={`${design}-${retakeSlot}`}
+            design={design}
+            onDone={handleDone}
+            retakeSlot={retakeSlot}
+            existingSnaps={snaps}
+            theme={theme}
+          />
         )}
         {page === "result" && (
-          <PageResult snaps={snaps} design={design} onRetake={handleRetake} />
+          <PageResult
+            snaps={snaps}
+            design={design}
+            onRetakeAll={handleRetakeAll}
+            onRetakeSlot={handleRetakeSlot}
+            theme={theme}
+          />
         )}
       </div>
     </>
