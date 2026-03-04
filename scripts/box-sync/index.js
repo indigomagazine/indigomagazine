@@ -27,25 +27,104 @@ const s3 = new S3Client({
     secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
 });
 
+const DRY_RUN = process.argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
+
+/**
+ * Mock Box Response for Dry Run testing
+ */
+const mockFolderItems = {
+    entries: [
+        { id: '111', type: 'file', name: 'cover_photo.jpg' },
+        { id: '222', type: 'file', name: 'logo.png' },
+        { id: '333', type: 'file', name: 'notes.pdf' } // Should be ignored
+    ]
+};
+
+async function getBoxItems(folderId) {
+    if (DRY_RUN) {
+        console.log(`[DRY RUN] Fetching items from mock Box Folder ${folderId}`);
+        return mockFolderItems;
+    }
+    return await client.folders.getFolderItems(folderId);
+}
+
+async function uploadFileToR2(item, bucketName) {
+    const isImage = /\.(jpe?g|png|gif|webp)$/i.test(item.name);
+    if (!isImage) {
+        console.log(`Skipping non-image file: ${item.name}`);
+        return null;
+    }
+
+    const key = `assets/${item.name}`;
+
+    if (DRY_RUN) {
+        console.log(`[DRY RUN] Would upload ${item.name} to R2 as ${key}`);
+        // Simulate an upload delay
+        await new Promise(r => setTimeout(r, 500));
+        return `https://${process.env.R2_ENDPOINT}/${key}`; // Mock URL
+    }
+
+    // Real implementation
+    try {
+        const stream = await client.files.getReadStream(item.id);
+        const upload = new Upload({
+            client: s3,
+            params: {
+                Bucket: bucketName,
+                Key: key,
+                Body: stream,
+                ContentType: getContentType(item.name)
+            }
+        });
+
+        await upload.done();
+        console.log(`Successfully uploaded: ${item.name}`);
+        return `https://${process.env.R2_ENDPOINT}/${key}`;
+    } catch (error) {
+        console.error(`Failed to upload ${item.name}:`, error.message);
+        throw error; // Let the caller handle it
+    }
+}
+
+function getContentType(filename) {
+    if (filename.endsWith('.png')) return 'image/png';
+    if (filename.endsWith('.gif')) return 'image/gif';
+    if (filename.endsWith('.webp')) return 'image/webp';
+    return 'image/jpeg';
+}
+
 async function main() {
-    console.log('Starting Box to R2 Sync...');
+    console.log(`Starting Box to R2 Sync... ${DRY_RUN ? '(DRY RUN MODE)' : ''}`);
+
+    // Basic startup validation
+    if (!process.env.BOX_SOURCE_FOLDER_ID || !process.env.R2_BUCKET_NAME) {
+        console.error("Missing critical environment variables: BOX_SOURCE_FOLDER_ID or R2_BUCKET_NAME");
+        return;
+    }
 
     try {
+        const folder = await getBoxItems(process.env.BOX_SOURCE_FOLDER_ID);
+        console.log(`Fetched ${folder.entries ? folder.entries.length : 0} items from Box.`);
 
-        // TODO: Use the client to fetch items from your Box Source Folder
-        const folder = await client.folders.getFolderItems(process.env.BOX_SOURCE_FOLDER_ID);
+        // Process uploads concurrently but track individual successes/failures
+        const uploadPromises = folder.entries.map(item =>
+            uploadFileToR2(item, process.env.R2_BUCKET_NAME)
+        );
 
-        console.log(`Fetched folder items.`);
-        console.log(folder);
+        const results = await Promise.allSettled(uploadPromises);
 
-        // TODO: Loop through the items. Filter for images.
-        // Download stream from Box, then pipe to R2.
-        // Catch errors!
-
-
+        console.log('\n--- Sync Summary ---');
+        results.forEach((result, index) => {
+            const item = folder.entries[index];
+            if (result.status === 'fulfilled' && result.value) {
+                console.log(`✅ ${item.name} -> ${result.value}`);
+            } else if (result.status === 'rejected') {
+                console.log(`❌ ${item.name} failed: ${result.reason}`);
+            }
+        });
 
     } catch (error) {
-        console.error('An error occurred during sync:', error);
+        console.error('A critical error occurred during sync:', error);
     }
 }
 
