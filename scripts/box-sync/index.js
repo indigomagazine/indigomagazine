@@ -20,9 +20,8 @@ const client = new BoxClient({ auth });
 const s3 = new S3Client({
     // R2 specifically requires the region to be explicitly set to 'auto'
     region: 'auto',
-    // YOUR CODE HERE: Add the custom endpoint (R2_ENDPOINT)
+
     endpoint: process.env.R2_ENDPOINT,
-    // YOUR CODE HERE: Add the credentials (R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY)
     accessKeyId: process.env.R2_ACCESS_KEY_ID,
     secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
 });
