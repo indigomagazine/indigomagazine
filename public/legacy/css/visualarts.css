@@ -31,6 +31,10 @@
               box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
+/* Prevent horizoontal page scrolling */
+.visual-arts-page {
+  overflow: hidden;
+}
 
 /* Smoother keyframes for floating animation */
 @keyframes float {
@@ -48,5 +52,12 @@
   }
   100% {
     transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  :root {
+    --floating-photo-size: 130px;
   }
 }

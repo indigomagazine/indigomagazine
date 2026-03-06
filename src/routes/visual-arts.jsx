@@ -24,6 +24,20 @@ function VisualArts() {
         const floatingPhotos = document.querySelectorAll(".floating-photo-wrapper");
         const positions = [];
 
+        // Reposition photos when mobile device is sideways
+        const repositionPhotos = () => {
+            floatingPhotos.forEach((photo) => {
+                const size = photo.offsetWidth; // Get the actual size from CSS
+
+                const randomX = Math.random() * (window.innerWidth - size);
+                const randomY = Math.random() * (window.innerHeight - size);
+
+                photo.style.left = `${randomX}px`;
+                photo.style.top = `${randomY}px`
+            });
+        };
+        window.addEventListener("resize", repositionPhotos);
+
         const isOverlapping = (x, y, size) => {
             return positions.some(
                 (pos) =>
@@ -36,7 +50,7 @@ function VisualArts() {
 
         floatingPhotos.forEach((photo) => {
             let randomX, randomY;
-            const size = 250; // Approximating size from CSS (250px)
+            const size = photo.offsetWidth; // Get the actual size from CSS
 
             // Generate random positions, avoiding overlap (max 50 tries to prevent infinite loop)
             let tries = 0;
@@ -96,6 +110,7 @@ function VisualArts() {
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("touchmove", handleTouchMove);
+            window.removeEventListener("resize", repositionPhotos);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);
