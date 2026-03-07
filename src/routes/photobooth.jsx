@@ -45,6 +45,7 @@ const FRAME_DESIGNS = {
     slotBg: "#1a0000",
     titleColor: "#e8c4b8",
     titleFont: "'Great Vibes', cursive",
+    overlayImage: "https://cdn.indigomagazinetx.com/visual%20arts/photoboothstrips/photobooth_nicole.webp"
   },
   design2: {
     label: "Design 2",
@@ -72,6 +73,7 @@ function PhotoStrip({ design, slots, id, extraStyle = {} }) {
     <div
       id={id}
       style={{
+        position: "relative",
         background: cfg.stripBg,
         width: STRIP_W,
         display: "flex",
@@ -120,6 +122,22 @@ function PhotoStrip({ design, slots, id, extraStyle = {} }) {
           {slot}
         </div>
       ))}
+
+      {/* Overlay image sits on top of everything */}
+      {cfg.overlayImage && (
+        <img
+          src={cfg.overlayImage}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "fill",
+            pointerEvents: "none",
+            zIndex: 10,
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -650,7 +668,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
-    padding: "40px 20px",
     width: "100%",
     background: "#d5d5d5",
     padding: "100px 20px 40px 20px"

@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import "./stomachache.css";
 
-const background = "/legacy/article photos/stomachache/background.jpg";
-const firstsection = "/legacy/article photos/stomachache/firstsection.jpg";
-const secondsection = "/legacy/article photos/stomachache/secondsection.jpg";
-const image1 = "/legacy/article photos/stomachache/image1.JPG";
-const image2 = "/legacy/article photos/stomachache/image2.JPG";
-const image3 = "/legacy/article photos/stomachache/image3.JPG";
-const image4 = "/legacy/article photos/stomachache/image4.JPG";
-const image5 = "/legacy/article photos/stomachache/image5.JPG";
-const image6 = "/legacy/article photos/stomachache/image6.JPG";
+const background = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/background.jpg";
+const firstsection = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/firstsection.jpg";
+const secondsection = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/secondsection.jpg";
+const image1 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image1.JPG";
+const image2 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image2.JPG";
+const image3 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image3.JPG";
+const image4 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image4.JPG";
+const image5 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image5.JPG";
+const image6 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/stomachache/image6.JPG";
 
 
 export default function StomachachePage() {
