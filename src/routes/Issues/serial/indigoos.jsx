@@ -1,16 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 
 export const Route = createFileRoute("/Issues/serial/indigoos")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.location.replace("/legacy/articles/serial/indigoos/index.html");
-    }
-  }, []);
-
-  return <></>;
+  return (
+    <iframe
+      src="/legacy/articles/serial/indigoos/index.html"
+      title="IndigoOS"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        display: "block",
+      }}
+    />
+  );
 }

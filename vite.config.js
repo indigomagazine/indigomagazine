@@ -13,6 +13,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  assetsInclude: ['**/*.otf', '**/*.ttf']
+  // Limit dependency scanning to the app entry only.
+  // This prevents Vite from crawling prebuilt legacy bundles in /public.
+  optimizeDeps: {
+    entries: ["index.html"],
+  },
+  assetsInclude: ["**/*.otf", "**/*.ttf"],
 });
 

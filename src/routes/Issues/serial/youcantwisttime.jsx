@@ -1,17 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
-
-// youcantwisttimehtml is under legacy/articles/serial/youcantwisttime.html
 
 export const Route = createFileRoute("/Issues/serial/youcantwisttime")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-        window.location.replace("/legacy/articles/serial/youcantwisttime.html");
-        }
-    }, []);
-    return <></>;
+  return (
+    <iframe
+      src="/legacy/articles/serial/youcantwisttime.html"
+      title="You Can Twist Time"
+      style={{
+        width: "100%",
+        height: "100vh",
+        border: "0",
+        display: "block",
+      }}
+    />
+  );
 }
