@@ -55,12 +55,12 @@ export default function IloveShoppingArticle() {
 
   // Spill images
   const cerealImages = [
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7721.jpg?raw=true",
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7618.jpg?raw=true",
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7672.jpg?raw=true",
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7640.jpg?raw=true",
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7600.jpg?raw=true",
-    "https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/BF5T7702.jpg?raw=true",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7721.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7618.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7672.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7640.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7600.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7702.jpg",
   ];
 
   // Positions of scattered images
@@ -82,7 +82,7 @@ export default function IloveShoppingArticle() {
         padding: 0,
         backgroundColor: "#fafafa",
         backgroundImage:
-          'url("https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/milksplash.jpg?raw=true")',
+          'url("https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/milksplash.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -92,7 +92,7 @@ export default function IloveShoppingArticle() {
         overflow: "hidden",
         position: "relative",
         cursor:
-          'url("https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/daintyspoonresized.png?raw=true") 16 16, auto',
+          'url("https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/daintyspoon-removebg-preview%20(1).png") 16 16, auto',
       }}
     >
       {/* Floating cereal spills */}
@@ -132,7 +132,7 @@ export default function IloveShoppingArticle() {
       >
         {/* Plate */}
         <img
-          src="https://github.com/indigomagazine/website_images/blob/main/SERIAL%20PHOTOS/group%201/group1bg.png?raw=true" loading="lazy"
+          src="https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/group1bg.png" loading="lazy"
           alt="White plate"
           style={{
             width: "100%",

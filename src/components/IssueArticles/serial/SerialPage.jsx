@@ -3,8 +3,6 @@ import { useEffect, useRef, forwardRef } from "react";
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import "./serial.css";
-import keyboardsImage from "../../../assets/serial photos/group 3/nolan.png";
-import lifeInParadiseCover from "../../../assets/serial photos/group9/group9cover.png";
 
 
 

@@ -28,7 +28,7 @@ React.useEffect(() => {
 
 const backgroundStyle = {
   backgroundImage:
-    "url('https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL%20PHOTOS/group%202/matrixbg.gif')",
+    "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/matrixbg.gif')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -41,15 +41,15 @@ const backgroundStyle = {
 };
 
   const leftImages = [
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1351 copy.jpg",
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1404 copy.jpg",
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1535 copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1351%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1535%20copy.jpg",
   ];
 
   const rightImages = [
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1545 copy.jpg",
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1495 copy.jpg",
-    "https://raw.githubusercontent.com/indigomagazine/website_images/main/SERIAL PHOTOS/group 2/REN_1380 copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1545%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1495%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1380%20copy.jpg",
   ];
 
   const allImages = [...leftImages, ...rightImages];

@@ -1,28 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-const background = "/legacy/article photos/western/group4Background.jpg";
-const paper = "/legacy/article photos/western/group4Paper.jpg";
-const hat = "/legacy/article photos/western/hat.png";
-const both = "/legacy/article photos/western/both.png";
-const malePose = "/legacy/article photos/western/malePose.png";
-const moneyShot = "/legacy/article photos/western/moneyShot.png";
-const table = "/legacy/article photos/western/table.png";
-const wantedPoster = "/legacy/article photos/western/wantedPoster.png";
-const moviePoster = "/legacy/article photos/western/moviePoster.png";
-
 export default function WesternNewspaper() {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // UPDATED: Now using the imported variables instead of string paths
   const images = [
-    { src: wantedPoster, alt: 'wanted poster' },
-    { src: table, alt: 'table' },
-    { src: malePose, alt: 'male pose' },
-    { src: moneyShot, alt: 'money shot' },
-    { src: both, alt: 'both' },
-    { src: hat, alt: 'Sheriff in Hat' },
-    { src: moviePoster, alt: 'Movie Poster' }
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/wantedPoster.png", alt: 'wanted poster' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/table.png", alt: 'table' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/malePose.png", alt: 'male pose' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/moneyShot.png", alt: 'money shot' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/both.png", alt: 'both' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/hat.png", alt: 'Sheriff in Hat' },
+    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/moviePoster.png", alt: 'Movie Poster' }
   ];
 
   const openModal = (index) => {
@@ -61,7 +51,7 @@ export default function WesternNewspaper() {
         @import url('https://fonts.googleapis.com/css2?family=Rye&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&family=IM+Fell+English:ital@0;1&display=swap');
         
         body {
-          background-image: url('${background}');
+          background-image: url('${"https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/group4Background.jpg"}');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -72,7 +62,7 @@ export default function WesternNewspaper() {
         }
 
         .newspaper-container {
-          background-image: url('${paper}');
+          background-image: url('${"https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/paper.jpg"}');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;

@@ -5,20 +5,20 @@ import ChoiceButtons from "./ChoiceButtons";
 import { scenes, eyeColors } from "./storyFlow";
 
 // Import images
-import image1 from "../../../../assets/serial photos/group 3/tentative final 1.png";
-import image2 from "../../../../assets/serial photos/group 3/tentative final 2.1.png";
-import image3 from "../../../../assets/serial photos/group 3/tentative final 2.2.png";
-import image4 from "../../../../assets/serial photos/group 3/both models.png";
-import image5 from "../../../../assets/serial photos/group 3/chrome.png";
-import image6 from "../../../../assets/serial photos/group 3/nolan.png";
-import image7 from "../../../../assets/serial photos/group 3/keyboard.png";
-import image8 from "../../../../assets/serial photos/group 3/nolan 2.png";
-import image9 from "../../../../assets/serial photos/group 3/tomiwa 1.png";
-import image10 from "../../../../assets/serial photos/group 3/tomiwa 2.png";
-import image11 from "../../../../assets/serial photos/group 3/anotha one.png";
+const image1 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/tentative%20final%201.png";
+const image2 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/tentative%20final%202.1.png";
+const image3 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/tentative%20final%202.2.png";
+const image4 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/both%20models.png";
+const image5 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/chrome.png";
+const image6 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/nolan.png";
+const image7 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/keyboard.png";
+const image8 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/nolan%202.png";
+const image9 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/tomiwa%201.png";
+const image10 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/tomiwa%202.png";
+const image11 = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/anotha%20one.png";
 
 // Import background music
-import backgroundMusic from "./audio/Yaka-anima (Sábila Orbe) - Creepy Tears.mp3";
+const backgroundMusic = "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/Yaka-anima%20(Sa%CC%81bila%20Orbe)%20-%20Creepy%20Tears.mp3";
 
 const images = {
   image1: image1,
