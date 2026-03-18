@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "slug": "test-article-automation",
+  "title": "Test Article Automation",
+  "author": "Indigo Developer",
+  "designers": "",
+  "photographers": "",
+  "graphics": "",
+  "styling": "",
+  "quiz": "",
+  "socialsEvents": "",
+  "models": "",
+  "category": "Tech",
+  "summary": "This is a test article to verify the new CLI automation script works correctly.",
+  "date": "2026-03-20",
+  "layout": "standard",
+  "content": [
+    {
+      "type": "heading",
+      "value": "Welcome to Automated Articles"
+    },
+    {
+      "type": "text",
+      "value": "This is the very first paragraph of the automated article generation system. The script should turn this text into a \"text\" block in the final JSON."
+    },
+    {
+      "type": "text",
+      "value": "This is the second paragraph."
+    },
+    {
+      "type": "image",
+      "url": "/assets/articles/test-article-automation/test-image.jpg",
+      "alt": "A test image placeholder"
+    },
+    {
+      "type": "heading",
+      "value": "Another Heading"
+    },
+    {
+      "type": "text",
+      "value": "And a final paragraph to wrap up the test."
+    }
+  ]
+}

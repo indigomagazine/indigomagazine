@@ -44,8 +44,8 @@ const ISSUE_SECTIONS = [
     href: "NOT.html",
     articles: [
       {
-        title: "Air It Out",
-        href: "legacy/articles/NOT/airitout.html",
+        title: "echosystems",
+        href: "legacy/articles/NOT/echosystems.html",
         image: notAirItOutImage,
         alt: "Air It Out",
       },

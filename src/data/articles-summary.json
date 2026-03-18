@@ -7,5 +7,14 @@
         "summary": "Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
         "date": "2026-02-18",
         "coverImage": "/assets/articles/indigovalentinesphotos/1.png"
+    },
+    {
+        "slug": "test-article-automation",
+        "title": "Test Article Automation",
+        "author": "Indigo Developer",
+        "category": "Tech",
+        "summary": "This is a test article to verify the new CLI automation script works correctly.",
+        "date": "2026-03-20",
+        "coverImage": "/assets/articles/test-article-automation/test-image.jpg"
     }
 ]
