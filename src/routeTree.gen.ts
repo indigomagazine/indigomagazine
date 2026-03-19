@@ -20,6 +20,8 @@ import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
+import { Route as IssuesNotRouteImport } from './routes/Issues/not'
+import { Route as IssuesKismetRouteImport } from './routes/Issues/kismet'
 import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
 import { Route as IssuesSerialYoucantwisttimeRouteImport } from './routes/Issues/serial/youcantwisttime'
 import { Route as IssuesSerialWesternRouteImport } from './routes/Issues/serial/western'
@@ -86,6 +88,16 @@ const IssuesSerialRoute = IssuesSerialRouteImport.update({
   path: '/Issues/serial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IssuesNotRoute = IssuesNotRouteImport.update({
+  id: '/Issues/not',
+  path: '/Issues/not',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssuesKismetRoute = IssuesKismetRouteImport.update({
+  id: '/Issues/kismet',
+  path: '/Issues/kismet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IssuesSerialIndexRoute = IssuesSerialIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -149,6 +161,8 @@ export interface FileRoutesByFullPath {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/kismet': typeof IssuesKismetRoute
+  '/Issues/not': typeof IssuesNotRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues': typeof IssuesIndexRoute
@@ -172,6 +186,8 @@ export interface FileRoutesByTo {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/kismet': typeof IssuesKismetRoute
+  '/Issues/not': typeof IssuesNotRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
@@ -195,6 +211,8 @@ export interface FileRoutesById {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/kismet': typeof IssuesKismetRoute
+  '/Issues/not': typeof IssuesNotRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues/': typeof IssuesIndexRoute
@@ -220,6 +238,8 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/kismet'
+    | '/Issues/not'
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/Issues'
@@ -243,6 +263,8 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/kismet'
+    | '/Issues/not'
     | '/articles/$articleSlug'
     | '/Issues'
     | '/articles'
@@ -265,6 +287,8 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/kismet'
+    | '/Issues/not'
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/Issues/'
@@ -289,6 +313,8 @@ export interface RootRouteChildren {
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
   VisualArtsRoute: typeof VisualArtsRoute
+  IssuesKismetRoute: typeof IssuesKismetRoute
+  IssuesNotRoute: typeof IssuesNotRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
@@ -372,6 +398,20 @@ declare module '@tanstack/react-router' {
       path: '/Issues/serial'
       fullPath: '/Issues/serial'
       preLoaderRoute: typeof IssuesSerialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Issues/not': {
+      id: '/Issues/not'
+      path: '/Issues/not'
+      fullPath: '/Issues/not'
+      preLoaderRoute: typeof IssuesNotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Issues/kismet': {
+      id: '/Issues/kismet'
+      path: '/Issues/kismet'
+      fullPath: '/Issues/kismet'
+      preLoaderRoute: typeof IssuesKismetRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/Issues/serial/': {
@@ -485,6 +525,8 @@ const rootRouteChildren: RootRouteChildren = {
   PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
   VisualArtsRoute: VisualArtsRoute,
+  IssuesKismetRoute: IssuesKismetRoute,
+  IssuesNotRoute: IssuesNotRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
   IssuesIndexRoute: IssuesIndexRoute,

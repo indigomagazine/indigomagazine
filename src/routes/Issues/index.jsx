@@ -43,7 +43,7 @@ function RouteComponent() {
         </a>
 
         {/* NOT Issue */}
-        <a href="/legacy/NOT.html" className="issue">
+        <a href="/issues/not" className="issue">
           <img
             src="https://cdn.indigomagazinetx.com/article%20photos/10%20-%20NOT/la%20quinta/F1-3.JPG"
             alt="NOT: Issue 10"
@@ -52,7 +52,7 @@ function RouteComponent() {
         </a>
 
         {/* Kismet Issue */}
-        <a href="/legacy/kismet.html" className="issue">
+        <a href="/issues/kismet" className="issue">
           <img
             src="https://cdn.indigomagazinetx.com/article%20photos/9%20-%20kismet/the%20lady%20of%20the%20castle/kismet.png"
             alt="Kismet: Issue 09"
