@@ -6,11 +6,13 @@ export default function KismetPage() {
         <IssueLayout
             items={kismetItems}
             theme={{
+                bgColor: "#0f0a1e",
+                textColor: "#a2baa4ff",
                 drawerW: "300px",
-                drawerH: "80vh",
-                drawerBg: "rgba(10, 10, 10, 0.70)",
-                drawerColor: "#a622edff",
-                drawerAccent: "rgba(156, 33, 33, 0.18)",
+                drawerH: "100vh",
+                drawerBg: "rgba(15, 10, 30, 0.85)",
+                drawerColor: "#d4b3e6",
+                drawerAccent: "rgba(180, 150, 220, 0.3)",
                 drawerSpeed: "280ms",
             }}
         />
