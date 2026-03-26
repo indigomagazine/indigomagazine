@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useRef, forwardRef } from "react";
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
+import IssueSidebar from "./IssueSidebar";
 import "../serial/serial.css";
 
 export default function IssueLayout({ items, theme }) {
@@ -149,37 +150,17 @@ export default function IssueLayout({ items, theme }) {
         <div
             className="mg-root"
             style={{
+                "--bg": theme?.bgColor || "#fffcf1",
+                "--text": theme?.textColor || "#F5E7BA",
                 "--drawer-w": theme?.drawerW || "300px",
-                "--drawer-h": theme?.drawerH || "80vh",
+                "--drawer-h": theme?.drawerH || "100vh",
                 "--drawer-bg": theme?.drawerBg || "rgba(10,10,10,0.70)",
                 "--drawer-color": theme?.drawerColor || "#f8d254ff",
                 "--drawer-accent": theme?.drawerAccent || "rgba(255,255,255,0.18)",
                 "--drawer-speed": theme?.drawerSpeed || "280ms",
             }}
         >
-            <aside
-                className={`serial-drawer ${barOpen ? "is-open" : ""}`}
-                role="complementary"
-                aria-label="Tools"
-            >
-                <div className="serial-drawer__inner">
-                    <nav className="drawer-nav" aria-label="Section">
-                        <Link to="/">Home</Link>
-                        <Link to="/issues">Issues</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/visual-arts">VisualArts</Link>
-                    </nav>
-                </div>
-            </aside>
-
-            <button
-                className={`drawer-tab ${barOpen ? "is-open" : ""}`}
-                aria-label={barOpen ? "Close tools" : "Open tools"}
-                aria-expanded={barOpen}
-                onClick={() => setBarOpen((v) => !v)}
-            >
-                <img src="/legacy/assets/logos/indigologowhite.png" alt="" />
-            </button>
+            <IssueSidebar barOpen={barOpen} setBarOpen={setBarOpen} />
 
             <div className={`content-stage ${animClass}`}>
                 {view === "scroll" ? (

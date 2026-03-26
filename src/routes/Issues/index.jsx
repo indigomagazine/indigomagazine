@@ -61,7 +61,7 @@ function RouteComponent() {
         </a>
 
         {/* Reminiscence Issue */}
-        <a href="/legacy/reminiscence.html" className="issue">
+        <a href="/issues/reminiscence" className="issue">
           <img
             src="https://cdn.indigomagazinetx.com/article%20photos/8%20-%20reminiscence/amsterdam/amsterdamfinal.jpeg"
             alt="Reminiscence: Issue 08"

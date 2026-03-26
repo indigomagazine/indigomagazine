@@ -6,11 +6,13 @@ export default function NotPage() {
         <IssueLayout
             items={notItems}
             theme={{
+                bgColor: "#0c2847ff",
+                textColor: "#5e88c0ff",
                 drawerW: "300px",
-                drawerH: "80vh",
+                drawerH: "100vh",
                 drawerBg: "rgba(12, 12, 12, 0.85)",
-                drawerColor: "#e8e8e8",
-                drawerAccent: "rgba(93, 207, 222, 0.2)",
+                drawerColor: "#5fa1d7ff",
+                drawerAccent: "rgba(93, 207, 222, 0.46)",
                 drawerSpeed: "280ms",
             }}
         />

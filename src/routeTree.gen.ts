@@ -20,6 +20,7 @@ import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
+import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
 import { Route as IssuesNotRouteImport } from './routes/Issues/not'
 import { Route as IssuesKismetRouteImport } from './routes/Issues/kismet'
 import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
@@ -86,6 +87,11 @@ const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
 const IssuesSerialRoute = IssuesSerialRouteImport.update({
   id: '/Issues/serial',
   path: '/Issues/serial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssuesReminiscenceRoute = IssuesReminiscenceRouteImport.update({
+  id: '/Issues/reminiscence',
+  path: '/Issues/reminiscence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IssuesNotRoute = IssuesNotRouteImport.update({
@@ -163,6 +169,7 @@ export interface FileRoutesByFullPath {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues': typeof IssuesIndexRoute
@@ -188,6 +195,7 @@ export interface FileRoutesByTo {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/Issues/': typeof IssuesIndexRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+    | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/Issues'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+    | '/Issues/reminiscence'
     | '/articles/$articleSlug'
     | '/Issues'
     | '/articles'
@@ -289,6 +300,7 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+    | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/Issues/'
@@ -315,6 +327,7 @@ export interface RootRouteChildren {
   VisualArtsRoute: typeof VisualArtsRoute
   IssuesKismetRoute: typeof IssuesKismetRoute
   IssuesNotRoute: typeof IssuesNotRoute
+  IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
@@ -398,6 +411,13 @@ declare module '@tanstack/react-router' {
       path: '/Issues/serial'
       fullPath: '/Issues/serial'
       preLoaderRoute: typeof IssuesSerialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Issues/reminiscence': {
+      id: '/Issues/reminiscence'
+      path: '/Issues/reminiscence'
+      fullPath: '/Issues/reminiscence'
+      preLoaderRoute: typeof IssuesReminiscenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/Issues/not': {
@@ -527,6 +547,7 @@ const rootRouteChildren: RootRouteChildren = {
   VisualArtsRoute: VisualArtsRoute,
   IssuesKismetRoute: IssuesKismetRoute,
   IssuesNotRoute: IssuesNotRoute,
+  IssuesReminiscenceRoute: IssuesReminiscenceRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
   IssuesIndexRoute: IssuesIndexRoute,
