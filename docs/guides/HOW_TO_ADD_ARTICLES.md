@@ -91,7 +91,7 @@ Depending on your layout, the available content blocks differ slightly. For a st
 
 *Note: Special layouts like `"valentines"` have their own specialized block types (e.g., `"valentinesParagraph"`, `"valentinesHScrollGallery"`).*
 
-> **Need a custom look?** If the existing blocks don't fit your needs, you can create your own!
+> **Need a custom look?** If the existing blocks don't fit your needs or you want to creat your own spin on exisitng one, you can create your own!
 > 
 > **Brief overview of creating a block:**
 > 1. Create a `.jsx` React component in `src/components/Articles/Renderer/blocks/`.
