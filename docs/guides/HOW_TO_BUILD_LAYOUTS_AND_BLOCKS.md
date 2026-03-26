@@ -24,7 +24,7 @@ export const MyCustomBlock = ({ text, highlightColor }) => (
 ```
 
 ### Step 2: Update Typings 
-If your project enforces TypeScript types for the API, update `src/services/api.ts`. Add your new block type to the `ContentBlock` union type:
+Update `src/services/api.ts`. Add your new block type to the `ContentBlock` union type:
 
 ```typescript
 export type ContentBlock =
