@@ -5,5 +5,5 @@ Welcome to the Indigo Magazine documentation folder! This directory is intended 
 
 ## Current Documents
 - [HOW_TO_ADD_ARTICLES.md](./guides/HOW_TO_ADD_ARTICLES.md)
-- [guides/HOW_TO_BUILD_LAYOUTS_AND_BLOCKS.md](./HOW_TO_BUILD_LAYOUTS_AND_BLOCKS.md)
-- [Proposal - Evolutions for website .md](./Proposal%20-%20Evolutions%20for%20website%20.md)
+- [guides/HOW_TO_BUILD_LAYOUTS_AND_BLOCKS.md](./guides/HOW_TO_BUILD_LAYOUTS_AND_BLOCKS.md)
+- [Proposal - Evolutions for website .md](./guides/Proposal%20-%20Evolutions%20for%20website%20.md)
