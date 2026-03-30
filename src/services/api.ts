@@ -2,13 +2,34 @@
 
 export type ContentBlock =
   | { type: 'text'; value: string }
-  | { type: 'image'; url: string; caption?: string; alt?: string }
+  | { type: 'image'; url: string; caption?: string; alt?: string; videoOverlay?: boolean; videoUrl?: string | null }
   | { type: 'gallery'; images: { url: string; caption?: string }[] }
   | { type: 'valentinesTitle'; title: string; author?: string; designers?: string }
   | { type: 'valentinesParaTitle'; value: string }
   | { type: 'valentinesParagraph'; value: string }
   | { type: 'hScrollGallery'; images: { url: string; alt?: string }[] }
-  | { type: 'valentinesHScrollGallery'; images: { url: string; alt?: string }[]; textBlurb: string };
+  | { type: 'valentinesHScrollGallery'; images: { url: string; alt?: string }[]; textBlurb: string }
+  | {
+      type: 'indigoLiveHero';
+      heroImage: string;
+      heroImageAlt?: string;
+      videoThumbnail?: string;
+      videoUrl?: string | null;
+      title: string;
+      intro: string;
+    }
+  | {
+      type: 'interview';
+      lines: { speaker: string; text: string }[];
+    }
+  | {
+      type: 'indigoLiveCredits';
+      collaboration?: string;
+      writtenBy?: string;
+      photosBy?: string;
+      graphicsBy?: string;
+      designedBy?: string;
+    };
 
 export interface Article {
   id: string;
@@ -19,6 +40,9 @@ export interface Article {
   category: string;
   date: string;
   designers?: string;
+  photographers?: string;
+  graphics?: string;
+  collaborators?: string;
   content: ContentBlock[];
 }
 
