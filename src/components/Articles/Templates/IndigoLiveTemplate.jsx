@@ -228,7 +228,7 @@ const ClosingBlock = ({ block }) => (
 const CreditsBlock = ({ block }) => (
   <div className={styles.creditsBlock}>
     {block.collaboration && <p>In Collaboration with: {block.collaboration}</p>}
-    {block.writtenBy && <p>Written by; {block.writtenBy}</p>}
+    {block.writtenBy && <p>Written by: {block.writtenBy}</p>}
     {block.photosBy && <p>Photos by: {block.photosBy}</p>}
     {block.graphicsBy && <p>Graphics by: {block.graphicsBy}</p>}
     {block.designedBy && <p>Designed by: {block.designedBy}</p>}
