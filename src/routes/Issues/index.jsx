@@ -45,7 +45,7 @@ function RouteComponent() {
         {/* NOT Issue */}
         <a href="/issues/not" className="issue">
           <img
-            src="https://cdn.indigomagazinetx.com/articlephotos/NOT/la%20quinta/F1-3.JPG"
+            src="https://cdn.indigomagazinetx.com/articlephotos/not/la%20quinta/F3-3.JPG"
             alt="NOT: Issue 10"
           />
           <div className="issue-title">NOT</div>
