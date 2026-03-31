@@ -4,10 +4,10 @@
 
 @font-face {
   font-family: 'Coolvetica';
-  src: url('/fonts/CoolveticaRg-Regular.woff2') format('woff2'),
-       url('/fonts/CoolveticaRg-Regular.woff') format('woff');
+  src: url('src/assets/fonts/CoolveticaRg.otf') format('opentype'),
+       url('src/assets/fonts/CoolveticaRgIt.otf') format('opentype');
   font-weight: normal;
-  font-style: bold;
+  font-weight: bold;
   font-display: swap;
 }
 
