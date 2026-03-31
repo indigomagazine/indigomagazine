@@ -7,7 +7,7 @@
   src: url('/fonts/CoolveticaRg-Regular.woff2') format('woff2'),
        url('/fonts/CoolveticaRg-Regular.woff') format('woff');
   font-weight: normal;
-  font-style: normal;
+  font-style: bold;
   font-display: swap;
 }
 
