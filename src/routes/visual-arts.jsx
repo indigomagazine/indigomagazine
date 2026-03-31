@@ -113,7 +113,7 @@ function VisualArts() {
                     <Link to="/articles/serial/anumberoutofplace">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg')" }}
                         ></div>
                     </Link>
                 </div>
@@ -122,7 +122,7 @@ function VisualArts() {
                     <Link to="/articles/serial/covet">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/clothes-1.1.JPG')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/covet/clothes-1.1.JPG')" }}
                         ></div>
                     </Link>
                 </div>
@@ -131,7 +131,7 @@ function VisualArts() {
                     <Link to="/articles/serial/iloveshopping">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7721.jpg')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/i%20love%20shopping/BF5T7721.jpg')" }}
                         ></div>
                     </Link>
                 </div>
@@ -142,7 +142,7 @@ function VisualArts() {
                             className="floating-photo"
                             style={{
                                 backgroundImage:
-                                    "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/keyboards/nolan%202.png')",
+                                    "url('https://cdn.indigomagazinetx.com/articlephotos/serial/keyboards/nolan%202.png')",
                             }}
                         ></div>
                     </Link>
@@ -152,7 +152,7 @@ function VisualArts() {
                     <Link to="/articles/serial/lifeinparadise">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/page%201.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/life%20in%20paradise/page%201.png')" }}
                         ></div>
                     </Link>
                 </div>
@@ -161,7 +161,7 @@ function VisualArts() {
                     <Link to="/articles/serial/western">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/both.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/vengeance%20of%20the%20west/both.png')" }}
                         ></div>
                     </Link>
                 </div>
@@ -170,7 +170,7 @@ function VisualArts() {
                     <Link to="/articles/serial/youcantwisttime">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/you%20can%20twist%20time/final_edited3.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/you%20can%20twist%20time/final_edited3.png')" }}
                         ></div>
                     </Link>
                 </div>
