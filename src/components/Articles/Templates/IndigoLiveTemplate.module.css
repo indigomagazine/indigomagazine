@@ -4,10 +4,17 @@
 
 @font-face {
   font-family: 'Coolvetica';
-  src: url('src/assets/fonts/CoolveticaRg.otf') format('opentype'),
-       url('src/assets/fonts/CoolveticaRgIt.otf') format('opentype');
-  font-weight: normal;
-  font-weight: bold;
+  src: url('../../../assets/fonts/CoolveticaRg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../../../assets/fonts/CoolveticaRgIt.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
