@@ -50,7 +50,9 @@ function VisualArts() {
 
         floatingPhotos.forEach((photo) => {
             let randomX, randomY;
-            const size = photo.offsetWidth; // Get the actual size from CSS
+            // const size = photo.offsetWidth; // Get the actual size from CSS
+            const computedStyle = getComputedStyle(photo);
+            const size = parseFloat(computedStyle.width); // width in px
 
             // Generate random positions, avoiding overlap (max 50 tries to prevent infinite loop)
             let tries = 0;
