@@ -6,13 +6,13 @@ export default function WesternNewspaper() {
 
   // UPDATED: Now using the imported variables instead of string paths
   const images = [
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/wantedPoster.png", alt: 'wanted poster' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/table.png", alt: 'table' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/malePose.png", alt: 'male pose' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/moneyShot.png", alt: 'money shot' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/both.png", alt: 'both' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/hat.png", alt: 'Sheriff in Hat' },
-    { src: "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/moviePoster.png", alt: 'Movie Poster' }
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/wantedPoster.png", alt: 'wanted poster' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/table.png", alt: 'table' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/malePose.png", alt: 'male pose' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/moneyShot.png", alt: 'money shot' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/both.png", alt: 'both' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/hat.png", alt: 'Sheriff in Hat' },
+    { src: "https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/moviePoster.png", alt: 'Movie Poster' }
   ];
 
   const openModal = (index) => {
