@@ -47,6 +47,7 @@
   margin-bottom: 48px;
 }
 
+
 .heroBody {
   display: flex;
   flex-direction: row;
@@ -293,6 +294,25 @@
   line-height: 1.6;
 }
 
+/* ─── CLOSING ────────────────────────────────────────────────── */
+.closingBlock {
+  margin: 48px 0 0;
+  padding: 36px 32px;
+}
+
+.closingText {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-style: bold;
+  line-height: 1.8;
+  color: var(--indigo-gray);
+  text-align: center;
+  margin: 0;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ─── CREDITS ────────────────────────────────────────────────── */
 .creditsBlock {
   margin-top: 64px;
@@ -303,7 +323,7 @@
 
 .creditsBlock p {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 1rem;
   color: var(--indigo-light-gray);
   margin: 4px 0;
   line-height: 1.6;

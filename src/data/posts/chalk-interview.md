@@ -47,6 +47,8 @@ RC: Well, there's a lot of history in the country and with dance music in the 90
 TT: Did film school shape your sound or your visuals more?
 BG: It's an interesting question. I mean, definitely visuals big time, it just kind of gave us a place where we could kind of figure out who we were and what we want to say. But I mean, because we didn't go to music school or anything like that, I think you can hear the film school in us, I guess, in the sounds. I think early on, when we talked about things, we wanted them to be kind of cinematic, so I don't know, maybe fifty-fifty.
 
+Make sure to check out CHALK's debut album Crystalpunk on any streaming platform. Follow them on Instagram @chalkband to follow their journey on their upcoming U.S. tour and festival run!
+
 
 In Collaboration with Alter Music and Notorious Noise PR
 Written by Sanhita Perkari

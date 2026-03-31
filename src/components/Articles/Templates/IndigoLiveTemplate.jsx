@@ -1,7 +1,7 @@
-// IndigoLiveTemplate.jsx
+// IndigoLiveTemplate.jsx — Custom video controls + resized hero thumb
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import styles from "./IndigoLiveTemplate.module.css";
-import Taskbar from "../../Home/Taskbar";
+import Taskbar from '../../Home/Taskbar';
 
 // ─── Shared Video Player ─────────────────────────────────────────
 const VideoPlayer = ({ src, poster, className, thumbClass }) => {
@@ -160,10 +160,6 @@ const VideoPlayer = ({ src, poster, className, thumbClass }) => {
 const IndigoLiveHero = ({ block }) => {
   return (
     <div className={styles.heroSection}>
-      <div className={styles.heroImageWrapper}>
-        <img src={block.heroImage} alt={block.heroImageAlt} className={styles.heroImage} />
-      </div>
-
       <div className={styles.heroBody}>
         <div className={styles.heroThumbWrapper}>
           {block.videoUrl ? (
@@ -221,11 +217,18 @@ const ImageBlock = ({ block }) => (
   </div>
 );
 
+// ─── CLOSING ─────────────────────────────────────────────────────
+const ClosingBlock = ({ block }) => (
+  <div className={styles.closingBlock}>
+    <p className={styles.closingText}>{block.text}</p>
+  </div>
+);
+
 // ─── CREDITS ─────────────────────────────────────────────────────
 const CreditsBlock = ({ block }) => (
   <div className={styles.creditsBlock}>
     {block.collaboration && <p>In Collaboration with: {block.collaboration}</p>}
-    {block.writtenBy && <p>Written by: {block.writtenBy}</p>}
+    {block.writtenBy && <p>Written by; {block.writtenBy}</p>}
     {block.photosBy && <p>Photos by: {block.photosBy}</p>}
     {block.graphicsBy && <p>Graphics by: {block.graphicsBy}</p>}
     {block.designedBy && <p>Designed by: {block.designedBy}</p>}
@@ -236,10 +239,11 @@ const CreditsBlock = ({ block }) => (
 export default function IndigoLiveTemplate({ article }) {
   const renderBlock = (block, index) => {
     switch (block.type) {
-      case "indigoLiveHero":   return <IndigoLiveHero key={index} block={block} />;
-      case "interview":        return <InterviewBlock key={index} block={block} />;
-      case "image":            return <ImageBlock key={index} block={block} />;
-      case "indigoLiveCredits":return <CreditsBlock key={index} block={block} />;
+      case "indigoLiveHero":    return <IndigoLiveHero key={index} block={block} />;
+      case "interview":         return <InterviewBlock key={index} block={block} />;
+      case "image":             return <ImageBlock key={index} block={block} />;
+      case "indigoLiveClosing": return <ClosingBlock key={index} block={block} />;
+      case "indigoLiveCredits": return <CreditsBlock key={index} block={block} />;
       default:                 return null;
     }
   };

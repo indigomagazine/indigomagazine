@@ -32,16 +32,37 @@
         { "speaker": "RC", "text": "Yeah. I didn't go to see them live. I just bought the poster on the website because it was signed and on sale." },
         { "speaker": "TT", "text": "What was the first project that felt like Chalk?" },
         { "speaker": "RC", "text": "\"Them?\"" },
-        { "speaker": "BG", "text": "Yeah, probably the first song we ever did. Well, we'd wrote music as a different band before, but this one we kinda put a lot into it. We paid for, like, a radio plug-in and a music video, and we'd kind of brainstormed this whole image of a band behind one song, and then from that, that's all we kind of all had for a couple of months, and then we decided we needed more songs." },
+        { "speaker": "BG", "text": "Yeah, probably the first song we ever did. Well, we'd wrote music as a different band before, but this one we kinda put a lot into it. We paid for, like, a radio plug-in and a music video, and we'd kind of brainstormed this whole image of a band behind one song, and then from that, that's all we kind of all had for a couple of months, and then we decided we needed more songs." }
+      ]
+    },
+    {
+      "type": "image",
+      "url": "https://cdn.indigomagazinetx.com/article%20photos/rolling%20content/chalkinterview/MVI_9060.mp4",
+      "caption": "\"Chalk's performance was incredibly engaging from start to finish. The sounds that Chalk creates for Crystalpunk has some industrial influence reminiscent of Nine Inch Nails, but the artistic value that Chalk brings to that sound makes it feel unique and refreshing. One of the most memorable moments was watching Ben play with audio tools live, as it adds another layer of sound and makes the sound feel more dynamic and alive.\" — Troy Tran",
+      "alt": "Chalk performing live on stage",
+      "videoOverlay": true,
+      "videoUrl": null
+    },
+    {
+      "type": "interview",
+      "lines": [
+        { "speaker": "TT", "text": "Was there a track that was hard to finish? If yes, which one is the hardest to finish?" },
+        { "speaker": "Both", "text": "321.. \"Longer.\" *in unison*" },
+        { "speaker": "TT", "text": "Speaking of longer, what made that the most unfiltered rock track that you guys have created?" },
+        { "speaker": "BG", "text": "I guess it all started with the guitar riff. Ross had the riff, and when it was used it was way faster. So, I think that kind of took us a long time to figure out. I think we were maybe trying to make it kind of sound maybe a bit too fast or a bit maybe like post-punky or something. We were trying to make it fit more in like the conditions world of tracks, maybe, and it was never really sitting right for us. Then I think kind of making it way more like a big 2000s rock song, kind of unlocked what the song was always supposed to be, but it took us a while to kind of figure out that's what it needed to sound like for it to actually sound good." },
+        { "speaker": "TT", "text": "What's something that listeners probably missed the first time listening?" },
+        { "speaker": "BG", "text": "There's a lot of layers to the sound, isn't there? There's a lot of bits and things that can get muted." },
+        { "speaker": "RC", "text": "Yeah, well, maybe it's the accent or something. Maybe people aren't really too sure if they've heard our accent before and I can maybe I don't know, offer something a bit different. I don't think we've got any other suggestions, like we're Scottish or we're Welsh or we're Irish." },
+        { "speaker": "BG", "text": "Yeah, I'd say there's some people who don't hear Ross's Northern Irish accent at all. Some people do, but then I think somebody's told us before, like \"What's that accent?\" and we've let them know, so yeah, it could be that on a listen." },
         { "speaker": "TT", "text": "How does it feel playing SXSW vs playing back at home (Ireland)?" },
         { "speaker": "BG", "text": "Showcase festivals are always funny because the first day we played a show at 4 p.m. outside in 36° C (97° F) heat, and we almost died of sunstroke. And then we played another show at like 11 p.m. in a like very dark, quite a nice room, but still a very dark room. So, SXSW is always crazy, and it's got a whole other manic energy, but playing back home is always our favorite place to play. We always think about playing back home when we're writing songs on stage to play them. Nothing can beat playing in Belfast." }
       ]
     },
     {
       "type": "image",
-      "url": "https://cdn.indigomagazinetx.com/article%20photos/rolling%20content/chalkinterview/MVI_9060.mp4",
-      "caption": "\"Chalk’s performance was incredibly engaging from start to finish. The sounds that Chalk creates for Crystalpunk has some industrial influence reminiscent of Nine Inch Nails, but the artistic value that Chalk brings to that sound makes it feel unique and refreshing. One of the most memorable moments was watching Ben play with audio tools live, as it adds another layer of sound and makes the sound feel more dynamic and alive.\" — Troy Tran",
-      "alt": "Chalk performing live on stage",
+      "url": "https://cdn.indigomagazinetx.com/article%20photos/rolling%20content/chalkinterview/MVI_9126.mp4",
+      "caption": "\"'Longer' was my favorite song to listen to and watch perform. The emotion and passion that this song brings, both visually and aurally, is incredibly beautiful. The full concert was an unforgettable experience, and I'm so glad I got to witness it live.\" — Troy Tran",
+      "alt": "Chalk performing live on stage under blue lights",
       "videoOverlay": true,
       "videoUrl": null
     },
@@ -52,40 +73,22 @@
         { "speaker": "BG", "text": "All the big hits. Whatever your favorite song is, we're playing it. Even if it's the whole discography." },
         { "speaker": "TT", "text": "What's your dream venue to headline?" },
         { "speaker": "BG", "text": "Madison Square Garden. I don't know. I genuinely, actually don't think there really is one. I talk about how I'd love to play the SSE Arena in Belfast. That's basically like our sports arena. So if we can get there somehow, I'd be pretty happy with that." },
+        { "speaker": "TT", "text": "Did film school shape your sound or your visuals more?" },
+        { "speaker": "BG", "text": "It's an interesting question. I mean, definitely visuals big time, it just kind of gave us a place where we could kind of figure out who we were and what we want to say. But I mean, because we didn't go to music school or anything like that, I think you can hear the film school in our sounds. I think early on, when we talked about things, we wanted them to be kind of cinematic, so I don't know, maybe fifty-fifty." },
         { "speaker": "TT", "text": "If 9 Inch Nails, Björk, and The Prodigy were competing, who would win?" },
         { "speaker": "RC", "text": "Oh, so is this like a fight or?" },
         { "speaker": "BG", "text": "In a pizza-eating competition?" },
         { "speaker": "TT", "text": "Maybe like vibe-wise." },
         { "speaker": "Both", "text": "Vibe-wise?" },
-        { "speaker": "BG", "text": "Who's the best vibe? Björk has the best vibe by a mile. I don't know, yeah, it's Björk. Björk's got the vibe." },
-        { "speaker": "TT", "text": "Was there a track that was hard to finish? If yes, which one is the hardest to finish?" },
-        { "speaker": "Both", "text": "321.. \"Longer.\" *in unison*" },
-        { "speaker": "TT", "text": "Speaking of longer, what made that the most unfiltered rock track that you guys have created?" },
-        { "speaker": "BG", "text": "I guess it all started with the guitar riff. Ross had the riff, and when it was used it was way faster. So, I think that kind of took us a long time to figure out. I think we were maybe trying to make it kind of sound maybe a bit too fast or a bit maybe like post-punky or something. We were trying to make it fit more in like the conditions world of tracks, maybe, and it was never really sitting right for us. Then I think kind of making it way more like a big 2000s rock song, kind of unlocked what the song was always supposed to be, but it took us a while to kind of figure out that's what it needed to sound like for it to actually sound good." }
+        { "speaker": "BG", "text": "Who's the best vibe? Björk has the best vibe by a mile. I don't know, yeah, it's Björk. Björk's got the vibe." }
       ]
     },
     {
-      "type": "image",
-      "url": "https://cdn.indigomagazinetx.com/article%20photos/rolling%20content/chalkinterview/MVI_9126.mp4",
-      "caption": "“Longer” was my favorite song to listen to and watch perform. The emotion and passion that this song brings, both visually and aurally, is incredibly beautiful. The full concert was an unforgettable experience, and I’m so glad I got to witness it live\" — Troy Tran",
-      "alt": "Chalk performing live on stage under blue lights",
-      "videoOverlay": true,
-      "videoUrl": null
-    },
-    {
-      "type": "interview",
-      "lines": [
-        { "speaker": "TT", "text": "What's something that listeners probably missed the first time listening?" },
-        { "speaker": "BG", "text": "There's a lot of layers to the sound, isn't there? There's a lot of bits and things that can get muted." },
-        { "speaker": "RC", "text": "Yeah, well, maybe it's the accent or something. Maybe people aren't really too sure if they've heard our accent before and I can maybe I don't know, offer something a bit different. I don't think we've got any other suggestions, like we're Scottish or we're Welsh or we're Irish." },
-        { "speaker": "BG", "text": "Yeah, I'd say there's some people who don't hear Ross's Northern Irish accent at all. Some people do, but then I think somebody's told us before, like \"What's that accent?\" and we've let them know, so yeah, it could be that on a listen." },
-        { "speaker": "TT", "text": "Did film school shape your sound or your visuals more?" },
-        { "speaker": "BG", "text": "It's an interesting question. I mean, definitely visuals big time, it just kind of gave us a place where we could kind of figure out who we were and what we want to say. But I mean, because we didn't go to music school or anything like that, I think you can hear the film school in our sounds. I think early on, when we talked about things, we wanted them to be kind of cinematic, so I don't know, maybe fifty-fifty." }
-      ]
+      "type": "indigoLiveClosing",
+      "text": "Chalk's debut album Crystalpunk is available now on all major streaming platforms. As their U.S. tour continues and festival season approaches, follow along on Instagram @chalkband."
     },
     {
       "type": "indigoLiveCredits",
-      "collaboration": "Alter Music and Notorious Noise PR",
       "writtenBy": "Sanhita Perkari",
       "photosBy": "Carter Pruitt",
       "graphicsBy": "Manjiri C.",
