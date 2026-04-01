@@ -1,0 +1,292 @@
+/* Full-viewport theater scene — assets: public/assets/andscene/alley/ */
+
+.scene {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  background: #0a0508;
+  /* Shared with spotlight vignette + poem clip (keep in sync) */
+  --spot-core: min(36vw, 39vh);
+  --spot-falloff: 50px;
+  --spot-edge: calc(var(--spot-core) + var(--spot-falloff));
+  /*
+   * Text column must stay inside the *bright* pool (smaller than clip disc).
+   * Tune --poem-width-factor if lines still hit dark folds (try 0.85–0.95).
+   */
+  --poem-width-factor: 1.3;
+  --poem-max-width: min(21rem, calc(var(--spot-core) * var(--poem-width-factor)), 38vw);
+  /* Nudge side curtains down so they fully cover the open-stage drapes */
+  --curtain-drop: clamp(10px, 2.2vh, 32px);
+}
+
+/*
+ * Full viewport — no side letterboxing. All 16:9 art uses object-fit: cover + same
+ * object-position so layers stay registered; wide screens crop top/bottom instead of pillarboxing.
+ */
+.stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: size;
+  container-name: alley-stage;
+}
+
+.base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/*
+ * Full-frame PNGs (same pixel aspect as base): no split masks — slide whole layers L/R.
+ */
+.curtainStage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.curtainLeft,
+.curtainRight,
+.valance {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+  transition:
+    transform var(--curtain-duration, 2.2s) cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease;
+}
+
+.curtainLeft {
+  z-index: 1;
+}
+
+.curtainRight {
+  z-index: 1;
+}
+
+.valance {
+  z-index: 2;
+}
+
+.scene:not(.sceneStarted) .curtainLeft,
+.scene:not(.sceneStarted) .curtainRight {
+  transform: translate(0, var(--curtain-drop));
+}
+
+.scene.sceneStarted .curtainLeft {
+  transform: translate(-100%, var(--curtain-drop));
+}
+
+.scene.sceneStarted .curtainRight {
+  transform: translate(100%, var(--curtain-drop));
+}
+
+/* Whole overlay off — base image already includes valance + open stage */
+.scene.curtainsDone .curtainStage {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+}
+
+/*
+ * Spotlight: large flat-hot center, then ~50px hard falloff to zero (no soft “halo”).
+ * --spot-core: radius of full-brightness disk; --spot-falloff: edge band width in px.
+ */
+.spotlightRack {
+  /* --spot-* inherited from .scene */
+  /*
+   * Brightness dial (not “full”): raise --spot-lift toward 1, or lower ~0.65 if too hot.
+   */
+  --spot-lift: 0.98;
+
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.scene.spotlightOn .spotlightRack {
+  animation: spotlightIn 0.6s ease forwards;
+}
+
+.spotlightVignette,
+.spotlightBeam {
+  position: absolute;
+  inset: 0;
+}
+
+/* Light edge darkening only — keep curtains visible outside the pool */
+.spotlightVignette {
+  /* cqw/cqh: sized to the 16:9 stage, not the full viewport */
+  background: radial-gradient(
+    circle min(174cqw, 186cqh) at 50% 50%,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) var(--spot-edge),
+    rgba(0, 0, 0, 0.03) calc(var(--spot-edge) + 1px),
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+/*
+ * Beam: Spotlight V2 PNG (designed for additive light on red; curtain texture stays visible in the pool).
+ * Vignette still uses --spot-core / --spot-edge. Tune strength with --spot-lift.
+ */
+.spotlightBeam {
+  opacity: var(--spot-lift);
+  background-color: transparent;
+  background-image: url("/assets/andscene/alley/spotlight-v2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+}
+
+@keyframes spotlightIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Poem: revealed in the light — clipped to same disc as spotlight edge */
+.poemWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.1s ease 0.2s;
+  clip-path: circle(var(--spot-edge) at 50% 50%);
+  -webkit-clip-path: circle(var(--spot-edge) at 50% 50%);
+}
+
+.scene.poemVisible .poemWrap {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.poem {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--poem-max-width);
+  margin-inline: auto;
+  padding-inline: 0.35rem;
+  /* Stay inside the clipped circle; scroll if a pair is long */
+  max-height: min(68vmin, 62vh);
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+  color: #000;
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.poemScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.poem p {
+  margin: 0 0 1em;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+}
+
+.poem p:last-child {
+  margin-bottom: 0;
+}
+
+/* Fixed-height row so “next” appearing never moves the sentences */
+.poemNextSlot {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 1.65em;
+  margin-top: 1.25em;
+}
+
+.poemNext {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  line-height: 1.5;
+  text-align: center;
+  color: #000;
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  pointer-events: auto;
+  animation: poemNextIn 0.35s ease forwards;
+}
+
+@keyframes poemNextIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.poemNext:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Optional: subtle film grain over entire scene */
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
