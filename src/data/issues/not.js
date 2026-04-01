@@ -11,7 +11,7 @@ export const notItems = [
         id: "not-2",
         title: "In the Wind",
         description: "Writer: Sarah R.",
-        image: "https://cdn.indigomagazinetx.com/articlephotos/not/in%20the%20wind/Sarah_Rizvi_Final_Graphic_3.jpegg",
+        image: "https://cdn.indigomagazinetx.com/articlephotos/not/in%20the%20wind/Sarah_Rizvi_Final_Graphic_3.jpeg",
         to: "/legacy/articles/NOT/inthewind.html",
         coverPos: "center center",
     },

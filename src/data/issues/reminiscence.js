@@ -28,7 +28,7 @@ export const reminiscenceItems = [
         title: "White Rosebud",
         description: "Reminiscence Issue",
         image: "https://cdn.indigomagazinetx.com/articlephotos/reminiscence/white%20rosebud/titlecard.jpg",
-        to: "/legacy/articles/reminiscence/whiterosebud.html",
+        to: "/legacy/articles/reminiscence/WhiteRosebud.html",
         coverPos: "center center",
     },
     {

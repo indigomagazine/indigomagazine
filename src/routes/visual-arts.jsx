@@ -152,7 +152,7 @@ function VisualArts() {
                     <Link to="/articles/serial/lifeinparadise">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/life%20in%20paradise/page%201.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/life%20in%20paradise/page%201.png')" }}
                         ></div>
                     </Link>
                 </div>
@@ -161,7 +161,7 @@ function VisualArts() {
                     <Link to="/articles/serial/western">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/vengeance%20of%20the%20west/both.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/vengeance%20of%20the%20west/both.png')" }}
                         ></div>
                     </Link>
                 </div>
@@ -170,7 +170,7 @@ function VisualArts() {
                     <Link to="/articles/serial/youcantwisttime">
                         <div
                             className="floating-photo"
-                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/11%20-%20serial/you%20can%20twist%20time/final_edited3.png')" }}
+                            style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/articlephotos/serial/you%20can%20twist%20time/final_edited3.png')" }}
                         ></div>
                     </Link>
                 </div>
