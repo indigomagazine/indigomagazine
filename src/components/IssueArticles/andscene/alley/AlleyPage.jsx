@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./AlleyPage.module.css";
 import { ALLEY_POEM_STEPS } from "./alleyPoem.js";
 
@@ -9,18 +9,22 @@ const CURTAIN_LEFT = "/assets/andscene/alley/curtain-left.png";
 const CURTAIN_RIGHT = "/assets/andscene/alley/curtain-right.png";
 const VALANCE = "/assets/andscene/alley/valance.png";
 
-/** Hold closed curtains before the open animation begins */
-const CURTAIN_DELAY_MS = 3200;
+const BGM_FILE = "Lite Saturation - Piano Jazz.mp3";
+const BGM_SRC = `/assets/andscene/alley/${encodeURIComponent(BGM_FILE)}`;
+const BGM_VOLUME = 0.22;
+
 /** Duration of curtain slide until drapes clear the frame (must match CSS --curtain-duration) */
-const CURTAIN_OPEN_MS = 2200;
-/** Spotlight starts this long after the slide *begins* (~end of 2.2s slide with default below) */
+const CURTAIN_OPEN_MS = 6600;
+/** Spotlight starts this long after the slide *begins* */
 const SPOTLIGHT_AFTER_CURTAIN_START_MS = 2000;
 const SPOTLIGHT_DELAY_MS = 200;
 const POEM_DELAY_MS = 900;
 /** Show “next →” after this long once a pair of sentences is visible */
-const NEXT_BTN_DELAY_MS = 2000;
+const NEXT_BTN_DELAY_MS = 1333;
 
 export default function AlleyPage() {
+  const bgmRef = useRef(null);
+  const curtainOpenedRef = useRef(false);
   const [started, setStarted] = useState(false);
   const [curtainsDone, setCurtainsDone] = useState(false);
   const [spotlightOn, setSpotlightOn] = useState(false);
@@ -31,23 +35,36 @@ export default function AlleyPage() {
 
   const lastPoemStep = ALLEY_POEM_STEPS.length - 1;
 
-  useEffect(() => {
-    const afterOpen = CURTAIN_DELAY_MS + CURTAIN_OPEN_MS;
-    const spotlightAt =
-      CURTAIN_DELAY_MS + SPOTLIGHT_AFTER_CURTAIN_START_MS + SPOTLIGHT_DELAY_MS;
+  const openCurtains = () => {
+    if (curtainOpenedRef.current) return;
+    curtainOpenedRef.current = true;
+    setStarted(true);
+    const a = bgmRef.current;
+    if (a) {
+      a.muted = true;
+      a.volume = 0;
+      a.currentTime = 0;
+      void a.play().catch(() => {});
+    }
+  };
 
-    const t0 = window.setTimeout(() => setStarted(true), CURTAIN_DELAY_MS);
+  useEffect(() => {
+    if (!started) return undefined;
+
+    const afterOpen = CURTAIN_OPEN_MS;
+    const spotlightAt = SPOTLIGHT_AFTER_CURTAIN_START_MS + SPOTLIGHT_DELAY_MS;
+    const poemAt = spotlightAt + POEM_DELAY_MS;
+
     const t1 = window.setTimeout(() => setCurtainsDone(true), afterOpen);
     const t2 = window.setTimeout(() => setSpotlightOn(true), spotlightAt);
-    const t3 = window.setTimeout(() => setPoemVisible(true), spotlightAt + POEM_DELAY_MS);
+    const t3 = window.setTimeout(() => setPoemVisible(true), poemAt);
 
     return () => {
-      window.clearTimeout(t0);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       window.clearTimeout(t3);
     };
-  }, []);
+  }, [started]);
 
   useEffect(() => {
     if (!poemVisible) return;
@@ -56,6 +73,35 @@ export default function AlleyPage() {
     const t = window.setTimeout(() => setShowNextBtn(true), NEXT_BTN_DELAY_MS);
     return () => window.clearTimeout(t);
   }, [poemVisible, poemStep, lastPoemStep]);
+
+  useEffect(() => {
+    if (!poemVisible) return undefined;
+    const a = bgmRef.current;
+    if (a) {
+      a.muted = false;
+      a.volume = BGM_VOLUME;
+      a.currentTime = 0;
+      void a.play().catch(() => {});
+    }
+    return () => {
+      const el = bgmRef.current;
+      if (el) {
+        el.pause();
+        el.currentTime = 0;
+      }
+    };
+  }, [poemVisible]);
+
+  useEffect(() => {
+    return () => {
+      const a = bgmRef.current;
+      if (a) {
+        a.pause();
+        a.currentTime = 0;
+        a.muted = false;
+      }
+    };
+  }, []);
 
   const sceneClass = [
     styles.scene,
@@ -111,6 +157,25 @@ export default function AlleyPage() {
       </div>
 
       <div className={styles.grain} aria-hidden />
+
+      {!started ? (
+        <button
+          type="button"
+          className={styles.openCue}
+          onClick={openCurtains}
+          aria-label="Open the curtains to begin"
+        />
+      ) : null}
+
+      <audio
+        ref={bgmRef}
+        className={styles.bgm}
+        src={BGM_SRC}
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden
+      />
     </div>
   );
 }

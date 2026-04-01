@@ -70,7 +70,7 @@
   pointer-events: none;
   will-change: transform;
   transition:
-    transform var(--curtain-duration, 2.2s) cubic-bezier(0.22, 1, 0.36, 1),
+    transform var(--curtain-duration, 6.6s) cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.5s ease;
 }
 
@@ -278,6 +278,33 @@
 .poemNext:hover {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+/* Hidden BGM element (no visible controls) */
+.bgm {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Full-screen tap target before curtains open (removed once started) */
+.openCue {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: transparent;
+}
+
+.openCue:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: -6px;
 }
 
 /* Optional: subtle film grain over entire scene */
