@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualArtsRouteImport } from './routes/visual-arts'
+import { Route as SlideshowRouteImport } from './routes/slideshow'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PhotoboothRouteImport } from './routes/photobooth'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
@@ -36,6 +37,11 @@ import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issu
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
   path: '/visual-arts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlideshowRoute = SlideshowRouteImport.update({
+  id: '/slideshow',
+  path: '/slideshow',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRoute
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRoute
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRoute
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
@@ -237,6 +246,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
@@ -262,6 +272,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
@@ -286,6 +297,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
@@ -312,6 +324,7 @@ export interface RootRouteChildren {
   NewsletterRoute: typeof NewsletterRoute
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
+  SlideshowRoute: typeof SlideshowRoute
   VisualArtsRoute: typeof VisualArtsRoute
   IssuesKismetRoute: typeof IssuesKismetRoute
   IssuesNotRoute: typeof IssuesNotRoute
@@ -328,6 +341,13 @@ declare module '@tanstack/react-router' {
       path: '/visual-arts'
       fullPath: '/visual-arts'
       preLoaderRoute: typeof VisualArtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slideshow': {
+      id: '/slideshow'
+      path: '/slideshow'
+      fullPath: '/slideshow'
+      preLoaderRoute: typeof SlideshowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -524,6 +544,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsletterRoute: NewsletterRoute,
   PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
+  SlideshowRoute: SlideshowRoute,
   VisualArtsRoute: VisualArtsRoute,
   IssuesKismetRoute: IssuesKismetRoute,
   IssuesNotRoute: IssuesNotRoute,
