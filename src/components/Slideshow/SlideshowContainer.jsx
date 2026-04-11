@@ -4,7 +4,7 @@ import "./css/slideshow.css";
 const SlideshowContainer = ({slides}) => {
     /* Set up slideshow and dots to render */
     const slideshow = slides.map((slide, index) => (
-        <img className="slide-img" key={ index } src={slide} align="middle" />
+        <img className="slide-img" key={ index } src={slide.src} align="middle" />
     ));
     const slideshowSize = slides.length;
     const [index, setIndex] = useState(0);

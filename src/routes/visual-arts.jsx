@@ -127,7 +127,7 @@ function VisualArts() {
 
             <div className="photo-container">
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/anumberoutofplace">
+                    <Link to="/slideshow/anumberoutofplace">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg')" }}
@@ -136,7 +136,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/covet">
+                    <Link to="/slideshow/covet">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/covet/clothes-1.1.JPG')" }}
@@ -145,7 +145,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/iloveshopping">
+                    <Link to="/slideshow/iloveshopping">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/i%20love%20shopping/BF5T7721.jpg')" }}
@@ -154,7 +154,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/keyboards">
+                    <Link to="/slideshow/keyboards">
                         <div
                             className="floating-photo"
                             style={{
@@ -166,7 +166,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/lifeinparadise">
+                    <Link to="/slideshow/lifeinparadise">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/life%20in%20paradise/page%201.png')" }}
@@ -175,7 +175,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/western">
+                    <Link to="/slideshow/western">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/vengeance%20of%20the%20west/both.png')" }}
@@ -184,7 +184,7 @@ function VisualArts() {
                 </div>
 
                 <div className="floating-photo-wrapper">
-                    <Link to="/articles/serial/youcantwisttime">
+                    <Link to="/slideshow/youcantwisttime">
                         <div
                             className="floating-photo"
                             style={{ backgroundImage: "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/you%20can%20twist%20time/final_edited3.png')" }}

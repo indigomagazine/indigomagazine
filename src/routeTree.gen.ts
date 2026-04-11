@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
+import { Route as SlideshowSlugRouteImport } from './routes/slideshow/$slug'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesNotRouteImport } from './routes/Issues/not'
@@ -31,6 +32,7 @@ import { Route as IssuesSerialLifeinparadiseRouteImport } from './routes/Issues/
 import { Route as IssuesSerialKeyboardsRouteImport } from './routes/Issues/serial/keyboards'
 import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial/indigoos'
 import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
+import { Route as IssuesSerialGirlyRouteImport } from './routes/Issues/serial/girly'
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
 
@@ -83,6 +85,11 @@ const IssuesIndexRoute = IssuesIndexRouteImport.update({
   id: '/Issues/',
   path: '/Issues/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SlideshowSlugRoute = SlideshowSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SlideshowRoute,
 } as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
   id: '/articles/$articleSlug',
@@ -147,6 +154,11 @@ const IssuesSerialIloveshoppingRoute =
     path: '/iloveshopping',
     getParentRoute: () => IssuesSerialRoute,
   } as any)
+const IssuesSerialGirlyRoute = IssuesSerialGirlyRouteImport.update({
+  id: '/girly',
+  path: '/girly',
+  getParentRoute: () => IssuesSerialRoute,
+} as any)
 const IssuesSerialCovetRoute = IssuesSerialCovetRouteImport.update({
   id: '/covet',
   path: '/covet',
@@ -166,16 +178,18 @@ export interface FileRoutesByFullPath {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
-  '/slideshow': typeof SlideshowRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/girly': typeof IssuesSerialGirlyRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
   '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
   '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
@@ -192,15 +206,17 @@ export interface FileRoutesByTo {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
-  '/slideshow': typeof SlideshowRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/girly': typeof IssuesSerialGirlyRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
   '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
   '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
@@ -218,16 +234,18 @@ export interface FileRoutesById {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
-  '/slideshow': typeof SlideshowRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
+  '/Issues/serial/girly': typeof IssuesSerialGirlyRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
   '/Issues/serial/indigoos': typeof IssuesSerialIndigoosRoute
   '/Issues/serial/keyboards': typeof IssuesSerialKeyboardsRoute
@@ -252,10 +270,12 @@ export interface FileRouteTypes {
     | '/Issues/not'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/slideshow/$slug'
     | '/Issues'
     | '/articles'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
+    | '/Issues/serial/girly'
     | '/Issues/serial/iloveshopping'
     | '/Issues/serial/indigoos'
     | '/Issues/serial/keyboards'
@@ -277,10 +297,12 @@ export interface FileRouteTypes {
     | '/Issues/kismet'
     | '/Issues/not'
     | '/articles/$articleSlug'
+    | '/slideshow/$slug'
     | '/Issues'
     | '/articles'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
+    | '/Issues/serial/girly'
     | '/Issues/serial/iloveshopping'
     | '/Issues/serial/indigoos'
     | '/Issues/serial/keyboards'
@@ -303,10 +325,12 @@ export interface FileRouteTypes {
     | '/Issues/not'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/slideshow/$slug'
     | '/Issues/'
     | '/articles/'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
+    | '/Issues/serial/girly'
     | '/Issues/serial/iloveshopping'
     | '/Issues/serial/indigoos'
     | '/Issues/serial/keyboards'
@@ -324,7 +348,7 @@ export interface RootRouteChildren {
   NewsletterRoute: typeof NewsletterRoute
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
-  SlideshowRoute: typeof SlideshowRoute
+  SlideshowRoute: typeof SlideshowRouteWithChildren
   VisualArtsRoute: typeof VisualArtsRoute
   IssuesKismetRoute: typeof IssuesKismetRoute
   IssuesNotRoute: typeof IssuesNotRoute
@@ -405,6 +429,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/Issues'
       preLoaderRoute: typeof IssuesIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/slideshow/$slug': {
+      id: '/slideshow/$slug'
+      path: '/$slug'
+      fullPath: '/slideshow/$slug'
+      preLoaderRoute: typeof SlideshowSlugRouteImport
+      parentRoute: typeof SlideshowRoute
     }
     '/articles/$articleSlug': {
       id: '/articles/$articleSlug'
@@ -490,6 +521,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialIloveshoppingRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
+    '/Issues/serial/girly': {
+      id: '/Issues/serial/girly'
+      path: '/girly'
+      fullPath: '/Issues/serial/girly'
+      preLoaderRoute: typeof IssuesSerialGirlyRouteImport
+      parentRoute: typeof IssuesSerialRoute
+    }
     '/Issues/serial/covet': {
       id: '/Issues/serial/covet'
       path: '/covet'
@@ -507,9 +545,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface SlideshowRouteChildren {
+  SlideshowSlugRoute: typeof SlideshowSlugRoute
+}
+
+const SlideshowRouteChildren: SlideshowRouteChildren = {
+  SlideshowSlugRoute: SlideshowSlugRoute,
+}
+
+const SlideshowRouteWithChildren = SlideshowRoute._addFileChildren(
+  SlideshowRouteChildren,
+)
+
 interface IssuesSerialRouteChildren {
   IssuesSerialAnumberoutofplaceRoute: typeof IssuesSerialAnumberoutofplaceRoute
   IssuesSerialCovetRoute: typeof IssuesSerialCovetRoute
+  IssuesSerialGirlyRoute: typeof IssuesSerialGirlyRoute
   IssuesSerialIloveshoppingRoute: typeof IssuesSerialIloveshoppingRoute
   IssuesSerialIndigoosRoute: typeof IssuesSerialIndigoosRoute
   IssuesSerialKeyboardsRoute: typeof IssuesSerialKeyboardsRoute
@@ -523,6 +574,7 @@ interface IssuesSerialRouteChildren {
 const IssuesSerialRouteChildren: IssuesSerialRouteChildren = {
   IssuesSerialAnumberoutofplaceRoute: IssuesSerialAnumberoutofplaceRoute,
   IssuesSerialCovetRoute: IssuesSerialCovetRoute,
+  IssuesSerialGirlyRoute: IssuesSerialGirlyRoute,
   IssuesSerialIloveshoppingRoute: IssuesSerialIloveshoppingRoute,
   IssuesSerialIndigoosRoute: IssuesSerialIndigoosRoute,
   IssuesSerialKeyboardsRoute: IssuesSerialKeyboardsRoute,
@@ -544,7 +596,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsletterRoute: NewsletterRoute,
   PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
-  SlideshowRoute: SlideshowRoute,
+  SlideshowRoute: SlideshowRouteWithChildren,
   VisualArtsRoute: VisualArtsRoute,
   IssuesKismetRoute: IssuesKismetRoute,
   IssuesNotRoute: IssuesNotRoute,
