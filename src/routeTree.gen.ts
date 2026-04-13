@@ -22,6 +22,10 @@ import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
 import { Route as SlideshowSlugRouteImport } from './routes/slideshow/$slug'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
+<<<<<<< HEAD
+=======
+import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
 import { Route as IssuesNotRouteImport } from './routes/Issues/not'
 import { Route as IssuesKismetRouteImport } from './routes/Issues/kismet'
 import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
@@ -101,6 +105,14 @@ const IssuesSerialRoute = IssuesSerialRouteImport.update({
   path: '/Issues/serial',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
+=======
+const IssuesReminiscenceRoute = IssuesReminiscenceRouteImport.update({
+  id: '/Issues/reminiscence',
+  path: '/Issues/reminiscence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
 const IssuesNotRoute = IssuesNotRouteImport.update({
   id: '/Issues/not',
   path: '/Issues/not',
@@ -182,6 +194,10 @@ export interface FileRoutesByFullPath {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+<<<<<<< HEAD
+=======
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/slideshow/$slug': typeof SlideshowSlugRoute
@@ -210,6 +226,10 @@ export interface FileRoutesByTo {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+<<<<<<< HEAD
+=======
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues': typeof IssuesIndexRoute
@@ -238,6 +258,10 @@ export interface FileRoutesById {
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
+<<<<<<< HEAD
+=======
+  '/Issues/reminiscence': typeof IssuesReminiscenceRoute
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/slideshow/$slug': typeof SlideshowSlugRoute
@@ -268,6 +292,10 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+<<<<<<< HEAD
+=======
+    | '/Issues/reminiscence'
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/slideshow/$slug'
@@ -296,6 +324,10 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+<<<<<<< HEAD
+=======
+    | '/Issues/reminiscence'
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
     | '/articles/$articleSlug'
     | '/slideshow/$slug'
     | '/Issues'
@@ -323,6 +355,10 @@ export interface FileRouteTypes {
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
+<<<<<<< HEAD
+=======
+    | '/Issues/reminiscence'
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
     | '/Issues/serial'
     | '/articles/$articleSlug'
     | '/slideshow/$slug'
@@ -352,6 +388,10 @@ export interface RootRouteChildren {
   VisualArtsRoute: typeof VisualArtsRoute
   IssuesKismetRoute: typeof IssuesKismetRoute
   IssuesNotRoute: typeof IssuesNotRoute
+<<<<<<< HEAD
+=======
+  IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
@@ -451,6 +491,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
+=======
+    '/Issues/reminiscence': {
+      id: '/Issues/reminiscence'
+      path: '/Issues/reminiscence'
+      fullPath: '/Issues/reminiscence'
+      preLoaderRoute: typeof IssuesReminiscenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
     '/Issues/not': {
       id: '/Issues/not'
       path: '/Issues/not'
@@ -600,6 +650,10 @@ const rootRouteChildren: RootRouteChildren = {
   VisualArtsRoute: VisualArtsRoute,
   IssuesKismetRoute: IssuesKismetRoute,
   IssuesNotRoute: IssuesNotRoute,
+<<<<<<< HEAD
+=======
+  IssuesReminiscenceRoute: IssuesReminiscenceRoute,
+>>>>>>> d1aab2a6d3e1849a0be7a3254ac2a4aa3688b632
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
   IssuesIndexRoute: IssuesIndexRoute,

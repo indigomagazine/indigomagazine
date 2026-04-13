@@ -1,9 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Taskbar from "../components/Home/Taskbar";
 import HeroSection from "../components/Home/HeroSection";
 import Socials from "../components/Home/Socials";
+import { FeaturedPromo } from "../components/Home/FeaturedPromo";
 import "../styles/homepage.css"
+
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
@@ -23,25 +25,6 @@ function RouteComponent() {
     document.body.classList.toggle("light-mode", theme === "light");
   }, [theme]);
 
-  const quizRef = useRef(null);
-  const [isQuizVisible, setIsQuizVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Toggle visibility to trigger animation restart
-        setIsQuizVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (quizRef.current) {
-      observer.observe(quizRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="home-container">
       <Taskbar />
@@ -53,25 +36,7 @@ function RouteComponent() {
       </button>
 
       <main className="main-content">
-        {/* Quiz Promo Section - Replacing Featured Article */}
-        <section ref={quizRef} className={`quiz-promo-section ${isQuizVisible ? 'is-visible' : ''}`}>
-          <h2 className="quiz-main-title">
-            <span>What kind of Valentine</span> <br className="desktop-only" /> <span>are you?</span>
-          </h2>
-          <div className="quiz-line-black"></div>
-
-          <button
-            className="quiz-take-button"
-            onClick={() => {
-              import("../analytics").then(({ trackEvent }) => {
-                trackEvent("Quiz", "Start", "Homepage Button");
-                navigate({ to: "/quiz" });
-              });
-            }}
-          >
-            TAKE THE QUIZ!
-          </button>
-        </section>
+        <FeaturedPromo theme={theme} />
 
         {/* Spotify Section */}
         <section className="home-spotify">

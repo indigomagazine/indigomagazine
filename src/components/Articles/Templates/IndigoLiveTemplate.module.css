@@ -1,0 +1,363 @@
+/* IndigoLiveTemplate.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../../../assets/fonts/CoolveticaRg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../../../assets/fonts/CoolveticaRgIt.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --indigo-black: #111111;
+  --indigo-gray: #4a4a4a;
+  --indigo-light-gray: #888888;
+  --indigo-caption: #666666;
+  --indigo-bg: #ffffff;
+  --indigo-divider: #e0e0e0;
+  --font-display: 'Coolvetica', sans-serif;
+  --font-body: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+}
+
+/* ─── Wrapper ────────────────────────────────────────────────── */
+.wrapper {
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: var(--indigo-black);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 0 60px 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.wrapper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+.heroSection {
+  margin-bottom: 48px;
+}
+
+
+.heroBody {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  padding: 24px 32px 0 32px;
+  align-items: stretch;
+}
+
+/* Hero thumbnail — stretches to match the full height of the text block */
+.heroThumbWrapper {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.heroVideoContainer {
+  width: 220px !important;
+  height: 100% !important;
+  min-height: 280px;
+  aspect-ratio: unset !important;
+  flex: 1;
+}
+
+.heroText {
+  flex: 1;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  line-height: 1.05;
+  color: var(--indigo-black);
+  margin: 0 0 14px 0;
+  font-weight: normal;
+}
+
+.heroIntro {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--indigo-gray);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ─── Shared Video Player ────────────────────────────────────── */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.videoEl {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Big centered play button shown when paused */
+.bigPlayOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+
+.bigPlayOverlay:hover {
+  background: rgba(0,0,0,0.25);
+}
+
+.playIcon {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+
+.playIcon::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 14px solid #111;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  margin-left: 5px;
+}
+
+/* ─── Custom Control Bar ─────────────────────────────────────── */
+.controlBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  padding: 20px 10px 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.controlBarVisible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.progressBar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.controlBtn:hover {
+  opacity: 1;
+}
+
+.timeDisplay {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 64px;
+  height: 3px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.volumeSlider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── INTERVIEW ──────────────────────────────────────────────── */
+.interviewBlock {
+  padding: 0 32px;
+  margin: 32px 0;
+}
+
+.interviewLine {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  line-height: 1.8;
+  color: var(--indigo-black);
+  margin: 0 0 10px 0;
+}
+
+.speaker {
+  font-weight: 700;
+  margin-right: 4px;
+  color: var(--indigo-black);
+}
+
+/* ─── IMAGE / VIDEO BLOCK ────────────────────────────────────── */
+.imageBlock {
+  margin: 40px 0;
+  padding: 0 32px;
+}
+
+.imageWrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.articleImage {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--indigo-caption);
+  text-align: center;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ─── CLOSING ────────────────────────────────────────────────── */
+.closingBlock {
+  margin: 48px 0 0;
+  padding: 36px 32px;
+}
+
+.closingText {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-style: bold;
+  line-height: 1.8;
+  color: var(--indigo-gray);
+  text-align: center;
+  margin: 0;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── CREDITS ────────────────────────────────────────────────── */
+.creditsBlock {
+  margin-top: 64px;
+  padding: 32px 32px 0;
+  text-align: center;
+  border-top: 1px solid var(--indigo-divider);
+}
+
+.creditsBlock p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--indigo-light-gray);
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heroBody {
+    flex-direction: column;
+    padding: 20px 16px 0;
+  }
+
+  .heroThumbWrapper,
+  .heroVideoContainer {
+    width: 100% !important;
+    height: 220px !important;
+    min-height: unset;
+    aspect-ratio: unset;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .interviewBlock,
+  .imageBlock,
+  .creditsBlock {
+    padding: 0 16px;
+  }
+}
