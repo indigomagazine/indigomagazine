@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import Taskbar from "../components/Home/Taskbar";
 
-export const Route = createFileRoute("/about")({
+export const Route = createFileRoute("/about_copy")({
   component: About,
 });
 
@@ -20,62 +20,28 @@ function About() {
   }, [theme]);
 
   const officers = [
-    {
-      name: "Manjiri C.",
-      role: "Editor-in-Chief",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/manjiri.png",
-    },
-    {
-      name: "Sanhita P.",
-      role: "Writing Head",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/sanhita.png",
-    },
-    {
-      name: "Lauren L.",
-      role: "Creative Head",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/lauren.png",
-    },
-    {
-      name: "Sreya I.",
-      role: "Creative Director",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/sreya.png",
-    },
-    {
-      name: "Nicole C.",
-      role: "Graphics Head",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/nicole.png",
-    },
-    {
-      name: "Alaynna O.",
-      role: "Social & Events",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/alaynna.png",
-    },
-    {
-      name: "Dhiraj A.",
-      role: "Social & Events",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/dhiraj.jpg",
-    },
-    {
-      name: "Jeslin M.",
-      role: "Logistics",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/jeslin.png",
-    },
+    { name: "Manjiri C.", role: "Editor-in-Chief", img: "manjiri.jpg" },
+    { name: "Sanhita P.", role: "Writing Head", img: "sanhita.jpg" },
+    { name: "Lauren L.", role: "Creative Head", img: "lauren.png" },
+    { name: "Sreya I.", role: "Creative Director", img: "sreya.jpg" },
+    { name: "Nicole C.", role: "Graphics Head", img: "nicole.jpg" },
+    { name: "Alaynna O.", role: "Social & Events", img: "https://cdn.indigomagazinetx.com/about/officerpics/alaynna.png" },
+    { name: "Dhiraj A.", role: "Social & Events", img: "dhiraj.jpg" },
+    { name: "Jeslin M.", role: "Logistics", img: "jeslin.jpg" },
     {
       name: "Emma G.",
       role: "Web Development",
-      img: "https://cdn.indigomagazinetx.com/about/officerpics/emma.png",
+      img: "291199FA-AC0E-4C55-ADCA-8CCFA99E5BD6_1_105_c.jpeg",
     },
   ];
 
   return (
     <div
-      className={`min-h-full transition-colors duration-500 ${
+      className={`min-h-screen transition-colors duration-500 ${
         theme === "dark" ? "bg-zinc-950 text-white" : "bg-zinc-50 text-zinc-900"
       }`}
     >
-      <div className="z-[100]">
-        <Taskbar />
-      </div>
+      <Taskbar />
 
       {/* Floating Theme Toggle */}
       <button
@@ -84,10 +50,11 @@ function About() {
       >
         {theme === "dark" ? "☼" : "☾"}
       </button>
-      <main className=" mx-auto px-6 pt-32 pb-24 mt-8">
+
+      <main className="max-w-7xl mx-auto px-6 pt-32 pb-24">
         {/* Hero Section */}
-        <section className="ml-3 mb-32 max-w-7xl">
-          <header className="mb-32">
+        <section className="mb-32">
+          <header className="mb-12">
             <span className="text-indigo-500 font-medium tracking-widest uppercase text-sm">
               UT Dallas • Est. 2023
             </span>
@@ -99,29 +66,43 @@ function About() {
             </h1>
           </header>
 
-          <div
-            className={`col-span-2 w-fit m-8 mx-auto p-8 md:p-12 flex items-center justify-center rounded-3xl border ${
-              theme === "dark"
-                ? "bg-zinc-900/50 border-zinc-800"
-                : "bg-white border-zinc-200 shadow-sm"
-            }`}
-          >
-            <p className="max-w-3xl text-left m-0 text-2xl md:text-3xl leading-relaxed font-medium italic">
-              Indigo Magazine is UT Dallas’ first completely student-run
-              creative magazine, exploring different abstract themes through the
-              lens of writing, photography, and design. We amplify creativity
-              through different forms of media for the students, by the
-              students.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              className={`col-span-2 p-8 rounded-3xl border ${
+                theme === "dark"
+                  ? "bg-zinc-900/50 border-zinc-800"
+                  : "bg-white border-zinc-200 shadow-sm"
+              }`}
+            >
+              <p className="text-2xl md:text-3xl leading-relaxed font-medium italic">
+                "UT Dallas’s first completely student-run creative magazine,
+                exploring abstract themes through the lens of writing,
+                photography, and design."
+              </p>
+            </div>
+            <div
+              className={`p-8 rounded-3xl border flex items-center justify-center text-center ${
+                theme === "dark"
+                  ? "bg-indigo-900/20 border-indigo-500/30 text-indigo-300"
+                  : "bg-indigo-50 border-indigo-200 text-indigo-700"
+              }`}
+            >
+              <p className="font-bold uppercase tracking-widest text-sm">
+                By the students,
+                <br />
+                For the students.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Officers Section */}
         <section>
           <div className="flex items-baseline justify-between border-b border-zinc-800 mb-12 pb-4">
-            <h2 className="text-8xl font-bold tracking-tight font-[vtks_show] tracking-wider">
-              Meet the Officers
+            <h2 className="text-4xl font-bold tracking-tight">
+              The Collective
             </h2>
+            <span className="text-zinc-500 hidden md:block">Meet the Team</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
@@ -129,7 +110,7 @@ function About() {
               <div key={index} className="group cursor-default">
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/5] bg-zinc-800">
                   <img
-                    src={officer.img}
+                    src={`https://cdn.indigomagazinetx.com/about/officer%20pics/${officer.img}`}
                     alt={officer.name}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                   />

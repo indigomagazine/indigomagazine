@@ -14,6 +14,7 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PhotoboothRouteImport } from './routes/photobooth'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IssuesRouteImport } from './routes/issues'
+import { Route as About_copyRouteImport } from './routes/about_copy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
@@ -57,6 +58,11 @@ const NewsletterRoute = NewsletterRouteImport.update({
 const IssuesRoute = IssuesRouteImport.update({
   id: '/issues',
   path: '/issues',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const About_copyRoute = About_copyRouteImport.update({
+  id: '/about_copy',
+  path: '/about_copy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -162,6 +168,7 @@ const IssuesSerialAnumberoutofplaceRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about_copy': typeof About_copyRoute
   '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
@@ -188,6 +195,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about_copy': typeof About_copyRoute
   '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
@@ -214,6 +222,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about_copy': typeof About_copyRoute
   '/issues': typeof IssuesRoute
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
@@ -242,6 +251,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/about_copy'
     | '/issues'
     | '/newsletter'
     | '/photobooth'
@@ -268,6 +278,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/about_copy'
     | '/issues'
     | '/newsletter'
     | '/photobooth'
@@ -293,6 +304,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/about_copy'
     | '/issues'
     | '/newsletter'
     | '/photobooth'
@@ -320,6 +332,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  About_copyRoute: typeof About_copyRoute
   IssuesRoute: typeof IssuesRoute
   NewsletterRoute: typeof NewsletterRoute
   PhotoboothRoute: typeof PhotoboothRoute
@@ -369,6 +382,13 @@ declare module '@tanstack/react-router' {
       path: '/issues'
       fullPath: '/issues'
       preLoaderRoute: typeof IssuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_copy': {
+      id: '/about_copy'
+      path: '/about_copy'
+      fullPath: '/about_copy'
+      preLoaderRoute: typeof About_copyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -540,6 +560,7 @@ const IssuesSerialRouteWithChildren = IssuesSerialRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  About_copyRoute: About_copyRoute,
   IssuesRoute: IssuesRoute,
   NewsletterRoute: NewsletterRoute,
   PhotoboothRoute: PhotoboothRoute,
