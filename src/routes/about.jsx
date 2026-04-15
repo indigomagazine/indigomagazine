@@ -84,14 +84,14 @@ function About() {
       >
         {theme === "dark" ? "☼" : "☾"}
       </button>
-      <main className=" mx-auto px-6 pt-32 pb-24 mt-8">
+      <main className=" mx-auto px-6 pt-32 pb-24 ">
         {/* Hero Section */}
-        <section className="ml-3 mb-32 max-w-7xl">
-          <header className="mb-32">
-            <span className="text-indigo-500 font-medium tracking-widest uppercase text-sm">
+        <section className="ml-3 mb-12 max-w-7xl">
+          <header className="mb-10">
+            <span className="text-indigo-500 font-medium tracking-widest uppercase text-sm font-serif italic">
               UT Dallas • Est. 2023
             </span>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter mt-4 leading-[0.8]">
+            <h1 className="text-7xl md:text-9xl font-black tracking-tighter mt-1 leading-[0.8]">
               INDIGO <br />
               <span className="font-serif italic font-light lowercase">
                 Magazine
@@ -100,7 +100,7 @@ function About() {
           </header>
 
           <div
-            className={`col-span-2 w-fit m-8 mx-auto p-8 md:p-12 flex items-center justify-center rounded-3xl border ${
+            className={`col-span-2 w-fit p-8 md:p-12 flex items-center justify-center rounded-3xl border ${
               theme === "dark"
                 ? "bg-zinc-900/50 border-zinc-800"
                 : "bg-white border-zinc-200 shadow-sm"
@@ -118,7 +118,7 @@ function About() {
 
         {/* Officers Section */}
         <section>
-          <div className="flex items-baseline justify-between border-b border-zinc-800 mb-12 pb-4">
+          <div className="flex items-baseline justify-between border-b border-zinc-800 mb-10 pb-4">
             <h2 className="text-8xl font-bold tracking-tight font-[vtks_show] tracking-wider">
               Meet the Officers
             </h2>
@@ -157,8 +157,8 @@ function About() {
       </main>
 
       {/* Footer Branding */}
-      <footer className="py-12 border-t border-zinc-800 text-center opacity-30 grayscale">
-        <h2 className="text-[15vw] font-black leading-none select-none">
+      <footer className="py-12 border-t border-zinc-800 text-center opacity-30">
+        <h2 className="text-[15vw] font-black leading-none select-none text-indigo-700">
           INDIGO
         </h2>
       </footer>
