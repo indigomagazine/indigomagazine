@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indigo Magazine - Eternal Unfolding</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'P22RoanokeScript';
+      src: url(../../assets/fonts/P22RoanokeScript.otf) format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'MysticGrace';
+      src: url(../../assets/fonts/Mystic\ Grace.otf) format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Finezia';
+      src: url(../../assets/fonts/Finezia.ttf) format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --fog-opacity: 0;
+      --page-blur: 1.1px;
+      --horse-progress: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: "Libre Baskerville", serif;
+    }
+
+    .fx {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shared-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/bg4.jpg') center / cover no-repeat;
+    }
+
+    .fog {
+      position: absolute;
+      inset: -5%;
+      background: url('https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/foggy.gif') center / cover no-repeat;
+      opacity: var(--fog-opacity);
+      mix-blend-mode: screen;
+      filter: blur(2px);
+      animation: drift 16s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-1.5%); }
+      50% { transform: translateX(1.5%); }
+    }
+
+    .scroller {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    section {
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8vw;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel-inner {
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 4;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease, filter 0.8s ease;
+    }
+
+    section.in-view .panel-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section:not(.panel-title):not(.panel-fin) .panel-inner {
+      filter: blur(var(--page-blur));
+    }
+
+    .panel-title {
+      background:
+        linear-gradient(to bottom, rgba(16, 19, 23, 0.75), rgba(5, 6, 7, 0.9)),
+        url('https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/title_panel.JPG') center center / cover no-repeat;
+    }
+
+    .title {
+      font-family: 'P22RoanokeScript';
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-weight: 400;
+      color: #8db9e4;
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 2px 22px rgba(0, 0, 0, 0.5);
+      opacity: 1;
+      transform: translateY(0px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .title.faded {
+      opacity: 0.2;
+      transform: translateY(-18px);
+    }
+
+    .byline {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(1rem, 1.4vw, 1.4rem);
+      letter-spacing: 0.18em;
+      opacity: 0;
+      margin-top: 10px;
+      transform: translateY(10px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .panel-title.in-view .byline {
+      opacity: 0.7;
+      transform: translateY(0);
+      transition-delay: 0.25s;
+    }
+
+    /* panels 1-6 share the same background layer */
+    .panel-1,
+    .panel-2,
+    .panel-3,
+    .panel-4,
+    .panel-5,
+    .panel-6 {
+      background: transparent;
+    }
+
+    .panel-fin {
+      background: #000;
+    }
+
+    .fin-stack {
+      position: relative;
+      display: inline-block;
+    }
+
+    .fin-horse {
+      position: absolute;
+      left: 50%;
+      top: 62%;
+      transform: translate(-50%, -50%);
+      width: min(700px, 70vw);
+      opacity: 0.9;
+      z-index: 1;
+    }
+
+    .fin {
+      font-family: 'Finezia', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-style: italic;
+      font-weight: 400;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .layout-1,
+    .layout-2,
+    .layout-4,
+    .layout-5,
+    .layout-6 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .layout-1 { gap: 4vw; }
+    .layout-2 { gap: 4vw; }
+    .layout-4 { gap: 6vw; }
+    .layout-5 { gap: 5vw; }
+    .layout-6 { gap: 3vw; }
+
+    .layout-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .photo-wrap,
+    .text-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .layout-1 .photo-wrap,
+    .layout-2 .photo-wrap,
+    .layout-4 .photo-wrap,
+    .layout-5 .photo-wrap,
+    .layout-6 .photo-wrap {
+      flex: 1;
+    }
+
+    .layout-1 .text-wrap,
+    .layout-2 .text-wrap,
+    .layout-4 .text-wrap,
+    .layout-5 .text-wrap,
+    .layout-6 .text-wrap {
+      flex: 1;
+    }
+
+    .layout-3 .photo-wrap,
+    .layout-3 .text-wrap {
+      width: 100%;
+    }
+
+    .layout-1 .photo-wrap,
+    .layout-2 .photo-wrap {
+      min-height: 70vh;
+    }
+
+    .layout-5 .photo-wrap {
+      min-height: 74vh;
+    }
+
+    .layout-6 .photo-wrap {
+      min-height: 55vh;
+    }
+
+    .text-wrap {
+      text-align: left;
+    }
+
+    .layout-3 .text-wrap {
+      text-align: center;
+    }
+
+    .layout-4 .text-wrap {
+      justify-content: flex-start;
+    }
+
+    .slide-photo {
+      width: 100%;
+      max-width: 460px;
+      max-height: 72vh;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+
+      transform: translateX(0px);
+      transition: transform 0.12s linear;
+      will-change: transform;
+    }
+
+    .small-photo .slide-photo {
+      max-width: 300px;
+      max-height: 52vh;
+    }
+
+    .large-photo .slide-photo {
+      max-width: 560px;
+      max-height: 76vh;
+    }
+
+    .layout-3 .slide-photo {
+      max-width: 520px;
+      max-height: 46vh;
+    }
+
+    .poem {
+      font-family: "MysticGrace", serif;
+      max-width: 24ch;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      margin: 0;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .layout-3 .poem {
+      max-width: 34ch;
+    }
+
+    .layout-6 .poem {
+      max-width: 22ch;
+    }
+
+    .horse-progress {
+      position: fixed;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      height: 64px;
+      z-index: 30;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(6px);
+    }
+
+    .horse-progress.visible {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
+
+    .horse-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      height: 2px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 999px;
+    }
+
+    .horse-fill {
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      height: 2px;
+      width: calc(var(--horse-progress) * 100%);
+      background: rgba(141, 185, 228, 0.85);
+      border-radius: 999px;
+      box-shadow: 0 0 8px rgba(141, 185, 228, 0.35);
+      transition: width 0.05s linear;
+    }
+
+    .horse-gif {
+      position: absolute;
+      bottom: 4px;
+      left: calc(var(--horse-progress) * (100% - 64px));
+      height: 60px;
+      width: auto;
+      opacity: 0.85;
+      filter: blur(0.2px);
+      transform: scaleX(1);
+      transition: left 0.05s linear, transform 0.2s ease;
+    }
+
+    .horse-gif.facing-left {
+      transform: scaleX(-1);
+    }
+
+    @media (max-width: 768px) {
+      .layout-1,
+      .layout-2,
+      .layout-4,
+      .layout-5,
+      .layout-6,
+      .layout-3 {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .layout-2 .photo-wrap,
+      .layout-2 .text-wrap,
+      .layout-4 .photo-wrap,
+      .layout-4 .text-wrap,
+      .layout-5 .photo-wrap,
+      .layout-5 .text-wrap,
+      .layout-6 .photo-wrap,
+      .layout-6 .text-wrap {
+        width: 100%;
+      }
+
+      .photo-wrap {
+        min-height: auto !important;
+      }
+
+      .text-wrap {
+        text-align: center;
+      }
+
+      .slide-photo,
+      .large-photo .slide-photo,
+      .small-photo .slide-photo,
+      .layout-3 .slide-photo {
+        max-width: 80vw;
+        max-height: 40vh;
+      }
+
+      .poem,
+      .layout-3 .poem,
+      .layout-6 .poem {
+        max-width: 90%;
+        font-size: clamp(1rem, 3vw, 1.4rem);
+        line-height: 1.7;
+      }
+
+      .horse-progress {
+        left: 18px;
+        right: 18px;
+      }
+
+      .horse-gif {
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fx">
+    <div class="shared-bg"></div>
+    <div class="fog"></div>
+  </div>
+
+  <div class="horse-progress" id="horseProgress">
+    <div class="horse-track"></div>
+    <div class="horse-fill"></div>
+    <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/horsey.gif" alt="" class="horse-gif">
+  </div>
+
+  <main class="scroller" id="scroller">
+
+    <section class="panel-title">
+      <div class="panel-inner">
+        <h1 class="title">Eternal Unfolding</h1>
+        <p class="byline">by Zenah Itani</p>
+      </div>
+    </section>
+
+    <section class="panel-1">
+      <div class="panel-inner layout-1">
+        <div class="photo-wrap">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_1.JPG" class="slide-photo" alt="">
+        </div>
+        <div class="text-wrap">
+          <p class="poem">
+            After the time has passed<br>
+            There is nothing to hold onto,<br>
+            And no stopping the black from oozing out of every duct,<br>
+            Purging what has been lost
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-2">
+      <div class="panel-inner layout-2">
+        <div class="text-wrap">
+          <p class="poem">
+            But now that there's emptiness,<br>
+            It's all become so clear:<br>
+            The changing tides,<br>
+            And the direction that the grass blows
+          </p>
+        </div>
+        <div class="photo-wrap">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_2.JPG" class="slide-photo" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-3">
+      <div class="panel-inner layout-3">
+        <div class="photo-wrap">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_3.JPG" class="slide-photo" alt="">
+        </div>
+        <div class="text-wrap">
+          <p class="poem">
+            The wind promises nothing<br>
+            But to carry everything with it<br>
+            Through the atmosphere, where stars are running
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-4">
+      <div class="panel-inner layout-4">
+        <div class="text-wrap">
+          <p class="poem">
+            Meanwhile, sweet juice leaks underneath rough feet<br>
+            And waters the grass trailing behind,<br>
+            Satisfying every sweet tooth in the dirt
+          </p>
+        </div>
+        <div class="photo-wrap small-photo">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_4.JPG" class="slide-photo" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-5">
+      <div class="panel-inner layout-5">
+        <div class="text-wrap">
+          <p class="poem">
+            The ambitious one,<br>
+            Who listens to the deep hum in their chest,<br>
+            Carries strength in their legs to push themselves<br>
+            Into a fateful unknown
+          </p>
+        </div>
+        <div class="photo-wrap large-photo">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_5.JPG" class="slide-photo" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-6">
+      <div class="panel-inner layout-6">
+        <div class="photo-wrap small-photo">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_6.JPG" class="slide-photo" alt="">
+        </div>
+        <div class="text-wrap">
+          <p class="poem">
+            The spirit that is all becoming,<br>
+            Sees those dreams in black and white
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-fin">
+      <div class="panel-inner">
+        <div class="fin-stack">
+          <img src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/stitchhorse.png" class="fin-horse" alt="">
+          <h1 class="fin">Fin.</h1>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const scroller = document.getElementById("scroller");
+    const panels = document.querySelectorAll("main section");
+    const titleText = document.querySelector(".title");
+    const horseProgress = document.getElementById("horseProgress");
+    const horse = document.querySelector(".horse-gif");
+
+    let lastScrollLeft = 0;
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function updateInViewPanels() {
+      const viewportCenter = scroller.scrollLeft + (window.innerWidth / 2);
+
+      panels.forEach((panel) => {
+        const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
+        const distance = Math.abs(viewportCenter - panelCenter);
+        const threshold = window.innerWidth * 0.65;
+
+        if (distance < threshold) {
+          panel.classList.add("in-view");
+        } else {
+          panel.classList.remove("in-view");
+        }
+      });
+    }
+
+    function updatePhotoParallax() {
+      const viewportCenter = scroller.scrollLeft + (window.innerWidth / 2);
+
+      panels.forEach((panel) => {
+        const photo = panel.querySelector(".slide-photo");
+        if (!photo) return;
+
+        const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
+        const distanceFromCenter = panelCenter - viewportCenter;
+
+        const offsetX = clamp(distanceFromCenter * -0.025, -16, 16);
+        photo.style.transform = `translateX(${offsetX}px)`;
+      });
+    }
+
+    function updateEffects() {
+      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+      const totalProgress = maxScroll > 0 ? scroller.scrollLeft / maxScroll : 0;
+
+      const articleStart = panels[1].offsetLeft;
+      const articleEnd = panels[panels.length - 2].offsetLeft;
+
+      const rawProgress =
+        (scroller.scrollLeft - articleStart) /
+        (articleEnd - articleStart);
+
+      const articleProgress = clamp(rawProgress, 0, 1);
+
+      let fogOpacity;
+
+      if (totalProgress < 0.15) {
+        fogOpacity = totalProgress / 0.15 * 0.10;
+      } else if (totalProgress < 0.65) {
+        fogOpacity = 0.07 + ((totalProgress - 0.15) / 0.5) * 0.22;
+      } else {
+        fogOpacity = 0.34 - ((totalProgress - 0.65) / 0.35) * 0.18;
+      }
+
+      fogOpacity = clamp(fogOpacity, 0, 1);
+
+      const blurAmount = clamp(1.1 - totalProgress * 1.4, 0, 1.1);
+
+      document.documentElement.style.setProperty("--fog-opacity", fogOpacity.toFixed(2));
+      document.documentElement.style.setProperty("--page-blur", `${blurAmount.toFixed(2)}px`);
+      document.documentElement.style.setProperty("--horse-progress", articleProgress.toFixed(4));
+
+      if (articleProgress <= 0 || articleProgress >= 1) {
+        horseProgress.classList.remove("visible");
+      } else {
+        horseProgress.classList.add("visible");
+      }
+
+      if (totalProgress > 0.02) {
+        titleText.classList.add("faded");
+      } else {
+        titleText.classList.remove("faded");
+      }
+    }
+
+    scroller.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        scroller.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+
+    scroller.addEventListener("scroll", () => {
+      const currentScrollLeft = scroller.scrollLeft;
+
+      if (currentScrollLeft > lastScrollLeft) {
+        horse.classList.remove("facing-left");
+      } else {
+        horse.classList.add("facing-left");
+      }
+
+      lastScrollLeft = currentScrollLeft;
+
+      updateEffects();
+      updateInViewPanels();
+      updatePhotoParallax();
+    });
+
+    window.addEventListener("resize", () => {
+      updateEffects();
+      updateInViewPanels();
+      updatePhotoParallax();
+    });
+
+    updateEffects();
+    updateInViewPanels();
+    updatePhotoParallax();
+  </script>
+</body>
+</html>
