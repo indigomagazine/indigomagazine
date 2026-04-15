@@ -283,7 +283,7 @@
 .main-content {
     position: relative;
     z-index: 10;
-    background-color: #400707;
+    background-color: rgb(0, 0, 0);
     /* Default Dark Mode Background */
     width: 100%;
     /* Ensure it has a background to cover the sticky hero */
@@ -295,7 +295,7 @@
 }
 
 body.light-mode .main-content {
-    background-color: #f0cfff;
+    background-color: whitesmoke;
     /* Matching light mode background from style.css */
 }
 
