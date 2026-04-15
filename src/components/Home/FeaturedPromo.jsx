@@ -42,14 +42,24 @@ export const FeaturedPromo = ({ theme }) => {
                         <div className="quiz-line-black" style={{ marginBottom: '3rem' }}></div>
 
                         {postToRender && (
-                            <Link
-                                to="/articles/$articleSlug"
-                                params={{ articleSlug: postToRender.slug }}
-                                className="no-underline text-inherit group block mx-auto"
-                                style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
-                            >
-                                <HubCard post={postToRender} />
-                            </Link>
+                            postToRender.path ? (
+                                <a
+                                    href={postToRender.path}
+                                    className="no-underline text-inherit group block mx-auto"
+                                    style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
+                                >
+                                    <HubCard post={postToRender} />
+                                </a>
+                            ) : (
+                                <Link
+                                    to="/articles/$articleSlug"
+                                    params={{ articleSlug: postToRender.slug }}
+                                    className="no-underline text-inherit group block mx-auto"
+                                    style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
+                                >
+                                    <HubCard post={postToRender} />
+                                </Link>
+                            )
                         )}
                     </section>
                 );

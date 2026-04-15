@@ -17,5 +17,18 @@
         "summary": "Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
         "date": "2026-02-18",
         "coverImage": "/assets/articles/indigovalentinesphotos/1.png"
+    },
+
+    {
+        "slug": "eternal-unfolding",
+        "title": "Eternal Unfolding",
+        "author": "Zenah Itani",
+        "category": "And Scene",
+        "summary": "The spirit that is all becoming, Sees those dreams in black and white",
+        "date": "2026-04-15",
+        "path": "/legacy/articles/andscene/eternalunfolding.html",
+        "coverImage": "https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/panel_2.JPG"
+
     }
 ]
+
