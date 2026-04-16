@@ -18,6 +18,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
+import { Route as DevVictorianRouteImport } from './routes/dev/victorian'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
@@ -77,6 +78,11 @@ const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
 const IssuesIndexRoute = IssuesIndexRouteImport.update({
   id: '/Issues/',
   path: '/Issues/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevVictorianRoute = DevVictorianRouteImport.update({
+  id: '/dev/victorian',
+  path: '/dev/victorian',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
@@ -197,6 +204,7 @@ export interface FileRoutesByTo {
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
@@ -224,6 +232,7 @@ export interface FileRoutesById {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
@@ -252,6 +261,7 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues'
     | '/articles'
     | '/Issues/serial/anumberoutofplace'
@@ -277,6 +287,7 @@ export interface FileRouteTypes {
     | '/Issues/not'
     | '/Issues/reminiscence'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues'
     | '/articles'
     | '/Issues/serial/anumberoutofplace'
@@ -303,6 +314,7 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues/'
     | '/articles/'
     | '/Issues/serial/anumberoutofplace'
@@ -330,6 +342,7 @@ export interface RootRouteChildren {
   IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
+  DevVictorianRoute: typeof DevVictorianRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
 }
@@ -397,6 +410,13 @@ declare module '@tanstack/react-router' {
       path: '/Issues'
       fullPath: '/Issues'
       preLoaderRoute: typeof IssuesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev/victorian': {
+      id: '/dev/victorian'
+      path: '/dev/victorian'
+      fullPath: '/dev/victorian'
+      preLoaderRoute: typeof DevVictorianRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles/$articleSlug': {
@@ -550,6 +570,7 @@ const rootRouteChildren: RootRouteChildren = {
   IssuesReminiscenceRoute: IssuesReminiscenceRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
+  DevVictorianRoute: DevVictorianRoute,
   IssuesIndexRoute: IssuesIndexRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
 }
