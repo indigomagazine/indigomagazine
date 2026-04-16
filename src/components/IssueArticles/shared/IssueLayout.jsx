@@ -3,6 +3,7 @@ import { useEffect, useRef, forwardRef } from "react";
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import IssueSidebar from "./IssueSidebar";
+import IssueCard from "./IssueCard";
 import "../serial/serial.css";
 
 export default function IssueLayout({ items, theme }) {
@@ -228,26 +229,7 @@ function GridGallery({ items }) {
     return (
         <div className="grid-wrapper" aria-label="All stories (grid)">
             {items.map((it) => (
-                <article
-                    className={`grid-card ${it.comingSoon ? "is-coming-soon" : ""}`}
-                    key={it.id}
-                >
-                    {!it.comingSoon && it.to ? (
-                        <a href={it.to} className="card-link" aria-label={it.title} />
-                    ) : null}
-
-                    <img
-                        className="thumb"
-                        src={it.imageGrid || it.image}
-                        alt={it.title}
-                        loading="lazy"
-                        style={{ "--obj-pos": it.gridPos || "center center" }}
-                    />
-
-                    <div className="card-meta">
-                        {it.comingSoon && <span className="badge">Coming soon</span>}
-                    </div>
-                </article>
+                <IssueCard key={it.id || it.title} it={it} />
             ))}
         </div>
     );

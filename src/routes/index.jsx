@@ -42,7 +42,7 @@ function RouteComponent() {
         <section className="home-spotify">
           <iframe
             style={{ borderRadius: "12px" }}
-            src="https://open.spotify.com/embed/playlist/5eDmyZuTRxBJre5FCuJdT5?utm_source=generator"
+            src="https://open.spotify.com/embed/playlist/63edkl5oqDuaOr89BJv1p7?utm_source=generator"
             width="100%"
             height="352"
             frameBorder="0"
@@ -51,6 +51,7 @@ function RouteComponent() {
             loading="lazy"
           ></iframe>
           <div className="kismet-notes" style={{ color: theme === "dark" ? "white" : "black" }}>
+              {/*
             <p style={{ fontWeight: "bold", fontSize: "1.5rem" }}>SERIAL</p>
             <p>
               Look at all that you have around you. Notice what you’re missing– how
@@ -66,6 +67,7 @@ function RouteComponent() {
             <p>
               <strong>Keep feeding, and revel at all the places it doesn’t take you.</strong>
             </p>
+            */}
           </div>
         </section>
       </main>

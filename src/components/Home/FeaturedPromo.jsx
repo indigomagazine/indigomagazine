@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { HubCard } from '../Articles/Hub/HubCard';
-import articlesData from '../../data/articles-summary.json';
+import IssueCard from '../IssueArticles/shared/IssueCard';
+import articlesData from '../../data/articles/articles-summary.json';
 import featuredPromoConfig from '../../data/featured-promo.json';
-
+import andSceneItems from '../../data/issues/andScene';
 export const FeaturedPromo = ({ theme }) => {
     const navigate = useNavigate();
     const sectionRef = useRef(null);
@@ -42,28 +43,44 @@ export const FeaturedPromo = ({ theme }) => {
                         <div className="quiz-line-black" style={{ marginBottom: '3rem' }}></div>
 
                         {postToRender && (
-                            <Link
-                                to="/articles/$articleSlug"
-                                params={{ articleSlug: postToRender.slug }}
-                                className="no-underline text-inherit group block mx-auto"
-                                style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
-                            >
-                                <HubCard post={postToRender} />
-                            </Link>
+                            postToRender.path ? (
+                                <a
+                                    href={postToRender.path}
+                                    className="no-underline text-inherit group block mx-auto"
+                                    style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
+                                >
+                                    <HubCard post={postToRender} />
+                                </a>
+                            ) : (
+                                <Link
+                                    to="/articles/$articleSlug"
+                                    params={{ articleSlug: postToRender.slug }}
+                                    className="no-underline text-inherit group block mx-auto"
+                                    style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}
+                                >
+                                    <HubCard post={postToRender} />
+                                </Link>
+                            )
                         )}
                     </section>
                 );
             }
 
             case 'issue': {
-                // Framework for when issues roll out
+                const postToRender = andSceneItems[andSceneItems.length - 1];
+
                 return (
                     <section ref={sectionRef} className={`quiz-promo-section ${isVisible ? 'is-visible' : ''}`} style={{ paddingBottom: '2rem' }}>
                         <h2 className="quiz-main-title" style={{ marginBottom: '1.5rem' }}>
                             <span>{featuredPromoConfig.title}</span>
                         </h2>
                         <div className="quiz-line-black" style={{ marginBottom: '3rem' }}></div>
-                        <p style={{ color: theme === 'dark' ? 'white' : 'black' }}>Stay tuned for the newest semester release...</p>
+
+                        {postToRender && (
+                            <div className="group block mx-auto" style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}>
+                                <IssueCard it={postToRender} />
+                            </div>
+                        )}
                     </section>
                 );
             }

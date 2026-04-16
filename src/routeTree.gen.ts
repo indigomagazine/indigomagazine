@@ -24,6 +24,7 @@ import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
 import { Route as IssuesNotRouteImport } from './routes/Issues/not'
 import { Route as IssuesKismetRouteImport } from './routes/Issues/kismet'
+import { Route as IssuesAndsceneRouteImport } from './routes/Issues/andscene'
 import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
 import { Route as IssuesSerialYoucantwisttimeRouteImport } from './routes/Issues/serial/youcantwisttime'
 import { Route as IssuesSerialWesternRouteImport } from './routes/Issues/serial/western'
@@ -34,6 +35,7 @@ import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial
 import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
+import { Route as IssuesAndsceneEternalunfoldingRouteImport } from './routes/Issues/andscene/eternalunfolding'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
@@ -110,6 +112,11 @@ const IssuesKismetRoute = IssuesKismetRouteImport.update({
   path: '/Issues/kismet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IssuesAndsceneRoute = IssuesAndsceneRouteImport.update({
+  id: '/Issues/andscene',
+  path: '/Issues/andscene',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IssuesSerialIndexRoute = IssuesSerialIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -164,6 +171,12 @@ const IssuesSerialAnumberoutofplaceRoute =
     path: '/anumberoutofplace',
     getParentRoute: () => IssuesSerialRoute,
   } as any)
+const IssuesAndsceneEternalunfoldingRoute =
+  IssuesAndsceneEternalunfoldingRouteImport.update({
+    id: '/eternalunfolding',
+    path: '/eternalunfolding',
+    getParentRoute: () => IssuesAndsceneRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -173,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
@@ -181,6 +195,7 @@ export interface FileRoutesByFullPath {
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
+  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -200,6 +215,7 @@ export interface FileRoutesByTo {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
@@ -207,6 +223,7 @@ export interface FileRoutesByTo {
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
+  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -227,6 +244,7 @@ export interface FileRoutesById {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
+  '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
@@ -235,6 +253,7 @@ export interface FileRoutesById {
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
+  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -256,6 +275,7 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/andscene'
     | '/Issues/kismet'
     | '/Issues/not'
     | '/Issues/reminiscence'
@@ -264,6 +284,7 @@ export interface FileRouteTypes {
     | '/dev/victorian'
     | '/Issues'
     | '/articles'
+    | '/Issues/andscene/eternalunfolding'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -283,6 +304,7 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/andscene'
     | '/Issues/kismet'
     | '/Issues/not'
     | '/Issues/reminiscence'
@@ -290,6 +312,7 @@ export interface FileRouteTypes {
     | '/dev/victorian'
     | '/Issues'
     | '/articles'
+    | '/Issues/andscene/eternalunfolding'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -309,6 +332,7 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
+    | '/Issues/andscene'
     | '/Issues/kismet'
     | '/Issues/not'
     | '/Issues/reminiscence'
@@ -317,6 +341,7 @@ export interface FileRouteTypes {
     | '/dev/victorian'
     | '/Issues/'
     | '/articles/'
+    | '/Issues/andscene/eternalunfolding'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -337,6 +362,7 @@ export interface RootRouteChildren {
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
   VisualArtsRoute: typeof VisualArtsRoute
+  IssuesAndsceneRoute: typeof IssuesAndsceneRouteWithChildren
   IssuesKismetRoute: typeof IssuesKismetRoute
   IssuesNotRoute: typeof IssuesNotRoute
   IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
@@ -454,6 +480,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesKismetRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/Issues/andscene': {
+      id: '/Issues/andscene'
+      path: '/Issues/andscene'
+      fullPath: '/Issues/andscene'
+      preLoaderRoute: typeof IssuesAndsceneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/Issues/serial/': {
       id: '/Issues/serial/'
       path: '/'
@@ -524,8 +557,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialAnumberoutofplaceRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
+    '/Issues/andscene/eternalunfolding': {
+      id: '/Issues/andscene/eternalunfolding'
+      path: '/eternalunfolding'
+      fullPath: '/Issues/andscene/eternalunfolding'
+      preLoaderRoute: typeof IssuesAndsceneEternalunfoldingRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
+    }
   }
 }
+
+interface IssuesAndsceneRouteChildren {
+  IssuesAndsceneEternalunfoldingRoute: typeof IssuesAndsceneEternalunfoldingRoute
+}
+
+const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
+  IssuesAndsceneEternalunfoldingRoute: IssuesAndsceneEternalunfoldingRoute,
+}
+
+const IssuesAndsceneRouteWithChildren = IssuesAndsceneRoute._addFileChildren(
+  IssuesAndsceneRouteChildren,
+)
 
 interface IssuesSerialRouteChildren {
   IssuesSerialAnumberoutofplaceRoute: typeof IssuesSerialAnumberoutofplaceRoute
@@ -565,6 +617,7 @@ const rootRouteChildren: RootRouteChildren = {
   PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
   VisualArtsRoute: VisualArtsRoute,
+  IssuesAndsceneRoute: IssuesAndsceneRouteWithChildren,
   IssuesKismetRoute: IssuesKismetRoute,
   IssuesNotRoute: IssuesNotRoute,
   IssuesReminiscenceRoute: IssuesReminiscenceRoute,
