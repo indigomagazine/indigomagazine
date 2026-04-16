@@ -9,10 +9,8 @@ To keep our codebase organized, all layout and structural components for your ar
 
 1. Navigate to the folder of the issue you are working on (e.g., `src/components/IssueArticles/serial`). If the issue folder doesn't exist, create it.
 2. Inside the issue folder, **create a new folder specifically for your article** (e.g., `myArticleName`).
-3. Inside your new article folder, create your React components and CSS files. Typically, you will start with a main page component:
-   - Example: `MyArticlePage.jsx`
-   - Example: `myArticleName.css`
-4. Assemble your layout. You can build your article by referencing or reusing templates from `src/components/IssueArticles/shared/` or other existing articles in the issue.
+3. Inside your new article folder, add or create your React component and CSS files. Make sure to follow standard component hierarchy practices.
+4. You should have one main page component that acts as the root entry point for your article. This will be the component you import and render when setting up your route in Step 2.
 
 ## 2. Create the Article Route
 **Location:** `src/routes/Issues/`
@@ -39,8 +37,31 @@ function RouteComponent() {
 }
 ```
 
+## 3. Add Article to the Issue Data File
+**Location:** `src/data/issues/`
+
+Finally, to make your article visible on the actual issue page index, you need to add an entry to the issue's data array.
+
+1. Navigate to `src/data/issues/` and find the data file corresponding to your issue (e.g., `andScene.js` or `serial.js`).
+2. Add a new object for your article to the top of the exported array.
+3. Use the following format for your new entry:
+
+```javascript
+    {
+        type: "issue",
+        title: "Your Article Title",
+        description: "Short description or issue name",
+        image: "/path/to/your/cover/image.jpg", // Can be external or local
+        path: "/Issues/[issue-name]/[article-file-name]",
+        // The 'to' field must match the route path you created in Step 2
+        to: "/Issues/[issue-name]/[article-file-name]",
+        coverPos: "center center",
+    },
+```
+
 ### Summary Outline
 - Add components in `src/components/IssueArticles/<issue>/<article>/<MainPage>.jsx`
 - Add route in `src/routes/Issues/<issue>/<article-name>.jsx`
+- Add data entry in `src/data/issues/<issue>.js`
 
-You should now be able to view your newly added article!
+You should now be able to view your newly added article on the issue page!

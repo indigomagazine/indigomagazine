@@ -67,51 +67,51 @@ export default function Victorian() {
   }, []);
 
 
-    //card states
-    const [activeCard, setActiveCard] = React.useState(null);
-    const [flipped, setFlipped] = React.useState(false);
-    const [revealedCards, setRevealedCards] = React.useState(() =>
-      frontcards.map(() => false)
-    );
-    const [interpretMode, setInterpretMode] = React.useState(false);
-    const [interpretHover, setInterpretHover] = React.useState(false);
-    const [hoveredIndex, setHoveredIndex] = React.useState(null);
-    const frontFlipTimerRef = React.useRef(null);
-    const resetTimeoutRef = React.useRef(null);
+  //card states
+  const [activeCard, setActiveCard] = React.useState(null);
+  const [flipped, setFlipped] = React.useState(false);
+  const [revealedCards, setRevealedCards] = React.useState(() =>
+    frontcards.map(() => false)
+  );
+  const [interpretMode, setInterpretMode] = React.useState(false);
+  const [interpretHover, setInterpretHover] = React.useState(false);
+  const [hoveredIndex, setHoveredIndex] = React.useState(null);
+  const frontFlipTimerRef = React.useRef(null);
+  const resetTimeoutRef = React.useRef(null);
 
-    // cleanup timers on unmount
-    React.useEffect(() => {
-      return () => {
-        if (frontFlipTimerRef.current) clearTimeout(frontFlipTimerRef.current);
-        if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
-      };
-    }, []);
-
-    const scheduleClose = (index) => {
+  // cleanup timers on unmount
+  React.useEffect(() => {
+    return () => {
+      if (frontFlipTimerRef.current) clearTimeout(frontFlipTimerRef.current);
       if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
-      resetTimeoutRef.current = setTimeout(() => {
-        setRevealedCards((prev) => {
-          const copy = [...prev];
-          copy[index] = true;
-          return copy;
-        });
-        setActiveCard(null);
-        setFlipped(false);
-        setFrontFlipped(false);
-        document.body.style.pointerEvents = "auto";
-      }, 2000);
     };
+  }, []);
 
-    // derived clickable flag and timeout refs
-    const clickable = Boolean(expanded) && activeCard === null;
-    
+  const scheduleClose = (index) => {
+    if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
+    resetTimeoutRef.current = setTimeout(() => {
+      setRevealedCards((prev) => {
+        const copy = [...prev];
+        copy[index] = true;
+        return copy;
+      });
+      setActiveCard(null);
+      setFlipped(false);
+      setFrontFlipped(false);
+      document.body.style.pointerEvents = "auto";
+    }, 2000);
+  };
+
+  // derived clickable flag and timeout refs
+  const clickable = Boolean(expanded) && activeCard === null;
+
   const handleCardClick = (i) => {
     if (!expanded) return setExpanded(true);
 
     if (revealedCards[i]) return; // already revealed
 
     console.log("open overlay for card", i, frontcards[i]);
-     document.body.style.pointerEvents = "none";
+    document.body.style.pointerEvents = "none";
     setActiveCard(i);
     setFrontFlipped(false);
     // back visibility before flip
@@ -240,27 +240,27 @@ export default function Victorian() {
             }}
           >
 
-    
+
             {/* writing */}
             {(() => {
               const interpretChunks = [
                 [
-                 "Emma was lonely. A type of loneliness that sat dimly alongside her brightest moments. A faint hum in the undertone of the melody of her life story. Emma wanted to share pieces of herself with someone that treats them with reverence, she wanted to wake up with someone that chooses her everyday– she wanted to choose someone. ",
-                "William noticed that. For all that he admired his daughter, for all the pride he felt in raising her to be a spitting image of his past wife, he could see the yearn in her gaze when she noticed couples across the room. ",
-                "So he brought her to the annual ball. A fancy ballroom filled with upper class people that flaunted their accomplishments to earn a place in society. But really it was an undercover mission to find a suitor for his daughter.",
-                "“Father, that’s killing the mood.” Emma said as they walked up the grand staircase to the venue. The cold air bit at her skin, making her cheeks rosier than her dresser had intended. William looked at his daughter, eyes twinkling with mischeif. “Can’t I be a good father without getting backlash?” ",
-                "While her tone was sharp, a soft smile formed on Emma’s face. “I don’t know if making a social event a secret undercover mission constitutes as good.” He put his hands up in surrender. “You know your old man, if it’s not fun it’s not interesting.” Emma rolled her eyes, her smile didn’t falter. She couldn’t deny the glimmer of excitement that manifested when she stepped into the ballroom. "
+                  "Emma was lonely. A type of loneliness that sat dimly alongside her brightest moments. A faint hum in the undertone of the melody of her life story. Emma wanted to share pieces of herself with someone that treats them with reverence, she wanted to wake up with someone that chooses her everyday– she wanted to choose someone. ",
+                  "William noticed that. For all that he admired his daughter, for all the pride he felt in raising her to be a spitting image of his past wife, he could see the yearn in her gaze when she noticed couples across the room. ",
+                  "So he brought her to the annual ball. A fancy ballroom filled with upper class people that flaunted their accomplishments to earn a place in society. But really it was an undercover mission to find a suitor for his daughter.",
+                  "“Father, that’s killing the mood.” Emma said as they walked up the grand staircase to the venue. The cold air bit at her skin, making her cheeks rosier than her dresser had intended. William looked at his daughter, eyes twinkling with mischeif. “Can’t I be a good father without getting backlash?” ",
+                  "While her tone was sharp, a soft smile formed on Emma’s face. “I don’t know if making a social event a secret undercover mission constitutes as good.” He put his hands up in surrender. “You know your old man, if it’s not fun it’s not interesting.” Emma rolled her eyes, her smile didn’t falter. She couldn’t deny the glimmer of excitement that manifested when she stepped into the ballroom. "
                 ],
                 [
-                "The room was huge. Flowers and ribbons elegantly adorned the staircase shaped the room, leading to a smaller but extravagant floor. Soft lights and buzzing chatter made the atmosphere intimate and charged. Women were unique through their clothing. Having stunning colors, multiple layers, different silhouettes, as if they were portraying their identity through fabric. Men differed in their hair and suit adornments. Some had their hair slicked back with gel and shiny buttons on their coats, while others had untamed hair and delicately embroidered cuffs. They conveyed status and personality through little details.",
-                "The scene stole Emma’s breath. Her presence shifted a tiny part of the ballroom– people noticed her stepping inside their world. A couple introduced themselves as a business partner of William’s. Before she knew it, Emma was swept away into the waves of the annual ball."
+                  "The room was huge. Flowers and ribbons elegantly adorned the staircase shaped the room, leading to a smaller but extravagant floor. Soft lights and buzzing chatter made the atmosphere intimate and charged. Women were unique through their clothing. Having stunning colors, multiple layers, different silhouettes, as if they were portraying their identity through fabric. Men differed in their hair and suit adornments. Some had their hair slicked back with gel and shiny buttons on their coats, while others had untamed hair and delicately embroidered cuffs. They conveyed status and personality through little details.",
+                  "The scene stole Emma’s breath. Her presence shifted a tiny part of the ballroom– people noticed her stepping inside their world. A couple introduced themselves as a business partner of William’s. Before she knew it, Emma was swept away into the waves of the annual ball."
 
                 ],
                 [
-                 "A lot of people told Arthur that he was patient, calming, steady, that he would be the person they would go to if something went wrong.",
-                "He never knew how people decided that. Arthur didn’t feel steady. He didn’t believe that he had everything figured out. His father was doctor, and since a young age he held Arthur to a high standard in everything that he did. That made Arthur in to who he is today– and some of those parts he’s grateful for– but that also means he takes the societal expectation of marrying someone seriously.",
-                "Not marrying would bring suspicion to his family name, and he wants to honor his parents. Though, his fidelity doesn’t help the anxiety that closes his throat when he thinks about the subject. ",
-                "So when George, his friend, nudges his shoulder, pointing out a woman across the ballroom, Arthur doesn’t pay much attention to it– or at least he thought he didn’t",
+                  "A lot of people told Arthur that he was patient, calming, steady, that he would be the person they would go to if something went wrong.",
+                  "He never knew how people decided that. Arthur didn’t feel steady. He didn’t believe that he had everything figured out. His father was doctor, and since a young age he held Arthur to a high standard in everything that he did. That made Arthur in to who he is today– and some of those parts he’s grateful for– but that also means he takes the societal expectation of marrying someone seriously.",
+                  "Not marrying would bring suspicion to his family name, and he wants to honor his parents. Though, his fidelity doesn’t help the anxiety that closes his throat when he thinks about the subject. ",
+                  "So when George, his friend, nudges his shoulder, pointing out a woman across the ballroom, Arthur doesn’t pay much attention to it– or at least he thought he didn’t",
                   "“That’s Emma Davies over there.” George said, flashing Arthur a big smile. “She’s supposed to be in line to take over her family’s business.” The woman he gestured at was smiling politely at a couple that talked to her. Arthur could faintly hear her voice, sharp and clipped but passionate. ",
                   "He didn’t realize he was staring until George draped an arm over his shoulder. “So is my match making skills made in heaven or what?” He said smugly, his smile turning into something almost devilish. ",
                   "Arthur sighed, the one that George learned to recognize as the I’m annoyed that you called me out but I like that you care sigh. But Arthur couldn’t deny the spark of intrigue that manifested when he had laid his eyes on her. ",
@@ -277,15 +277,15 @@ export default function Victorian() {
                   "“Do you want it?” Arthur asked, extending the cake to her as if he was expecting her to say yes.",
                   "Emma snapped out of the daze she was in. All the talking she did with the people around her seemed to have affected her more than she thought. A flustered smile formed on her face. She softly laughed. “Was it that obvious?” Arthur didn’t reply, but he smiled.",
                   "She took the cake out of his hands, grabbing a small spoon from the table and taking a bite. Emma visibly relaxed, the sweet tasted exactly as extravagant as she expected it to be. ",
-                  "Arthur couldn’t help but think that she resembled a puppy.", 
+                  "Arthur couldn’t help but think that she resembled a puppy.",
                   "“So, you’re Emma Davies?” He asked, his tone inquisitive and warm. Emma looked up. “Am I really that popular around here?” She replied, a spark of mischief lighting in her eyes. Arthur internally stopped, but before he could think about how to respond, Emma reached out her hand. “I am. It’s nice to meet you. You are…?”"
 
                 ],
                 [
-                "He gently took her hand. “Arthur, Arthur Astor.” Emma softly smiled. She noticed how his cheeks were slightly flushed. “So what are you doing here, at an event like this Arthur?” Emma expected a rosy response that covered his real intentions.",
-                "“That’s a great question.” He said with a smile. “I guess you could say family. I’ve got a standard to uphold and I want to do right to my parents.”",
-                "The way he spoke was genuine. His eyes held depth, one that conveyed maturity beyond his years. But underneath that was a softness that drew her in. Emma didn’t realize she was staring until Arthur spoke.",
-                "“What about you?” She pressed her heels into the ground, taking a second to compose herself. “Mainly to network for taking over my family business.” She paused, debating if she should tell him why she was really here. Emma was surprised at the lack of resistance that usually dictated her words. She stared into the crowd. “But also to find a husband, my father’s idea.” Emma gestured to William across the room."
+                  "He gently took her hand. “Arthur, Arthur Astor.” Emma softly smiled. She noticed how his cheeks were slightly flushed. “So what are you doing here, at an event like this Arthur?” Emma expected a rosy response that covered his real intentions.",
+                  "“That’s a great question.” He said with a smile. “I guess you could say family. I’ve got a standard to uphold and I want to do right to my parents.”",
+                  "The way he spoke was genuine. His eyes held depth, one that conveyed maturity beyond his years. But underneath that was a softness that drew her in. Emma didn’t realize she was staring until Arthur spoke.",
+                  "“What about you?” She pressed her heels into the ground, taking a second to compose herself. “Mainly to network for taking over my family business.” She paused, debating if she should tell him why she was really here. Emma was surprised at the lack of resistance that usually dictated her words. She stared into the crowd. “But also to find a husband, my father’s idea.” Emma gestured to William across the room."
 
                 ],
                 [
@@ -385,125 +385,125 @@ export default function Victorian() {
           </div>
         ) : (
 
-<div
-  className="victorian-cards-row"
-  style={{
-    padding: "6vh 3vw",
-    position: "relative",
-    minHeight: "60vh",
-    width: "100%",
-    maxWidth: "900px",
-    cursor: "pointer",
-  }}
->
-  {cards.map((_, i) => {
-    const center = (cards.length - 1) / 2;
+          <div
+            className="victorian-cards-row"
+            style={{
+              padding: "6vh 3vw",
+              position: "relative",
+              minHeight: "60vh",
+              width: "100%",
+              maxWidth: "900px",
+              cursor: "pointer",
+            }}
+          >
+            {cards.map((_, i) => {
+              const center = (cards.length - 1) / 2;
 
-    // fan
-    const fanOffset = (i - center) * 8 + "vw";
-    const fanRotate = (i - center) * 8;
+              // fan
+              const fanOffset = (i - center) * 8 + "vw";
+              const fanRotate = (i - center) * 8;
 
-    // spread
-    const spreadOffset = (i - center) * 25 + "vw";
-    const spreadRotate = 0;
+              // spread
+              const spreadOffset = (i - center) * 25 + "vw";
+              const spreadRotate = 0;
 
-    return (
-      <img
-        key={i}
-        src={revealedCards[i] ? frontcards[i] : card}
-        alt="tarot"
-         onClick={() => {
-        if (!expanded) {
-          setExpanded(true); // first click to spred
-          return;
-        }
-        // indiv card click
-        handleCardClick(i);
-      }}
-        onMouseEnter={() => setHoveredIndex(i)}
-        onMouseLeave={() => setHoveredIndex(null)}
-        style={{
-        position: "absolute",
-        left: "50%",
-        top: expanded ? "50%" : "auto",
-        bottom: expanded ? "auto" : 0,
-        width: expanded ? "clamp(160px, 28vw, 260px)" : "clamp(140px, 24vw, 220px)",
-        height: "auto",
-        objectFit: "cover",
-        boxShadow: hoveredIndex === i && !revealedCards[i] ? "0 18px 36px rgba(0,0,0,0.28)" : "0 10px 20px rgba(0,0,0,0.2)",
-        transform: `
+              return (
+                <img
+                  key={i}
+                  src={revealedCards[i] ? frontcards[i] : card}
+                  alt="tarot"
+                  onClick={() => {
+                    if (!expanded) {
+                      setExpanded(true); // first click to spred
+                      return;
+                    }
+                    // indiv card click
+                    handleCardClick(i);
+                  }}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  style={{
+                    position: "absolute",
+                    left: "50%",
+                    top: expanded ? "50%" : "auto",
+                    bottom: expanded ? "auto" : 0,
+                    width: expanded ? "clamp(160px, 28vw, 260px)" : "clamp(140px, 24vw, 220px)",
+                    height: "auto",
+                    objectFit: "cover",
+                    boxShadow: hoveredIndex === i && !revealedCards[i] ? "0 18px 36px rgba(0,0,0,0.28)" : "0 10px 20px rgba(0,0,0,0.2)",
+                    transform: `
             translate(-50%, ${expanded ? "-50%" : "0"})
             translateX(${expanded ? spreadOffset : fanOffset})
             rotate(${expanded ? spreadRotate : fanRotate}deg)
             ${hoveredIndex === i && !revealedCards[i] ? " scale(1.06) translateY(-6px)" : ""}
         `,
-        transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-        zIndex: i,
-        cursor: !revealedCards[i] ? "pointer" : "default",
-        }}
-      />
-    );
-  })}
-  
-</div>
+                    transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                    zIndex: i,
+                    cursor: !revealedCards[i] ? "pointer" : "default",
+                  }}
+                />
+              );
+            })}
+
+          </div>
         )}
-{activeCard !== null && (
-  <div
-    style={{
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.5)",
-      zIndex: 10,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-    onClick={() => {
-      if (frontFlipTimerRef.current) clearTimeout(frontFlipTimerRef.current);
-      if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
-      setActiveCard(null);
-      setFlipped(false);
-      setFrontFlipped(false);
-    }}
-  >
-    <div
-      style={{
-        width: "clamp(160px, 48vw, 420px)",
-        height: "clamp(220px, 72vw, 620px)",
-        perspective: "1000px",
-        position: "relative",
-        zIndex: 11, // ensure above overlay
-      }}
-    >
-      {/* BACK CARD */}
-          <img
-        src={card}
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          backfaceVisibility: "hidden",
-          transform: flipped ? "rotateY(90deg)" : "rotateY(0deg)",
-          transition: "transform 0.35s ease-in-out",
-          borderRadius: "8px",
-        }}
-      />
-      {/* FRONT CARD */}
-      <img
-        src={frontcards[activeCard]}
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          backfaceVisibility: "hidden",
-          transform: frontFlipped ? "rotateY(0deg)" : "rotateY(-90deg)",
-          transition: "transform 0.35s ease-in-out 0.02s",
-          borderRadius: "8px",
-        }}
-      />
-    </div>
-  </div>
-)}
+        {activeCard !== null && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "rgba(0,0,0,0.5)",
+              zIndex: 10,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onClick={() => {
+              if (frontFlipTimerRef.current) clearTimeout(frontFlipTimerRef.current);
+              if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
+              setActiveCard(null);
+              setFlipped(false);
+              setFrontFlipped(false);
+            }}
+          >
+            <div
+              style={{
+                width: "clamp(160px, 48vw, 420px)",
+                height: "clamp(220px, 72vw, 620px)",
+                perspective: "1000px",
+                position: "relative",
+                zIndex: 11, // ensure above overlay
+              }}
+            >
+              {/* BACK CARD */}
+              <img
+                src={card}
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  backfaceVisibility: "hidden",
+                  transform: flipped ? "rotateY(90deg)" : "rotateY(0deg)",
+                  transition: "transform 0.35s ease-in-out",
+                  borderRadius: "8px",
+                }}
+              />
+              {/* FRONT CARD */}
+              <img
+                src={frontcards[activeCard]}
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  backfaceVisibility: "hidden",
+                  transform: frontFlipped ? "rotateY(0deg)" : "rotateY(-90deg)",
+                  transition: "transform 0.35s ease-in-out 0.02s",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
+          </div>
+        )}
       </main>
       {/* grain overlayy! */}
       <div
