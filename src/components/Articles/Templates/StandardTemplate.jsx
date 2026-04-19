@@ -3,6 +3,8 @@ import { TextBlock } from '../Renderer/blocks/TextBlock';
 import { HeadingBlock } from '../Renderer/blocks/HeadingBlock';
 import { ImageBlock } from '../Renderer/blocks/ImageBlock';
 import { GalleryBlock } from '../Renderer/blocks/GalleryBlock';
+import { QuoteBlock } from '../Renderer/blocks/QuoteBlock';
+import { CreditsBlock } from '../Renderer/blocks/CreditsBlock';
 
 import '../../../styles/articles/look-standard.css';
 
@@ -12,26 +14,34 @@ export function StandardTemplate({ article }) {
             <article className="article-container">
                 <header className="article-header">
 
-
                     <div className="article-meta">
-                        <h1 className="article-title">{article.title}</h1>
                         {article.author && <span className="article-author">By {article.author}</span>}
                         {article.date && <span className="article-date">{article.date}</span>}
                     </div>
                     <hr className="title-divider" />
                 </header>
 
+                {article.coverImage && (
+                    <div className="article-cover-image">
+                        <img src={article.coverImage} alt={article.title} />
+                    </div>
+                )}
+
                 <main>
                     {article.content.map((block, index) => {
                         switch (block.type) {
                             case 'text':
-                                return <TextBlock key={index} value={block.value} />;
+                                return <TextBlock key={index} value={block.text} />;
                             case 'heading':
                                 return <HeadingBlock key={index} value={block.value} />;
                             case 'image':
                                 return <ImageBlock key={index} {...block} />;
                             case 'gallery':
                                 return <GalleryBlock key={index} images={block.images} />;
+                            case 'quote':
+                                return <QuoteBlock key={index} text={block.text} speaker={block.speaker} />;
+                            case 'credits':
+                                return <CreditsBlock key={index} author={block.author} reporter={block.reporter} editor={block.editor} />;
                             default:
                                 return null;
                         }
@@ -41,3 +51,4 @@ export function StandardTemplate({ article }) {
         </div>
     );
 }
+
