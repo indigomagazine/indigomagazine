@@ -1,9 +1,4 @@
 /*css/style.css*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 html {
   cursor: url(/legacy/assets/cursors/sparkle-cursor.png), default;
@@ -14,7 +9,9 @@ html {
 body {
   height: 100%;
   font-family: "Inter";
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   background-color: #400707;
   /* Default dark mode background */
   color: white;
@@ -49,10 +46,9 @@ body.light-mode #Taskbar-container a {
 }
 
 #Taskbar-container a:hover {
-  color: #170B3B;
+  color: #170b3b;
   /* Hover effect for both modes */
 }
-
 
 /* Hero section */
 .hero-section {
@@ -90,7 +86,6 @@ video::-webkit-media-controls {
   pointer-events: none;
   /* Disables interactions with the video */
 }
-
 
 .hero-section video[poster] {
   opacity: 1;
@@ -137,14 +132,12 @@ video::-webkit-media-controls {
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   .overlay {
     background: rgba(0, 0, 0, 0.3);
     /* Slightly lighter overlay for fallback image */
   }
 }
-
 
 .overlay {
   position: absolute;
@@ -168,7 +161,9 @@ video::-webkit-media-controls {
   padding: 10px 15px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
   font-family: sans-serif;
 }
 
@@ -176,7 +171,6 @@ video::-webkit-media-controls {
   background: rgba(255, 255, 255, 0.8);
   color: #000;
 }
-
 
 /* Ripple effect background & editors note (index page)*/
 
@@ -189,7 +183,7 @@ video::-webkit-media-controls {
   text-align: center;
   font-size: 1.8em;
   /* Slightly smaller text size */
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 3;
   /* Ensure this stays on top */
   line-height: 1.5em;
@@ -296,7 +290,7 @@ video::-webkit-media-controls {
 .kismet-notes {
   position: relative;
   z-index: 2;
-  font-family: 'Cursive', sans-serif;
+  font-family: "Cursive", sans-serif;
   /* Whimsical font */
   color: #333;
   max-width: 500px;
@@ -351,7 +345,9 @@ video::-webkit-media-controls {
 
 .spotify-section iframe {
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   margin-right: 30px;
 }
@@ -406,7 +402,9 @@ video::-webkit-media-controls {
 
 .icons a {
   margin: 0 10px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   border: none;
   outline: none;
 }
@@ -440,7 +438,9 @@ video::-webkit-media-controls {
   .icons a {
     margin: 0 10px;
     /* Maintain horizontal spacing */
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
     border: none;
     /* Ensure no border is set on links */
     outline: none;
@@ -488,19 +488,19 @@ video::-webkit-media-controls {
 .mission-statement-header {
   color: white;
   /* default color */
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 .mission-statement {
   position: center;
   margin: 20px auto;
   font-size: 1.4rem;
-  font-family: 'Inter';
-  color: #C19EEA;
+  font-family: "Inter";
+  color: #c19eea;
   /* #51289C; */
   max-width: 600px;
   line-height: 1.6;
-  border-bottom: 2px solid #723ABF;
+  border-bottom: 2px solid #723abf;
   padding-bottom: 10px;
   letter-spacing: 0.05em;
   animation: fadeIn 1.5s ease-in;
@@ -519,12 +519,12 @@ video::-webkit-media-controls {
   justify-content: center;
   margin-top: 30px;
   gap: 20px;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 /* Officer card (tarot-like) styling */
 .officer-card {
-  background: linear-gradient(145deg, #723ABF, #51289C);
+  background: linear-gradient(145deg, #723abf, #51289c);
   border-radius: 15px;
   width: 240px;
   height: 380px;
@@ -532,20 +532,23 @@ video::-webkit-media-controls {
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.5s ease;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
   opacity: 0.95;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 .officer-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(145deg, #51289C, #2F1678);
+  background: linear-gradient(145deg, #51289c, #2f1678);
   /* Darker gradient on hover */
   opacity: 1;
   cursor: pointer;
@@ -569,19 +572,19 @@ video::-webkit-media-controls {
 
 .officer-card h2 {
   font-size: 1.1rem;
-  font-family: 'Inter';
+  font-family: "Inter";
   color: #fff;
-  background-color: #2F1678;
+  background-color: #2f1678;
   width: 100%;
   padding: 10px 0;
   margin: 0;
-  border-top: 2px solid #723ABF;
+  border-top: 2px solid #723abf;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .officer-card:hover h2 {
-  background-color: #170B3B;
+  background-color: #170b3b;
 }
 
 /* Fade-in effect for mission statement */
@@ -627,11 +630,11 @@ video::-webkit-media-controls {
   box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
   border: 4px solid rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
     filter 0.4s cubic-bezier(0.23, 1, 0.32, 1),
     box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 
 /* Different starting positions */
 .floating-photo-wrapper:nth-child(1) {
@@ -690,7 +693,6 @@ video::-webkit-media-controls {
   cursor: pointer;
   font-size: 16px;
 }
-
 
 .change-mode:hover {
   background-color: #3700b3;
@@ -753,13 +755,13 @@ video::-webkit-media-controls {
   text-decoration: none;
   font-size: 1.2em;
   color: white;
-  font-family: 'Inter';
+  font-family: "Inter";
   transition: color 0.3s ease;
 }
 
 /* Hover effect for the links */
 #Taskbar-container a:hover {
-  color: #170B3B;
+  color: #170b3b;
 }
 
 .past-issues-title {
@@ -861,7 +863,7 @@ video::-webkit-media-controls {
   /* spacing above and below */
   padding: 12px 24px;
   font-size: 1rem;
-  background-color: #51289C;
+  background-color: #51289c;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -969,8 +971,6 @@ video::-webkit-media-controls {
   }
 }
 
-
-
 @font-face {
   font-family: "LemonMilk";
   src: url(assets/fonts/LEMONMILK-Bold.otf);
@@ -992,7 +992,7 @@ video::-webkit-media-controls {
 }
 
 .header-link:hover {
-  color: #4B0082;
+  color: #4b0082;
 }
 
 body.light-mode .header-link {
@@ -1000,5 +1000,5 @@ body.light-mode .header-link {
 }
 
 body.light-mode .header-link:hover {
-  color: #51289C;
+  color: #51289c;
 }
