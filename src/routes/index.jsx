@@ -51,23 +51,18 @@ function RouteComponent() {
             loading="lazy"
           ></iframe>
           <div className="kismet-notes" style={{ color: theme === "dark" ? "white" : "black" }}>
-              {/*
-            <p style={{ fontWeight: "bold", fontSize: "1.5rem" }}>SERIAL</p>
+            <p style={{ fontWeight: "bold", fontSize: "1.5rem" }}>And Scene….</p>
             <p>
-              Look at all that you have around you. Notice what you’re missing– how
-              you can never keep up with all that you’re inundated with.
+              There’s a moment from a movie that keeps playing in our heads. 
+              There’s new beginnings, new endings too. I don’t know where I’m going; I know where I’ll be though. 
             </p>
             <p>
-              You can’t salvage your greed. Your mind is consumed with everything
-              about yourself, yet there’s nothing to observe on the inside.
+              <em>  Turning page, turning tides. <br /> Look around and play up the stage.<br /></em>
             </p>
             <p>
-              <em>Feed yourself with cravings<br />Hungry for more of nothing<br /></em>
+              <strong>  Everyone wants to know the end but they have to wait for the last page.
+              </strong>
             </p>
-            <p>
-              <strong>Keep feeding, and revel at all the places it doesn’t take you.</strong>
-            </p>
-            */}
           </div>
         </section>
       </main>
