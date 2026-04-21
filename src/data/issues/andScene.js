@@ -1,15 +1,15 @@
 export const andSceneItems = [
     // Add new issue article at the top. 
-    // {
-    //     type: "issue",
-    //     title: "Limerence",
-    //     description: "And Scene Issue",
-    //     image: " ",
-    //     path: "/Issues/andscene/limerence",
-    //     // Link directly to the legacy HTML so the iframe/HTML is loaded
-    //     to: "/Issues/andscene/limerence",
-    //     coverPos: "center center",
-    // },
+    {
+        type: "issue",
+        title: "Limerence",
+        description: "And Scene Issue",
+        image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/limerence_cover_img2.jpg",
+        path: "/Issues/andscene/limerence",
+        // Link directly to the legacy HTML so the iframe/HTML is loaded
+        to: "/Issues/andscene/limerence",
+        coverPos: "center center",
+    },
     {
         type: "issue",
         title: "Eternal Unfolding",

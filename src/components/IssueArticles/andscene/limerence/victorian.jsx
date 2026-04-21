@@ -17,22 +17,22 @@ export default function Victorian() {
     return () => document.head.removeChild(style);
   }, []);
 
-  const card = "/assets/articles/tarot_back.jpg";
+  const card = "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/tarot_back.jpg";
   const frontcards = [
-    "/assets/articles/Emma_Tarot_Final.jpg",
-    "/assets/articles/Arthur_Tarot_Final.jpg",
-    "/assets/articles/George_Tarot.jpg",
-    "/assets/articles/William%20Tarot%20Card.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/emma_tarot.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/arthur_tarot.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/george_tarot.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/william_tarot.jpg",
   ];
   // images  for text
   const interpretImages = [
-    "/assets/articles/Emma_Final.jpg", // chunk 1: Emma portrait
-    "/assets/articles/Emma_Tarot_Final.jpg", // chunk 2: Emma tarot
-    "/assets/articles/Dreamy Haze_Final.jpg", // chunk 3: Dreamy Haze portrait
-    "/assets/articles/Arthur_Tarot_Final.jpg", // chunk 4: Arthur tarot
-    "/assets/articles/Joseph2.jpg", // chunk 5: Joseph portrait
-    "/assets/articles/George_Tarot.jpg", // chunk 6: George tarot
-    "/assets/articles/William%20Tarot%20Card.jpg", // chunk 7: William tarot
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/emma_final.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/emma_tarot.jpg", // chunk 2: Emma tarot
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/dreamy_haze.jpg", // chunk 3: Dreamy Haze portrait
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/arthur_tarot.jpg", // chunk 4: Arthur tarot
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/joseph2.jpg", // chunk 5: Joseph portrait
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/george_tarot.jpg", // chunk 6: George tarot
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/william_tarot.jpg", // chunk 7: William tarot
   ];
   // SVG noise grain
   const grainSvg = `
@@ -76,6 +76,7 @@ export default function Victorian() {
   const [interpretMode, setInterpretMode] = React.useState(false);
   const [interpretHover, setInterpretHover] = React.useState(false);
   const [hoveredIndex, setHoveredIndex] = React.useState(null);
+  const [reduceTilt, setReduceTilt] = React.useState(false);
   const frontFlipTimerRef = React.useRef(null);
   const resetTimeoutRef = React.useRef(null);
 
@@ -85,6 +86,14 @@ export default function Victorian() {
       if (frontFlipTimerRef.current) clearTimeout(frontFlipTimerRef.current);
       if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
     };
+  }, []);
+
+  // reduce tilt on small viewports to avoid clipping
+  React.useEffect(() => {
+    const check = () => setReduceTilt(typeof window !== 'undefined' ? window.innerWidth < 600 : false);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const scheduleClose = (index) => {
@@ -176,7 +185,19 @@ export default function Victorian() {
           {interpretMode ? "Limerence" : "Reveal Your Fortune"}
         </h1>
 
-        {allRevealed && !interpretMode ? (
+        {interpretMode ? (
+          <p
+            style={{
+              marginTop: "0.6rem",
+              fontFamily: "Sinoreta, serif",
+              fontSize: "clamp(18px, 2.2vw, 28px)",
+              color: "#111",
+              opacity: 0.8,
+            }}
+          >
+            by: Jiya Gupta
+          </p>
+        ) : allRevealed ? (
           <button
             onMouseEnter={() => setInterpretHover(true)}
             onMouseLeave={() => setInterpretHover(false)}
@@ -203,7 +224,7 @@ export default function Victorian() {
           >
             Interpret Reading
           </button>
-        ) : !interpretMode ? (
+        ) : (
           <p
             style={{
               marginTop: "0.6rem",
@@ -217,7 +238,7 @@ export default function Victorian() {
           >
             {subtitle}
           </p>
-        ) : null}
+        )}
       </header>
 
       <main
@@ -308,13 +329,15 @@ export default function Victorian() {
                   <div
                     key={i}
                     style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "1.2rem",
-                      rotate: flipped ? "2deg" : "-2deg",
-                    }}
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: "1.2rem",
+                          overflow: "visible",
+                          transform: `rotate(${reduceTilt ? "0deg" : flipped ? "2deg" : "-2deg"})`,
+                          transformOrigin: "center top",
+                        }}
                   >
                     {!flipped && (
                       <div style={{ flex: 1, textAlign: "left" }}>
