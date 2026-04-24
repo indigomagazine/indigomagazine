@@ -113,103 +113,41 @@ function Divider() {
 function LandingPage({ onEnter }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [particles, setParticles] = useState([]);
+  const [started, setStarted] = useState(false);  // ← moved here, top of component
 
   const pidRef = useRef(0);
-
-  // 🎧 AUDIO LAYERS
   const knockRef = useRef(null);
-  const windRef = useRef(null);
-
   const hasUnlockedRef = useRef(false);
 
-  /* ─────────────────────────────
-     INIT AUDIO (clean + safe)
-  ───────────────────────────── */
-  useEffect(() => {
-    const knocking = new Audio(
-      "https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/knocking.mp3"
-    );
-    knocking.loop = true;
-    knocking.volume = 0;
+  /* INIT AUDIO */
+useEffect(() => {
+  const knocking = new Audio(
+    "https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/knocking.mp3"
+  );
+  knocking.loop = true;
+  knocking.volume = 0;
 
-    const wind = new Audio(
-      "https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/wind.mp3"
-    );
-    wind.loop = true;
-    wind.volume = 0;
+  // TEMP DEBUG
+  knocking.addEventListener("canplaythrough", () => console.log("✅ audio loaded"));
+  knocking.addEventListener("error", (e) => console.log("❌ audio error", e));
 
-    knockRef.current = knocking;
-    windRef.current = wind;
-  }, []);
+  knockRef.current = knocking;
+}, []);
 
-  /* ─────────────────────────────
-     AUDIO UNLOCK (fix autoplay)
-  ───────────────────────────── */
-  useEffect(() => {
-    const unlock = async () => {
-      if (hasUnlockedRef.current) return;
-
-      try {
-        if (knockRef.current) await knockRef.current.play();
-        if (windRef.current) await windRef.current.play();
-
-        hasUnlockedRef.current = true;
-      } catch (err) {
-        console.log("Audio blocked:", err);
-      }
-    };
-
-    window.addEventListener("click", unlock, { once: true });
-    window.addEventListener("touchstart", unlock, { once: true });
-    window.addEventListener("keydown", unlock, { once: true });
-
-    return () => {
-      window.removeEventListener("click", unlock);
-      window.removeEventListener("touchstart", unlock);
-      window.removeEventListener("keydown", unlock);
-    };
-  }, []);
-
-  /* ─────────────────────────────
-     SCROLL → CINEMATIC AUDIO
-  ───────────────────────────── */
+  /* SCROLL → AUDIO REACTIVITY */
   useEffect(() => {
     const onScroll = () => {
-      const p = Math.min(
-        window.scrollY / (window.innerHeight * 0.85),
-        1
-      );
-
+      const p = Math.min(window.scrollY / (window.innerHeight * 0.85), 1);
       setScrollProgress(p);
 
       const knock = knockRef.current;
-      const wind = windRef.current;
-
-      if (hasUnlockedRef.current) {
-        /* 🎯 knocking sound = tension */
-        if (knock) {
-          const target = 0.02 + p * 0.65;
-          knock.volume += (target - knock.volume) * 0.08;
-          knock.playbackRate = 0.85 + p * 0.35;
+      if (knock && hasUnlockedRef.current) {
+        knock.volume = Math.min(0.15 + p * 0.75, 1);  // starts at 0.15, reaches 0.9 at full scroll
+        knock.playbackRate = 0.85 + p * 0.35;
+        if (p >= 0.98) {
+          knock.pause();
+          onEnter();
         }
-
-        /* 🌫 ambient wind = world expansion */
-        if (wind) {
-          const target = 0.05 + p * 0.4;
-          wind.volume += (target - wind.volume) * 0.05;
-          wind.playbackRate = 1 + p * 0.06;
-        }
-      }
-
-      /* 🎬 transition into article */
-      if (p >= 0.98) {
-        knock?.pause();
-        wind?.pause();
-
-        if (knock) knock.currentTime = 0;
-        if (wind) wind.currentTime = 0;
-
-        onEnter();
       }
     };
 
@@ -217,15 +155,11 @@ function LandingPage({ onEnter }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [onEnter]);
 
-  /* ─────────────────────────────
-     PARTICLES (unchanged)
-  ───────────────────────────── */
+  /* PARTICLES */
   useEffect(() => {
     const CHARS = ["🍃", "·", "✦", "·", "∘"];
-
     const iv = setInterval(() => {
       const id = pidRef.current++;
-
       const pt = {
         id,
         left: Math.random() * 100,
@@ -234,30 +168,35 @@ function LandingPage({ onEnter }) {
         delay: Math.random() * 1.5,
         char: CHARS[Math.floor(Math.random() * CHARS.length)],
       };
-
       setParticles((prev) => [...prev.slice(-20), pt]);
-
       setTimeout(() => {
         setParticles((prev) => prev.filter((x) => x.id !== id));
       }, 14000);
     }, 600);
-
     return () => clearInterval(iv);
   }, []);
 
-  /* ─────────────────────────────
-     UI VALUES
-  ───────────────────────────── */
   const p = scrollProgress;
   const darkness = p * 0.9;
   const innerLight = Math.max(30 - p * 30, 0);
-  const knockSpeed = Math.max(0.35, 1.6 - p * 1.25);
 
-  /* ─────────────────────────────
-     RENDER
-  ───────────────────────────── */
+  /* CLICK HANDLER to unlock audio */
+const handleClick = async () => {
+  if (hasUnlockedRef.current) return;
+  const knock = knockRef.current;
+  if (!knock) return;
+  try {
+    knock.volume = 0.15;  // ← audible from the start, not 0
+    await knock.play();
+    hasUnlockedRef.current = true;
+    setStarted(true);
+  } catch (err) {
+    console.log("Audio blocked:", err);
+  }
+};
+
   return (
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "200vh" }} onClick={handleClick}>
       <div
         style={{
           position: "sticky",
@@ -275,20 +214,9 @@ function LandingPage({ onEnter }) {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url(${BG_IMAGE})`,
+            backgroundImage: "url(https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/AndScene2.png)",
             backgroundSize: "cover",
             backgroundPosition: "center top",
-            zIndex: 0,
-          }}
-        />
-
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(ellipse 60% 40% at 50% 78%,rgba(0,0,0,.82) 0%,transparent 70%),radial-gradient(ellipse 100% 100% at 50% 50%,transparent 35%,rgba(0,0,0,.55) 100%)",
-            zIndex: 1,
           }}
         />
 
@@ -299,7 +227,7 @@ function LandingPage({ onEnter }) {
             zIndex: 5,
             textAlign: "center",
             color: "#f5ede0",
-            opacity: Math.max(0, 1 - p * 2.2),
+            opacity: Math.max(0, 1 - p),
             transform: `translateY(${p * -28}px)`,
           }}
         >
@@ -314,19 +242,18 @@ function LandingPage({ onEnter }) {
             <br />
             sound
           </h1>
-        </div>
-
-        {/* bunny */}
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "53%",
-            zIndex: 6,
-            fontSize: 20,
-          }}
-        >
-          🐇
+          {!started && (
+            <p style={{
+              fontFamily: "'IM Fell English',serif",
+              fontStyle: "italic",
+              fontSize: "0.85rem",
+              opacity: 0.45,
+              marginTop: 16,
+              letterSpacing: "0.08em",
+            }}>
+              click to begin
+            </p>
+          )}
         </div>
 
         {/* scroll cue */}
@@ -336,8 +263,8 @@ function LandingPage({ onEnter }) {
             bottom: 26,
             left: "50%",
             transform: "translateX(-50%)",
-            zIndex: 6,
             color: "rgba(245,237,224,.3)",
+            zIndex: 6,
           }}
         >
           — scroll to follow —
