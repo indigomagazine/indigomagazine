@@ -18,6 +18,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
+import { Route as DevVictorianRouteImport } from './routes/dev/victorian'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
@@ -25,6 +26,7 @@ import { Route as IssuesNotRouteImport } from './routes/Issues/not'
 import { Route as IssuesKismetRouteImport } from './routes/Issues/kismet'
 import { Route as IssuesAndsceneRouteImport } from './routes/Issues/andscene'
 import { Route as IssuesSerialIndexRouteImport } from './routes/Issues/serial/index'
+import { Route as IssuesAndsceneIndexRouteImport } from './routes/Issues/andscene/index'
 import { Route as IssuesSerialYoucantwisttimeRouteImport } from './routes/Issues/serial/youcantwisttime'
 import { Route as IssuesSerialWesternRouteImport } from './routes/Issues/serial/western'
 import { Route as IssuesSerialStomachacheRouteImport } from './routes/Issues/serial/stomachache'
@@ -34,7 +36,7 @@ import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial
 import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
-import { Route as IssuesAndsceneEternalunfoldingRouteImport } from './routes/Issues/andscene/eternalunfolding'
+import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
@@ -81,6 +83,11 @@ const IssuesIndexRoute = IssuesIndexRouteImport.update({
   path: '/Issues/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DevVictorianRoute = DevVictorianRouteImport.update({
+  id: '/dev/victorian',
+  path: '/dev/victorian',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
   id: '/articles/$articleSlug',
   path: '/articles/$articleSlug',
@@ -115,6 +122,11 @@ const IssuesSerialIndexRoute = IssuesSerialIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => IssuesSerialRoute,
+} as any)
+const IssuesAndsceneIndexRoute = IssuesAndsceneIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IssuesAndsceneRoute,
 } as any)
 const IssuesSerialYoucantwisttimeRoute =
   IssuesSerialYoucantwisttimeRouteImport.update({
@@ -165,12 +177,11 @@ const IssuesSerialAnumberoutofplaceRoute =
     path: '/anumberoutofplace',
     getParentRoute: () => IssuesSerialRoute,
   } as any)
-const IssuesAndsceneEternalunfoldingRoute =
-  IssuesAndsceneEternalunfoldingRouteImport.update({
-    id: '/eternalunfolding',
-    path: '/eternalunfolding',
-    getParentRoute: () => IssuesAndsceneRoute,
-  } as any)
+const IssuesAndsceneLimerenceRoute = IssuesAndsceneLimerenceRouteImport.update({
+  id: '/limerence',
+  path: '/limerence',
+  getParentRoute: () => IssuesAndsceneRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -186,9 +197,10 @@ export interface FileRoutesByFullPath {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
+  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -198,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
   '/Issues/serial/western': typeof IssuesSerialWesternRoute
   '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/andscene/': typeof IssuesAndsceneIndexRoute
   '/Issues/serial/': typeof IssuesSerialIndexRoute
 }
 export interface FileRoutesByTo {
@@ -208,14 +221,14 @@ export interface FileRoutesByTo {
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
   '/visual-arts': typeof VisualArtsRoute
-  '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
+  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -225,6 +238,7 @@ export interface FileRoutesByTo {
   '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
   '/Issues/serial/western': typeof IssuesSerialWesternRoute
   '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/andscene': typeof IssuesAndsceneIndexRoute
   '/Issues/serial': typeof IssuesSerialIndexRoute
 }
 export interface FileRoutesById {
@@ -242,9 +256,10 @@ export interface FileRoutesById {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/victorian': typeof DevVictorianRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
-  '/Issues/andscene/eternalunfolding': typeof IssuesAndsceneEternalunfoldingRoute
+  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -254,6 +269,7 @@ export interface FileRoutesById {
   '/Issues/serial/stomachache': typeof IssuesSerialStomachacheRoute
   '/Issues/serial/western': typeof IssuesSerialWesternRoute
   '/Issues/serial/youcantwisttime': typeof IssuesSerialYoucantwisttimeRoute
+  '/Issues/andscene/': typeof IssuesAndsceneIndexRoute
   '/Issues/serial/': typeof IssuesSerialIndexRoute
 }
 export interface FileRouteTypes {
@@ -272,9 +288,10 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues'
     | '/articles'
-    | '/Issues/andscene/eternalunfolding'
+    | '/Issues/andscene/limerence'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -284,6 +301,7 @@ export interface FileRouteTypes {
     | '/Issues/serial/stomachache'
     | '/Issues/serial/western'
     | '/Issues/serial/youcantwisttime'
+    | '/Issues/andscene/'
     | '/Issues/serial/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -294,14 +312,14 @@ export interface FileRouteTypes {
     | '/photobooth'
     | '/quiz'
     | '/visual-arts'
-    | '/Issues/andscene'
     | '/Issues/kismet'
     | '/Issues/not'
     | '/Issues/reminiscence'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues'
     | '/articles'
-    | '/Issues/andscene/eternalunfolding'
+    | '/Issues/andscene/limerence'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -311,6 +329,7 @@ export interface FileRouteTypes {
     | '/Issues/serial/stomachache'
     | '/Issues/serial/western'
     | '/Issues/serial/youcantwisttime'
+    | '/Issues/andscene'
     | '/Issues/serial'
   id:
     | '__root__'
@@ -327,9 +346,10 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/victorian'
     | '/Issues/'
     | '/articles/'
-    | '/Issues/andscene/eternalunfolding'
+    | '/Issues/andscene/limerence'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -339,6 +359,7 @@ export interface FileRouteTypes {
     | '/Issues/serial/stomachache'
     | '/Issues/serial/western'
     | '/Issues/serial/youcantwisttime'
+    | '/Issues/andscene/'
     | '/Issues/serial/'
   fileRoutesById: FileRoutesById
 }
@@ -356,6 +377,7 @@ export interface RootRouteChildren {
   IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
+  DevVictorianRoute: typeof DevVictorianRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
 }
@@ -425,6 +447,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dev/victorian': {
+      id: '/dev/victorian'
+      path: '/dev/victorian'
+      fullPath: '/dev/victorian'
+      preLoaderRoute: typeof DevVictorianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/articles/$articleSlug': {
       id: '/articles/$articleSlug'
       path: '/articles/$articleSlug'
@@ -473,6 +502,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/Issues/serial/'
       preLoaderRoute: typeof IssuesSerialIndexRouteImport
       parentRoute: typeof IssuesSerialRoute
+    }
+    '/Issues/andscene/': {
+      id: '/Issues/andscene/'
+      path: '/'
+      fullPath: '/Issues/andscene/'
+      preLoaderRoute: typeof IssuesAndsceneIndexRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
     }
     '/Issues/serial/youcantwisttime': {
       id: '/Issues/serial/youcantwisttime'
@@ -537,22 +573,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialAnumberoutofplaceRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/Issues/andscene/eternalunfolding': {
-      id: '/Issues/andscene/eternalunfolding'
-      path: '/eternalunfolding'
-      fullPath: '/Issues/andscene/eternalunfolding'
-      preLoaderRoute: typeof IssuesAndsceneEternalunfoldingRouteImport
+    '/Issues/andscene/limerence': {
+      id: '/Issues/andscene/limerence'
+      path: '/limerence'
+      fullPath: '/Issues/andscene/limerence'
+      preLoaderRoute: typeof IssuesAndsceneLimerenceRouteImport
       parentRoute: typeof IssuesAndsceneRoute
     }
   }
 }
 
 interface IssuesAndsceneRouteChildren {
-  IssuesAndsceneEternalunfoldingRoute: typeof IssuesAndsceneEternalunfoldingRoute
+  IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
+  IssuesAndsceneIndexRoute: typeof IssuesAndsceneIndexRoute
 }
 
 const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
-  IssuesAndsceneEternalunfoldingRoute: IssuesAndsceneEternalunfoldingRoute,
+  IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
+  IssuesAndsceneIndexRoute: IssuesAndsceneIndexRoute,
 }
 
 const IssuesAndsceneRouteWithChildren = IssuesAndsceneRoute._addFileChildren(
@@ -603,6 +641,7 @@ const rootRouteChildren: RootRouteChildren = {
   IssuesReminiscenceRoute: IssuesReminiscenceRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
+  DevVictorianRoute: DevVictorianRoute,
   IssuesIndexRoute: IssuesIndexRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
 }
