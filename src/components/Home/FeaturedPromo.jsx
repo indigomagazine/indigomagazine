@@ -67,7 +67,8 @@ export const FeaturedPromo = ({ theme }) => {
             }
 
             case 'issue': {
-                const postToRender = andSceneItems[andSceneItems.length - 1];
+                // Render the most recent And Scene item (top of array)
+                const postToRender = andSceneItems[0];
 
                 return (
                     <section ref={sectionRef} className={`quiz-promo-section ${isVisible ? 'is-visible' : ''}`} style={{ paddingBottom: '2rem' }}>

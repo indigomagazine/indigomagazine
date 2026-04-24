@@ -26,6 +26,25 @@ const getActiveHeroImages = () => {
         }
     }
 
+    // Support CDN images configured via src/data/hero-config.json.
+    // heroConfig.cdnImages can be:
+    // - an array of URLs (applies regardless of group)
+    // - an object mapping groupName -> array of URLs (e.g. { "andscene": ["https://...jpg"] })
+    try {
+        const cdn = heroConfig.cdnImages;
+        if (Array.isArray(cdn)) {
+            // global CDN list
+            cdn.forEach((u) => { if (u) activeImages.push(u); });
+        } else if (cdn && typeof cdn === 'object') {
+            const groupList = cdn[activeGroup];
+            if (Array.isArray(groupList)) {
+                groupList.forEach((u) => { if (u) activeImages.push(u); });
+            }
+        }
+    } catch (e) {
+        console.warn('HeroSection: failed to read cdnImages from hero-config', e);
+    }
+
     return activeImages;
 };
 

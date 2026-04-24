@@ -14,8 +14,14 @@ export default function IssueLayout({ items, theme }) {
     const [animClass, setAnimClass] = useState(""); // "slide-in-left" | "slide-in-right" | ""
 
     // Scroll-hint state
+    // Use a per-issue storage key so different issue pages don't share the same saved index
+    const storageKey = useMemo(() => {
+        const base = (items && items[0] && items[0].title) ? String(items[0].title).replace(/\s+/g, '_') : 'default';
+        return `issue_last_index_${base}`;
+    }, [items]);
+
     const [activeIndex, setActiveIndex] = useState(() => {
-        const saved = localStorage.getItem("serial_last_index");
+        const saved = localStorage.getItem(storageKey);
         return saved ? parseInt(saved, 10) : 0;
     });
     const [showHint, setShowHint] = useState(false);
@@ -52,7 +58,7 @@ export default function IssueLayout({ items, theme }) {
             const idx = Math.round(el.scrollTop / h);
             if (idx !== activeIndex) {
                 setActiveIndex(idx);
-                localStorage.setItem("serial_last_index", idx);
+                localStorage.setItem(storageKey, idx);
             }
             if (!hasScrolled.current) {
                 hasScrolled.current = true;
