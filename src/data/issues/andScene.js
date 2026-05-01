@@ -2,6 +2,15 @@ export const andSceneItems = [
     // Add new issue article at the top. 
     {
         type: "issue",
+        title: "Ruminating Chimera",
+        description: "And Scene Issue",
+        image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/AndScene1.png",
+        path: "/Issues/andscene/ruminatingchimera",
+        to: "/Issues/andscene/ruminatingchimera",
+        coverPos: "center center",
+    },
+    {
+        type: "issue",
         title: "Limerence",
         description: "And Scene Issue",
         image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/limerence/limerence_cover_img2.jpg",

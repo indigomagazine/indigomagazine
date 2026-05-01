@@ -19,6 +19,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
 import { Route as DevVictorianRouteImport } from './routes/dev/victorian'
+import { Route as DevRuminatingchimeraRouteImport } from './routes/dev/ruminatingchimera'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
@@ -87,6 +88,11 @@ const IssuesIndexRoute = IssuesIndexRouteImport.update({
 const DevVictorianRoute = DevVictorianRouteImport.update({
   id: '/dev/victorian',
   path: '/dev/victorian',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevRuminatingchimeraRoute = DevRuminatingchimeraRouteImport.update({
+  id: '/dev/ruminatingchimera',
+  path: '/dev/ruminatingchimera',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
@@ -204,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
@@ -233,6 +240,7 @@ export interface FileRoutesByTo {
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
@@ -265,6 +273,7 @@ export interface FileRoutesById {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
+  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
@@ -298,6 +307,7 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/ruminatingchimera'
     | '/dev/victorian'
     | '/Issues'
     | '/articles'
@@ -327,6 +337,7 @@ export interface FileRouteTypes {
     | '/Issues/not'
     | '/Issues/reminiscence'
     | '/articles/$articleSlug'
+    | '/dev/ruminatingchimera'
     | '/dev/victorian'
     | '/Issues'
     | '/articles'
@@ -358,6 +369,7 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
+    | '/dev/ruminatingchimera'
     | '/dev/victorian'
     | '/Issues/'
     | '/articles/'
@@ -390,6 +402,7 @@ export interface RootRouteChildren {
   IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
+  DevRuminatingchimeraRoute: typeof DevRuminatingchimeraRoute
   DevVictorianRoute: typeof DevVictorianRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
@@ -465,6 +478,13 @@ declare module '@tanstack/react-router' {
       path: '/dev/victorian'
       fullPath: '/dev/victorian'
       preLoaderRoute: typeof DevVictorianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev/ruminatingchimera': {
+      id: '/dev/ruminatingchimera'
+      path: '/dev/ruminatingchimera'
+      fullPath: '/dev/ruminatingchimera'
+      preLoaderRoute: typeof DevRuminatingchimeraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles/$articleSlug': {
@@ -663,6 +683,7 @@ const rootRouteChildren: RootRouteChildren = {
   IssuesReminiscenceRoute: IssuesReminiscenceRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
+  DevRuminatingchimeraRoute: DevRuminatingchimeraRoute,
   DevVictorianRoute: DevVictorianRoute,
   IssuesIndexRoute: IssuesIndexRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
