@@ -187,12 +187,6 @@ const PARAS = {
   p7: `A figure stood before me. Not a monster, nor a phantom, but me, sharpened, exaggerated, grotesque. Its smile stretched too wide, a grin that threatened to split its face. Its eyes glinted with cruel knowledge, gleaming with every shortcut I had craved, every lie I had rehearsed, every betrayal I had ever imagined. Its presence pressed into my chest, cold and heavy, like the air itself had turned to iron. Its predatory stillness held my soul in a suffocating grip. Every flaw I had hidden, every petty desire, selfish flicker, every misstep, rippling through the air like a contagion. I shakily took a step back, but it slowly followed. Its every step screeching like nails on a chalkboard. I ran without another thought, but every reflection, every puddle, every flickering screen mirrored its gaze. The woods warped with it; multitudes of branches slithered, shadows twisted into impossible angles, bushes breathed and cracked, and the music wrenched itself into dissonance, a chorus of cracking bark and sighs. I could no longer trust reality. The reflection, the forest, the person I had called myself, they all bled into each other, a fevered hallucination. Every truth I had clung to quavered. And beneath it all, a thrill twisted in my chest, the temptation to surrender to the dark, to the version of myself I had feared most.`,
   p8: `Fear tightened around my ribs, claws digging in. My heart hammered, realizing I couldn't outrun the unnerving persona behind me. I hesitantly turned around, panting as it stood in front of me. I took in its ragged appearance and searched its empty, consuming eyes and then suddenly embraced it tightly with shaky arms, accepting every part of its visceral truth. The reflection trembled within my tightened grasp. Flesh and shadow trembling, it cracked like wet porcelain. A fracture split through its smile, followed by another. And then it collapsed, splintering into ripples of water.`,
   p9: `The woods exhaled. The rain no longer warned; it beckoned. Somewhere, a melody soared, unbroken. I stepped forward as the fog slowly dissipated, into streets that had been built from memory and nightmare alike, into a world I could shape, tempered by fear, but no longer bound by it.`,
-  p10: `Why
-- Is there to find comfort
-- Looking back
-Outside was good weather - brush it off as something unimportant like ohh the weather was nice
-auuugh kms
-- Maybe its some loser whos alone and lonely`,
 };
 
 function ArticleImage({ src, aspect="4/3" }) {
