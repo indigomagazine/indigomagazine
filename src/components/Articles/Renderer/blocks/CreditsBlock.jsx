@@ -8,7 +8,7 @@ import React from 'react';
  *  - reporter : string
  *  - editor   : string
  */
-export const CreditsBlock = ({ author, reporter, editor }) => {
+export const CreditsBlock = ({ author, reporter, editor, photographer }) => {
     const wrapperStyle = {
         borderTop: '1px solid #ddd',
         marginTop: '4rem',
@@ -25,6 +25,7 @@ export const CreditsBlock = ({ author, reporter, editor }) => {
     return (
         <div className="block-credits" style={wrapperStyle}>
             {author && <p><strong>Written & Reported by</strong> {author}</p>}
+            {photographer && <p><strong>Photography by</strong> {photographer}</p>}
             {editor && <p><strong>Edited by</strong> {editor}</p>}
         </div>
     );

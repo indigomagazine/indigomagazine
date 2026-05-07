@@ -2,10 +2,8 @@
   "id": "hispanic-heritage-month",
   "slug": "hispanic-heritage-month",
   "title": "\"What Does Hispanic Heritage Month Mean to You?\" A Conversation with Dr. Paula Cuellar Cuellar",
-  "author": "Emma Gonzalez",
   "category": "Culture",
   "summary": "In honor of Hispanic Heritage Month, Indigo Magazine sat down with Dr. Paula Cuellar Cuellar, a professor of Latin American history at UTD, to explore her story, cultural identity, and the significance of this month as both a celebration and a learning opportunity.",
-  "date": "2025-10-11",
   "coverImage": "https://cdn.indigomagazinetx.com/articlephotos/rollingcontent/hhm25/HHM-06.jpg",
   "content": [
     {
@@ -249,7 +247,8 @@
     },
     {
       "type": "credits",
-      "author": "Emma Gonzalez"
+      "author": "Emma Gonzalez",
+      "photographer": "Luis Alarcon"
     }
   ]
 }
