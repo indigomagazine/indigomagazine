@@ -44,7 +44,7 @@ export function StandardTemplate({ article }) {
                             case 'quote':
                                 return <QuoteBlock key={index} text={block.text} speaker={block.speaker} />;
                             case 'credits':
-                                return <CreditsBlock key={index} author={block.author} reporter={block.reporter} editor={block.editor} />;
+                                return <CreditsBlock key={index} author={block.author} reporter={block.reporter} editor={block.editor} photographer={block.photographer} />;
                             default:
                                 return null;
                         }
