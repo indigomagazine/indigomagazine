@@ -1,4 +1,5 @@
 import React from 'react';
+import Taskbar from '../../Home/Taskbar';
 import { TextBlock } from '../Renderer/blocks/TextBlock';
 import { HeadingBlock } from '../Renderer/blocks/HeadingBlock';
 import { ImageBlock } from '../Renderer/blocks/ImageBlock';
@@ -11,9 +12,11 @@ import '../../../styles/articles/look-standard.css';
 export function StandardTemplate({ article }) {
     return (
         <div className="look-standard">
+            <Taskbar darkIcons />
             <article className="article-container">
                 <header className="article-header">
 
+                    {article.title && <h1 className="standard-title">{article.title}</h1>}
                     <div className="article-meta">
                         {article.author && <span className="article-author">By {article.author}</span>}
                         {article.date && <span className="article-date">{article.date}</span>}

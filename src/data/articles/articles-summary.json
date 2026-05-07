@@ -1,4 +1,22 @@
 [
+            {
+        "slug": "hispanic-heritage-month",
+        "title": "\"What Does Hispanic Heritage Month Mean to You?\" A Conversation with Dr. Paula Cuellar Cuellar",
+        "author": "Emma Gonzalez",
+        "category": "Culture",
+        "summary": "In honor of Hispanic Heritage Month, Indigo Magazine sat down with Dr. Paula Cuellar Cuellar, a professor of Latin American history at UTD, to explore her story, cultural identity, and the significance of this month as both a celebration and a learning opportunity.",
+        "date": "2025-10-11",
+        "coverImage": "https://cdn.indigomagazinetx.com/articlephotos/rollingcontent/hhm25/HHM-11.jpg"
+    },
+        {
+        "slug": "how-to-ruin-a-first-date",
+        "title": "How To Ruin A First Date!",
+        "author": "Manogna Bedhu",
+        "category": "Valentine",
+        "summary": "Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
+        "date": "2026-02-18",
+        "coverImage": "/assets/articles/indigovalentinesphotos/1.png"
+    },
     {
         "slug": "chalk-interview",
         "title": "\"indiGO LIVE!\" Introducing Belfast Duo: Chalk",
@@ -7,15 +25,6 @@
         "summary": "Emerging from a renowned film program in Belfast, Chalk has pushed new boundaries in the alt-rock world with their debut album, Crystalpunk. We caught up with Ben Goddard and Ross Cullen at FREQUENCY Fest in Dallas.",
         "date": "2026-03-30",
         "coverImage": "https://cdn.indigomagazinetx.com/articlephotos/rollingcontent/chalkinterview/IMG_8151.jpg"
-    },
-    {
-        "slug": "how-to-ruin-a-first-date",
-        "title": "How To Ruin A First Date!",
-        "author": "Manogna Bedhu",
-        "category": "Valentine",
-        "summary": "Taken from real stories, here are 4 outrageous anecdotes of love mishaps, so you can get ever closer to cutting the right wire while keeping all parts of you and your partner intact.",
-        "date": "2026-02-18",
-        "coverImage": "/assets/articles/indigovalentinesphotos/1.png"
     },
     {
         "slug": "dignitas-article",
