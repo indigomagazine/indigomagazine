@@ -2,6 +2,16 @@ export const andSceneItems = [
     // Add new issue article at the top. 
     {
         type: "issue",
+        title: "Alpha Centauri",
+        description: "And Scene Issue",
+        image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/alpha-centauri/cover-photo.jpg",
+        path: "/Issues/andscene/post-office",
+        // Link directly to the legacy HTML so the iframe/HTML is loaded
+        to: "/Issues/andscene/post-office",
+        coverPos: "center center",
+    },
+    {
+        type: "issue",
         title: "Ruminating Chimera",
         description: "And Scene Issue",
         image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/alice/AndScene1.png",
@@ -29,6 +39,9 @@ export const andSceneItems = [
         to: "/legacy/articles/andscene/eternalunfolding.html",
         coverPos: "center center",
     },
+
+    
+
 
 
 ];

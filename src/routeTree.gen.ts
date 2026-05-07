@@ -38,6 +38,7 @@ import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/s
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
 import { Route as IssuesAndsceneRuminatingchimeraRouteImport } from './routes/Issues/andscene/ruminatingchimera'
+import { Route as IssuesAndscenePostOfficeRouteImport } from './routes/Issues/andscene/post-office'
 import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
@@ -190,6 +191,12 @@ const IssuesAndsceneRuminatingchimeraRoute =
     path: '/ruminatingchimera',
     getParentRoute: () => IssuesAndsceneRoute,
   } as any)
+const IssuesAndscenePostOfficeRoute =
+  IssuesAndscenePostOfficeRouteImport.update({
+    id: '/post-office',
+    path: '/post-office',
+    getParentRoute: () => IssuesAndsceneRoute,
+  } as any)
 const IssuesAndsceneLimerenceRoute = IssuesAndsceneLimerenceRouteImport.update({
   id: '/limerence',
   path: '/limerence',
@@ -215,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
@@ -245,6 +253,7 @@ export interface FileRoutesByTo {
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
@@ -278,6 +287,7 @@ export interface FileRoutesById {
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
@@ -312,6 +322,7 @@ export interface FileRouteTypes {
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
@@ -342,6 +353,7 @@ export interface FileRouteTypes {
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
@@ -374,6 +386,7 @@ export interface FileRouteTypes {
     | '/Issues/'
     | '/articles/'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
@@ -613,6 +626,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesAndsceneRuminatingchimeraRouteImport
       parentRoute: typeof IssuesAndsceneRoute
     }
+    '/Issues/andscene/post-office': {
+      id: '/Issues/andscene/post-office'
+      path: '/post-office'
+      fullPath: '/Issues/andscene/post-office'
+      preLoaderRoute: typeof IssuesAndscenePostOfficeRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
+    }
     '/Issues/andscene/limerence': {
       id: '/Issues/andscene/limerence'
       path: '/limerence'
@@ -625,12 +645,14 @@ declare module '@tanstack/react-router' {
 
 interface IssuesAndsceneRouteChildren {
   IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
+  IssuesAndscenePostOfficeRoute: typeof IssuesAndscenePostOfficeRoute
   IssuesAndsceneRuminatingchimeraRoute: typeof IssuesAndsceneRuminatingchimeraRoute
   IssuesAndsceneIndexRoute: typeof IssuesAndsceneIndexRoute
 }
 
 const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
   IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
+  IssuesAndscenePostOfficeRoute: IssuesAndscenePostOfficeRoute,
   IssuesAndsceneRuminatingchimeraRoute: IssuesAndsceneRuminatingchimeraRoute,
   IssuesAndsceneIndexRoute: IssuesAndsceneIndexRoute,
 }
