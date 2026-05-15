@@ -1,21 +1,20 @@
 import IssueLayout from "../shared/IssueLayout";
-import { andsceneItems } from "../../../data/issues/andscene";
+import { andSceneItems } from "../../../data/issues/andScene";
 
 export default function AndScenePage() {
-  return (
-    <IssueLayout
-      items={andsceneItems}
-      theme={{
-        bgColor: "#0b0b10",
-        textColor: "#e6e1ff",
-        drawerW: "300px",
-        drawerH: "100vh",
-        drawerBg: "rgba(11, 11, 16, 0.82)",
-        drawerColor: "#e6e1ff",
-        drawerAccent: "rgba(230, 225, 255, 0.22)",
-        drawerSpeed: "280ms",
-      }}
-    />
-  );
+    return (
+        <IssueLayout
+            items={andSceneItems}
+            theme={{
+                bgColor: "#0f0a1e",
+                textColor: "#a2baa4ff",
+                drawerW: "300px",
+                drawerH: "100vh",
+                drawerBg: "rgba(15, 10, 30, 0.85)",
+                drawerColor: "#d4b3e6",
+                drawerAccent: "rgba(180, 150, 220, 0.3)",
+                drawerSpeed: "280ms",
+            }}
+        />
+    );
 }
-

@@ -1,5 +1,15 @@
 export const andSceneItems = [
     // Add new issue article at the top. 
+
+    {
+        id: "andscene-1",
+        title: "Alley",
+        description: "And Scene Issue",
+        tags: ["SCENE"],
+        image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/post2-1.png",
+        to: "/issues/andscene/alley",
+        coverPos: "center center",
+    },
     {
         type: "issue",
         title: "Alpha Centauri",

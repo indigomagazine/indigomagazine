@@ -3,11 +3,11 @@ import styles from "./AlleyPage.module.css";
 import { ALLEY_POEM_STEPS } from "./alleyPoem.js";
 
 /** Stage once curtains clear (full composition) */
-const STAGE_BASE = "/assets/andscene/alley/curtains-open.png";
+const STAGE_BASE = "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/curtains-open.png";
 /** Export these from Photopea: side drapes only — they slide L/R; valance stays fixed on top */
-const CURTAIN_LEFT = "/assets/andscene/alley/curtain-left.png";
-const CURTAIN_RIGHT = "/assets/andscene/alley/curtain-right.png";
-const VALANCE = "/assets/andscene/alley/valance.png";
+const CURTAIN_LEFT = "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/curtain-left.png";
+const CURTAIN_RIGHT = "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/curtain-right.png";
+const VALANCE = "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/valance.png";
 
 const BGM_FILE = "Lite Saturation - Piano Jazz.mp3";
 const BGM_SRC = `/assets/andscene/alley/${encodeURIComponent(BGM_FILE)}`;
@@ -164,7 +164,9 @@ export default function AlleyPage() {
           className={styles.openCue}
           onClick={openCurtains}
           aria-label="Open the curtains to begin"
-        />
+        >
+          <span className={styles.openCueHint} aria-hidden>click to start</span>
+        </button>
       ) : null}
 
       <audio

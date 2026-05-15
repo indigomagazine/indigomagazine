@@ -34,6 +34,15 @@ function RouteComponent() {
       <Taskbar />
 
       <div className="issues-container">
+        {/* And Scene Issue */}
+        <a href="/issues/andscene" className="issue">
+          <img
+            src="https://cdn.indigomagazinetx.com/articlephotos/andscene/horse/mirrored.jpg"
+            alt="And Scene"
+          />
+          <div className="issue-title">And Scene</div>
+        </a>
+
         <a href="/issues/serial" className="issue">
           <img
             src="https://cdn.indigomagazinetx.com/articlephotos/serial/i%20love%20shopping/i%20love%20shopping%20cover.jpg"
