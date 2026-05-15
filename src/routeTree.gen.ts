@@ -18,8 +18,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
-import { Route as DevVictorianRouteImport } from './routes/dev/victorian'
-import { Route as DevRuminatingchimeraRouteImport } from './routes/dev/ruminatingchimera'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
 import { Route as IssuesSerialRouteImport } from './routes/Issues/serial'
 import { Route as IssuesReminiscenceRouteImport } from './routes/Issues/reminiscence'
@@ -37,9 +35,7 @@ import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial
 import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
-import { Route as IssuesAndsceneRuminatingchimeraRouteImport } from './routes/Issues/andscene/ruminatingchimera'
-import { Route as IssuesAndscenePostOfficeRouteImport } from './routes/Issues/andscene/post-office'
-import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
+import { Route as IssuesAndsceneAlleyRouteImport } from './routes/Issues/andscene/alley'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
@@ -84,16 +80,6 @@ const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
 const IssuesIndexRoute = IssuesIndexRouteImport.update({
   id: '/Issues/',
   path: '/Issues/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevVictorianRoute = DevVictorianRouteImport.update({
-  id: '/dev/victorian',
-  path: '/dev/victorian',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevRuminatingchimeraRoute = DevRuminatingchimeraRouteImport.update({
-  id: '/dev/ruminatingchimera',
-  path: '/dev/ruminatingchimera',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesArticleSlugRoute = ArticlesArticleSlugRouteImport.update({
@@ -185,21 +171,9 @@ const IssuesSerialAnumberoutofplaceRoute =
     path: '/anumberoutofplace',
     getParentRoute: () => IssuesSerialRoute,
   } as any)
-const IssuesAndsceneRuminatingchimeraRoute =
-  IssuesAndsceneRuminatingchimeraRouteImport.update({
-    id: '/ruminatingchimera',
-    path: '/ruminatingchimera',
-    getParentRoute: () => IssuesAndsceneRoute,
-  } as any)
-const IssuesAndscenePostOfficeRoute =
-  IssuesAndscenePostOfficeRouteImport.update({
-    id: '/post-office',
-    path: '/post-office',
-    getParentRoute: () => IssuesAndsceneRoute,
-  } as any)
-const IssuesAndsceneLimerenceRoute = IssuesAndsceneLimerenceRouteImport.update({
-  id: '/limerence',
-  path: '/limerence',
+const IssuesAndsceneAlleyRoute = IssuesAndsceneAlleyRouteImport.update({
+  id: '/alley',
+  path: '/alley',
   getParentRoute: () => IssuesAndsceneRoute,
 } as any)
 
@@ -217,13 +191,9 @@ export interface FileRoutesByFullPath {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
-  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
-  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
-  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
-  '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -248,13 +218,9 @@ export interface FileRoutesByTo {
   '/Issues/not': typeof IssuesNotRoute
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
-  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
-  '/dev/victorian': typeof DevVictorianRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
-  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
-  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
-  '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -282,13 +248,9 @@ export interface FileRoutesById {
   '/Issues/reminiscence': typeof IssuesReminiscenceRoute
   '/Issues/serial': typeof IssuesSerialRouteWithChildren
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
-  '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
-  '/dev/victorian': typeof DevVictorianRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
-  '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
-  '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
-  '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -317,13 +279,9 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
-    | '/dev/ruminatingchimera'
-    | '/dev/victorian'
     | '/Issues'
     | '/articles'
-    | '/Issues/andscene/limerence'
-    | '/Issues/andscene/post-office'
-    | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/alley'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -348,13 +306,9 @@ export interface FileRouteTypes {
     | '/Issues/not'
     | '/Issues/reminiscence'
     | '/articles/$articleSlug'
-    | '/dev/ruminatingchimera'
-    | '/dev/victorian'
     | '/Issues'
     | '/articles'
-    | '/Issues/andscene/limerence'
-    | '/Issues/andscene/post-office'
-    | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/alley'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -381,13 +335,9 @@ export interface FileRouteTypes {
     | '/Issues/reminiscence'
     | '/Issues/serial'
     | '/articles/$articleSlug'
-    | '/dev/ruminatingchimera'
-    | '/dev/victorian'
     | '/Issues/'
     | '/articles/'
-    | '/Issues/andscene/limerence'
-    | '/Issues/andscene/post-office'
-    | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/alley'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -415,8 +365,6 @@ export interface RootRouteChildren {
   IssuesReminiscenceRoute: typeof IssuesReminiscenceRoute
   IssuesSerialRoute: typeof IssuesSerialRouteWithChildren
   ArticlesArticleSlugRoute: typeof ArticlesArticleSlugRoute
-  DevRuminatingchimeraRoute: typeof DevRuminatingchimeraRoute
-  DevVictorianRoute: typeof DevVictorianRoute
   IssuesIndexRoute: typeof IssuesIndexRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
 }
@@ -484,20 +432,6 @@ declare module '@tanstack/react-router' {
       path: '/Issues'
       fullPath: '/Issues'
       preLoaderRoute: typeof IssuesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev/victorian': {
-      id: '/dev/victorian'
-      path: '/dev/victorian'
-      fullPath: '/dev/victorian'
-      preLoaderRoute: typeof DevVictorianRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev/ruminatingchimera': {
-      id: '/dev/ruminatingchimera'
-      path: '/dev/ruminatingchimera'
-      fullPath: '/dev/ruminatingchimera'
-      preLoaderRoute: typeof DevRuminatingchimeraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles/$articleSlug': {
@@ -619,41 +553,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialAnumberoutofplaceRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
-    '/Issues/andscene/ruminatingchimera': {
-      id: '/Issues/andscene/ruminatingchimera'
-      path: '/ruminatingchimera'
-      fullPath: '/Issues/andscene/ruminatingchimera'
-      preLoaderRoute: typeof IssuesAndsceneRuminatingchimeraRouteImport
-      parentRoute: typeof IssuesAndsceneRoute
-    }
-    '/Issues/andscene/post-office': {
-      id: '/Issues/andscene/post-office'
-      path: '/post-office'
-      fullPath: '/Issues/andscene/post-office'
-      preLoaderRoute: typeof IssuesAndscenePostOfficeRouteImport
-      parentRoute: typeof IssuesAndsceneRoute
-    }
-    '/Issues/andscene/limerence': {
-      id: '/Issues/andscene/limerence'
-      path: '/limerence'
-      fullPath: '/Issues/andscene/limerence'
-      preLoaderRoute: typeof IssuesAndsceneLimerenceRouteImport
+    '/Issues/andscene/alley': {
+      id: '/Issues/andscene/alley'
+      path: '/alley'
+      fullPath: '/Issues/andscene/alley'
+      preLoaderRoute: typeof IssuesAndsceneAlleyRouteImport
       parentRoute: typeof IssuesAndsceneRoute
     }
   }
 }
 
 interface IssuesAndsceneRouteChildren {
-  IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
-  IssuesAndscenePostOfficeRoute: typeof IssuesAndscenePostOfficeRoute
-  IssuesAndsceneRuminatingchimeraRoute: typeof IssuesAndsceneRuminatingchimeraRoute
+  IssuesAndsceneAlleyRoute: typeof IssuesAndsceneAlleyRoute
   IssuesAndsceneIndexRoute: typeof IssuesAndsceneIndexRoute
 }
 
 const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
-  IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
-  IssuesAndscenePostOfficeRoute: IssuesAndscenePostOfficeRoute,
-  IssuesAndsceneRuminatingchimeraRoute: IssuesAndsceneRuminatingchimeraRoute,
+  IssuesAndsceneAlleyRoute: IssuesAndsceneAlleyRoute,
   IssuesAndsceneIndexRoute: IssuesAndsceneIndexRoute,
 }
 
@@ -705,8 +621,6 @@ const rootRouteChildren: RootRouteChildren = {
   IssuesReminiscenceRoute: IssuesReminiscenceRoute,
   IssuesSerialRoute: IssuesSerialRouteWithChildren,
   ArticlesArticleSlugRoute: ArticlesArticleSlugRoute,
-  DevRuminatingchimeraRoute: DevRuminatingchimeraRoute,
-  DevVictorianRoute: DevVictorianRoute,
   IssuesIndexRoute: IssuesIndexRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
 }
