@@ -1,0 +1,52 @@
+/* page */
+
+.unboxed-root {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+}
+
+/* fullscreen section */
+
+.unboxed-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* hanging container */
+
+.unboxed-hanging {
+  position: absolute;
+  transform-origin: top center;
+  animation: swing ease-in-out infinite alternate;
+}
+
+/* for string */
+
+.unboxed-string {
+  width: 2px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* for photo */
+
+.unboxed-photo {
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* animation */
+
+@keyframes swing {
+  0% {
+    transform: rotate(-2deg) translateY(0px);
+  }
+
+  100% {
+    transform: rotate(2deg) translateY(6px);
+  }
+}

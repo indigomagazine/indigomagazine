@@ -2,6 +2,16 @@ export const andSceneItems = [
     // Add new issue article at the top. 
 
     {
+        id: "issue",
+        title: "Unboxed",
+        description: "And Scene Issue",
+        image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/unboxed/everyone-sitting-1.jpg",
+        path: "/Issues/andscene/unboxed",
+        to: "/Issues/andscene/unboxed",
+        coverPos: "center center",
+    },
+
+    {
         id: "andscene-1",
         title: "Alley",
         description: "And Scene Issue",
