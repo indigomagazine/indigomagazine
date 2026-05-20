@@ -28,7 +28,7 @@ React.useEffect(() => {
 
 const backgroundStyle = {
   backgroundImage:
-    "url('https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/matrixbg.gif')",
+    "url('https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/matrixbg.gif')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -41,15 +41,15 @@ const backgroundStyle = {
 };
 
   const leftImages = [
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1351%20copy.jpg",
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg",
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1535%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1351%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1404%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1535%20copy.jpg",
   ];
 
   const rightImages = [
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1545%20copy.jpg",
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1495%20copy.jpg",
-    "https://cdn.indigomagazinetx.com/article%20photos/11%20-%20serial/a%20number%20out%20of%20place/REN_1380%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1545%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1495%20copy.jpg",
+    "https://cdn.indigomagazinetx.com/articlephotos/serial/a%20number%20out%20of%20place/REN_1380%20copy.jpg",
   ];
 
   const allImages = [...leftImages, ...rightImages];

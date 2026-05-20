@@ -45,7 +45,7 @@ const FRAME_DESIGNS = {
     slotBg: "#1a0000",
     titleColor: "#e8c4b8",
     titleFont: "'Great Vibes', cursive",
-    overlayImage: "https://cdn.indigomagazinetx.com/visual%20arts/photoboothstrips/photobooth_nicole.webp"
+    overlayImage: "https://cdn.indigomagazinetx.com/visualarts/photoboothstrips/photobooth_nicole.webp"
   },
   design2: {
     label: "Design 2",

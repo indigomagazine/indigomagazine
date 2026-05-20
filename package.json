@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/cli": "^4.2.2",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-router": "^1.132.2",
     "@tanstack/react-router-devtools": "^1.132.2",

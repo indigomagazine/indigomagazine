@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useRef, forwardRef } from "react";
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
+import IssueSidebar from "./IssueSidebar";
+import IssueCard from "./IssueCard";
 import "../serial/serial.css";
 
 export default function IssueLayout({ items, theme }) {
@@ -12,8 +14,14 @@ export default function IssueLayout({ items, theme }) {
     const [animClass, setAnimClass] = useState(""); // "slide-in-left" | "slide-in-right" | ""
 
     // Scroll-hint state
+    // Use a per-issue storage key so different issue pages don't share the same saved index
+    const storageKey = useMemo(() => {
+        const base = (items && items[0] && items[0].title) ? String(items[0].title).replace(/\s+/g, '_') : 'default';
+        return `issue_last_index_${base}`;
+    }, [items]);
+
     const [activeIndex, setActiveIndex] = useState(() => {
-        const saved = localStorage.getItem("serial_last_index");
+        const saved = localStorage.getItem(storageKey);
         return saved ? parseInt(saved, 10) : 0;
     });
     const [showHint, setShowHint] = useState(false);
@@ -50,7 +58,7 @@ export default function IssueLayout({ items, theme }) {
             const idx = Math.round(el.scrollTop / h);
             if (idx !== activeIndex) {
                 setActiveIndex(idx);
-                localStorage.setItem("serial_last_index", idx);
+                localStorage.setItem(storageKey, idx);
             }
             if (!hasScrolled.current) {
                 hasScrolled.current = true;
@@ -149,37 +157,17 @@ export default function IssueLayout({ items, theme }) {
         <div
             className="mg-root"
             style={{
+                "--bg": theme?.bgColor || "#fffcf1",
+                "--text": theme?.textColor || "#F5E7BA",
                 "--drawer-w": theme?.drawerW || "300px",
-                "--drawer-h": theme?.drawerH || "80vh",
+                "--drawer-h": theme?.drawerH || "100vh",
                 "--drawer-bg": theme?.drawerBg || "rgba(10,10,10,0.70)",
                 "--drawer-color": theme?.drawerColor || "#f8d254ff",
                 "--drawer-accent": theme?.drawerAccent || "rgba(255,255,255,0.18)",
                 "--drawer-speed": theme?.drawerSpeed || "280ms",
             }}
         >
-            <aside
-                className={`serial-drawer ${barOpen ? "is-open" : ""}`}
-                role="complementary"
-                aria-label="Tools"
-            >
-                <div className="serial-drawer__inner">
-                    <nav className="drawer-nav" aria-label="Section">
-                        <Link to="/">Home</Link>
-                        <Link to="/issues">Issues</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/visual-arts">VisualArts</Link>
-                    </nav>
-                </div>
-            </aside>
-
-            <button
-                className={`drawer-tab ${barOpen ? "is-open" : ""}`}
-                aria-label={barOpen ? "Close tools" : "Open tools"}
-                aria-expanded={barOpen}
-                onClick={() => setBarOpen((v) => !v)}
-            >
-                <img src="/legacy/assets/logos/indigologowhite.png" alt="" />
-            </button>
+            <IssueSidebar barOpen={barOpen} setBarOpen={setBarOpen} />
 
             <div className={`content-stage ${animClass}`}>
                 {view === "scroll" ? (
@@ -247,26 +235,7 @@ function GridGallery({ items }) {
     return (
         <div className="grid-wrapper" aria-label="All stories (grid)">
             {items.map((it) => (
-                <article
-                    className={`grid-card ${it.comingSoon ? "is-coming-soon" : ""}`}
-                    key={it.id}
-                >
-                    {!it.comingSoon && it.to ? (
-                        <a href={it.to} className="card-link" aria-label={it.title} />
-                    ) : null}
-
-                    <img
-                        className="thumb"
-                        src={it.imageGrid || it.image}
-                        alt={it.title}
-                        loading="lazy"
-                        style={{ "--obj-pos": it.gridPos || "center center" }}
-                    />
-
-                    <div className="card-meta">
-                        {it.comingSoon && <span className="badge">Coming soon</span>}
-                    </div>
-                </article>
+                <IssueCard key={it.id || it.title} it={it} />
             ))}
         </div>
     );
