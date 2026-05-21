@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Dolles";
+  src: url("/fonts/Dolles.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bodoni";
+  src: url("/fonts/Bodoni.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BodoniUltraItalic";
+  src: url("/fonts/BodoniUltraItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0;
@@ -33,12 +54,10 @@ body {
   width: 100vw;
   height: 100vh;
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 70px;
-
   padding: 0 70px;
   box-sizing: border-box;
 }
@@ -95,7 +114,6 @@ body {
 
 .unboxed-text {
   white-space: pre-line;
-  font-family: AppleGaramond, serif;
   color: black;
 }
 
@@ -106,18 +124,21 @@ body {
 }
 
 .title-text {
-  font-size: 5rem;
+  font-family: "Dolles";
+  font-size: 7rem;
   text-align: center;
 }
 
 .subtitle-text {
+  font-family: "Bodoni";
   font-size: 1.8rem;
   text-align: center;
 }
 
 /* paragraph text */
 .body-text {
-  font-size: 1.5rem;
+  font-family: "Bodoni";
+  font-size: 1.6rem;
   line-height: 1.6;
 }
 
