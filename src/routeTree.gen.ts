@@ -43,6 +43,7 @@ import { Route as IssuesAndsceneUnboxedRouteImport } from './routes/Issues/andsc
 import { Route as IssuesAndsceneRuminatingchimeraRouteImport } from './routes/Issues/andscene/ruminatingchimera'
 import { Route as IssuesAndscenePostOfficeRouteImport } from './routes/Issues/andscene/post-office'
 import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
+import { Route as IssuesAndsceneDinnerRouteImport } from './routes/Issues/andscene/dinner'
 import { Route as IssuesAndsceneAlleyRouteImport } from './routes/Issues/andscene/alley'
 
 const VisualArtsRoute = VisualArtsRouteImport.update({
@@ -221,6 +222,11 @@ const IssuesAndsceneLimerenceRoute = IssuesAndsceneLimerenceRouteImport.update({
   path: '/limerence',
   getParentRoute: () => IssuesAndsceneRoute,
 } as any)
+const IssuesAndsceneDinnerRoute = IssuesAndsceneDinnerRouteImport.update({
+  id: '/dinner',
+  path: '/dinner',
+  getParentRoute: () => IssuesAndsceneRoute,
+} as any)
 const IssuesAndsceneAlleyRoute = IssuesAndsceneAlleyRouteImport.update({
   id: '/alley',
   path: '/alley',
@@ -248,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
+  '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
@@ -283,6 +290,7 @@ export interface FileRoutesByTo {
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
+  '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
@@ -321,6 +329,7 @@ export interface FileRoutesById {
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
+  '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
@@ -360,6 +369,7 @@ export interface FileRouteTypes {
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/alley'
+    | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
@@ -395,6 +405,7 @@ export interface FileRouteTypes {
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/alley'
+    | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
@@ -432,6 +443,7 @@ export interface FileRouteTypes {
     | '/Issues/'
     | '/articles/'
     | '/Issues/andscene/alley'
+    | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
@@ -710,6 +722,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesAndsceneLimerenceRouteImport
       parentRoute: typeof IssuesAndsceneRoute
     }
+    '/Issues/andscene/dinner': {
+      id: '/Issues/andscene/dinner'
+      path: '/dinner'
+      fullPath: '/Issues/andscene/dinner'
+      preLoaderRoute: typeof IssuesAndsceneDinnerRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
+    }
     '/Issues/andscene/alley': {
       id: '/Issues/andscene/alley'
       path: '/alley'
@@ -734,6 +753,7 @@ const SlideshowRouteWithChildren = SlideshowRoute._addFileChildren(
 
 interface IssuesAndsceneRouteChildren {
   IssuesAndsceneAlleyRoute: typeof IssuesAndsceneAlleyRoute
+  IssuesAndsceneDinnerRoute: typeof IssuesAndsceneDinnerRoute
   IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
   IssuesAndscenePostOfficeRoute: typeof IssuesAndscenePostOfficeRoute
   IssuesAndsceneRuminatingchimeraRoute: typeof IssuesAndsceneRuminatingchimeraRoute
@@ -743,6 +763,7 @@ interface IssuesAndsceneRouteChildren {
 
 const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
   IssuesAndsceneAlleyRoute: IssuesAndsceneAlleyRoute,
+  IssuesAndsceneDinnerRoute: IssuesAndsceneDinnerRoute,
   IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
   IssuesAndscenePostOfficeRoute: IssuesAndscenePostOfficeRoute,
   IssuesAndsceneRuminatingchimeraRoute: IssuesAndsceneRuminatingchimeraRoute,
