@@ -1,22 +1,11 @@
 @font-face {
   font-family: "Dolles";
   src: url("/fonts/Dolles.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
   font-family: "Bodoni";
   src: url("/fonts/Bodoni.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "BodoniUltraItalic";
-  src: url("/fonts/BodoniUltraItalic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 html,
@@ -26,59 +15,107 @@ body {
 }
 
 .unboxed-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(
+      rgba(210, 160, 90, 0.35),
+      rgba(210, 160, 90, 0.35)
+    ), url("/legacy/assets/backgrounds/wallpaper2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.unboxed-crossfade-container {
   position: sticky;
   top: 0;
-  width: 100vw;
   height: 100vh;
+  width: 100%;
   overflow: hidden;
-  background: pink;
 }
 
-/* horizontal */
-.unboxed-track {
+.unboxed-section {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: row;
-  width: fit-content;
-  height: 100%;
-}
-
-/* each section */
-/* .unboxed-section {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;
-  overflow: hidden;
-} */
- .unboxed-section {
-  width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 70px;
-  padding: 0 70px;
+  padding: 0 80px;
   box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
 }
 
-.unboxed-section.left {
-  flex-direction: row;
+.intro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.unboxed-section.right {
-  flex-direction: row-reverse;
+.intro-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/unboxed/plastic3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.45;
 }
 
-.unboxed-section.center {
-  flex-direction: column;
+.intro-section .unboxed-content {
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.intro-section .unboxed-item {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-section .unboxed-group {
   text-align: center;
 }
 
-.unboxed-images {
+/* content */
+.unboxed-content {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
   align-items: flex-start;
+  gap: 60px;
+}
+
+/* each item */
+.unboxed-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+/* placement */
+.unboxed-item.left {
+  justify-content: flex-start;
+}
+
+.unboxed-item.center {
+  justify-content: center;
+  text-align: left;
+}
+
+.unboxed-item.right {
+  justify-content: flex-end;
+  text-align: left;
 }
 
 /* hanging wrapper */
@@ -86,6 +123,7 @@ body {
   position: relative;
 }
 
+/* swinging animation */
 .unboxed-swing {
   transform-origin: top center;
   animation: swing 3s ease-in-out infinite alternate;
@@ -94,63 +132,182 @@ body {
 /* string */
 .unboxed-string {
   width: 2px;
-  height: 80px;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.2);
 }
 
-/* photo */
+/* viewport-based */
+.unboxed-string.short {
+  height: 18vh;
+}
+
+.unboxed-string.medium {
+  height: 30vh;
+}
+
+.unboxed-string.long {
+  height: 45vh;
+}
+
+/* image */
 .unboxed-photo {
-  width: 280px;
   height: auto;
   display: block;
   border-radius: 6px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.12);
+  box-shadow: 0 8px 25px rgba(245, 243, 244, 0.3);
 }
 
-.unboxed-text-wrapper {
-  max-width: 600px;
+/* landscape */
+.unboxed-photo.horizontal {
+  width: 500px;
 }
 
+/* portrait */
+.unboxed-photo.vertical {
+  width: 380px;
+}
+
+/* text */
 .unboxed-text {
   white-space: pre-line;
   color: black;
-}
-
-.unboxed-images {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+  margin: 0;
 }
 
 .title-text {
   font-family: "Dolles";
-  font-size: 7rem;
-  text-align: center;
+  font-size: 10rem;
+  line-height: 0.9;
+  color: rgba(36, 17, 3);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35), 2px 2px 3px rgba(36, 17, 3, 0.28);
 }
 
 .subtitle-text {
   font-family: "Bodoni";
   font-size: 1.8rem;
-  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35), 2px 2px 3px rgba(36, 17, 3, 0.28);
 }
 
-/* paragraph text */
 .body-text {
   font-family: "Bodoni";
-  font-size: 1.6rem;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(36, 17, 3, 0.95);
 }
 
-/* swing */
+/* lace panel */
+.unboxed-text-panel {
+  width: 650px;
+  height: 420px;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/unboxed/lace-text.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(
+    0 8px 18px rgba(245, 243, 244, 0.35)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* article text */
+.lace-inner {
+  width: 72%;
+  height: 68%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bodoni";
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(36, 17, 3, 0.95);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35), 2px 2px 3px rgba(36, 17, 3, 0.28);
+  white-space: pre-line;
+  text-align: left;
+}
+
+.unboxed-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* other layout placement adjustments */
+.centered-poem-section .unboxed-item:has(.unboxed-text-panel) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.unboxed-item:has(.unboxed-photo) {
+  position: relative;
+  z-index: 2;
+}
+
+.final-photo-section .unboxed-content {
+  justify-content: center;
+  align-items: center;
+}
+
+.final-photo-section .unboxed-item {
+  justify-content: center;
+  align-items: center;
+}
+
+.final-photo-section .unboxed-photo.horizontal {
+  width: 750px;
+}
+
+/* swing animation */
 @keyframes swing {
   0% {
-    transform: rotate(calc(var(--rotation) - 2deg))
+    transform:
+      rotate(calc(var(--rotation) - 3deg))
       translateY(0px);
   }
 
   100% {
-    transform: rotate(calc(var(--rotation) + 2deg))
+    transform:
+      rotate(calc(var(--rotation) + 3deg))
       translateY(6px);
+  }
+}
+
+/* responsiveness */
+@media (max-width: 900px) {
+  .unboxed-section {
+    padding: 60px 30px;
+  }
+
+  .unboxed-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .unboxed-item.left,
+  .unboxed-item.center,
+  .unboxed-item.right {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title-text {
+    font-size: 5rem;
+  }
+
+  .body-text {
+    font-size: 1.2rem;
+  }
+
+  .unboxed-photo {
+      width: min(420px, 30vw);
   }
 }
