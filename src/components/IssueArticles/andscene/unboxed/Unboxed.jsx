@@ -109,7 +109,7 @@ const sections = [
         orientation: "horizontal"
       },
 
-      
+
     ],
   },
 
@@ -177,9 +177,14 @@ const sections = [
 
 export default function Unboxed() {
   const refs = useRef([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isMobile) {
+        return;
+      }
+
       const scrollY = window.scrollY;
       const viewportH = window.innerHeight;
 
@@ -187,34 +192,32 @@ export default function Unboxed() {
         if (!el) return;
 
         const start = index * viewportH;
-        const progress =
-          (scrollY - start) / viewportH;
+        const progress = (scrollY - start) / viewportH;
 
         let opacity;
 
         if (progress < 0) opacity = 0;
         else if (progress <= 0.7) opacity = 1;
         else if (progress <= 1)
-          opacity =
-            1 - (progress - 0.7) / 0.3;
+          opacity = 1 - (progress - 0.7) / 0.3;
         else opacity = 0;
 
         el.style.opacity = opacity;
       });
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+      handleScroll();
+    }
 
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
     handleScroll();
 
     return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -234,93 +237,91 @@ export default function Unboxed() {
             `}
           >
             <div className="unboxed-content">
-            {section.items?.map((item, i) => {
-              /* image */
-              if (item.type === "image") {
-                return (
-                  <div
-                    key={i}
-                    className={`unboxed-item ${item.position}`}
-                  >
-                    <div className="unboxed-hanging">
-                      <div
-                        className="unboxed-swing"
-                        style={{
-                          "--rotation":
-                            `${item.rotate || 0}deg`,
-                          animationDelay:
-                            `${i * 0.4}s`,
-                        }}
-                      >
-                        {item.hasString !== false && (
-                          <div
-                            className={`unboxed-string ${item.stringLength || "medium"
-                              }`}
+              {section.items?.map((item, i) => {
+                /* image */
+                if (item.type === "image") {
+                  return (
+                    <div
+                      key={i}
+                      className={`unboxed-item ${item.position}`}
+                    >
+                      <div className="unboxed-hanging">
+                        <div
+                          className="unboxed-swing"
+                          style={{
+                            "--rotation":
+                              `${item.rotate || 0}deg`,
+                            animationDelay:
+                              `${i * 0.4}s`,
+                          }}
+                        >
+                          {item.hasString !== false && (
+                            <div
+                              className={`unboxed-string ${item.stringLength || "medium"
+                                }`}
+                            />
+                          )}
+
+                          <img
+                            src={item.src}
+                            alt=""
+                            className={`unboxed-photo ${item.orientation}`}
                           />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                /* group */
+                if (item.type === "group") {
+                  return (
+                    <div
+                      key={i}
+                      className={`unboxed-item ${item.position}`}
+                    >
+                      <div className="unboxed-group">
+                        {item.children?.map(
+                          (child, childIndex) => (
+                            <p
+                              key={childIndex}
+                              className={`unboxed-text ${child.className}`}
+                            >
+                              {child.content}
+                            </p>
+                          )
                         )}
-
-                        <img
-                          src={item.src}
-                          alt=""
-                          className={`unboxed-photo ${item.orientation}`}
-                        />
                       </div>
                     </div>
-                  </div>
-                );
-              }
+                  );
+                }
 
-              /* group */
-              if (item.type === "group") {
-                return (
-                  <div
-                    key={i}
-                    className={`unboxed-item ${item.position}`}
-                  >
-                    <div className="unboxed-group">
-                      {item.children?.map(
-                        (child, childIndex) => (
-                          <p
-                            key={childIndex}
-                            className={`unboxed-text ${child.className}`}
-                          >
-                            {child.content}
-                          </p>
-                        )
-                      )}
-                    </div>
-                  </div>
-                );
-              }
-
-              /* text */
-              if (item.type === "text") {
-                return (
-                  <div
-                    key={i}
-                    className={`unboxed-item ${item.position}`}
-                  >
-                    <div className={`unboxed-text-panel ${item.className}`}>
-                      <div className="lace-inner">
-                        {item.content}
+                /* text */
+                if (item.type === "text") {
+                  return (
+                    <div
+                      key={i}
+                      className={`unboxed-item ${item.position}`}
+                    >
+                      <div className={`unboxed-text-panel ${item.className}`}>
+                        <div className="lace-inner">
+                          {item.content}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              }
+                  );
+                }
 
-              return null;
-            })}
-          </div>
-        </section>
-      ))}
+                return null;
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+      <div
+        /* scroll */
+        style={{ height: isMobile ? 0 : `${(sections.length - 1) * 100}vh` }}
+      />
     </div>
-    <div
-    /* scroll behavior */
-      style={{
-          height: `${(sections.length - 1) * 100}vh`,
-      }}
-    />
-  </div>
   );
 }
