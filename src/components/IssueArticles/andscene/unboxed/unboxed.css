@@ -133,7 +133,7 @@ body {
 
 /* string */
 .unboxed-string {
-  width: 2px;
+  width: 3.2px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.2);
 }
@@ -358,7 +358,7 @@ body {
 
   .lace-inner {
     width: 80%;
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     line-height: 1.1;
     padding: 16px 12px;
   }
