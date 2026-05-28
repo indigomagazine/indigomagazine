@@ -218,7 +218,7 @@ body {
 .lace-inner {
   font-size: clamp(0.95rem, 1vw, 1.25rem);
   line-height: 1.5;
-  width: 87%;
+  width: 100%;
   padding: 8% 14%;    
   overflow-wrap: break-word;
   display: flex;
