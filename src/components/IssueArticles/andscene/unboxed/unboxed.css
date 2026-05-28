@@ -216,7 +216,7 @@ body {
 
 /* article text */
 .lace-inner {
-  font-size: clamp(0.95rem, 1vw, 1.3rem);
+  font-size: clamp(0.95rem, 1vw, 1.25rem);
   line-height: 1.5;
   width: 87%;
   padding: 8% 14%;    
