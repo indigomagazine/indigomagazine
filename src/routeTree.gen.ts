@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualArtsRouteImport } from './routes/visual-arts'
+import { Route as SlideshowRouteImport } from './routes/slideshow'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PhotoboothRouteImport } from './routes/photobooth'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
@@ -18,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles/index'
 import { Route as IssuesIndexRouteImport } from './routes/Issues/index'
+import { Route as SlideshowSlugRouteImport } from './routes/slideshow/$slug'
 import { Route as DevVictorianRouteImport } from './routes/dev/victorian'
 import { Route as DevRuminatingchimeraRouteImport } from './routes/dev/ruminatingchimera'
 import { Route as ArticlesArticleSlugRouteImport } from './routes/articles/$articleSlug'
@@ -37,6 +39,7 @@ import { Route as IssuesSerialIndigoosRouteImport } from './routes/Issues/serial
 import { Route as IssuesSerialIloveshoppingRouteImport } from './routes/Issues/serial/iloveshopping'
 import { Route as IssuesSerialCovetRouteImport } from './routes/Issues/serial/covet'
 import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issues/serial/anumberoutofplace'
+import { Route as IssuesAndsceneUnboxedRouteImport } from './routes/Issues/andscene/unboxed'
 import { Route as IssuesAndsceneRuminatingchimeraRouteImport } from './routes/Issues/andscene/ruminatingchimera'
 import { Route as IssuesAndscenePostOfficeRouteImport } from './routes/Issues/andscene/post-office'
 import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
@@ -46,6 +49,11 @@ import { Route as IssuesAndsceneAlleyRouteImport } from './routes/Issues/andscen
 const VisualArtsRoute = VisualArtsRouteImport.update({
   id: '/visual-arts',
   path: '/visual-arts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlideshowRoute = SlideshowRouteImport.update({
+  id: '/slideshow',
+  path: '/slideshow',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -87,6 +95,11 @@ const IssuesIndexRoute = IssuesIndexRouteImport.update({
   id: '/Issues/',
   path: '/Issues/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SlideshowSlugRoute = SlideshowSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SlideshowRoute,
 } as any)
 const DevVictorianRoute = DevVictorianRouteImport.update({
   id: '/dev/victorian',
@@ -187,6 +200,11 @@ const IssuesSerialAnumberoutofplaceRoute =
     path: '/anumberoutofplace',
     getParentRoute: () => IssuesSerialRoute,
   } as any)
+const IssuesAndsceneUnboxedRoute = IssuesAndsceneUnboxedRouteImport.update({
+  id: '/unboxed',
+  path: '/unboxed',
+  getParentRoute: () => IssuesAndsceneRoute,
+} as any)
 const IssuesAndsceneRuminatingchimeraRoute =
   IssuesAndsceneRuminatingchimeraRouteImport.update({
     id: '/ruminatingchimera',
@@ -222,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
@@ -231,6 +250,7 @@ export interface FileRoutesByFullPath {
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
@@ -238,6 +258,7 @@ export interface FileRoutesByFullPath {
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -257,6 +278,7 @@ export interface FileRoutesByTo {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/kismet': typeof IssuesKismetRoute
   '/Issues/not': typeof IssuesNotRoute
@@ -264,6 +286,7 @@ export interface FileRoutesByTo {
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues': typeof IssuesIndexRoute
   '/articles': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
@@ -271,6 +294,7 @@ export interface FileRoutesByTo {
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -291,6 +315,7 @@ export interface FileRoutesById {
   '/newsletter': typeof NewsletterRoute
   '/photobooth': typeof PhotoboothRoute
   '/quiz': typeof QuizRoute
+  '/slideshow': typeof SlideshowRouteWithChildren
   '/visual-arts': typeof VisualArtsRoute
   '/Issues/andscene': typeof IssuesAndsceneRouteWithChildren
   '/Issues/kismet': typeof IssuesKismetRoute
@@ -300,6 +325,7 @@ export interface FileRoutesById {
   '/articles/$articleSlug': typeof ArticlesArticleSlugRoute
   '/dev/ruminatingchimera': typeof DevRuminatingchimeraRoute
   '/dev/victorian': typeof DevVictorianRoute
+  '/slideshow/$slug': typeof SlideshowSlugRoute
   '/Issues/': typeof IssuesIndexRoute
   '/articles/': typeof ArticlesIndexRoute
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
@@ -307,6 +333,7 @@ export interface FileRoutesById {
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
+  '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
   '/Issues/serial/anumberoutofplace': typeof IssuesSerialAnumberoutofplaceRoute
   '/Issues/serial/covet': typeof IssuesSerialCovetRoute
   '/Issues/serial/iloveshopping': typeof IssuesSerialIloveshoppingRoute
@@ -328,6 +355,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/andscene'
     | '/Issues/kismet'
@@ -337,6 +365,7 @@ export interface FileRouteTypes {
     | '/articles/$articleSlug'
     | '/dev/ruminatingchimera'
     | '/dev/victorian'
+    | '/slideshow/$slug'
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/alley'
@@ -344,6 +373,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/unboxed'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -363,6 +393,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/kismet'
     | '/Issues/not'
@@ -370,6 +401,7 @@ export interface FileRouteTypes {
     | '/articles/$articleSlug'
     | '/dev/ruminatingchimera'
     | '/dev/victorian'
+    | '/slideshow/$slug'
     | '/Issues'
     | '/articles'
     | '/Issues/andscene/alley'
@@ -377,6 +409,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/unboxed'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -396,6 +429,7 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/photobooth'
     | '/quiz'
+    | '/slideshow'
     | '/visual-arts'
     | '/Issues/andscene'
     | '/Issues/kismet'
@@ -405,6 +439,7 @@ export interface FileRouteTypes {
     | '/articles/$articleSlug'
     | '/dev/ruminatingchimera'
     | '/dev/victorian'
+    | '/slideshow/$slug'
     | '/Issues/'
     | '/articles/'
     | '/Issues/andscene/alley'
@@ -412,6 +447,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/limerence'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
+    | '/Issues/andscene/unboxed'
     | '/Issues/serial/anumberoutofplace'
     | '/Issues/serial/covet'
     | '/Issues/serial/iloveshopping'
@@ -432,6 +468,7 @@ export interface RootRouteChildren {
   NewsletterRoute: typeof NewsletterRoute
   PhotoboothRoute: typeof PhotoboothRoute
   QuizRoute: typeof QuizRoute
+  SlideshowRoute: typeof SlideshowRouteWithChildren
   VisualArtsRoute: typeof VisualArtsRoute
   IssuesAndsceneRoute: typeof IssuesAndsceneRouteWithChildren
   IssuesKismetRoute: typeof IssuesKismetRoute
@@ -452,6 +489,13 @@ declare module '@tanstack/react-router' {
       path: '/visual-arts'
       fullPath: '/visual-arts'
       preLoaderRoute: typeof VisualArtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slideshow': {
+      id: '/slideshow'
+      path: '/slideshow'
+      fullPath: '/slideshow'
+      preLoaderRoute: typeof SlideshowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -509,6 +553,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/Issues'
       preLoaderRoute: typeof IssuesIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/slideshow/$slug': {
+      id: '/slideshow/$slug'
+      path: '/$slug'
+      fullPath: '/slideshow/$slug'
+      preLoaderRoute: typeof SlideshowSlugRouteImport
+      parentRoute: typeof SlideshowRoute
     }
     '/dev/victorian': {
       id: '/dev/victorian'
@@ -643,6 +694,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesSerialAnumberoutofplaceRouteImport
       parentRoute: typeof IssuesSerialRoute
     }
+    '/Issues/andscene/unboxed': {
+      id: '/Issues/andscene/unboxed'
+      path: '/unboxed'
+      fullPath: '/Issues/andscene/unboxed'
+      preLoaderRoute: typeof IssuesAndsceneUnboxedRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
+    }
     '/Issues/andscene/ruminatingchimera': {
       id: '/Issues/andscene/ruminatingchimera'
       path: '/ruminatingchimera'
@@ -681,12 +739,25 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface SlideshowRouteChildren {
+  SlideshowSlugRoute: typeof SlideshowSlugRoute
+}
+
+const SlideshowRouteChildren: SlideshowRouteChildren = {
+  SlideshowSlugRoute: SlideshowSlugRoute,
+}
+
+const SlideshowRouteWithChildren = SlideshowRoute._addFileChildren(
+  SlideshowRouteChildren,
+)
+
 interface IssuesAndsceneRouteChildren {
   IssuesAndsceneAlleyRoute: typeof IssuesAndsceneAlleyRoute
   IssuesAndsceneDinnerRoute: typeof IssuesAndsceneDinnerRoute
   IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
   IssuesAndscenePostOfficeRoute: typeof IssuesAndscenePostOfficeRoute
   IssuesAndsceneRuminatingchimeraRoute: typeof IssuesAndsceneRuminatingchimeraRoute
+  IssuesAndsceneUnboxedRoute: typeof IssuesAndsceneUnboxedRoute
   IssuesAndsceneIndexRoute: typeof IssuesAndsceneIndexRoute
 }
 
@@ -696,6 +767,7 @@ const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
   IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
   IssuesAndscenePostOfficeRoute: IssuesAndscenePostOfficeRoute,
   IssuesAndsceneRuminatingchimeraRoute: IssuesAndsceneRuminatingchimeraRoute,
+  IssuesAndsceneUnboxedRoute: IssuesAndsceneUnboxedRoute,
   IssuesAndsceneIndexRoute: IssuesAndsceneIndexRoute,
 }
 
@@ -740,6 +812,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsletterRoute: NewsletterRoute,
   PhotoboothRoute: PhotoboothRoute,
   QuizRoute: QuizRoute,
+  SlideshowRoute: SlideshowRouteWithChildren,
   VisualArtsRoute: VisualArtsRoute,
   IssuesAndsceneRoute: IssuesAndsceneRouteWithChildren,
   IssuesKismetRoute: IssuesKismetRoute,

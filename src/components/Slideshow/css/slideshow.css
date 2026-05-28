@@ -1,0 +1,125 @@
+:root {
+  box-sizing: border-box;
+}
+
+/* Slideshow wrapper */
+.slideshow-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Dots container */
+.dot-container {
+  /*display: flex;
+  align-items: bottom;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 24px;*/
+  margin: 24px 0;
+  text-align: center;
+  position: relative;
+  /*right: 50%;
+  bottom: 5%;*/
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Slide image scales with viewpor size & preserves aspect ratio */
+.slide-img {
+  object-fit: contain;
+  max-height: 70vh;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.current {
+  display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: gray;
+  font-weight: bold;
+  font-size: 22px;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+  left: 0;
+  border-radius: 3px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Toggle off the previous & next arrows on smaller screens */
+@media only screen and (max-width: 768px) {
+  .prev, .next {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .prev, .next {
+    display: none;
+  }
+}
+
+/* Adjust the alignment of slideshow content on smaller screens */
+@media only screen and (max-width: 768px) {
+  .slideshow-wrapper {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .slideshow-wrapper {
+    justify-content: center;
+  }
+}
