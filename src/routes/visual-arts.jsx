@@ -24,10 +24,9 @@ function VisualArts() {
         const floatingPhotos = document.querySelectorAll(".floating-photo-wrapper");
         const positions = [];
 
-        // Reposition photos when mobile device is sideways
         const repositionPhotos = () => {
             floatingPhotos.forEach((photo) => {
-                const size = photo.offsetWidth; // Get the actual size from CSS
+                const size = photo.offsetWidth;
 
                 const randomX = Math.random() * (window.innerWidth - size);
                 const randomY = Math.random() * (window.innerHeight - size);
@@ -54,7 +53,6 @@ function VisualArts() {
             const computedStyle = getComputedStyle(photo);
             const size = parseFloat(computedStyle.width); // width in px
 
-            // Generate random positions, avoiding overlap (max 50 tries to prevent infinite loop)
             let tries = 0;
             do {
                 randomX = Math.floor(Math.random() * (window.innerWidth - size));
@@ -66,7 +64,6 @@ function VisualArts() {
             photo.style.left = `${randomX}px`;
             photo.style.top = `${randomY}px`;
 
-            // Add randomized animation delay for natural staggered motion
             const randomDelay = Math.random() * 2; // Between 0-2 seconds
             photo.style.animationDelay = `${randomDelay}s`;
         });
@@ -77,12 +74,11 @@ function VisualArts() {
         let animationFrameId;
 
         const smoothMove = () => {
-            // Gradual interpolation to target positions
             currentX += (targetX - currentX) * 0.1;
             currentY += (targetY - currentY) * 0.1;
 
             floatingPhotos.forEach((wrapper, index) => {
-                const offsetX = currentX / (10 + index); // Gradual movement scaling
+                const offsetX = currentX / (10 + index);
                 const offsetY = currentY / (10 + index);
                 wrapper.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
             });

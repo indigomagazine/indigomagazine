@@ -23,14 +23,24 @@ export const ArticlesHub = ({ posts }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-x-10 gap-y-20">
                     {posts.map((post) => (
-                        <Link
-                            key={post.id}
-                            to="/articles/$articleSlug"
-                            params={{ articleSlug: post.slug }}
-                            className="no-underline text-inherit group block h-full"
-                        >
-                            <HubCard post={post} />
-                        </Link>
+                        post.path ? (
+                            <a
+                                key={post.id || post.slug}
+                                href={post.path}
+                                className="no-underline text-inherit group block h-full"
+                            >
+                                <HubCard post={post} />
+                            </a>
+                        ) : (
+                            <Link
+                                key={post.id || post.slug}
+                                to="/articles/$articleSlug"
+                                params={{ articleSlug: post.slug }}
+                                className="no-underline text-inherit group block h-full"
+                            >
+                                <HubCard post={post} />
+                            </Link>
+                        )
                     ))}
                 </div>
             </div>

@@ -1,22 +1,61 @@
 import { useState, useEffect } from "react";
 import heroTitleSrc from "../../assets/logos/HeroTitle.svg";
+import heroConfig from "../../data/hero-config.json";
 
-// Import Hero Images
-import bunny2 from "../../assets/logos/bunny2.JPG";
-import duo3 from "../../assets/logos/duo3.JPG";
-import group2 from "../../assets/logos/group2.JPG";
-import group3 from "../../assets/logos/Group3.JPG";
-import mirror from "../../assets/logos/mirror.JPG";
-import rare from "../../assets/logos/rare.png";
-import rare2 from "../../assets/logos/rare2.png";
+// Import all hero images dynamically using Vite
+const allHeroImagesMap = import.meta.glob("../../assets/heroImages/**/*.{png,jpg,jpeg,JPG,PNG}", { eager: true });
 
+// Filter images based on the active group defined in config
+const getActiveHeroImages = () => {
+    const activeGroup = (heroConfig.activeGroup || "default").toLowerCase();
+    let activeImages = [];
 
-const HERO_IMAGES = [bunny2, duo3, group2, group3, mirror, rare, rare2];
+    for (const path in allHeroImagesMap) {
+        // Determine whether to use group subfolders (all, or specific group)
+        if (activeGroup === "all" || path.toLowerCase().includes(`/heroImages/${activeGroup}/`.toLowerCase())) {
+            const mod = allHeroImagesMap[path];
+            activeImages.push(mod.default || mod);
+        }
+    }
+
+    // If the folder was misnamed or empty, fallback to ALL images so the hero isn't a blank void
+    if (activeImages.length === 0) {
+        for (const path in allHeroImagesMap) {
+            const mod = allHeroImagesMap[path];
+            activeImages.push(mod.default || mod);
+        }
+    }
+
+    // Support CDN images configured via src/data/hero-config.json.
+    // heroConfig.cdnImages can be:
+    // - an array of URLs (applies regardless of group)
+    // - an object mapping groupName -> array of URLs (e.g. { "andscene": ["https://...jpg"] })
+    try {
+        const cdn = heroConfig.cdnImages;
+        if (Array.isArray(cdn)) {
+            // global CDN list
+            cdn.forEach((u) => { if (u) activeImages.push(u); });
+        } else if (cdn && typeof cdn === 'object') {
+            const groupList = cdn[activeGroup];
+            if (Array.isArray(groupList)) {
+                groupList.forEach((u) => { if (u) activeImages.push(u); });
+            }
+        }
+    } catch (e) {
+        console.warn('HeroSection: failed to read cdnImages from hero-config', e);
+    }
+
+    return activeImages;
+};
+
+const HERO_IMAGES = getActiveHeroImages();
 
 const HeroSection = () => {
     const [heroImage, setHeroImage] = useState(null);
 
     useEffect(() => {
+        if (HERO_IMAGES.length === 0) return;
+
         const lastIndex = localStorage.getItem("last_hero_index");
         let randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
 
@@ -49,7 +88,7 @@ const HeroSection = () => {
                 {/* Hero Title Image */}
                 <img
                     src={heroTitleSrc}
-                    alt="Indigo Magazine - What kind of Valentine are you?"
+                    alt="Indigo Magazine"
                     className="hero-title-svg"
                 />
             </div>
