@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'High Summit';
-  src: url('./High Summit.ttf'); /* Final page font */
+  src: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/High Summit.ttf"); /* Final page font */
 }
 
 body {
-  font-family: 'Nothing You Could Do', serif;
+  font-family: 'High Summit', serif;
   font-size: 16px;
   background: radial-gradient(#efefef 50%, #acadb8 75%, #777884);
   background-repeat: no-repeat;
@@ -128,7 +128,6 @@ body {
 }
 
 .petri-back {
-  background-color: #2980b9;
   color: black;
   transform: rotateY(180deg) translateZ(11px);
   border-radius: 50%;
@@ -153,8 +152,8 @@ body {
 /* Overflowing mold behind petri dishes */
 .mold-overlay {
   position: absolute;
-  height: 450px;
-  width: 450px;
+  min-height: 425px;
+  min-width: 425px;
   overflow: visible;
   opacity: 0;
   z-index: -99;
@@ -266,14 +265,15 @@ body {
   height: 350px;
 
   padding: 15px;
-  font-family: 'High Summit', serif;
+  color: black;
   font-size: 1.25rem;
   font-weight: 600;
 }
+
 .paper > p {
   text-align: right;
   margin-top: -2%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 .paper-list:hover, .petri-dish-inner:hover {
@@ -282,29 +282,29 @@ body {
 
 /* adjust alignment for papers */
 [data-paper="0"] .paper {
-  background-image: url("/images/moldpaint3-2.png");
-  background-size: 300px 380px;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldpaint3-2.png");
+  background-size: 270px 350px;
   filter: contrast(85%) brightness(130%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
   rotate: -7deg;
 }
 
 [data-paper="1"] .paper {
-  background-image: url("/images/moldfabric1-1.png");
-  background-size: 300px 380px;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldfabric1-1.png");
+  background-size: 270px 350px;
   filter: contrast(90%) brightness(105%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
   rotate: -11deg;
 }
 
 [data-paper="2"] .paper {
-  background-image: url("/images/moldfabric1-2.png");
-  background-size: 300px 380px;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldfabric1-2.png");
+  background-size: 270px 350px;
   filter: contrast(70%) brightness(120%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
   rotate: -3deg;
 }
 
 [data-paper="3"] .paper {
-  background-image: url("/images/moldpaint3-1.png");
-  background-size: 300px 380px;
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldpaint3-1.png");
+  background-size: 270px 350px;
   filter: contrast(77%) brightness(135%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
   rotate: -16deg;
 }

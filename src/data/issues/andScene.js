@@ -1,6 +1,14 @@
 export const andSceneItems = [
   // Add new issue article at the top.
-
+   {
+    id: "issue",
+    title: "Mold Spore Rejuvenation",
+    description: "And Scene Issue",
+    image: "https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/lace overlay 1.png",
+    path: "/Issues/andscene/moldspore",
+    to: "/Issues/andscene/moldspore",
+    coverPos: "center center",
+   },
    {
     id: "issue",
     title: "Unboxed",

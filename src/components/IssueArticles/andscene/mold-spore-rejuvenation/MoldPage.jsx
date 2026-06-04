@@ -4,8 +4,8 @@ import "./MoldPage.css"
 
 let paperIndex = 0;
 
-const MoldPage = () => {
-    let audio = new Audio("./paper_shuffling.mp3");
+export default function MoldPage() {
+    let audio = new Audio("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/paper_shuffling.mp3");
     /* States for clickable elements (petri dish, papers) */
     const [isFirstFlipped, setFirstFlipped] = useState(false);
     const [isSecondFlipped, setSecondFlipped] = useState(false);
@@ -44,23 +44,24 @@ const MoldPage = () => {
 
     const overlayStyles = [
         {
-            top: "-154px", 
-            left: "-133px"
+            top: "-140px", 
+            left: "-150px"
         },
         {
             top: "-75px",
-            left: "-73px",
+            left: "-100px",
             height: "425px",
             width: "425px"
         },
         { 
             top: "-150px", 
+            left: "-30px", 
             height: "425px", 
             width: "425px"
         },
         {
-            top: "-32px",
-            left: "-120px"
+            top: "-25px",
+            left: "-130px"
         }
     ];
 
@@ -105,7 +106,7 @@ const MoldPage = () => {
                 </li>
                 <li className={`paper-list__item ${isFourthShuffled ? 'is-animated' : ''}`} data-paper="3">
                     <div className="paper">
-                        <p>Mold Spore Rejuvenation<br />Written by: Zayeed A.</p>
+                        <p>Mold Spore Rejuvenation<br /><span style={{fontSize: "1rem"}}>Written by: Zayeed A.</span></p>
                     </div>
                 </li>
             </ul>
@@ -113,36 +114,36 @@ const MoldPage = () => {
         <div className="petri-wrapper">
             <div className={`petri-dish ${isFirstFlipped ? 'flipped' : ''}`} onClick={() => {setFirstFlipped(true)}} style={petriStyles[0]}>
                 <PetriDish
-                  imgFront="./images/final-petris/mold-pink.png"
-                  imgBack="./images/final-petris/mold-pink-nomodel.png"
-                  imgOverlay="./images/final-petris/mold-pink-mold.png"
+                  imgFront={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-pink.png"}
+                  imgBack={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-pink-nomodel.png"}
+                  imgOverlay={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-pink-mold.png"}
                   overlayPosition={ overlayStyles[0] }
                   isActive={isFirstFlipped}
                 />
             </div>
             <div className={`petri-dish ${isSecondFlipped ? 'flipped' : ''}`} onClick={() => {setSecondFlipped(true)}} style={petriStyles[1]} >
                 <PetriDish
-                  imgFront="./images/final-petris/mold-blue.png"
-                  imgBack="./images/final-petris/mold-blue-nomodel.png"
-                  imgOverlay="./images/final-petris/mold-blue-mold.png"
+                  imgFront={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-blue.png"}
+                  imgBack={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-blue-nomodel.png"}
+                  imgOverlay={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-blue-mold.png"}
                   overlayPosition={ overlayStyles[1] }
                   isActive={isSecondFlipped}
                 />
             </div>
             <div className={`petri-dish ${isThirdFlipped ? 'flipped' : ''}`} onClick={() => {setThirdFlipped(true)}} style={petriStyles[2]} >
                 <PetriDish
-                  imgFront="./images/final-petris/mold-green.png"
-                  imgBack="./images/final-petris/mold-green-nomodel.png"
-                  imgOverlay="./images/final-petris/mold-green-mold.png"
+                  imgFront={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-green.png"}
+                  imgBack={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-green-nomodel.png"}
+                  imgOverlay={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-green-mold.png"}
                   overlayPosition={ overlayStyles[2] }
                   isActive={isThirdFlipped}
                 />
             </div>
             <div className={`petri-dish ${isFourthFlipped ? 'flipped' : ''}`} onClick={() => {setFourthFlipped(true)}} style={petriStyles[3]}>
                 <PetriDish
-                  imgFront="./images/final-petris/mold-purp.png"
-                  imgBack="./images/final-petris/mold-purp-nomodel.png"
-                  imgOverlay="./images/final-petris/mold-purp-mold.png"
+                  imgFront={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-purp.png"}
+                  imgBack={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-purp-nomodel.png"}
+                  imgOverlay={"https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/mold-purp-mold.png"}
                   overlayPosition={ overlayStyles[3] }
                   isActive={isFourthFlipped}
                 />
@@ -151,5 +152,3 @@ const MoldPage = () => {
     </div>
     );
 }
-
-export default MoldPage;
