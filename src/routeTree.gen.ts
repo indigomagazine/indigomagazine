@@ -42,6 +42,7 @@ import { Route as IssuesSerialAnumberoutofplaceRouteImport } from './routes/Issu
 import { Route as IssuesAndsceneUnboxedRouteImport } from './routes/Issues/andscene/unboxed'
 import { Route as IssuesAndsceneRuminatingchimeraRouteImport } from './routes/Issues/andscene/ruminatingchimera'
 import { Route as IssuesAndscenePostOfficeRouteImport } from './routes/Issues/andscene/post-office'
+import { Route as IssuesAndsceneMoldsporeRouteImport } from './routes/Issues/andscene/moldspore'
 import { Route as IssuesAndsceneLimerenceRouteImport } from './routes/Issues/andscene/limerence'
 import { Route as IssuesAndsceneDinnerRouteImport } from './routes/Issues/andscene/dinner'
 import { Route as IssuesAndsceneAlleyRouteImport } from './routes/Issues/andscene/alley'
@@ -217,6 +218,11 @@ const IssuesAndscenePostOfficeRoute =
     path: '/post-office',
     getParentRoute: () => IssuesAndsceneRoute,
   } as any)
+const IssuesAndsceneMoldsporeRoute = IssuesAndsceneMoldsporeRouteImport.update({
+  id: '/moldspore',
+  path: '/moldspore',
+  getParentRoute: () => IssuesAndsceneRoute,
+} as any)
 const IssuesAndsceneLimerenceRoute = IssuesAndsceneLimerenceRouteImport.update({
   id: '/limerence',
   path: '/limerence',
@@ -256,6 +262,7 @@ export interface FileRoutesByFullPath {
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/moldspore': typeof IssuesAndsceneMoldsporeRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
@@ -292,6 +299,7 @@ export interface FileRoutesByTo {
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/moldspore': typeof IssuesAndsceneMoldsporeRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
@@ -331,6 +339,7 @@ export interface FileRoutesById {
   '/Issues/andscene/alley': typeof IssuesAndsceneAlleyRoute
   '/Issues/andscene/dinner': typeof IssuesAndsceneDinnerRoute
   '/Issues/andscene/limerence': typeof IssuesAndsceneLimerenceRoute
+  '/Issues/andscene/moldspore': typeof IssuesAndsceneMoldsporeRoute
   '/Issues/andscene/post-office': typeof IssuesAndscenePostOfficeRoute
   '/Issues/andscene/ruminatingchimera': typeof IssuesAndsceneRuminatingchimeraRoute
   '/Issues/andscene/unboxed': typeof IssuesAndsceneUnboxedRoute
@@ -371,6 +380,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/alley'
     | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/moldspore'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/andscene/unboxed'
@@ -407,6 +417,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/alley'
     | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/moldspore'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/andscene/unboxed'
@@ -445,6 +456,7 @@ export interface FileRouteTypes {
     | '/Issues/andscene/alley'
     | '/Issues/andscene/dinner'
     | '/Issues/andscene/limerence'
+    | '/Issues/andscene/moldspore'
     | '/Issues/andscene/post-office'
     | '/Issues/andscene/ruminatingchimera'
     | '/Issues/andscene/unboxed'
@@ -715,6 +727,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IssuesAndscenePostOfficeRouteImport
       parentRoute: typeof IssuesAndsceneRoute
     }
+    '/Issues/andscene/moldspore': {
+      id: '/Issues/andscene/moldspore'
+      path: '/moldspore'
+      fullPath: '/Issues/andscene/moldspore'
+      preLoaderRoute: typeof IssuesAndsceneMoldsporeRouteImport
+      parentRoute: typeof IssuesAndsceneRoute
+    }
     '/Issues/andscene/limerence': {
       id: '/Issues/andscene/limerence'
       path: '/limerence'
@@ -755,6 +774,7 @@ interface IssuesAndsceneRouteChildren {
   IssuesAndsceneAlleyRoute: typeof IssuesAndsceneAlleyRoute
   IssuesAndsceneDinnerRoute: typeof IssuesAndsceneDinnerRoute
   IssuesAndsceneLimerenceRoute: typeof IssuesAndsceneLimerenceRoute
+  IssuesAndsceneMoldsporeRoute: typeof IssuesAndsceneMoldsporeRoute
   IssuesAndscenePostOfficeRoute: typeof IssuesAndscenePostOfficeRoute
   IssuesAndsceneRuminatingchimeraRoute: typeof IssuesAndsceneRuminatingchimeraRoute
   IssuesAndsceneUnboxedRoute: typeof IssuesAndsceneUnboxedRoute
@@ -765,6 +785,7 @@ const IssuesAndsceneRouteChildren: IssuesAndsceneRouteChildren = {
   IssuesAndsceneAlleyRoute: IssuesAndsceneAlleyRoute,
   IssuesAndsceneDinnerRoute: IssuesAndsceneDinnerRoute,
   IssuesAndsceneLimerenceRoute: IssuesAndsceneLimerenceRoute,
+  IssuesAndsceneMoldsporeRoute: IssuesAndsceneMoldsporeRoute,
   IssuesAndscenePostOfficeRoute: IssuesAndscenePostOfficeRoute,
   IssuesAndsceneRuminatingchimeraRoute: IssuesAndsceneRuminatingchimeraRoute,
   IssuesAndsceneUnboxedRoute: IssuesAndsceneUnboxedRoute,

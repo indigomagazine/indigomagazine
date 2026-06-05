@@ -1,0 +1,343 @@
+@font-face {
+  font-family: 'High Summit';
+  src: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/High Summit.ttf"); /* Final page font */
+}
+
+body {
+  font-family: 'High Summit', serif;
+  font-size: 16px;
+  background: radial-gradient(#efefef 50%, #acadb8 75%, #777884);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+/* #########
+  Petri dish 
+#############*/
+
+.mold-page-wrapper {
+  display: flex;
+}
+
+.petri-wrapper {
+  width: 50vw;
+  max-width: 50vw;
+}
+
+/* Petri dish styling */
+
+.petri-dish {
+  display: inline-block;
+  position: absolute;
+  background-color: transparent;
+}
+
+.petri-dish-inner {
+  padding: 15px;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+.petri-dish.flipped .petri-dish-inner {
+  transform: rotateY(180deg);
+  pointer-events: none; /* after flipping, disable any hover effects */
+}
+
+
+.petri-front, .petri-back, .petri-dish-inner:before, .petri-dish-inner:after  {
+	background-color: #bbb;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.petri-front, .petri-back {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  filter: drop-shadow(0px 7px 7px rgba(0,0,0,0.4));
+
+  overflow: hidden;
+}
+
+.petri-img {
+  width: 125%;
+  height: 125%;
+  object-fit: cover;
+}
+
+.petri-dish-inner:before {
+  content: '';
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+  transform: rotateY(180deg) translateZ(1px);
+  background-image: -webkit-linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+}
+
+.petri-dish-inner:after {
+  content: '';
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+  transform: rotateY(180deg) translateZ(10px);
+  background-image: -webkit-linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+}
+
+.petri-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 50%;
+	opacity: 1;
+	transition: opacity 0 0.3s;
+}
+
+.petri-side {
+  background-color: #bbb;
+	background-image: -webkit-linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+  right: 130px;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  width: 10px;
+  z-index: -10;
+  transform: rotateY(-90deg);
+  transform-origin: 100% 50%;
+}
+
+.petri-back {
+  color: black;
+  transform: rotateY(180deg) translateZ(11px);
+  border-radius: 50%;
+}
+
+/* Mold fade-in transition */
+
+.petri-active {
+  animation: mold-fade 2s ease-in-out 1.5s 1 normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mold-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Overflowing mold behind petri dishes */
+.mold-overlay {
+  position: absolute;
+  min-height: 425px;
+  min-width: 425px;
+  overflow: visible;
+  opacity: 0;
+  z-index: -99;
+}
+
+/* ##########
+  Paper Stack
+#############*/
+
+/* Shuffling paper animations */
+@keyframes shuffle {
+  0% {
+    transform: rotate(0) translateX(0) scale(1); /* Initial position */
+  }
+  50% {
+    transform: translateX(115%) rotate(13deg) scale(0.96); /* Halfway position: moved out to the left & slightly rotated */
+  }
+  100% {
+    transform: rotate(0) translateX(0); /* Final position: return to original */
+  }
+}
+
+.paper-wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  
+  height: 350px;
+  width: 40vw;
+  z-index: 10; /* So the papers will appear above other elements during shuffling animation */
+}
+
+.paper-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-height: 100%;
+  height: 350px;
+  
+  margin: 0;
+  padding: 30px;
+  
+  list-style: none;
+}
+
+/* positioning the papers */
+.paper-list__item {
+  position: absolute;
+  animation: none;
+  animation-fill-mode: forwards; /* The target will retain the computed values set by the last keyframe encountered during execution */
+
+  &[data-paper="0"] {
+    z-index: 15;
+    margin-top: 0;
+  }
+
+  &[data-paper="1"] {
+    z-index: 20;
+    margin-top: 6px;
+  }
+
+  &[data-paper="2"] {
+    z-index: 25;
+    margin-top: 18px;
+  }
+  &[data-paper="3"] {
+    z-index: 10;
+    margin-top: 12px;
+  }
+}
+
+/* handling paper animations */
+.is-animated {
+  &[data-paper="0"] {
+    animation: shuffle 1s ease-in-out 0s 1 normal;
+    z-index: 30;
+    transition: z-index 0s ease-in-out 0.5s;
+  }
+
+  &[data-paper="1"] {
+    animation: shuffle 1s ease-in-out 0s 1 normal; 
+    z-index: 35;
+    transition: z-index 0s ease-in-out 0.5s;
+  }
+
+  &[data-paper="2"] {
+    animation: shuffle 1s ease-in-out 0s 1 normal;
+    z-index: 40;
+    transition: z-index 0s ease-in-out 0.5s;
+  }
+
+  &[data-paper="3"] {
+    animation: shuffle 1s ease-in-out 0s 1 normal;
+    z-index: 45;
+    transition: z-index 0s ease-in-out 0.5s;
+  }
+}
+
+/* creating the paper component */
+.paper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 100%;
+  width: 270px;
+  max-height: 100%;
+  height: 350px;
+
+  padding: 15px;
+  color: black;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.paper > p {
+  text-align: right;
+  margin-top: -2%;
+  margin-right: 5%;
+}
+
+.paper-list:hover, .petri-dish-inner:hover {
+  filter: drop-shadow(0px 0px 12px rgba(0, 255, 229, 0.6));
+}
+
+/* adjust alignment for papers */
+[data-paper="0"] .paper {
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldpaint3-2.png");
+  background-size: 270px 350px;
+  filter: contrast(85%) brightness(130%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
+  rotate: -7deg;
+}
+
+[data-paper="1"] .paper {
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldfabric1-1.png");
+  background-size: 270px 350px;
+  filter: contrast(90%) brightness(105%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
+  rotate: -11deg;
+}
+
+[data-paper="2"] .paper {
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldfabric1-2.png");
+  background-size: 270px 350px;
+  filter: contrast(70%) brightness(120%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
+  rotate: -3deg;
+}
+
+[data-paper="3"] .paper {
+  background-image: url("https://cdn.indigomagazinetx.com/articlephotos/andscene/mold/moldpaint3-1.png");
+  background-size: 270px 350px;
+  filter: contrast(77%) brightness(135%) drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
+  rotate: -16deg;
+}
+
+.no-hover {
+  pointer-events: none;
+}
+
+/* #########
+  Mobile styling
+#############*/
+@media (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+    padding-bottom: 300px; /* Ensures that final mold will fit onto screen */
+  }
+  .mold-page-wrapper {
+    flex-direction: column;
+  }
+  .paper-wrapper, .petri-wrapper {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .paper-wrapper {
+    height: 500px;
+  }
+  .petri-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .petri-dish {
+    position: relative;
+  }
+}
