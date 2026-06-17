@@ -2,34 +2,28 @@ import { useState, useRef, useEffect } from 'react';
 import "./css/slideshow.css";
 
 const SlideshowContainer = ({slides}) => {
-    /* Set up slideshow and dots to render */
     const slideshow = slides.map((slide, index) => (
         <img className="slide-img" key={ index } src={slide.src} align="middle" />
     ));
     const slideshowSize = slides.length;
     const [index, setIndex] = useState(0);
 
-    /* Set up touch responsive layout */
     const timeoutRef = useRef(null);
     const delay = 15000;
     const [touchPosition, setTouchPosition] = useState(null);
 
-    /* Detect when we start to touch the screen */
     const handleTouchStart = (e) => {
         const touchDown = e.touches[0].clientX;
         setTouchPosition(touchDown);
     }
 
-    /* Event listener for handling swiping on touch screen (touch movement along x-direction) */
     const handleTouchMove = (e) => {
         const touchDown = touchPosition;
 
-        /* Do nothing if no touch */
         if (touchDown === null) {
             return;
         }
 
-        /* Determine the direction of the swipe */
         const currentTouch = e.touches[0].clientX;
         const diff = touchDown - currentTouch;
 
@@ -55,21 +49,18 @@ const SlideshowContainer = ({slides}) => {
             clearTimeout(timeoutRef.current);
     }
 
-    /* Set the current dot to highlight as "active" */
     const renderDots = (num) => {
         const dots = document.getElementsByClassName("dot");
         for (let i = 0; i < slideshowSize; i++)
             dots[i].className = (i === num) ? "dot active" : "dot";
     };
 
-    /* Set the current image to display from full slideshow */
     const currentImg = (num) => {
         const imgs = document.getElementsByClassName("slide-img");
         for (let i = 0; i < slideshowSize; i++)
             imgs[i].className = (i === num) ? "slide-img current" : "slide-img";
     };
 
-    /* Render the first image/dot to activate on page load, initialize timeoutRef */
     useEffect(() => {
         renderDots(index);
         currentImg(index);
@@ -107,7 +98,6 @@ const SlideshowContainer = ({slides}) => {
             </a>
 
             <div className="dot-container centered">
-                {/* Bar for dots at the bottom of slideshow*/}
                 {slideshow.map((_, idx) => (
                     <div key={ idx } className={`dot${(index === idx) ? " active" : ""}`} onClick={() => {
                         (index < slideshowSize - 1) ? setIndex(index + 1) : setIndex(0);
