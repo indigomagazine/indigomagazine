@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { HubCard } from '../Articles/Hub/HubCard';
-import IssueCard from '../IssueArticles/shared/IssueCard';
+import IssueCarousel from './IssueCarousel';
 import articlesData from '../../data/articles/articles-summary.json';
 import featuredPromoConfig from '../../data/featured-promo.json';
 import andSceneItems from '../../data/issues/andScene';
-export const FeaturedPromo = ({ theme }) => {
+export const FeaturedPromo = ({ theme: _theme }) => {
     const navigate = useNavigate();
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -67,20 +67,22 @@ export const FeaturedPromo = ({ theme }) => {
             }
 
             case 'issue': {
-                // Render the most recent And Scene item (top of array)
-                const postToRender = andSceneItems[0];
+                // Render top 4 And Scene articles in a dimensional draggable carousel
+                const topArticles = andSceneItems.slice(0, 4);
 
                 return (
-                    <section ref={sectionRef} className={`quiz-promo-section ${isVisible ? 'is-visible' : ''}`} style={{ paddingBottom: '2rem' }}>
+                    <section
+                        ref={sectionRef}
+                        className={`quiz-promo-section ${isVisible ? 'is-visible' : ''}`}
+                        style={{ paddingBottom: '3rem', width: '100%', overflow: 'hidden' }}
+                    >
                         <h2 className="quiz-main-title" style={{ marginBottom: '1.5rem' }}>
                             <span>{featuredPromoConfig.title}</span>
                         </h2>
-                        <div className="quiz-line-black" style={{ marginBottom: '3rem' }}></div>
+                        <div className="quiz-line-black" style={{ marginBottom: '2.5rem' }}></div>
 
-                        {postToRender && (
-                            <div className="group block mx-auto" style={{ maxWidth: '450px', width: '100%', textAlign: 'left' }}>
-                                <IssueCard it={postToRender} />
-                            </div>
+                        {topArticles.length > 0 && (
+                            <IssueCarousel items={topArticles} />
                         )}
                     </section>
                 );

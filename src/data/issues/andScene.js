@@ -24,7 +24,8 @@ export const andSceneItems = [
     description: "And Scene Issue",
     tags: ["SCENE"],
     image: "/assets/andscene/dinner/Build/image.jpg",
-    to: "/issues/andscene/dinner",
+    path: "/Issues/andscene/dinner",
+    to: "/Issues/andscene/dinner",
     coverPos: "center center",
   },
   {
@@ -34,7 +35,8 @@ export const andSceneItems = [
     tags: ["SCENE"],
     image:
       "https://cdn.indigomagazinetx.com/articlephotos/andscene/alley/post2-1.png",
-    to: "/issues/andscene/alley",
+    path: "/Issues/andscene/alley",
+    to: "/Issues/andscene/alley",
     coverPos: "center center",
   },
   {

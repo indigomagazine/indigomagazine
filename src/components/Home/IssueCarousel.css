@@ -1,0 +1,336 @@
+/* 3D Dimensional Draggable Issue Carousel */
+
+.issue-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+}
+
+/* 3D Perspective Stage */
+.issue-carousel-stage {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    perspective: 1100px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    touch-action: pan-y;
+    overflow: visible;
+}
+
+.issue-carousel-stage.is-dragging {
+    cursor: grabbing;
+}
+
+/* Individual 3D Card Wrapper */
+.issue-carousel-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(270px, 68vw, 360px);
+    aspect-ratio: 4 / 5;
+    margin-top: calc(-1 * clamp(270px, 68vw, 360px) * 5 / 8);
+    margin-left: calc(-1 * clamp(270px, 68vw, 360px) / 2);
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    will-change: transform, opacity, filter;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease,
+        filter 0.45s ease;
+    border-radius: 12px;
+}
+
+.issue-carousel-card.is-dragging {
+    transition: none !important;
+}
+
+/* Card Inner Container */
+.issue-carousel-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #11111125;
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.199),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.issue-carousel-card.is-active .issue-carousel-card-inner {
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.408),
+        0 0 30px rgba(236, 169, 255, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+body.light-mode .issue-carousel-card-inner {
+    background: #fff;
+    box-shadow: 0 15px 35px -5px rgba(128, 30, 30, 0.2),
+        0 0 0 1px rgba(128, 30, 30, 0.08);
+}
+
+body.light-mode .issue-carousel-card.is-active .issue-carousel-card-inner {
+    box-shadow: 0 25px 60px -10px rgba(128, 30, 30, 0.3),
+        0 0 25px rgba(128, 30, 30, 0.15),
+        0 0 0 1px rgba(128, 30, 30, 0.25);
+}
+
+/* Card cursor states */
+.issue-carousel-card {
+    cursor: pointer;
+}
+
+.issue-carousel-card:not(.is-active) {
+    cursor: pointer;
+}
+
+.issue-carousel-stage.is-dragging,
+.issue-carousel-stage.is-dragging * {
+    cursor: grabbing !important;
+}
+
+/* Ensure IssueCard fills the 3D wrapper */
+.issue-carousel-card .grid-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.issue-carousel-card .grid-card .thumb {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+    transition: filter 0.35s ease, transform 200ms ease;
+}
+
+/* ==========================================================================
+   CAROUSEL CARD HOVER OVERLAY & TITLE (CUSTOMIZABLE)
+   Modify darkness, opacity, text color, and font styling below
+   ========================================================================== */
+
+/* Hide default bottom-left card title inside carousel */
+.issue-carousel-card .grid-card .card-meta {
+    display: none;
+}
+
+/* Dedicated class for the hover cover overlay (darkness, opacity, blur) */
+.carousel-card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    border-radius: 12px;
+    pointer-events: none;
+
+    /* Base look before hover: completely hidden so regular cover shows */
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Adjust darkness / color of cover on hover */
+    backdrop-filter: blur(2px);
+    /* Adjust blur if desired */
+    -webkit-backdrop-filter: blur(2px);
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+/* Hover state: cover becomes opaque and darker ONLY when hovered */
+.issue-carousel-card:hover .carousel-card-hover-overlay {
+    opacity: 1;
+    /* Opaque when hovered */
+    visibility: visible;
+}
+
+/* Dedicated class for the centered title */
+.carousel-card-hover-title {
+    color: #801e1e;
+    /* Text color requested */
+    font-family: Garamond, "Times New Roman", serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    line-height: 1.15;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 1px rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover state for title (appears centered ONLY when hovered) */
+.issue-carousel-card:hover .carousel-card-hover-title {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Image underneath darkens ONLY when hovered */
+.issue-carousel-card:hover .grid-card .thumb {
+    filter: brightness(0.55);
+}
+
+/* Navigation Arrow Controls */
+.issue-carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.issue-carousel-nav-btn:hover:not(:disabled) {
+    background: rgba(236, 169, 255, 0.25);
+    border-color: rgba(236, 169, 255, 0.6);
+    color: #ECA9FF;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.issue-carousel-nav-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(0.95);
+}
+
+.issue-carousel-nav-prev {
+    left: 12px;
+}
+
+.issue-carousel-nav-next {
+    right: 12px;
+}
+
+body.light-mode .issue-carousel-nav-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(128, 30, 30, 0.2);
+    color: #801e1e;
+    box-shadow: 0 8px 20px rgba(128, 30, 30, 0.15);
+}
+
+body.light-mode .issue-carousel-nav-btn:hover:not(:disabled) {
+    background: rgba(128, 30, 30, 0.1);
+    border-color: #801e1e;
+    color: #801e1e;
+}
+
+/* Indicator Dots / Bar */
+.issue-carousel-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+    z-index: 25;
+}
+
+.issue-carousel-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.issue-carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.issue-carousel-dot.is-active {
+    width: 28px;
+    background: #ECA9FF;
+    box-shadow: 0 0 10px rgba(236, 169, 255, 0.5);
+}
+
+body.light-mode .issue-carousel-dot {
+    background: rgba(128, 30, 30, 0.25);
+}
+
+body.light-mode .issue-carousel-dot:hover {
+    background: rgba(128, 30, 30, 0.6);
+}
+
+body.light-mode .issue-carousel-dot.is-active {
+    background: #801e1e;
+    box-shadow: 0 0 10px rgba(128, 30, 30, 0.4);
+}
+
+/* Subtle Drag / Swipe Hint */
+.issue-carousel-drag-hint {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+body.light-mode .issue-carousel-drag-hint {
+    color: rgba(128, 30, 30, 0.6);
+}
+
+/* Media Queries for responsive height */
+@media (max-width: 768px) {
+    .issue-carousel-stage {
+        height: 420px;
+    }
+
+    .issue-carousel-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .issue-carousel-nav-prev {
+        left: 4px;
+    }
+
+    .issue-carousel-nav-next {
+        right: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .issue-carousel-stage {
+        height: 380px;
+    }
+
+    .issue-carousel-nav-btn {
+        display: none;
+        /* Mobile users swipe naturally */
+    }
+}
