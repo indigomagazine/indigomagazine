@@ -1,12 +1,13 @@
 // Run with: node --test scripts/tests/apps-script.test.mjs
 // Loads apps-script/Submissions.gs into a sandbox and tests its pure helpers.
-// Drive, Gmail, and GitHub calls are not exercised here; they need a live Google account.
+// Drive and Sheets calls are not exercised here; they need a live Google account.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
 import vm from 'node:vm';
+import { parseSubmission } from '../lib/submission.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const source = readFileSync(join(here, '..', '..', 'apps-script', 'Submissions.gs'), 'utf8');
@@ -15,55 +16,50 @@ vm.createContext(sandbox);
 vm.runInContext(source, sandbox);
 const api = (name) => sandbox[name];
 
-test('parses sender names and bare addresses', () => {
-  const parse = api('parseSender_');
-  assert.deepEqual({ ...parse('Jane Writer <jane@example.com>') }, { name: 'Jane Writer', email: 'jane@example.com' });
-  assert.deepEqual({ ...parse('"Doe, Sam" <sam@example.com>') }, { name: 'Doe, Sam', email: 'sam@example.com' });
-  assert.deepEqual({ ...parse('plain@example.com') }, { name: '', email: 'plain@example.com' });
-});
-
-test('reads leading metadata lines and drops quoted replies', () => {
-  const parse = api('parseEmailBody_');
-  const result = parse([
-    'Category: Culture',
-    'Summary: A short blurb.',
-    'Date: 2026-11-20',
-    '',
-    'First paragraph.',
-    '',
-    '## Heading',
-    '',
-    '> quoted old text',
-    'On Tue, someone wrote:',
-    'old reply',
-  ].join('\n'));
-  assert.equal({ ...result.meta }.category, 'Culture');
-  assert.equal({ ...result.meta }.summary, 'A short blurb.');
-  assert.equal({ ...result.meta }.date, '2026-11-20');
-  assert.ok(result.body.startsWith('First paragraph.'));
+test('normalizes Google Form namedValues into structured submission fields', () => {
+  const parse = api('parseFormValues_');
+  const result = parse({
+    Timestamp: ['11/26/2026 14:30:00'],
+    'Email Address': ['jane@example.com'],
+    'Article Title': ['How To Ruin A First Date!'],
+    Author: ['Jane Writer'],
+    Category: ['Culture'],
+    Summary: ['A short blurb.'],
+    Date: ['2026-11-26'],
+    Designers: ['Sam Designer'],
+    'Cover Image': ['https://drive.google.com/open?id=1AbCdEfGhIjKlMnOpQrStUv'],
+    Images: ['https://drive.google.com/open?id=1AbCdEfGhIjKlMnOpQrStUv, https://drive.google.com/file/d/2XyZaBcDeFgHiJkLmNoPqRs/view'],
+    'Article Body': ['First paragraph.\r\n\r\n## Heading\r\n\r\nSecond paragraph.'],
+  });
+  assert.equal(result.title, 'How To Ruin A First Date!');
+  assert.equal(result.author, 'Jane Writer');
+  assert.equal(result.email, 'jane@example.com');
+  assert.equal(result.category, 'Culture');
+  assert.equal(result.summary, 'A short blurb.');
+  assert.equal(result.date, '2026-11-26');
+  assert.equal(result.designers, 'Sam Designer');
   assert.ok(result.body.includes('## Heading'));
-  assert.ok(!result.body.includes('quoted old text'));
-  assert.ok(!result.body.includes('old reply'));
+  assert.ok(!result.body.includes('\r'));
 });
 
-test('a "Summary:" line inside the body is not metadata', () => {
-  const result = api('parseEmailBody_')('Opening line.\nSummary: this stays in the body.');
-  assert.deepEqual({ ...result.meta }, {});
-  assert.ok(result.body.includes('Summary: this stays in the body.'));
+test('extracts deduplicated Drive file IDs from Google Form upload URLs', () => {
+  const extract = api('extractDriveFileIds_');
+  const raw = [
+    'https://drive.google.com/open?id=1AbCdEfGhIjKlMnOpQrStUv',
+    'https://drive.google.com/file/d/2XyZaBcDeFgHiJkLmNoPqRs/view?usp=drive_link',
+    'https://drive.google.com/open?id=1AbCdEfGhIjKlMnOpQrStUv',
+  ].join(', ');
+  assert.deepEqual([...extract(raw)], ['1AbCdEfGhIjKlMnOpQrStUv', '2XyZaBcDeFgHiJkLmNoPqRs']);
+  assert.deepEqual([...extract('plain-filename.jpg')], []);
+  assert.deepEqual([...extract('')], []);
 });
 
-test('cleans subject prefixes and slugifies titles', () => {
-  const clean = api('cleanSubject_');
+test('slugifies titles and makes unique slugs when taken', () => {
   const slug = api('slugify_');
-  assert.equal(clean('Re: Submission: How To Ruin A First Date!'), 'How To Ruin A First Date!');
-  assert.equal(clean(''), 'Untitled submission');
+  const unique = api('uniqueSlug_');
   assert.equal(slug('How To Ruin A First Date!'), 'how-to-ruin-a-first-date');
   assert.equal(slug('Café Señor — Part 2'), 'cafe-senor-part-2');
   assert.equal(slug('!!!'), 'submission');
-});
-
-test('makes unique slugs when the name is taken', () => {
-  const unique = api('uniqueSlug_');
   assert.equal(unique('my-piece', new Set()), 'my-piece');
   assert.equal(unique('my-piece', new Set(['my-piece'])), 'my-piece-2');
   assert.equal(unique('my-piece', new Set(['my-piece', 'my-piece-2'])), 'my-piece-3');
@@ -88,26 +84,40 @@ test('paragraphs from a document are separated by blank lines', () => {
   assert.equal(out, 'First line.\n\nSecond line.\n\nThird.');
 });
 
-test('builds submission.md that the Node validator can read', () => {
+test('escapes double quotes in front matter so the Node validator round-trips cleanly', () => {
   const md = api('buildSubmissionMarkdown_')(
-    { title: 'A "Quoted" Title', slug: 'a-quoted-title', author: 'Jane', category: 'Culture', date: '2026-11-20', summary: 'Blurb.', layout: 'standard' },
+    {
+      title: 'A "Quoted" Title',
+      slug: 'a-quoted-title',
+      author: 'Jane',
+      category: 'Culture',
+      date: '2026-11-20',
+      summary: 'Blurb with "quotes" inside.',
+      layout: 'standard',
+      coverImage: '/assets/articles/a-quoted-title/cover.jpg',
+    },
     'Body paragraph.',
   );
-  assert.ok(md.startsWith('---\ntitle: "A "Quoted" Title"\n'));
-  assert.ok(md.includes('\n---\n\nBody paragraph.'));
+  assert.ok(md.startsWith('---\ntitle: "A \\"Quoted\\" Title"\n'));
+  const parsed = parseSubmission(md);
+  assert.deepEqual(parsed.errors, []);
+  assert.equal(parsed.frontMatter.title, 'A "Quoted" Title');
+  assert.equal(parsed.frontMatter.summary, 'Blurb with "quotes" inside.');
+  assert.equal(parsed.frontMatter.coverImage, '/assets/articles/a-quoted-title/cover.jpg');
 });
 
-test('light validation passes a complete submission and reports the missing pieces', () => {
+test('light validation passes a complete submission and does not warn on cover image usage', () => {
   const validate = api('lightValidate_');
   const good = [
     '---',
-    'title: "Good"',
+    'title: "A \\"Good\\" Title"',
     'slug: good',
     'author: Jane',
     'category: Culture',
     'date: 2026-11-20',
     'summary: "Fine."',
     'layout: standard',
+    'coverImage: "/assets/articles/good/cover.jpg"',
     '---',
     '',
     'Opening text.',
@@ -116,13 +126,12 @@ test('light validation passes a complete submission and reports the missing piec
     '',
     '![A plate](/assets/articles/good/plate.jpg)',
   ].join('\n');
-  // Arrays from the sandbox are a different realm, so compare lengths rather than deepEqual.
-  const ok = validate(good, 'good', ['plate.jpg']);
+  const ok = validate(good, 'good', ['plate.jpg', 'cover.jpg']);
   assert.equal(ok.errors.length, 0);
-  assert.equal(ok.warnings.filter((w) => !/cover image/.test(w.message)).length, 0);
+  assert.equal(ok.warnings.length, 0);
 
   const bad = good.replace('category: Culture\n', '').replace('![A plate]', '![]').replace('## Section', '# Section');
-  const report = validate(bad, 'good', ['plate.jpg']);
+  const report = validate(bad, 'good', ['plate.jpg', 'cover.jpg']);
   const messages = report.errors.map((e) => e.message).join('\n');
   assert.match(messages, /Missing "category"/);
   assert.match(messages, /missing its description/);

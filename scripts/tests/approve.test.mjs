@@ -31,19 +31,24 @@ async function setup(slug, { text = SUBMISSION(slug), withImage = true, withEmai
   await mkdir(posts, { recursive: true });
   await writeFile(join(src, 'submission.md'), text);
   if (withImage) await writeFile(join(src, 'images', 'photo.jpg'), 'fake-bytes');
-  if (withEmail) await writeFile(join(src, 'email.txt'), 'From: jane@example.com');
+  if (withEmail) {
+    await writeFile(join(src, 'email.txt'), 'From: jane@example.com');
+    await writeFile(join(src, 'form-response.json'), '{"email":"jane@example.com"}');
+  }
   return { base, root, posts, publicDir, src };
 }
 
-test('approves a valid submission: moves it, drops the email, copies images to the site', async () => {
+test('approves a valid submission: moves it, drops Drive-only metadata, copies images to the site', async () => {
   const env = await setup('approve-me');
   try {
     const result = await approveSubmission({ slug: 'approve-me', root: env.root, posts: env.posts, publicDir: env.publicDir });
     assert.equal(result.ok, true);
 
     const approved = join(env.root, '03-approved', 'approve-me');
-    assert.ok((await readdir(approved)).includes('submission.md'));
-    assert.ok(!(await readdir(approved)).includes('email.txt'), 'original email must not be kept in the approved folder');
+    const files = await readdir(approved);
+    assert.ok(files.includes('submission.md'));
+    assert.ok(!files.includes('email.txt'), 'original email must not be kept in the approved folder');
+    assert.ok(!files.includes('form-response.json'), 'raw form metadata must not be kept in the approved folder');
     await access(join(env.publicDir, 'assets', 'articles', 'approve-me', 'photo.jpg'));
     assert.deepEqual(await readdir(join(env.root, '01-submitted')), []);
   } finally {

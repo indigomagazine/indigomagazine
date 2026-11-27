@@ -65,6 +65,7 @@ test('publishes an approved folder: writes JSON, prepends summary, archives the 
     const summaryList = JSON.parse(await readFile(env.summary, 'utf8'));
     assert.equal(summaryList.length, 2);
     assert.equal(summaryList[0].slug, 'new-article', 'newest article goes first');
+    assert.equal(summaryList[0].coverImage, 'https://cdn.indigomagazinetx.com/articlephotos/new-article/issue/cover.jpg');
     assert.equal(summaryList[1].slug, 'older-article');
 
     assert.deepEqual(await readdir(join(env.root, '03-approved')), []);

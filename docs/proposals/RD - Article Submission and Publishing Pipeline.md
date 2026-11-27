@@ -2,7 +2,7 @@
 
 | | |
 | --- | --- |
-| **Status** | Draft v2 for review (email intake, Google Drive review) |
+| **Status** | Draft v3 prototype (Google Form + Sheet intake, Google Drive review) |
 | **Date** | 2026-11-26 |
 | **Source** | Polished from the Drive doc "Proposal - Evolutions for website" (Google Doc `1RznodbUZhHw1ezQRCF1Dpxmy2HAIY1EZik4-6OTCFQo`) and [Proposal - Evolutions for website .md](./Proposal%20-%20Evolutions%20for%20website%20.md) |
 | **Owners** | Dev team (implementation), Writing director / officers (approval) |
@@ -11,7 +11,7 @@
 
 ## 1. Summary
 
-Writers email their article to the Indigo Magazine submissions address. The email body or an attached document becomes a submission folder in Google Drive. A reviewer reads the validation report and gives feedback. A developer approves it locally with one command, pushes it, and the existing article components publish it automatically. Approval inside Drive is planned but not implemented (Q10).
+Writers submit articles through a Google Form linked to a Google Sheet. On form submit, Apps Script creates a submission folder in Google Drive (`submission.md`, `images/`, `form-response.json`, `VALIDATION.md`) and writes the slug, status, and folder link back to the Sheet. A reviewer reads the validation report and gives feedback. A developer approves it locally with one command, pushes it, and the existing article components publish it automatically. Approval inside Drive/Sheets is planned but not implemented (Q10).
 
 Today every article needs a developer to convert text into JSON, register it in the summary file, and deploy. This pipeline removes that bottleneck for standard articles.
 

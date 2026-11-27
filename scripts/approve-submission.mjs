@@ -4,7 +4,7 @@
 //
 // What it does:
 //   1. Validates <root>/<from>/<slug>/submission.md with the same rules the publisher uses.
-//   2. Moves the folder to <root>/03-approved/<slug>/ and deletes email.txt (the original email is never committed).
+//   2. Moves the folder to <root>/03-approved/<slug>/ and removes Drive-only metadata (email.txt, form-response.json).
 //   3. Copies the images into <public>/assets/articles/<slug>/ so the site can serve them.
 // Then you commit and push. The "Publish approved articles" workflow publishes it.
 // Spec: docs/proposals/RD - Article Submission and Publishing Pipeline.md (sections 6 and 12).
@@ -72,6 +72,7 @@ export async function approveSubmission({ slug, from = '01-submitted', root = 'b
   await mkdir(resolve(root, APPROVED), { recursive: true });
   await rename(sourceDir, destDir);
   await rm(join(destDir, 'email.txt'), { force: true });
+  await rm(join(destDir, 'form-response.json'), { force: true });
 
   const siteImages = join(resolve(publicDir), 'assets', 'articles', slug);
   if (available.length) {

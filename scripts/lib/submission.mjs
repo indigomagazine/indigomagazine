@@ -79,6 +79,10 @@ function stripComment(value) {
   let inQuotes = false;
   for (let i = 0; i < value.length; i++) {
     const ch = value[i];
+    if (ch === '\\' && inQuotes && i + 1 < value.length) {
+      i++;
+      continue;
+    }
     if (ch === '"') inQuotes = !inQuotes;
     if (ch === '#' && !inQuotes && i > 0 && /\s/.test(value[i - 1])) {
       return value.slice(0, i).trimEnd();
@@ -89,7 +93,10 @@ function stripComment(value) {
 
 function unquote(value) {
   const trimmed = value.trim();
-  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+  if (trimmed.startsWith('"') && trimmed.endsWith('"') && trimmed.length >= 2) {
+    return trimmed.slice(1, -1).replace(/\\(["\\])/g, '$1');
+  }
+  if (trimmed.startsWith("'") && trimmed.endsWith("'") && trimmed.length >= 2) {
     return trimmed.slice(1, -1);
   }
   return trimmed;
@@ -273,7 +280,7 @@ export function buildArticle(frontMatter, blocks) {
     date: frontMatter.date,
     layout: frontMatter.layout ?? 'standard',
   };
-  for (const key of ['designers', 'photographers', 'graphics']) {
+  for (const key of ['designers', 'photographers', 'graphics', 'coverImage']) {
     if (frontMatter[key]) article[key] = frontMatter[key];
   }
   article.content = blocks;

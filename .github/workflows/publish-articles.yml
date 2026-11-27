@@ -1,6 +1,6 @@
 name: Publish approved articles
 
-# Runs when the Apps Script commits approved submissions under blogs/03-approved/.
+# Runs when approved submissions are pushed under blogs/03-approved/.
 # Publishes them (JSON + hub summary), commits the result, then redeploys the site.
 # Pushes made with GITHUB_TOKEN do not start other workflows, so the deploy is triggered explicitly.
 

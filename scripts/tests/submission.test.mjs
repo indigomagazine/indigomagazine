@@ -102,6 +102,24 @@ test('"# " title-level headings are rejected', () => {
   assert.match(errors[0].message, /reserved/);
 });
 
+test('parses escaped double quotes in front matter values', () => {
+  const text = `---
+title: "A \\"Quoted\\" Title #not-a-comment"
+slug: a-quoted-title
+author: Jane Writer
+category: Culture
+date: 2026-11-26
+summary: "She said \\"hello\\" today." # trailing comment
+---
+
+Body text.
+`;
+  const { frontMatter, errors } = parseSubmission(text);
+  assert.deepEqual(errors, []);
+  assert.equal(frontMatter.title, 'A "Quoted" Title #not-a-comment');
+  assert.equal(frontMatter.summary, 'She said "hello" today.');
+});
+
 test('a valid submission produces an article with the expected shape', () => {
   const { errors, warnings, article } = validateSubmission({
     folderName: 'a-test-article',
@@ -112,11 +130,13 @@ test('a valid submission produces an article with the expected shape', () => {
   assert.deepEqual(warnings, []);
   assert.equal(article.slug, 'a-test-article');
   assert.equal(article.layout, 'standard');
+  assert.equal(article.coverImage, 'https://cdn.indigomagazinetx.com/articlephotos/a-test-article/issue/cover.jpg');
   assert.equal(article.content.length, 6);
 
   const summary = buildSummaryEntry(article);
   assert.equal(summary.slug, 'a-test-article');
   assert.equal(summary.date, '2026-11-26');
+  assert.equal(summary.coverImage, 'https://cdn.indigomagazinetx.com/articlephotos/a-test-article/issue/cover.jpg');
 });
 
 test('flags missing required fields, bad slug, bad date, and folder mismatch', () => {
