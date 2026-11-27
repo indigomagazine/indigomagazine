@@ -1,0 +1,74 @@
+name: Publish approved articles
+
+# Runs when approved submissions are pushed under blogs/03-approved/.
+# Publishes them (JSON + hub summary), commits the result, then redeploys the site.
+# Pushes made with GITHUB_TOKEN do not start other workflows, so the deploy is triggered explicitly.
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "blogs/03-approved/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: publish-articles
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Publish approved submissions
+        id: publish
+        continue-on-error: true
+        run: node scripts/publish-articles.mjs --root blogs --build --build-cmd "pnpm run build"
+
+      - name: Commit results
+        id: commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A blogs src/data public/assets/articles
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Publish approved articles"
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Redeploy the site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run main.yml --ref main
+
+      - name: Report failures
+        if: steps.publish.outcome == 'failure'
+        run: |
+          echo "One or more submissions were not published. See VALIDATION.md in blogs/03-approved/."
+          exit 1
