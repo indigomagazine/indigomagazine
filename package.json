@@ -8,7 +8,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:submissions": "node scripts/validate-submissions.mjs",
+    "publish:articles": "node scripts/publish-articles.mjs",
+    "approve": "node scripts/approve-submission.mjs",
+    "test:submissions": "node --test scripts/tests/submission.test.mjs scripts/tests/publish.test.mjs scripts/tests/approve.test.mjs scripts/tests/apps-script.test.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
